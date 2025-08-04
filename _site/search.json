@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Helpful links",
+    "section": "",
+    "text": "https://en.wikipedia.org/wiki/Vector_calculus_identities\nhttps://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates",
+    "crumbs": [
+      "Helpful links"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MA31007 Vector Calculus",
+    "section": "",
+    "text": "This webpage contains the lecture notes for Vector Calculus (MA31007) module for University of Dundee.\n\nIntroduction\nThese notes contain all the examinable material within this half of the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable. For details of the organisation of the module this year, please see My Dundee.\nI’ll be updating these notes weekly as we go through, and at the end of the semester I’ll make the full set of these notes available as a PDF. If you’d like to read ahead, last year’s full notes are available on MyDundee.\nIt’s very likely that there are mistakes in these notes. If you find one, please let me know ASAP at mailto:jparker002@dundee.ac.uk, no matter how trivial you think the mistake is.",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]

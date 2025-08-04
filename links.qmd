@@ -1,0 +1,7 @@
+---
+title: "Helpful links"
+---
+
+- <https://en.wikipedia.org/wiki/Vector_calculus_identities>
+
+- <https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates>
