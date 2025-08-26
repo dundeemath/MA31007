@@ -4,9 +4,20 @@
     "href": "links.html",
     "title": "Helpful links",
     "section": "",
-    "text": "https://en.wikipedia.org/wiki/Vector_calculus_identities\nhttps://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates",
+    "text": "My notes for the vectors stuff of MA12001 are here: https://dundeemath.github.io/MA12001-algebra/_site/. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.\nMost of the important results in this module are here: https://en.wikipedia.org/wiki/Vector_calculus_identities. Your formula sheet in the exam should be based off this.\nThe curvilinear co-ordinate results are summarised here: https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates.",
     "crumbs": [
       "Helpful links"
+    ]
+  },
+  {
+    "objectID": "curves.html",
+    "href": "curves.html",
+    "title": "Curves",
+    "section": "",
+    "text": "For the purpose of this module, a curve is a one-dimensional object in three-dimensional space. Imagine a hula hoop or a rope. In fact, we’ll generally assume:\nCurves have many important applications in maths and physics, for example, the path of an electron in a magnetic field, or the boundary of a circular disc.",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
     ]
   },
   {
@@ -14,9 +25,85 @@
     "href": "index.html",
     "title": "MA31007 Vector Calculus",
     "section": "",
-    "text": "This webpage contains the lecture notes for Vector Calculus (MA31007) module for University of Dundee.\n\nIntroduction\nThese notes contain all the examinable material within this half of the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable. For details of the organisation of the module this year, please see My Dundee.\nI’ll be updating these notes weekly as we go through, and at the end of the semester I’ll make the full set of these notes available as a PDF. If you’d like to read ahead, last year’s full notes are available on MyDundee.\nIt’s very likely that there are mistakes in these notes. If you find one, please let me know ASAP at mailto:jparker002@dundee.ac.uk, no matter how trivial you think the mistake is.",
+    "text": "This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.",
     "crumbs": [
       "Home"
+    ]
+  },
+  {
+    "objectID": "curves.html#example-straight-line",
+    "href": "curves.html#example-straight-line",
+    "title": "Curves",
+    "section": "Example: Straight line",
+    "text": "Example: Straight line\nThe simplest example of a curve is a straight line, which you saw in MA12001. If \\({\\mathbf{c}}\\) is some point on the line and \\({\\mathbf{s}}\\) is the direction of the line, then \\[ {\\mathbf{r}} = {\\mathbf{a}} + {\\mathbf{b}}t,\\quad t\\in\\mathbb{R}\\] is a parameterisation for the line. In this case, \\(t\\) can have any value because the line is infinitely long.\n\nThink: What’s a parameterisation for the line segment between two points \\({\\mathbf{p}}\\) and \\({\\mathbf{q}}\\)?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIn MA12001 you saw that this line has parameterisation \\[ {\\mathbf{r}} = {\\mathbf{p}} + ({\\mathbf{q}}-{\\mathbf{p}})t. \\] For a line segment, we need to limit the range of \\(t\\). Notice that when \\(t=0\\), \\({\\mathbf{r}}={\\mathbf{p}}\\), and when \\(t=1\\), \\({\\mathbf{r}}={\\mathbf{q}}\\), so we have to choose \\[\n0\\leq t \\leq 1.\n\\]",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
+    ]
+  },
+  {
+    "objectID": "curves.html#example-circle",
+    "href": "curves.html#example-circle",
+    "title": "Curves",
+    "section": "Example: Circle",
+    "text": "Example: Circle\nA circle is a curve. Let’s find a parameterisation for the circle of radius \\(a\\) in the \\(x-y\\) plane, centred at the origin. \\[ {\\mathbf{r}} = [a\\cos \\theta, a\\sin \\theta, 0],\\quad 0\\leq \\theta &lt; 2\\pi. \\] Here we’re using \\(\\theta\\) as the parameter, because it’s an angle. The \\(z\\) co-ordinate is always zero, because we’re in the \\(x-y\\) plane. Notice that, for any \\(\\theta\\), \\[ x^2 + y^2 = a^2\\cos^2 \\theta +a^2\\sin^2 \\theta = a^2, \\] which is indeed a circle of radius a centred at the origin. You should get used to using \\(\\sin\\) and \\(\\cos\\) like this to parameterise circles.",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
+    ]
+  },
+  {
+    "objectID": "curves.html#example",
+    "href": "curves.html#example",
+    "title": "Curves",
+    "section": "Example",
+    "text": "Example\nConsider the circle of radius \\(a\\) in the \\(x-y\\) plane, centred at the origin. Find the unit tangent vector to the curve at the point \\({\\mathbf{r}} = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nAbove, we found the parameterisation \\[ {\\mathbf{r}} = [a\\cos \\theta, a\\sin \\theta, 0],\\quad 0\\leq \\theta &lt; 2\\pi. \\]\nFirst we should check the given point actually lies on the curve, and find the parameter.\nWe need \\[\n[a\\cos \\theta, a\\sin \\theta, 0] = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\n\\] A little bit of trigonometry or guessing gives \\(\\theta=-\\pi/4\\). But this doesn’t fit within our range, so we add \\(2\\pi\\) to get \\[\n\\theta = 7\\pi/4.\n\\]\nThe tangent vector is \\[\n{\\mathbf{T}}(\\theta) = \\frac{d {\\mathbf{r}}}{d t} = \\left[a\\sin\\theta, -a\\cos\\theta, 0\\right],\n\\] so at our point we have \\[\n{\\mathbf{T}}(7\\pi/4) = \\left[-\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right].\n\\]\nThe question asked for a unit vector, so we need \\(\\hat{{\\mathbf{T}}} = \\frac{{\\mathbf{T}}}{|{\\mathbf{T}}|}\\).\n\\[\n|{\\mathbf{T}}| = \\sqrt{\\left(-\\frac{a}{\\sqrt{2}}\\right)^2 + \\left(-\\frac{a}{\\sqrt{2}}\\right)^2 + 0^2} = a,\n\\] which finally gives \\[\n\\hat{{\\mathbf{T}}}(7\\pi/4) = \\left[-\\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}}, 0\\right].\n\\]",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-these-notes",
+    "href": "index.html#how-to-use-these-notes",
+    "title": "MA31007 Vector Calculus",
+    "section": "How to use these notes",
+    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. The examples here will be different from the ones in class, and for best results, I suggest briefly reading over these notes the night before each class, and then revisiting them when you come to the problem sheets.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "curves.html#example-circle-1",
+    "href": "curves.html#example-circle-1",
+    "title": "Curves",
+    "section": "Example: Circle",
+    "text": "Example: Circle\nConsider the circle of radius \\(a\\) in the \\(x-y\\) plane, centred at the origin. Find the unit tangent vector to the curve at the point \\({\\mathbf{r}} = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nAbove, we found the parameterisation \\[ {\\mathbf{r}} = [a\\cos \\theta, a\\sin \\theta, 0],\\quad 0\\leq \\theta &lt; 2\\pi. \\]\nFirst we should check the given point actually lies on the curve, and find the parameter.\nWe need \\[\n[a\\cos \\theta, a\\sin \\theta, 0] = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\n\\] A little bit of trigonometry or guessing gives \\(\\theta=-\\pi/4\\). But this doesn’t fit within our range, so we add \\(2\\pi\\) to get \\[\n\\theta = 7\\pi/4.\n\\]\nThe tangent vector is \\[\n{\\mathbf{T}}(\\theta) = \\frac{d {\\mathbf{r}}}{d \\theta} = \\left[-a\\sin\\theta, a\\cos\\theta, 0\\right],\n\\] so at our point we have \\[\n{\\mathbf{T}}(7\\pi/4) = \\left[\\frac{a}{\\sqrt{2}}, \\frac{a}{\\sqrt{2}}, 0\\right].\n\\]\nThe question asked for a unit vector, so we need \\(\\hat{{\\mathbf{T}}} = \\frac{{\\mathbf{T}}}{|{\\mathbf{T}}|}\\).\n\\[\n|{\\mathbf{T}}| = \\sqrt{\\left(\\frac{a}{\\sqrt{2}}\\right)^2 + \\left(\\frac{a}{\\sqrt{2}}\\right)^2 + 0^2} = a,\n\\] which finally gives \\[\n\\hat{{\\mathbf{T}}}(7\\pi/4) = \\left[\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}}, 0\\right].\n\\]",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
+    ]
+  },
+  {
+    "objectID": "curves.html#example-the-distance-between-two-points",
+    "href": "curves.html#example-the-distance-between-two-points",
+    "title": "Curves",
+    "section": "Example: the distance between two points",
+    "text": "Example: the distance between two points\nFind the total arc-length of the line segment between two points \\({\\mathbf{p}}\\) and \\({\\mathbf{q}}\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nAbove we saw that the parameterisation is \\[\n{\\mathbf{r}} = {\\mathbf{p}} + ({\\mathbf{q}}-{\\mathbf{p}})t,\\quad 0\\leq t \\leq 1.\n\\]\nSo we need to calculate \\[\n\\int_{0}^{1} \\left| \\frac{d {\\mathbf{r}}}{dt}\\right| dt = \\int_{0}^{1} \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| dt.\n\\] Here \\(t\\) doesn’t appear in the integrand, so we can just simplify \\[\n\\int_{0}^{1} \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| dt = \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| \\int_{0}^{1} dt.\n\\] Whenever you see this ‘empty’ integral, you can think of it as integrating 1. So \\[\n\\int_{0}^{1} \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| dt = \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right|.\n\\]\nThis says that the integral is equal to the magnitude of the displacement vector \\(({\\mathbf{q}}-{\\mathbf{p}})\\). Which was kind of obvious – it’s just the distance between the two points.",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
+    ]
+  },
+  {
+    "objectID": "curves.html#longer-example",
+    "href": "curves.html#longer-example",
+    "title": "Curves",
+    "section": "Longer example",
+    "text": "Longer example\nTo conclude this part of the notes, let’s see a more complicated example.\nFind the total arc-length of the curve which is parameterised as \\[\n{\\mathbf{r}}(t) = \\left[ \\cos t, \\sin t, t \\right], \\quad 0\\leq t\\leq 4\\pi.\n\\]\nThink: What is this shape?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIn \\(x\\) and \\(y\\), it just traces out a circle twice. But as it does so, the \\(z\\) co-ordinate increases. So this is a helix, like a slinky.\n\n\n\n\nStep 1: Calculate the tangent vector\n\\[\n{\\mathbf{T}}(t) = \\frac{d{\\mathbf{r}}}{dt} = \\left[-\\sin t, \\cos t, 1\\right].\n\\]\n\n\nStep 2: Find its magnitude\n\\[\n\\left|{\\mathbf{T}}\\right| = \\sqrt{(-\\sin t)^2+(\\cos t)^2 + 1^2} = \\sqrt{2}.\n\\]\n\n\nStep 3: Integrate this\nHere we need to remember that the limits of the integral are the limits of the parameterisation \\[\n\\int_0^{4\\pi} \\sqrt{2} dt = 4\\pi \\sqrt{2}.\n\\]",
+    "crumbs": [
+      "Chapter 1: Basics (Weeks 1-2)",
+      "Curves"
     ]
   }
 ]

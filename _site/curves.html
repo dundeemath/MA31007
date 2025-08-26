@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Helpful links – MA12001 Algebra</title>
+<title>Curves – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./links.html">Helpful links</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Chapter 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./curves.html">Curves</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -94,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MA12001 Algebra</a> 
+      <a href="./">MA31007 Vector Calculus</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -121,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./curves.html" class="sidebar-item-text sidebar-link">
+  <a href="./curves.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Curves</span></a>
   </div>
 </li>
@@ -195,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./links.html" class="sidebar-item-text sidebar-link active">
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Helpful links</span></a>
   </div>
 </li>
@@ -204,15 +233,39 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#parameterisations" id="toc-parameterisations" class="nav-link active" data-scroll-target="#parameterisations">Parameterisations</a>
+  <ul class="collapse">
+  <li><a href="#example-straight-line" id="toc-example-straight-line" class="nav-link" data-scroll-target="#example-straight-line">Example: Straight line</a></li>
+  <li><a href="#example-circle" id="toc-example-circle" class="nav-link" data-scroll-target="#example-circle">Example: Circle</a></li>
+  </ul></li>
+  <li><a href="#tangent-vectors" id="toc-tangent-vectors" class="nav-link" data-scroll-target="#tangent-vectors">Tangent vectors</a>
+  <ul class="collapse">
+  <li><a href="#example-circle-1" id="toc-example-circle-1" class="nav-link" data-scroll-target="#example-circle-1">Example: Circle</a></li>
+  </ul></li>
+  <li><a href="#the-length-of-a-curve" id="toc-the-length-of-a-curve" class="nav-link" data-scroll-target="#the-length-of-a-curve">The length of a curve</a>
+  <ul class="collapse">
+  <li><a href="#example-the-distance-between-two-points" id="toc-example-the-distance-between-two-points" class="nav-link" data-scroll-target="#example-the-distance-between-two-points">Example: the distance between two points</a></li>
+  <li><a href="#longer-example" id="toc-longer-example" class="nav-link" data-scroll-target="#longer-example">Longer example</a>
+  <ul class="collapse">
+  <li><a href="#step-1-calculate-the-tangent-vector" id="toc-step-1-calculate-the-tangent-vector" class="nav-link" data-scroll-target="#step-1-calculate-the-tangent-vector">Step 1: Calculate the tangent vector</a></li>
+  <li><a href="#step-2-find-its-magnitude" id="toc-step-2-find-its-magnitude" class="nav-link" data-scroll-target="#step-2-find-its-magnitude">Step 2: Find its magnitude</a></li>
+  <li><a href="#step-3-integrate-this" id="toc-step-3-integrate-this" class="nav-link" data-scroll-target="#step-3-integrate-this">Step 3: Integrate this</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Chapter 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./curves.html">Curves</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Helpful links</h1>
+<h1 class="title">Curves</h1>
 </div>
 
 
@@ -229,13 +282,220 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><p>My notes for the vectors stuff of MA12001 are here: <a href="https://dundeemath.github.io/MA12001-algebra/_site/" class="uri">https://dundeemath.github.io/MA12001-algebra/_site/</a>. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.</p></li>
-<li><p>Most of the important results in this module are here: <a href="https://en.wikipedia.org/wiki/Vector_calculus_identities" class="uri">https://en.wikipedia.org/wiki/Vector_calculus_identities</a>. Your formula sheet in the exam should be based off this.</p></li>
-<li><p>The curvilinear co-ordinate results are summarised here: <a href="https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates" class="uri">https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates</a>.</p></li>
-</ul>
+<div class="hidden">
+
+</div>
+<p>For the purpose of this module, a curve is a one-dimensional object in three-dimensional space. Imagine a hula hoop or a rope. In fact, we’ll generally assume:</p>
+<ol type="1">
+<li>The curve is differentiable - that is, there are no sharp kinks.</li>
+<li>The curve does not self-intersect.</li>
+</ol>
+<p>Curves have many important applications in maths and physics, for example, the path of an electron in a magnetic field, or the boundary of a circular disc.</p>
+<section id="parameterisations" class="level1">
+<h1>Parameterisations</h1>
+<p>In two dimensions, you’re used to seeing a curve described as <span class="math inline">\(y = f(x)\)</span>. In three dimensions, if we tried to do this <span class="math display">\[ z = f(x,y) \]</span> then we’d have a surface, not a curve (more on this next week). Instead, we use a <em>parameterisation</em> for each of the three co-ordinates <span class="math display">\[ x = f(t), y = g(t), z = h(t)\]</span> where <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> and <span class="math inline">\(h\)</span> are some functions, and <span class="math inline">\(t\)</span> is the <em>parameter</em>. Occasionally we’ll use a different letter for the parameter, like <span class="math inline">\(\theta\)</span> or <span class="math inline">\(s\)</span>, but I’ll try to stick to <span class="math inline">\(t\)</span> usually.</p>
+<p>Generally we’ll write the parameterisation in terms of the position vector <span class="math inline">\({\mathbf{r}}\)</span>: <span class="math display">\[ {\mathbf{r}} = {\mathbf{r}}(t).\]</span></p>
+<p>It’s also <strong>super important</strong> to give the possible range for the parameter <span class="math inline">\(t\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Parameterisations are not unique. The same curve can be described in infinitely many different ways.</p>
+</div>
+</div>
+<p>Here are two simple examples. Actually both of these are effectively 2D, but in class and later in the module we’ll see more 3D examples.</p>
+<section id="example-straight-line" class="level2">
+<h2 class="anchored" data-anchor-id="example-straight-line">Example: Straight line</h2>
+<p>The simplest example of a curve is a straight line, which you saw in MA12001. If <span class="math inline">\({\mathbf{c}}\)</span> is some point on the line and <span class="math inline">\({\mathbf{s}}\)</span> is the direction of the line, then <span class="math display">\[ {\mathbf{r}} = {\mathbf{a}} + {\mathbf{b}}t,\quad t\in\mathbb{R}\]</span> is a parameterisation for the line. In this case, <span class="math inline">\(t\)</span> can have any value because the line is infinitely long.</p>
+<p><img src="figures/vec_cal_fig_4.png" class="img-fluid"></p>
+<p><strong>Think:</strong> What’s a parameterisation for the <em>line segment</em> between two points <span class="math inline">\({\mathbf{p}}\)</span> and <span class="math inline">\({\mathbf{q}}\)</span>?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In MA12001 you saw that this line has parameterisation <span class="math display">\[ {\mathbf{r}} = {\mathbf{p}} + ({\mathbf{q}}-{\mathbf{p}})t. \]</span> For a line segment, we need to limit the range of <span class="math inline">\(t\)</span>. Notice that when <span class="math inline">\(t=0\)</span>, <span class="math inline">\({\mathbf{r}}={\mathbf{p}}\)</span>, and when <span class="math inline">\(t=1\)</span>, <span class="math inline">\({\mathbf{r}}={\mathbf{q}}\)</span>, so we have to choose <span class="math display">\[
+0\leq t \leq 1.
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="example-circle" class="level2">
+<h2 class="anchored" data-anchor-id="example-circle">Example: Circle</h2>
+<p>A circle is a curve. Let’s find a parameterisation for the circle of radius <span class="math inline">\(a\)</span> in the <span class="math inline">\(x-y\)</span> plane, centred at the origin. <span class="math display">\[ {\mathbf{r}} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta &lt; 2\pi. \]</span> Here we’re using <span class="math inline">\(\theta\)</span> as the parameter, because it’s an angle. The <span class="math inline">\(z\)</span> co-ordinate is always zero, because we’re in the <span class="math inline">\(x-y\)</span> plane. Notice that, for any <span class="math inline">\(\theta\)</span>, <span class="math display">\[ x^2 + y^2 = a^2\cos^2 \theta +a^2\sin^2 \theta = a^2, \]</span> which is indeed a circle of radius a centred at the origin. You should get used to using <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> like this to parameterise circles.</p>
+<p><img src="figures/vec_cal_fig_5.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="tangent-vectors" class="level1">
+<h1>Tangent vectors</h1>
+<p>A tangent vector is a vector which points `along’ a curve at a given point on it. If we imagine we’re moving along the curve, then the tangent vector tells us the direction we’re travelling at any point in time. We write it as <span class="math inline">\({\mathbf{T}}\)</span>.</p>
+<p>So it’s the infinitesimal displacement from the current point to a future point (and remember displacements are position vectors subtracted) <span class="math display">\[{\mathbf{T}} = \lim_{\delta\to 0}\frac{{\mathbf{r}}(t + \delta) - {\mathbf{r}}(t)}{\delta} = \frac{d {\mathbf{r}}}{d t}\]</span></p>
+<p><img src="figures/vec_cal_fig_6.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tangent vectors are not unique: only the direction is actually meaningful, the magnitude depends on the parameterisation.</p>
+</div>
+</div>
+<p>Often we will want a <em>unit</em> (i.e.&nbsp;magnitude 1) tangent vector, which we define as</p>
+<p><span class="math display">\[
+\hat{{\mathbf{T}}} = \frac{{\mathbf{T}}}{|{\mathbf{T}}|} = \frac{1}{\left|\frac{d {\mathbf{r}}}{d t}\right|} \frac{d {\mathbf{r}}}{d t}.
+\]</span></p>
+<section id="example-circle-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-circle-1">Example: Circle</h2>
+<p>Consider the circle of radius <span class="math inline">\(a\)</span> in the <span class="math inline">\(x-y\)</span> plane, centred at the origin. Find the unit tangent vector to the curve at the point <span class="math inline">\({\mathbf{r}} = \left[\frac{a}{\sqrt{2}}, -\frac{a}{\sqrt{2}}, 0\right]\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Above, we found the parameterisation <span class="math display">\[ {\mathbf{r}} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta &lt; 2\pi. \]</span></p>
+<p>First we should check the given point actually lies on the curve, and find the parameter.</p>
+<p>We need <span class="math display">\[
+[a\cos \theta, a\sin \theta, 0] = \left[\frac{a}{\sqrt{2}}, -\frac{a}{\sqrt{2}}, 0\right]
+\]</span> A little bit of trigonometry or guessing gives <span class="math inline">\(\theta=-\pi/4\)</span>. But this doesn’t fit within our range, so we add <span class="math inline">\(2\pi\)</span> to get <span class="math display">\[
+\theta = 7\pi/4.
+\]</span></p>
+<p>The tangent vector is <span class="math display">\[
+{\mathbf{T}}(\theta) = \frac{d {\mathbf{r}}}{d \theta} = \left[-a\sin\theta, a\cos\theta, 0\right],
+\]</span> so at our point we have <span class="math display">\[
+{\mathbf{T}}(7\pi/4) = \left[\frac{a}{\sqrt{2}}, \frac{a}{\sqrt{2}}, 0\right].
+\]</span></p>
+<p>The question asked for a unit vector, so we need <span class="math inline">\(\hat{{\mathbf{T}}} = \frac{{\mathbf{T}}}{|{\mathbf{T}}|}\)</span>.</p>
+<p><span class="math display">\[
+|{\mathbf{T}}| = \sqrt{\left(\frac{a}{\sqrt{2}}\right)^2 + \left(\frac{a}{\sqrt{2}}\right)^2 + 0^2} = a,
+\]</span> which finally gives <span class="math display">\[
+\hat{{\mathbf{T}}}(7\pi/4) = \left[\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right].
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-length-of-a-curve" class="level1">
+<h1>The length of a curve</h1>
+<p>The first really interesting bit of vector calculus in this module: how do we calculate the length of a curve? By the length we mean: imagine you have a piece of string and you lay it along your curve. Then you lay it out flat and measure the string.</p>
+<p>We call this the <em>arc length</em> of the curve, because it can be curved, like an arc, I guess?</p>
+<p>Your first thought might be that it’s realted to the parameter, but this is incorrect: for a circle, we usually parameterise by <span class="math inline">\(0\leq \theta &lt; 2\pi\)</span> but you know that the length of the curve (the circumference) is <span class="math inline">\(2\pi a\)</span> where <span class="math inline">\(a\)</span> is the radius.</p>
+<p>Instead, we need to integrate. The formula is <span class="math display">\[
+\int_{t_0}^{t_1} \left| \frac{d {\mathbf{r}}}{dt}\right| dt \left( = \int_{t_0}^{t_1} \left| {\mathbf{T}}(t)\right| dt\right)
+\]</span> Here the limits for the integral are chosen based on what part of the curve we want to measure the length of. In class I’ll go through a ‘derivation’ of this formula, but you should just learn it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is just a normal integral of a scalar in one variable. Later we’ll see more exotic integrals but you already know how to do these ones.</p>
+</div>
+</div>
+<section id="example-the-distance-between-two-points" class="level2">
+<h2 class="anchored" data-anchor-id="example-the-distance-between-two-points">Example: the distance between two points</h2>
+<p>Find the total arc-length of the line segment between two points <span class="math inline">\({\mathbf{p}}\)</span> and <span class="math inline">\({\mathbf{q}}\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Above we saw that the parameterisation is <span class="math display">\[
+{\mathbf{r}} = {\mathbf{p}} + ({\mathbf{q}}-{\mathbf{p}})t,\quad 0\leq t \leq 1.
+\]</span></p>
+<p>So we need to calculate <span class="math display">\[
+\int_{0}^{1} \left| \frac{d {\mathbf{r}}}{dt}\right| dt = \int_{0}^{1} \left| ({\mathbf{q}}-{\mathbf{p}})\right| dt.
+\]</span> Here <span class="math inline">\(t\)</span> doesn’t appear in the integrand, so we can just simplify <span class="math display">\[
+\int_{0}^{1} \left| ({\mathbf{q}}-{\mathbf{p}})\right| dt = \left| ({\mathbf{q}}-{\mathbf{p}})\right| \int_{0}^{1} dt.
+\]</span> Whenever you see this ‘empty’ integral, you can think of it as integrating 1. So <span class="math display">\[
+\int_{0}^{1} \left| ({\mathbf{q}}-{\mathbf{p}})\right| dt = \left| ({\mathbf{q}}-{\mathbf{p}})\right|.
+\]</span></p>
+<p>This says that the integral is equal to the magnitude of the displacement vector <span class="math inline">\(({\mathbf{q}}-{\mathbf{p}})\)</span>. Which was kind of obvious – it’s just the distance between the two points.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="longer-example" class="level2">
+<h2 class="anchored" data-anchor-id="longer-example">Longer example</h2>
+<p>To conclude this part of the notes, let’s see a more complicated example.</p>
+<p>Find the total arc-length of the curve which is parameterised as <span class="math display">\[
+{\mathbf{r}}(t) = \left[ \cos t, \sin t, t \right], \quad 0\leq t\leq 4\pi.
+\]</span></p>
+<p><strong>Think:</strong> What is this shape?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, it just traces out a circle twice. But as it does so, the <span class="math inline">\(z\)</span> co-ordinate increases. So this is a helix, like a slinky.</p>
+</div>
+</div>
+</div>
+<section id="step-1-calculate-the-tangent-vector" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-calculate-the-tangent-vector">Step 1: Calculate the tangent vector</h3>
+<p><span class="math display">\[
+{\mathbf{T}}(t) = \frac{d{\mathbf{r}}}{dt} = \left[-\sin t, \cos t, 1\right].
+\]</span></p>
+</section>
+<section id="step-2-find-its-magnitude" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-find-its-magnitude">Step 2: Find its magnitude</h3>
+<p><span class="math display">\[
+\left|{\mathbf{T}}\right| = \sqrt{(-\sin t)^2+(\cos t)^2 + 1^2} = \sqrt{2}.
+\]</span></p>
+</section>
+<section id="step-3-integrate-this" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-integrate-this">Step 3: Integrate this</h3>
+<p>Here we need to remember that the limits of the integral are the limits of the parameterisation <span class="math display">\[
+\int_0^{4\pi} \sqrt{2} dt = 4\pi \sqrt{2}.
+\]</span></p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

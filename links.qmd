@@ -2,6 +2,8 @@
 title: "Helpful links"
 ---
 
-- <https://en.wikipedia.org/wiki/Vector_calculus_identities>
+- My notes for the vectors stuff of MA12001 are here: <https://dundeemath.github.io/MA12001-algebra/_site/>. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.
 
-- <https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates>
+- Most of the important results in this module are here: <https://en.wikipedia.org/wiki/Vector_calculus_identities>. Your formula sheet in the exam should be based off this.
+
+- The curvilinear co-ordinate results are summarised here: <https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates>.

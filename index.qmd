@@ -2,11 +2,20 @@
 title: "MA31007 Vector Calculus"
 ---
 
-This webpage contains the lecture notes for Vector Calculus (MA31007) module for University of Dundee.
+This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.
 
 # Introduction
-These notes contain all the examinable material within this half of the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable. For details of the organisation of the module this year, please see My Dundee.
+These notes contain all the examinable material within the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable. For details of the organisation of the module this year, please see My Dundee.
 
-I'll be updating these notes weekly as we go through, and at the end of the semester I'll make the full set of these notes available as a PDF. If you'd like to read ahead, last year's full notes are available on MyDundee.
+I'll be updating these notes weekly as we go through, and at the end of the semester I'll make the full set of these notes available as a PDF. If you'd like to read ahead, last year's full notes are available on MyDundee -- the content hasn't changed at all.
 
 It's very likely that there are mistakes in these notes. If you find one, please let me know ASAP at <mailto:jparker002@dundee.ac.uk>, no matter how trivial you think the mistake is.
+
+## How to use these notes
+These notes are designed to be complementary to the seminars. 
+These notes contain the key definitions and some examples, but I will show more and different examples in class.
+For best results, I suggest briefly reading over these notes the night before each class, and then revisiting them if necessary when
+you come to the problem sheets and homeworks.
+
+## What is vector calculus?
+Vector calculus is basically the mathematics of shapes in three dimensions. 
