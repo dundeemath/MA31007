@@ -1,0 +1,41 @@
+---
+title: "Surfaces"
+---
+
+::: {.hidden}
+ \newcommand{\v}[1]{{\mathbf{#1}}}
+:::
+
+Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D^[Curves have dimension 1. But a curve in 2D has _co-dimension_ 1 and a curve in 3D has co-dimension 2, where a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset.]. The easiest way to write down a surface is
+$$
+z = f(x,y).
+$$
+This is exactly equivalent to $y=f(x)$ in 2D, and you can think of it as giving the height of the surface at any points $x$ and $y$.
+
+Actually, any single equation relating the variables $x$, $y$ and $z$ will in general describe a surface in 3D.
+For example,
+$$
+x^2 + y^2 + z^2 = 1
+$$
+is the sphere of radius 1 centred on the origin (MA12001), and
+$$
+x = 1
+$$
+is the plane parallel to the $y-z$ plane which goes through the point $[1,0,0]$.
+
+:::{.callout-note}
+If we're being careful we should write that
+$$
+\{ [x,y,z]\in\mathbb{R}^3 | x^2 + y^2 + z^2 = 1\}
+$$
+is the sphere, rather than just the equation itself. Don't be afraid if you see this set notation.
+:::
+
+# Parameterisations of surfaces
+
+
+# Normals to surfaces
+
+:::{.callout-important}
+Surface normals, and the different ways to calculate them, come up a lot later in the module. Make sure you understand this.
+:::

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Helpful links – MA31007 Vector Calculus</title>
+<title>Surfaces – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./links.html">Helpful links</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      MA31007 Vector Calculus
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./links.html" class="sidebar-item-text sidebar-link active">
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Helpful links</span></a>
   </div>
 </li>
@@ -204,15 +235,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#parameterisations-of-surfaces" id="toc-parameterisations-of-surfaces" class="nav-link active" data-scroll-target="#parameterisations-of-surfaces">Parameterisations of surfaces</a></li>
+  <li><a href="#normals-to-surfaces" id="toc-normals-to-surfaces" class="nav-link" data-scroll-target="#normals-to-surfaces">Normals to surfaces</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Helpful links</h1>
+<h1 class="title">Surfaces</h1>
 </div>
 
 
@@ -229,15 +267,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><p>My notes for the vectors stuff of MA12001 are here: <a href="https://dundeemath.github.io/MA12001-algebra/_site/" class="uri">https://dundeemath.github.io/MA12001-algebra/_site/</a>. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.</p></li>
-<li><p>Most of the important results in this module are here: <a href="https://en.wikipedia.org/wiki/Vector_calculus_identities" class="uri">https://en.wikipedia.org/wiki/Vector_calculus_identities</a>. Your formula sheet in the exam should be based off this.</p></li>
-<li><p>The curvilinear co-ordinate results are summarised here: <a href="https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates" class="uri">https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates</a>.</p></li>
-</ul>
+<div class="hidden">
+
+</div>
+<p>Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The easiest way to write down a surface is <span class="math display">\[
+z = f(x,y).
+\]</span> This is exactly equivalent to <span class="math inline">\(y=f(x)\)</span> in 2D, and you can think of it as giving the height of the surface at any points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>Actually, any single equation relating the variables <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> will in general describe a surface in 3D. For example, <span class="math display">\[
+x^2 + y^2 + z^2 = 1
+\]</span> is the sphere of radius 1 centred on the origin (MA12001), and <span class="math display">\[
+x = 1
+\]</span> is the plane parallel to the <span class="math inline">\(y-z\)</span> plane which goes through the point <span class="math inline">\([1,0,0]\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we’re being careful we should write that <span class="math display">\[
+\{ [x,y,z]\in\mathbb{R}^3 | x^2 + y^2 + z^2 = 1\}
+\]</span> is the sphere, rather than just the equation itself. Don’t be afraid if you see this set notation.</p>
+</div>
+</div>
+<section id="parameterisations-of-surfaces" class="level1">
+<h1>Parameterisations of surfaces</h1>
+</section>
+<section id="normals-to-surfaces" class="level1">
+<h1>Normals to surfaces</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Surface normals, and the different ways to calculate them, come up a lot later in the module. Make sure you understand this.</p>
+</div>
+</div>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Curves have dimension 1. But a curve in 2D has <em>co-dimension</em> 1 and a curve in 3D has co-dimension 2, where a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

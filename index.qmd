@@ -5,7 +5,7 @@ title: "MA31007 Vector Calculus"
 This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.
 
 # Introduction
-These notes contain all the examinable material within the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable. For details of the organisation of the module this year, please see My Dundee.
+These notes contain all the examinable material within the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable^[Anything in the footnotes is also non-examinable.]. For details of the organisation of the module this year, please see My Dundee.
 
 I'll be updating these notes weekly as we go through, and at the end of the semester I'll make the full set of these notes available as a PDF. If you'd like to read ahead, last year's full notes are available on MyDundee -- the content hasn't changed at all.
 

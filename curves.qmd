@@ -26,7 +26,7 @@ $$ \v{r} = \v{r}(t).$$
 
 It's also __super important__ to give the possible range for the parameter $t$.
 
-:::{.callout-note}
+:::{.callout-important}
 Parameterisations are not unique. The same curve can be described in infinitely many different ways.
 :::
 

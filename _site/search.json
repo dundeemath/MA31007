@@ -1,12 +1,56 @@
 [
   {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Helpful links",
+    "objectID": "surface.html",
+    "href": "surface.html",
+    "title": "Surfaces",
     "section": "",
-    "text": "My notes for the vectors stuff of MA12001 are here: https://dundeemath.github.io/MA12001-algebra/_site/. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.\nMost of the important results in this module are here: https://en.wikipedia.org/wiki/Vector_calculus_identities. Your formula sheet in the exam should be based off this.\nThe curvilinear co-ordinate results are summarised here: https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates.",
+    "text": "Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D1. The easiest way to write down a surface is \\[\nz = f(x,y).\n\\] This is exactly equivalent to \\(y=f(x)\\) in 2D, and you can think of it as giving the height of the surface at any points \\(x\\) and \\(y\\).\nActually, any single equation relating the variables \\(x\\), \\(y\\) and \\(z\\) will in general describe a surface in 3D. For example, \\[\nx^2 + y^2 + z^2 = 1\n\\] is the sphere of radius 1 centred on the origin (MA12001), and \\[\nx = 1\n\\] is the plane parallel to the \\(y-z\\) plane which goes through the point \\([1,0,0]\\)."
+  },
+  {
+    "objectID": "surface.html#footnotes",
+    "href": "surface.html#footnotes",
+    "title": "Surfaces",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nCurves have dimension 1. But a curve in 2D has co-dimension 1 and a curve in 3D has co-dimension 2, where a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset.↩︎"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MA31007 Vector Calculus",
+    "section": "",
+    "text": "This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.",
     "crumbs": [
-      "Helpful links"
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-these-notes",
+    "href": "index.html#how-to-use-these-notes",
+    "title": "MA31007 Vector Calculus",
+    "section": "How to use these notes",
+    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. These notes contain the key definitions and some examples, but I will show more and different examples in class. For best results, I suggest briefly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-is-vector-calculus",
+    "href": "index.html#what-is-vector-calculus",
+    "title": "MA31007 Vector Calculus",
+    "section": "What is vector calculus?",
+    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "MA31007 Vector Calculus",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnything in the footnotes is also non-examinable.↩︎",
+    "crumbs": [
+      "Home"
     ]
   },
   {
@@ -18,16 +62,6 @@
     "crumbs": [
       "Chapter 1: Basics (Weeks 1-2)",
       "Curves"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MA31007 Vector Calculus",
-    "section": "",
-    "text": "This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.",
-    "crumbs": [
-      "Home"
     ]
   },
   {
@@ -50,27 +84,6 @@
     "crumbs": [
       "Chapter 1: Basics (Weeks 1-2)",
       "Curves"
-    ]
-  },
-  {
-    "objectID": "curves.html#example",
-    "href": "curves.html#example",
-    "title": "Curves",
-    "section": "Example",
-    "text": "Example\nConsider the circle of radius \\(a\\) in the \\(x-y\\) plane, centred at the origin. Find the unit tangent vector to the curve at the point \\({\\mathbf{r}} = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nAbove, we found the parameterisation \\[ {\\mathbf{r}} = [a\\cos \\theta, a\\sin \\theta, 0],\\quad 0\\leq \\theta &lt; 2\\pi. \\]\nFirst we should check the given point actually lies on the curve, and find the parameter.\nWe need \\[\n[a\\cos \\theta, a\\sin \\theta, 0] = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\n\\] A little bit of trigonometry or guessing gives \\(\\theta=-\\pi/4\\). But this doesn’t fit within our range, so we add \\(2\\pi\\) to get \\[\n\\theta = 7\\pi/4.\n\\]\nThe tangent vector is \\[\n{\\mathbf{T}}(\\theta) = \\frac{d {\\mathbf{r}}}{d t} = \\left[a\\sin\\theta, -a\\cos\\theta, 0\\right],\n\\] so at our point we have \\[\n{\\mathbf{T}}(7\\pi/4) = \\left[-\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right].\n\\]\nThe question asked for a unit vector, so we need \\(\\hat{{\\mathbf{T}}} = \\frac{{\\mathbf{T}}}{|{\\mathbf{T}}|}\\).\n\\[\n|{\\mathbf{T}}| = \\sqrt{\\left(-\\frac{a}{\\sqrt{2}}\\right)^2 + \\left(-\\frac{a}{\\sqrt{2}}\\right)^2 + 0^2} = a,\n\\] which finally gives \\[\n\\hat{{\\mathbf{T}}}(7\\pi/4) = \\left[-\\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}}, 0\\right].\n\\]",
-    "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
-      "Curves"
-    ]
-  },
-  {
-    "objectID": "index.html#how-to-use-these-notes",
-    "href": "index.html#how-to-use-these-notes",
-    "title": "MA31007 Vector Calculus",
-    "section": "How to use these notes",
-    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. The examples here will be different from the ones in class, and for best results, I suggest briefly reading over these notes the night before each class, and then revisiting them when you come to the problem sheets.",
-    "crumbs": [
-      "Home"
     ]
   },
   {
@@ -104,6 +117,16 @@
     "crumbs": [
       "Chapter 1: Basics (Weeks 1-2)",
       "Curves"
+    ]
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Helpful links",
+    "section": "",
+    "text": "My notes for the vectors stuff of MA12001 are here: https://dundeemath.github.io/MA12001-algebra/_site/. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.\nMost of the important results in this module are here: https://en.wikipedia.org/wiki/Vector_calculus_identities. Your formula sheet in the exam should be based off this.\nThe curvilinear co-ordinate results are summarised here: https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates.",
+    "crumbs": [
+      "Helpful links"
     ]
   }
 ]
