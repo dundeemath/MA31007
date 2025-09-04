@@ -4,14 +4,22 @@
     "href": "surface.html",
     "title": "Surfaces",
     "section": "",
-    "text": "Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D1. The easiest way to write down a surface is \\[\nz = f(x,y).\n\\] This is exactly equivalent to \\(y=f(x)\\) in 2D, and you can think of it as giving the height of the surface at any points \\(x\\) and \\(y\\).\nActually, any single equation relating the variables \\(x\\), \\(y\\) and \\(z\\) will in general describe a surface in 3D. For example, \\[\nx^2 + y^2 + z^2 = 1\n\\] is the sphere of radius 1 centred on the origin (MA12001), and \\[\nx = 1\n\\] is the plane parallel to the \\(y-z\\) plane which goes through the point \\([1,0,0]\\)."
+    "text": "Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D1. The easiest way to write down a surface is \\[\nz = f(x,y).\n\\] This is exactly equivalent to \\(y=f(x)\\) in 2D, and you can think of it as giving the height of the surface at any points \\(x\\) and \\(y\\).\nActually, any single equation relating the variables \\(x\\), \\(y\\) and \\(z\\) will in general describe a surface in 3D. For example, \\[\nx^2 + y^2 + z^2 = 1\n\\] is the sphere of radius 1 centred on the origin (MA12001), and \\[\nx = 1\n\\] is the plane parallel to the \\(y-z\\) plane which goes through the point \\([1,0,0]\\).",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Surfaces"
+    ]
   },
   {
     "objectID": "surface.html#footnotes",
     "href": "surface.html#footnotes",
     "title": "Surfaces",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nCurves have dimension 1. But a curve in 2D has co-dimension 1 and a curve in 3D has co-dimension 2, where a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset.↩︎"
+    "text": "Footnotes\n\n\nCurves have dimension 1. But a curve in 2D has co-dimension 1 and a curve in 3D has co-dimension 2, whereas a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset. The co-dimension is the number of equations you need to describe a subset.↩︎\nIn the next unit, we’ll write this as \\({\\mathbf{n}} = \\nabla f\\).↩︎",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Surfaces"
+    ]
   },
   {
     "objectID": "index.html",
@@ -28,7 +36,7 @@
     "href": "index.html#how-to-use-these-notes",
     "title": "MA31007 Vector Calculus",
     "section": "How to use these notes",
-    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. These notes contain the key definitions and some examples, but I will show more and different examples in class. For best results, I suggest briefly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.",
+    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. These notes contain the key definitions and some examples, but I will show more and different examples in class. For best results, I suggest briefly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.\nAs usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.",
     "crumbs": [
       "Home"
     ]
@@ -38,7 +46,7 @@
     "href": "index.html#what-is-vector-calculus",
     "title": "MA31007 Vector Calculus",
     "section": "What is vector calculus?",
-    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions.",
+    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules.",
     "crumbs": [
       "Home"
     ]
@@ -60,7 +68,7 @@
     "section": "",
     "text": "For the purpose of this module, a curve is a one-dimensional object in three-dimensional space. Imagine a hula hoop or a rope. In fact, we’ll generally assume:\nCurves have many important applications in maths and physics, for example, the path of an electron in a magnetic field, or the boundary of a circular disc.",
     "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
+      "Unit 1: Basics (Weeks 1-2)",
       "Curves"
     ]
   },
@@ -71,7 +79,7 @@
     "section": "Example: Straight line",
     "text": "Example: Straight line\nThe simplest example of a curve is a straight line, which you saw in MA12001. If \\({\\mathbf{c}}\\) is some point on the line and \\({\\mathbf{s}}\\) is the direction of the line, then \\[ {\\mathbf{r}} = {\\mathbf{a}} + {\\mathbf{b}}t,\\quad t\\in\\mathbb{R}\\] is a parameterisation for the line. In this case, \\(t\\) can have any value because the line is infinitely long.\n\nThink: What’s a parameterisation for the line segment between two points \\({\\mathbf{p}}\\) and \\({\\mathbf{q}}\\)?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIn MA12001 you saw that this line has parameterisation \\[ {\\mathbf{r}} = {\\mathbf{p}} + ({\\mathbf{q}}-{\\mathbf{p}})t. \\] For a line segment, we need to limit the range of \\(t\\). Notice that when \\(t=0\\), \\({\\mathbf{r}}={\\mathbf{p}}\\), and when \\(t=1\\), \\({\\mathbf{r}}={\\mathbf{q}}\\), so we have to choose \\[\n0\\leq t \\leq 1.\n\\]",
     "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
+      "Unit 1: Basics (Weeks 1-2)",
       "Curves"
     ]
   },
@@ -82,7 +90,7 @@
     "section": "Example: Circle",
     "text": "Example: Circle\nA circle is a curve. Let’s find a parameterisation for the circle of radius \\(a\\) in the \\(x-y\\) plane, centred at the origin. \\[ {\\mathbf{r}} = [a\\cos \\theta, a\\sin \\theta, 0],\\quad 0\\leq \\theta &lt; 2\\pi. \\] Here we’re using \\(\\theta\\) as the parameter, because it’s an angle. The \\(z\\) co-ordinate is always zero, because we’re in the \\(x-y\\) plane. Notice that, for any \\(\\theta\\), \\[ x^2 + y^2 = a^2\\cos^2 \\theta +a^2\\sin^2 \\theta = a^2, \\] which is indeed a circle of radius a centred at the origin. You should get used to using \\(\\sin\\) and \\(\\cos\\) like this to parameterise circles.",
     "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
+      "Unit 1: Basics (Weeks 1-2)",
       "Curves"
     ]
   },
@@ -93,7 +101,7 @@
     "section": "Example: Circle",
     "text": "Example: Circle\nConsider the circle of radius \\(a\\) in the \\(x-y\\) plane, centred at the origin. Find the unit tangent vector to the curve at the point \\({\\mathbf{r}} = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nAbove, we found the parameterisation \\[ {\\mathbf{r}} = [a\\cos \\theta, a\\sin \\theta, 0],\\quad 0\\leq \\theta &lt; 2\\pi. \\]\nFirst we should check the given point actually lies on the curve, and find the parameter.\nWe need \\[\n[a\\cos \\theta, a\\sin \\theta, 0] = \\left[\\frac{a}{\\sqrt{2}}, -\\frac{a}{\\sqrt{2}}, 0\\right]\n\\] A little bit of trigonometry or guessing gives \\(\\theta=-\\pi/4\\). But this doesn’t fit within our range, so we add \\(2\\pi\\) to get \\[\n\\theta = 7\\pi/4.\n\\]\nThe tangent vector is \\[\n{\\mathbf{T}}(\\theta) = \\frac{d {\\mathbf{r}}}{d \\theta} = \\left[-a\\sin\\theta, a\\cos\\theta, 0\\right],\n\\] so at our point we have \\[\n{\\mathbf{T}}(7\\pi/4) = \\left[\\frac{a}{\\sqrt{2}}, \\frac{a}{\\sqrt{2}}, 0\\right].\n\\]\nThe question asked for a unit vector, so we need \\(\\hat{{\\mathbf{T}}} = \\frac{{\\mathbf{T}}}{|{\\mathbf{T}}|}\\).\n\\[\n|{\\mathbf{T}}| = \\sqrt{\\left(\\frac{a}{\\sqrt{2}}\\right)^2 + \\left(\\frac{a}{\\sqrt{2}}\\right)^2 + 0^2} = a,\n\\] which finally gives \\[\n\\hat{{\\mathbf{T}}}(7\\pi/4) = \\left[\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}}, 0\\right].\n\\]",
     "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
+      "Unit 1: Basics (Weeks 1-2)",
       "Curves"
     ]
   },
@@ -104,7 +112,7 @@
     "section": "Example: the distance between two points",
     "text": "Example: the distance between two points\nFind the total arc-length of the line segment between two points \\({\\mathbf{p}}\\) and \\({\\mathbf{q}}\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nAbove we saw that the parameterisation is \\[\n{\\mathbf{r}} = {\\mathbf{p}} + ({\\mathbf{q}}-{\\mathbf{p}})t,\\quad 0\\leq t \\leq 1.\n\\]\nSo we need to calculate \\[\n\\int_{0}^{1} \\left| \\frac{d {\\mathbf{r}}}{dt}\\right| dt = \\int_{0}^{1} \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| dt.\n\\] Here \\(t\\) doesn’t appear in the integrand, so we can just simplify \\[\n\\int_{0}^{1} \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| dt = \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| \\int_{0}^{1} dt.\n\\] Whenever you see this ‘empty’ integral, you can think of it as integrating 1. So \\[\n\\int_{0}^{1} \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right| dt = \\left| ({\\mathbf{q}}-{\\mathbf{p}})\\right|.\n\\]\nThis says that the integral is equal to the magnitude of the displacement vector \\(({\\mathbf{q}}-{\\mathbf{p}})\\). Which was kind of obvious – it’s just the distance between the two points.",
     "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
+      "Unit 1: Basics (Weeks 1-2)",
       "Curves"
     ]
   },
@@ -115,7 +123,7 @@
     "section": "Longer example",
     "text": "Longer example\nTo conclude this part of the notes, let’s see a more complicated example.\nFind the total arc-length of the curve which is parameterised as \\[\n{\\mathbf{r}}(t) = \\left[ \\cos t, \\sin t, t \\right], \\quad 0\\leq t\\leq 4\\pi.\n\\]\nThink: What is this shape?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIn \\(x\\) and \\(y\\), it just traces out a circle twice. But as it does so, the \\(z\\) co-ordinate increases. So this is a helix, like a slinky.\n\n\n\n\nStep 1: Calculate the tangent vector\n\\[\n{\\mathbf{T}}(t) = \\frac{d{\\mathbf{r}}}{dt} = \\left[-\\sin t, \\cos t, 1\\right].\n\\]\n\n\nStep 2: Find its magnitude\n\\[\n\\left|{\\mathbf{T}}\\right| = \\sqrt{(-\\sin t)^2+(\\cos t)^2 + 1^2} = \\sqrt{2}.\n\\]\n\n\nStep 3: Integrate this\nHere we need to remember that the limits of the integral are the limits of the parameterisation \\[\n\\int_0^{4\\pi} \\sqrt{2} dt = 4\\pi \\sqrt{2}.\n\\]",
     "crumbs": [
-      "Chapter 1: Basics (Weeks 1-2)",
+      "Unit 1: Basics (Weeks 1-2)",
       "Curves"
     ]
   },
@@ -127,6 +135,116 @@
     "text": "My notes for the vectors stuff of MA12001 are here: https://dundeemath.github.io/MA12001-algebra/_site/. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.\nMost of the important results in this module are here: https://en.wikipedia.org/wiki/Vector_calculus_identities. Your formula sheet in the exam should be based off this.\nThe curvilinear co-ordinate results are summarised here: https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates.",
     "crumbs": [
       "Helpful links"
+    ]
+  },
+  {
+    "objectID": "surface.html#example-parameterisation-of-a-plane",
+    "href": "surface.html#example-parameterisation-of-a-plane",
+    "title": "Surfaces",
+    "section": "Example: parameterisation of a plane",
+    "text": "Example: parameterisation of a plane\nIn MA12001, you saw plane equations like \\[{\\mathbf{r}}\\cdot {\\mathbf{n}} = d\\] where \\({\\mathbf{n}}\\) is a normal vector to the plane (more on this below) and \\(d\\) is some number. We can transform this to parametric form by introducing \\(u=x\\) and \\(v=y\\).\nSo we need only work out what \\(z\\) is, as a function of \\(u\\) and \\(v\\). Substituting into the equation, \\[d = [u,v,z]\\cdot[n_1,n_2,n_3] = un_1 + vn_3 + z n_3,\\] so \\[\nz = \\frac{d-un_1-vn_2}{n_3}\n\\] so the full parameterisation is \\[\n{\\mathbf{r}}(u,v) = \\left[u,\\,v,\\,\\frac{d-un_1-vn_2}{n_3}\\right].\n\\]\nThink: When would this parameterisation fail?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIf the plane we want to parameterise parallel to the \\(y-z\\) plane then we cannot use \\(u=x\\) because \\(x\\) only has one fixed value.\nThen the formulas above result in division by zero, because we would have \\(n_3=0\\).\nSimilarly if \\(y\\) is always the same then we can’t use \\(v=y\\). But in these cases we can just use \\(u=x\\), \\(v=z\\) or \\(u=z\\), \\(v=y\\) respectively.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Surfaces"
+    ]
+  },
+  {
+    "objectID": "surface.html#example-parameterisation-of-a-sphere",
+    "href": "surface.html#example-parameterisation-of-a-sphere",
+    "title": "Surfaces",
+    "section": "Example: parameterisation of a sphere",
+    "text": "Example: parameterisation of a sphere\nThe sphere which is described by \\[\nx^2 + y^2 + z^2 = 1\n\\] can be parameterised as \\[\n{\\mathbf{r}}(u,v) = [\\cos u \\sin v,\\,\\sin u \\sin v,\\cos v], \\quad 0\\leq u \\leq \\pi,\\quad 0\\leq v &lt; 2\\pi.\n\\]\nThink: How can you show that these points satisfy \\(x^2 + y^2 + z^2 = 1\\)?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nSubsituting in \\(x=\\cos u \\sin v\\), \\(y=\\sin u \\sin v\\) and \\(z=\\cos v\\), you can see this. You will need to use both \\(\\cos^2 u + \\sin^2 u = 1\\) and \\(\\cos^2 v + \\sin^2 v = 1\\).\n\n\n\nWe will talk much more about this when we discuss co-ordinate systems.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Surfaces"
+    ]
+  },
+  {
+    "objectID": "surface.html#example-normal-to-a-sphere",
+    "href": "surface.html#example-normal-to-a-sphere",
+    "title": "Surfaces",
+    "section": "Example: Normal to a sphere",
+    "text": "Example: Normal to a sphere\nWe saw that we can parameterise \\[\nx^2 + y^2 + z^2 = 1\n\\] as \\[\n{\\mathbf{r}}(u,v) = [\\cos u \\sin v,\\,\\sin u \\sin v,\\cos v], \\quad 0\\leq u \\leq \\pi,\\quad 0\\leq v &lt; 2\\pi.\n\\] So we can use both of the methods here. Let’s find a unit normal to the sphere at the point \\({\\mathbf{r}} = \\left[\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}}\\right]\\)\nThink: is this point on the sphere? What parameters \\(u\\) and \\(v\\) does it correspond to?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nSubsituting \\(x=y=z=\\frac{1}{\\sqrt{3}}\\) immediately gives \\[\nx^2 + y^2 + z^2 = 1,\n\\] so it’s on the sphere.\nTo find \\(u\\) and \\(v\\), it’s easiest to start with \\(z = \\cos v = \\frac{1}{\\sqrt{3}}\\), so \\[v=\\cos^{-1} \\frac{1}{\\sqrt{3}}.\\]\nThen \\(\\sin v = \\frac{\\sqrt{2}}{\\sqrt{3}}\\), and so \\(x = \\cos u \\sin v = \\frac{1}{\\sqrt{3}}\\) gives \\[\n\\cos u = \\frac{1}{\\sqrt{2}}\n\\] so finally \\[(u,v) = \\left(\\frac{\\pi}{4},\\,\\cos^{-1} \\frac{1}{\\sqrt{3}}\\right).\\]\n\n\n\n\nCross product\nTwo different tangent vectors at the point \\((u,v)\\) are \\[\n\\frac{\\partial{\\mathbf{r}}}{\\partial u} = [-\\sin u \\sin v,\\,\\cos u \\sin v,\\,0]\n\\] and \\[\n\\frac{\\partial{\\mathbf{r}}}{\\partial v} = [\\cos u \\cos v,\\,\\sin u \\cos v,\\,-\\sin v],\n\\] so then \\[\n\\begin{aligned}\n{\\mathbf{n}}(u,v) &= \\frac{\\partial{\\mathbf{r}}}{\\partial u} \\times \\frac{\\partial{\\mathbf{r}}}{\\partial v}\n\\\\&= \\left[\\cos u \\sin v\\times -\\sin v,\\,\\sin u \\sin v\\times-\\sin v,\\,-\\sin u \\sin v\\times\\sin u \\cos v-\\cos u \\sin v \\times \\cos u \\cos v\\right]\n\\\\&= \\left[-\\cos u \\sin^2 v,\\,-\\sin u \\sin^2 v,\\,-\\sin v \\cos v\\right]\n\\\\&= -\\sin v\\left[\\cos u \\sin v, \\sin u \\sin v, \\cos v\\right].\n\\end{aligned}\n\\]\nAfter a lot of manipulation you will find that the magnitude of this is \\(\\sin v\\), so we get a unit normal \\[\n\\hat{{\\mathbf{n}}}(u,v) = -\\left[\\cos u \\sin v, \\sin u \\sin v, \\cos v\\right],\n\\] which at our point \\((u,v) =\\left(\\frac{\\pi}{4},\\,\\cos^{-1} \\frac{1}{\\sqrt{3}}\\right)\\) is \\[\n\\hat{{\\mathbf{n}}} = -\\left[\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}}\\right].\n\\]\n\n\nDirect differentiation\nWe have \\(f(x,y,z) = x^2 + y^2 + z^2\\), so \\[\n{\\mathbf{n}} = \\left[\\frac{\\partial f}{\\partial x},\\,\\frac{\\partial f}{\\partial y},\\frac{\\partial f}{\\partial z}\\right] = [2x,2y,2z].\n\\] and at our point \\([x,y,z]=\\left[\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}}\\right]\\) we get \\[{\\mathbf{n}} = \\left[\\frac{2}{\\sqrt{3}},\\,\\frac{2}{\\sqrt{3}},\\,\\frac{2}{\\sqrt{3}}\\right].\\]\nFor a unit vector, we need to divide by the magnitude of this (which is \\(2\\)), so the final answer is \\[\\hat{{\\mathbf{n}}} = \\left[\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}},\\,\\frac{1}{\\sqrt{3}}\\right].\\]\n\n\n\n\n\n\nNote\n\n\n\nThese two answers are different! They are pointing in opposite directions. One is the inward-facing normal and the other is the outward facing normal. Choosing the right one will become important later on.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Surfaces"
+    ]
+  },
+  {
+    "objectID": "surface.html#example-tangent-plane-to-the-sphere",
+    "href": "surface.html#example-tangent-plane-to-the-sphere",
+    "title": "Surfaces",
+    "section": "Example: tangent plane to the sphere",
+    "text": "Example: tangent plane to the sphere\nFind the tangent plane to the sphere \\[\nx^2 + y^2 + z^2 = 1,\n\\] at the point \\([x,y,z] = [1,0,0]\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe normal is \\[{\\mathbf{n}} = [2x,2y,2z] = [2,0,0],\\] so substituting this and the point into the plane equation we get \\[\n([x,y,z] - [1,0,0]])\\cdot[2,0,0] = 0\n\\] which simplifies to \\[\n2x-2 = 0\n\\] or simply \\(x=1\\). Sketch this: it makes sense.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIt’s easy to get confused between generic points on the surface and the tangent plane when you’re doing this sort of problem. Go slowly and make sure your notation is clear.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Surfaces"
+    ]
+  },
+  {
+    "objectID": "coordinates.html",
+    "href": "coordinates.html",
+    "title": "Co-ordinate systems",
+    "section": "",
+    "text": "One of the key aims of this module is to learn about curvilinear co-ordinates. These are co-ordinate systems where, unlike the usual Cartesian co-ordinates, the basis vectors change direction at different points in space.\nThat may sound confusing, but you should all already have seen one type of curvilinear co-ordinates, (plane) polar co-ordinates. In this module we’ll see two different ways to generalise 2D polar co-ordinates to 3D space, but first we’ll talk through some basic ideas about co-ordinate systems using plane polars as",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Coordinate systems"
+    ]
+  },
+  {
+    "objectID": "coordinates.html#defining-co-ordinate-systems",
+    "href": "coordinates.html#defining-co-ordinate-systems",
+    "title": "Co-ordinate systems",
+    "section": "Defining co-ordinate systems",
+    "text": "Defining co-ordinate systems\nTypically we define co-ordinate systems by expressing the Cartesian co-ordinates as a function of some other variables.1\nFor example, in plane polars, \\[\nx = \\rho \\cos \\phi,\\qquad y=\\rho\\sin\\phi.\n\\] The co-ordinates for this system, \\((\\rho,\\phi)\\)2 are, respectively, the distance from the origin and the angle anti-clockwise from the \\(x\\) axis.\nWe also need to know the range of values these co-ordinates can take, let’s use \\(0\\leq \\phi &lt; 2\\pi\\) and \\(\\rho\\geq 0\\).\nAlso notice that the co-ordiantes break down at the origin, if \\(\\rho=0\\) then the value of \\(\\phi\\) doesn’t matter. That’s quite common with these systems.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Coordinate systems"
+    ]
+  },
+  {
+    "objectID": "coordinates.html#basis-vectors-scale-factors",
+    "href": "coordinates.html#basis-vectors-scale-factors",
+    "title": "Co-ordinate systems",
+    "section": "Basis vectors & scale factors",
+    "text": "Basis vectors & scale factors\nThe definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of \\({\\mathbf{e}}_x\\) increases the value of \\(x\\) but keeps \\(y\\) constant. It’s usually assumed to be a unit vector.\nIn practice, the definition is to differentiate \\({\\mathbf{r}}\\) with respect to the variable and then normalise: \\[\n\\begin{aligned}\n{\\mathbf{e}}_\\rho &= \\frac{\\partial {\\mathbf{r}}}{\\partial \\rho}/\\left|\\frac{\\partial {\\mathbf{r}}}{\\partial \\rho}\\right|\n\\\\ &= \\frac{\\partial}{\\partial \\rho} [\\rho \\cos \\phi,\\,\\rho\\sin\\phi] / \\left|\\frac{\\partial}{\\partial \\rho} [\\rho \\cos \\phi,\\,\\rho\\sin\\phi]\\right|\n\\\\ &= [\\cos\\phi,\\,\\sin\\phi] / \\sqrt{\\cos^2 \\phi + \\sin^2 \\phi}\n\\\\ &= [\\cos\\phi,\\,\\sin\\phi]\n\\end{aligned}\n\\] and \\[\n\\begin{aligned}\n{\\mathbf{e}}_\\phi &= \\frac{\\partial {\\mathbf{r}}}{\\partial \\phi}/\\left|\\frac{\\partial {\\mathbf{r}}}{\\partial \\phi}\\right|\n\\\\ &= \\frac{\\partial}{\\partial \\phi} [\\rho \\cos \\phi,\\,\\rho\\sin\\phi] / \\left|\\frac{\\partial}{\\partial \\phi} [\\rho \\cos \\phi,\\,\\rho\\sin\\phi]\\right|\n\\\\ &= [-\\rho\\sin\\phi,\\,\\rho\\cos\\phi] / \\sqrt{\\rho^2\\cos^2 \\phi + \\rho^2\\sin^2 \\phi}\n\\\\ &= [-\\sin\\phi,\\,\\cos\\phi].\n\\end{aligned}\n\\]\nNote that this also works for Cartestian co-ordinates \\[\n\\begin{aligned}\n{\\mathbf{e}}_x &= \\frac{\\partial {\\mathbf{r}}}{\\partial x}/\\left|\\frac{\\partial {\\mathbf{r}}}{\\partial x}\\right|\n\\\\ &= \\frac{\\partial}{\\partial x} [x,\\,y] / \\left|\\frac{\\partial}{\\partial x} [x,\\,y]\\right|\n\\\\ &= [1,0] / \\sqrt{1^2 + 0^2}\n\\\\ &= [1,0].\n\\end{aligned}\n\\]\nWe also define the scale factors \\(h_\\rho\\) and \\(h_\\phi\\) as the magnitude of the derivatives \\[h_\\rho = \\left|\\frac{\\partial {\\mathbf{r}}}{\\partial \\phi}\\right| = 1,\\] \\[h_\\phi = \\left|\\frac{\\partial {\\mathbf{r}}}{\\partial \\phi}\\right| = \\rho.\\]\n\n\n\n\n\n\nNote\n\n\n\nScale factors will be useful later in the module. For now just get used to the formulas.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Coordinate systems"
+    ]
+  },
+  {
+    "objectID": "coordinates.html#notating-vectors",
+    "href": "coordinates.html#notating-vectors",
+    "title": "Co-ordinate systems",
+    "section": "Notating vectors",
+    "text": "Notating vectors\nYou’re used to the idea that co-ordinates and basis vectors are kind of interchangable. In Cartesians, the point \\((x,y)\\) has position vector \\[\n{\\mathbf{r}} = [x,y] = x {\\mathbf{e}}_x + y {\\mathbf{e}}_y.\n\\] We reserve this square bracket notation for Cartesians, because it doesn’t work in curvilinear co-ordinates.\nAt a point with co-ordinates \\((\\rho,\\phi)\\) in plane polars, the position vector is \\[\n{\\mathbf{r}} = [x,y] = [\\rho \\cos \\phi,\\, \\rho\\sin\\phi] = \\rho {\\mathbf{e}}_\\rho.\n\\] Where does \\(\\phi\\) appear in this expression? The answer is that it’s hidden inside the \\({\\mathbf{e}}_\\rho\\). You have to know the co-ordinates to understand this position vector.\n\n\n\n\n\n\nNote\n\n\n\nI think this is the most confusing thing in this module. If you understand this everything else will be easier.",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Coordinate systems"
+    ]
+  },
+  {
+    "objectID": "coordinates.html#orthogonal-co-ordinate-systems",
+    "href": "coordinates.html#orthogonal-co-ordinate-systems",
+    "title": "Co-ordinate systems",
+    "section": "Orthogonal co-ordinate systems",
+    "text": "Orthogonal co-ordinate systems\nA system is called orthogonal if at any point in space, the basis vectors are orthogonal.\nThis seems counterintuitive, since we already said that the basis vectors rotate, but it’s easy to verify that plane polars are orthogonal - we just need to check the dot product: \\[\n{\\mathbf{e}}_\\rho \\cdot {\\mathbf{e}}_\\phi = [\\cos \\phi,\\,\\sin\\phi] \\cdot [-\\sin\\phi,\\,\\cos\\phi] = -\\cos\\phi\\sin\\phi + \\sin\\phi\\cos\\phi = 0.\n\\]",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Coordinate systems"
+    ]
+  },
+  {
+    "objectID": "coordinates.html#footnotes",
+    "href": "coordinates.html#footnotes",
+    "title": "Co-ordinate systems",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nWe could do it the other way round but that’s usually much messier.↩︎\nYou might be more used to using \\((r,\\theta)\\) for 2D polars but we’ll save these for spherical co-ordinates.↩︎\nWe call this the azimuthal angle.↩︎\nWe call this the polar angle.↩︎",
+    "crumbs": [
+      "Unit 1: Basics (Weeks 1-2)",
+      "Coordinate systems"
     ]
   }
 ]

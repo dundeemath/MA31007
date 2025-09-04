@@ -9,23 +9,25 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - section: "Chapter 1: Basics (Weeks 1-2)"
+      - section: "Unit 1: Basics (Weeks 1-2)"
         contents:
         - text: "Curves"
           href: curves.qmd
         - text: "Surfaces"
+          href: surface.qmd
         - text: "Coordinate systems"
-      - section: "Chapter 2: Derivatives (Weeks 3-5)"
+          href: coordinates.qmd
+      - section: "Unit 2: Derivatives (Weeks 3-5)"
         contents:
         - text: "Derivatives of scalar fields"
         - text: "Derivatives of vector fields"
         - text: "Products & second derivatives"
-      - section: "Chapter 3: Integrals (Weeks 6-8)"
+      - section: "Unit 3: Integrals (Weeks 6-8)"
         contents:
         - text: "Line integrals"
         - text: "Surface integrals"
         - text: "Volume integrals"
-      - section: "Chapter 4: Theorems (Weeks 9-10)"
+      - section: "Unit 4: Theorems (Weeks 9-10)"
         contents:
         - text: "Stokes' theorem"
         - text: "Divergence theorem"

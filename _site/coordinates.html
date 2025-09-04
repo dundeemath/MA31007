@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Surfaces – MA31007 Vector Calculus</title>
+<title>Co-ordinate systems – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./surface.html">Surfaces</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./coordinates.html">Coordinate systems</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,13 +156,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./surface.html" class="sidebar-item-text sidebar-link active">
+  <a href="./surface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Surfaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./coordinates.html" class="sidebar-item-text sidebar-link">
+  <a href="./coordinates.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Coordinate systems</span></a>
   </div>
 </li>
@@ -244,34 +244,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#parameterisations-of-surfaces" id="toc-parameterisations-of-surfaces" class="nav-link active" data-scroll-target="#parameterisations-of-surfaces">Parameterisations of surfaces</a>
-  <ul class="collapse">
-  <li><a href="#example-parameterisation-of-a-plane" id="toc-example-parameterisation-of-a-plane" class="nav-link" data-scroll-target="#example-parameterisation-of-a-plane">Example: parameterisation of a plane</a></li>
-  <li><a href="#example-parameterisation-of-a-sphere" id="toc-example-parameterisation-of-a-sphere" class="nav-link" data-scroll-target="#example-parameterisation-of-a-sphere">Example: parameterisation of a sphere</a></li>
-  </ul></li>
-  <li><a href="#tangents-to-surfaces" id="toc-tangents-to-surfaces" class="nav-link" data-scroll-target="#tangents-to-surfaces">Tangents to surfaces</a></li>
-  <li><a href="#normals-to-surfaces" id="toc-normals-to-surfaces" class="nav-link" data-scroll-target="#normals-to-surfaces">Normals to surfaces</a>
-  <ul class="collapse">
-  <li><a href="#example-normal-to-a-sphere" id="toc-example-normal-to-a-sphere" class="nav-link" data-scroll-target="#example-normal-to-a-sphere">Example: Normal to a sphere</a>
-  <ul class="collapse">
-  <li><a href="#cross-product" id="toc-cross-product" class="nav-link" data-scroll-target="#cross-product">Cross product</a></li>
-  <li><a href="#direct-differentiation" id="toc-direct-differentiation" class="nav-link" data-scroll-target="#direct-differentiation">Direct differentiation</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#tangent-planes" id="toc-tangent-planes" class="nav-link" data-scroll-target="#tangent-planes">Tangent planes</a>
-  <ul class="collapse">
-  <li><a href="#example-tangent-plane-to-the-sphere" id="toc-example-tangent-plane-to-the-sphere" class="nav-link" data-scroll-target="#example-tangent-plane-to-the-sphere">Example: tangent plane to the sphere</a></li>
-  </ul></li>
-  <li><a href="#surface-area" id="toc-surface-area" class="nav-link" data-scroll-target="#surface-area">Surface area</a></li>
+  <li><a href="#defining-co-ordinate-systems" id="toc-defining-co-ordinate-systems" class="nav-link active" data-scroll-target="#defining-co-ordinate-systems">Defining co-ordinate systems</a></li>
+  <li><a href="#basis-vectors-scale-factors" id="toc-basis-vectors-scale-factors" class="nav-link" data-scroll-target="#basis-vectors-scale-factors">Basis vectors &amp; scale factors</a></li>
+  <li><a href="#notating-vectors" id="toc-notating-vectors" class="nav-link" data-scroll-target="#notating-vectors">Notating vectors</a></li>
+  <li><a href="#orthogonal-co-ordinate-systems" id="toc-orthogonal-co-ordinate-systems" class="nav-link" data-scroll-target="#orthogonal-co-ordinate-systems">Orthogonal co-ordinate systems</a></li>
+  <li><a href="#cylindrical-polars" id="toc-cylindrical-polars" class="nav-link" data-scroll-target="#cylindrical-polars">Cylindrical Polars</a></li>
+  <li><a href="#spherical-polars" id="toc-spherical-polars" class="nav-link" data-scroll-target="#spherical-polars">Spherical Polars</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./surface.html">Surfaces</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./coordinates.html">Coordinate systems</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Surfaces</h1>
+<h1 class="title">Co-ordinate systems</h1>
 </div>
 
 
@@ -291,246 +278,124 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The easiest way to write down a surface is <span class="math display">\[
-z = f(x,y).
-\]</span> This is exactly equivalent to <span class="math inline">\(y=f(x)\)</span> in 2D, and you can think of it as giving the height of the surface at any points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
-<p>Actually, any single equation relating the variables <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> will in general describe a surface in 3D. For example, <span class="math display">\[
-x^2 + y^2 + z^2 = 1
-\]</span> is the sphere of radius 1 centred on the origin (MA12001), and <span class="math display">\[
-x = 1
-\]</span> is the plane parallel to the <span class="math inline">\(y-z\)</span> plane which goes through the point <span class="math inline">\([1,0,0]\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If we’re being careful we should write that <span class="math display">\[
-\{ [x,y,z]\in\mathbb{R}^3 | x^2 + y^2 + z^2 = 1\}
-\]</span> is the sphere, rather than just the equation itself. Don’t be afraid if you see this set notation.</p>
-</div>
-</div>
-<section id="parameterisations-of-surfaces" class="level1">
-<h1>Parameterisations of surfaces</h1>
-<p>Just as with curves, we can describe surfaces parametrically. However, for a two-dimensional surface, we need two parameters, which we usually call <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>. <span class="math display">\[
-{\mathbf{r}} (u,v) = [f(u,v),\,g(u,v),\,h(u,v)]
-\]</span> and again, we need to specify ranges for the parameters.</p>
-<section id="example-parameterisation-of-a-plane" class="level2">
-<h2 class="anchored" data-anchor-id="example-parameterisation-of-a-plane">Example: parameterisation of a plane</h2>
-<p>In MA12001, you saw plane equations like <span class="math display">\[{\mathbf{r}}\cdot {\mathbf{n}} = d\]</span> where <span class="math inline">\({\mathbf{n}}\)</span> is a normal vector to the plane (more on this below) and <span class="math inline">\(d\)</span> is some number. We can transform this to parametric form by introducing <span class="math inline">\(u=x\)</span> and <span class="math inline">\(v=y\)</span>.</p>
-<p>So we need only work out what <span class="math inline">\(z\)</span> is, as a function of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>. Substituting into the equation, <span class="math display">\[d = [u,v,z]\cdot[n_1,n_2,n_3] = un_1 + vn_3 + z n_3,\]</span> so <span class="math display">\[
-z = \frac{d-un_1-vn_2}{n_3}
-\]</span> so the full parameterisation is <span class="math display">\[
-{\mathbf{r}}(u,v) = \left[u,\,v,\,\frac{d-un_1-vn_2}{n_3}\right].
-\]</span></p>
-<p><strong>Think:</strong> When would this parameterisation fail?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If the plane we want to parameterise parallel to the <span class="math inline">\(y-z\)</span> plane then we cannot use <span class="math inline">\(u=x\)</span> because <span class="math inline">\(x\)</span> only has one fixed value.</p>
-<p>Then the formulas above result in division by zero, because we would have <span class="math inline">\(n_3=0\)</span>.</p>
-<p>Similarly if <span class="math inline">\(y\)</span> is always the same then we can’t use <span class="math inline">\(v=y\)</span>. But in these cases we can just use <span class="math inline">\(u=x\)</span>, <span class="math inline">\(v=z\)</span> or <span class="math inline">\(u=z\)</span>, <span class="math inline">\(v=y\)</span> respectively.</p>
-</div>
-</div>
-</div>
+<p>One of the key aims of this module is to learn about <em>curvilinear co-ordinates</em>. These are co-ordinate systems where, unlike the usual Cartesian co-ordinates, the basis vectors change direction at different points in space.</p>
+<p>That may sound confusing, but you should all already have seen one type of <em>curvilinear co-ordinates</em>, (plane) polar co-ordinates. In this module we’ll see two different ways to generalise 2D polar co-ordinates to 3D space, but first we’ll talk through some basic ideas about co-ordinate systems using plane polars as</p>
+<section id="defining-co-ordinate-systems" class="level2">
+<h2 class="anchored" data-anchor-id="defining-co-ordinate-systems">Defining co-ordinate systems</h2>
+<p>Typically we define co-ordinate systems by expressing the Cartesian co-ordinates as a function of some other variables.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>For example, in plane polars, <span class="math display">\[
+x = \rho \cos \phi,\qquad y=\rho\sin\phi.
+\]</span> The co-ordinates for this system, <span class="math inline">\((\rho,\phi)\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> are, respectively, the distance from the origin and the angle anti-clockwise from the <span class="math inline">\(x\)</span> axis.</p>
+<p>We also need to know the range of values these co-ordinates can take, let’s use <span class="math inline">\(0\leq \phi &lt; 2\pi\)</span> and <span class="math inline">\(\rho\geq 0\)</span>.</p>
+<p>Also notice that the co-ordiantes break down at the origin, if <span class="math inline">\(\rho=0\)</span> then the value of <span class="math inline">\(\phi\)</span> doesn’t matter. That’s quite common with these systems.</p>
 </section>
-<section id="example-parameterisation-of-a-sphere" class="level2">
-<h2 class="anchored" data-anchor-id="example-parameterisation-of-a-sphere">Example: parameterisation of a sphere</h2>
-<p>The sphere which is described by <span class="math display">\[
-x^2 + y^2 + z^2 = 1
-\]</span> can be parameterised as <span class="math display">\[
-{\mathbf{r}}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v &lt; 2\pi.
-\]</span></p>
-<p><strong>Think:</strong> How can you show that these points satisfy <span class="math inline">\(x^2 + y^2 + z^2 = 1\)</span>?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Subsituting in <span class="math inline">\(x=\cos u \sin v\)</span>, <span class="math inline">\(y=\sin u \sin v\)</span> and <span class="math inline">\(z=\cos v\)</span>, you can see this. You will need to use both <span class="math inline">\(\cos^2 u + \sin^2 u = 1\)</span> <em>and</em> <span class="math inline">\(\cos^2 v + \sin^2 v = 1\)</span>.</p>
-</div>
-</div>
-</div>
-<p>We will talk much more about this when we discuss co-ordinate systems.</p>
-</section>
-</section>
-<section id="tangents-to-surfaces" class="level1">
-<h1>Tangents to surfaces</h1>
-<p>If you fix a value of <span class="math inline">\(v\)</span>, say <span class="math inline">\(v=v_0\)</span>, then for any surface <span class="math inline">\({\mathbf{r}}(u,v)\)</span>, <span class="math display">\[{\mathbf{r}} (u) = {\mathbf{r}}(u,v_0)\]</span> just describes a curve in space.</p>
-<p>For example, in the sphere parameterisation above, fixing <span class="math inline">\(v=0\)</span> gives the circle <span class="math inline">\(x^2+y^2=1\)</span>, <span class="math inline">\(z=0\)</span>, which is the equator of the sphere.</p>
-<p>We have already seen that curves have tangent vectors. What is the meaning of these tangent vectors for surfaces? These are just <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial u}\)</span> and <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial v}\)</span>, the <em>partial</em> derivatives keeping the other variable constant.</p>
-<p>A tangent vector to a surface is any vector which, at the current point, doesn’t point into or out of it. These are <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial u}\)</span> or <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial v}\)</span> or any <em>linear combination</em>, these tangent vectors form a two-dimension space called the tangent space with basis vectors given by <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial u}\)</span> and <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial v}\)</span>.</p>
-<p>We won’t use surface tangent vectors much except to compute <em>normal vectors</em>.</p>
-</section>
-<section id="normals-to-surfaces" class="level1">
-<h1>Normals to surfaces</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Surface normals, and the different ways to calculate them, come up a lot later in the module. Make sure you understand this.</p>
-</div>
-</div>
-<p>Normal vectors <span class="math inline">\({\mathbf{n}}\)</span> of surfaces are the direct generalisation of normal vectors to planes. They are a vector which makes a right-angle with the surface at a given point. As with tangent vectors for surfaces, normals can point in either direction and the magnitude depends on parameterisation, so sometimes we talk about <em>unit</em> normals.</p>
-<p>There are two ways to calculate normal vectors, and which to use depends on the form you have for your surface.</p>
-<p>The normal vector is perpendicular to the surface, so in particular it is perpendicular to all tangent vectors at the same point. So we can take the cross product of two different tangent vectors to find the normal.</p>
-<p>For a parameterised surface, this means <span class="math display">\[
-{\mathbf{n}}(u,v) = \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}
-\]</span></p>
-<p><img src="figures/chap_3_fig_5.png" class="img-fluid"></p>
-<p>Alternatively, if you can write your surface as an equation <span class="math display">\[
-f(x,y,z) = d,
-\]</span> where <span class="math inline">\(d\)</span> is some number (often zero), then we can use the formula<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math display">\[
-{\mathbf{n}} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right].
-\]</span> <img src="figures/chap_3_fig_7.png" class="img-fluid"></p>
-<p>We’ll see an explanation for why this works in class, but it should become more clear to you after the next unit of the module.</p>
-<section id="example-normal-to-a-sphere" class="level2">
-<h2 class="anchored" data-anchor-id="example-normal-to-a-sphere">Example: Normal to a sphere</h2>
-<p>We saw that we can parameterise <span class="math display">\[
-x^2 + y^2 + z^2 = 1
-\]</span> as <span class="math display">\[
-{\mathbf{r}}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v &lt; 2\pi.
-\]</span> So we can use both of the methods here. Let’s find a <em>unit</em> normal to the sphere at the point <span class="math inline">\({\mathbf{r}} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]\)</span></p>
-<p><strong>Think:</strong> is this point on the sphere? What parameters <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> does it correspond to?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Subsituting <span class="math inline">\(x=y=z=\frac{1}{\sqrt{3}}\)</span> immediately gives <span class="math display">\[
-x^2 + y^2 + z^2 = 1,
-\]</span> so it’s on the sphere.</p>
-<p>To find <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, it’s easiest to start with <span class="math inline">\(z = \cos v = \frac{1}{\sqrt{3}}\)</span>, so <span class="math display">\[v=\cos^{-1} \frac{1}{\sqrt{3}}.\]</span></p>
-<p>Then <span class="math inline">\(\sin v = \frac{\sqrt{2}}{\sqrt{3}}\)</span>, and so <span class="math inline">\(x = \cos u \sin v = \frac{1}{\sqrt{3}}\)</span> gives <span class="math display">\[
-\cos u = \frac{1}{\sqrt{2}}
-\]</span> so finally <span class="math display">\[(u,v) = \left(\frac{\pi}{4},\,\cos^{-1} \frac{1}{\sqrt{3}}\right).\]</span></p>
-</div>
-</div>
-</div>
-<section id="cross-product" class="level3">
-<h3 class="anchored" data-anchor-id="cross-product">Cross product</h3>
-<p>Two different tangent vectors at the point <span class="math inline">\((u,v)\)</span> are <span class="math display">\[
-\frac{\partial{\mathbf{r}}}{\partial u} = [-\sin u \sin v,\,\cos u \sin v,\,0]
-\]</span> and <span class="math display">\[
-\frac{\partial{\mathbf{r}}}{\partial v} = [\cos u \cos v,\,\sin u \cos v,\,-\sin v],
-\]</span> so then <span class="math display">\[
+<section id="basis-vectors-scale-factors" class="level2">
+<h2 class="anchored" data-anchor-id="basis-vectors-scale-factors">Basis vectors &amp; scale factors</h2>
+<p>The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of <span class="math inline">\({\mathbf{e}}_x\)</span> increases the value of <span class="math inline">\(x\)</span> but keeps <span class="math inline">\(y\)</span> constant. It’s usually assumed to be a unit vector.</p>
+<p>In practice, the definition is to differentiate <span class="math inline">\({\mathbf{r}}\)</span> with respect to the variable and then normalise: <span class="math display">\[
 \begin{aligned}
-{\mathbf{n}}(u,v) &amp;= \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}
-\\&amp;= \left[\cos u \sin v\times -\sin v,\,\sin u \sin v\times-\sin v,\,-\sin u \sin v\times\sin u \cos v-\cos u \sin v \times \cos u \cos v\right]
-\\&amp;= \left[-\cos u \sin^2 v,\,-\sin u \sin^2 v,\,-\sin v \cos v\right]
-\\&amp;= -\sin v\left[\cos u \sin v, \sin u \sin v, \cos v\right].
+{\mathbf{e}}_\rho &amp;= \frac{\partial {\mathbf{r}}}{\partial \rho}/\left|\frac{\partial {\mathbf{r}}}{\partial \rho}\right|
+\\ &amp;= \frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi]\right|
+\\ &amp;= [\cos\phi,\,\sin\phi] / \sqrt{\cos^2 \phi + \sin^2 \phi}
+\\ &amp;= [\cos\phi,\,\sin\phi]
+\end{aligned}
+\]</span> and <span class="math display">\[
+\begin{aligned}
+{\mathbf{e}}_\phi &amp;= \frac{\partial {\mathbf{r}}}{\partial \phi}/\left|\frac{\partial {\mathbf{r}}}{\partial \phi}\right|
+\\ &amp;= \frac{\partial}{\partial \phi} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \phi} [\rho \cos \phi,\,\rho\sin\phi]\right|
+\\ &amp;= [-\rho\sin\phi,\,\rho\cos\phi] / \sqrt{\rho^2\cos^2 \phi + \rho^2\sin^2 \phi}
+\\ &amp;= [-\sin\phi,\,\cos\phi].
 \end{aligned}
 \]</span></p>
-<p>After a lot of manipulation you will find that the magnitude of this is <span class="math inline">\(\sin v\)</span>, so we get a unit normal <span class="math display">\[
-\hat{{\mathbf{n}}}(u,v) = -\left[\cos u \sin v, \sin u \sin v, \cos v\right],
-\]</span> which at our point <span class="math inline">\((u,v) =\left(\frac{\pi}{4},\,\cos^{-1} \frac{1}{\sqrt{3}}\right)\)</span> is <span class="math display">\[
-\hat{{\mathbf{n}}} = -\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].
+<p>Note that this also works for Cartestian co-ordinates <span class="math display">\[
+\begin{aligned}
+{\mathbf{e}}_x &amp;= \frac{\partial {\mathbf{r}}}{\partial x}/\left|\frac{\partial {\mathbf{r}}}{\partial x}\right|
+\\ &amp;= \frac{\partial}{\partial x} [x,\,y] / \left|\frac{\partial}{\partial x} [x,\,y]\right|
+\\ &amp;= [1,0] / \sqrt{1^2 + 0^2}
+\\ &amp;= [1,0].
+\end{aligned}
+\]</span></p>
+<p>We also define the scale factors <span class="math inline">\(h_\rho\)</span> and <span class="math inline">\(h_\phi\)</span> as the magnitude of the derivatives <span class="math display">\[h_\rho = \left|\frac{\partial {\mathbf{r}}}{\partial \phi}\right| = 1,\]</span> <span class="math display">\[h_\phi = \left|\frac{\partial {\mathbf{r}}}{\partial \phi}\right| = \rho.\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Scale factors will be useful later in the module. For now just get used to the formulas.</p>
+</div>
+</div>
+</section>
+<section id="notating-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="notating-vectors">Notating vectors</h2>
+<p>You’re used to the idea that co-ordinates and basis vectors are kind of interchangable. In Cartesians, the point <span class="math inline">\((x,y)\)</span> has position vector <span class="math display">\[
+{\mathbf{r}} = [x,y] = x {\mathbf{e}}_x + y {\mathbf{e}}_y.
+\]</span> We reserve this square bracket notation for Cartesians, because it doesn’t work in curvilinear co-ordinates.</p>
+<p>At a point with co-ordinates <span class="math inline">\((\rho,\phi)\)</span> in plane polars, the position vector is <span class="math display">\[
+{\mathbf{r}} = [x,y] = [\rho \cos \phi,\, \rho\sin\phi] = \rho {\mathbf{e}}_\rho.
+\]</span> Where does <span class="math inline">\(\phi\)</span> appear in this expression? The answer is that it’s hidden inside the <span class="math inline">\({\mathbf{e}}_\rho\)</span>. You have to know the co-ordinates to understand this position vector.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I think this is the most confusing thing in this module. If you understand this everything else will be easier.</p>
+</div>
+</div>
+</section>
+<section id="orthogonal-co-ordinate-systems" class="level2">
+<h2 class="anchored" data-anchor-id="orthogonal-co-ordinate-systems">Orthogonal co-ordinate systems</h2>
+<p>A system is called <em>orthogonal</em> if at any point in space, the basis vectors are orthogonal.</p>
+<p>This seems counterintuitive, since we already said that the basis vectors rotate, but it’s easy to verify that plane polars are orthogonal - we just need to check the dot product: <span class="math display">\[
+{\mathbf{e}}_\rho \cdot {\mathbf{e}}_\phi = [\cos \phi,\,\sin\phi] \cdot [-\sin\phi,\,\cos\phi] = -\cos\phi\sin\phi + \sin\phi\cos\phi = 0.
 \]</span></p>
 </section>
-<section id="direct-differentiation" class="level3">
-<h3 class="anchored" data-anchor-id="direct-differentiation">Direct differentiation</h3>
-<p>We have <span class="math inline">\(f(x,y,z) = x^2 + y^2 + z^2\)</span>, so <span class="math display">\[
-{\mathbf{n}} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right] = [2x,2y,2z].
-\]</span> and at our point <span class="math inline">\([x,y,z]=\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]\)</span> we get <span class="math display">\[{\mathbf{n}} = \left[\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}}\right].\]</span></p>
-<p>For a unit vector, we need to divide by the magnitude of this (which is <span class="math inline">\(2\)</span>), so the final answer is <span class="math display">\[\hat{{\mathbf{n}}} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These two answers are different! They are pointing in opposite directions. One is the <em>inward-facing normal</em> and the other is the <em>outward facing normal</em>. Choosing the right one will become important later on.</p>
-</div>
-</div>
+<section id="cylindrical-polars" class="level1">
+<h1>Cylindrical Polars</h1>
+<p>Imagine plane polar co-ordinates, but now we allow height with the usual <span class="math inline">\(z\)</span> variable. Notice that <span class="math inline">\(\rho\)</span> is now the distance from the <span class="math inline">\(z\)</span>-axis, not from the origin. <img src="figures/vec_alg_fig_4.png" class="img-fluid"></p>
+<p>The definition is <span class="math display">\[
+[x,y,z] = [\rho\cos\phi,\,\rho\sin\phi,\,z]
+\]</span> with <span class="math inline">\(\rho&gt;0\)</span>, <span class="math inline">\(0\leq\phi&lt;2\pi\)</span>, <span class="math inline">\(z\in\mathbb{R}\)</span>.</p>
+<p>You can derive the following: <span class="math display">\[
+\begin{aligned}
+{\mathbf{e}}_\rho &amp;= [\cos\phi,\,\sin\phi,\,0],\\
+{\mathbf{e}}_\phi &amp;= [-\sin\phi,\,\cos\phi,\,0],\\
+{\mathbf{e}}_z &amp;= [0,0,1],
+\end{aligned}
+\]</span> <span class="math display">\[
+h_\rho = 1,\,h_\phi=\rho,\,h_z=1.
+\]</span></p>
+<p>The general position vector is <span class="math display">\[
+{\mathbf{r}} = \rho {\mathbf{e}}_\rho + z {\mathbf{e}}_z.
+\]</span></p>
 </section>
-</section>
-</section>
-<section id="tangent-planes" class="level1">
-<h1>Tangent planes</h1>
-<p>We said that there are infinitely many different tangent vectors to a surface at a given point. In fact, these tangent vectors all lie on a plane, and we can describe that plane (which is itself a surface) using the formula from MA12001: <span class="math display">\[
-({\mathbf{r}}-{\mathbf{c}})\cdot{\mathbf{n}} = 0
-\]</span> Here <span class="math inline">\({\mathbf{r}}\)</span> is any generic point on the plane, <span class="math inline">\({\mathbf{c}}\)</span> is one specific point and <span class="math inline">\({\mathbf{n}}\)</span> is the normal to the plane.</p>
-<p>So we should take <span class="math inline">\({\mathbf{c}}\)</span> to be the point on the original surface and <span class="math inline">\({\mathbf{n}}\)</span> to eb the normal there.</p>
-<section id="example-tangent-plane-to-the-sphere" class="level2">
-<h2 class="anchored" data-anchor-id="example-tangent-plane-to-the-sphere">Example: tangent plane to the sphere</h2>
-<p>Find the tangent plane to the sphere <span class="math display">\[
-x^2 + y^2 + z^2 = 1,
-\]</span> at the point <span class="math inline">\([x,y,z] = [1,0,0]\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The normal is <span class="math display">\[{\mathbf{n}} = [2x,2y,2z] = [2,0,0],\]</span> so substituting this and the point into the plane equation we get <span class="math display">\[
-([x,y,z] - [1,0,0]])\cdot[2,0,0] = 0
-\]</span> which simplifies to <span class="math display">\[
-2x-2 = 0
-\]</span> or simply <span class="math inline">\(x=1\)</span>. Sketch this: it makes sense.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It’s easy to get confused between generic points on the surface and the tangent plane when you’re doing this sort of problem. Go slowly and make sure your notation is clear.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="surface-area" class="level1">
-<h1>Surface area</h1>
-<p>We’ve seen how to calculate the length of curves as an integral, so the obvious extension is to calculate the surface area of surfaces as an integral. We’ll do this in unit 3 of the module.</p>
+<section id="spherical-polars" class="level1">
+<h1>Spherical Polars</h1>
+<p>This one’s a bit more complicate. We use the same <span class="math inline">\(\phi\)</span> for the angle around from the <span class="math inline">\(x\)</span>-axis in the <span class="math inline">\(x-y\)</span> plane<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and now we introduce <span class="math inline">\(\theta\)</span> as the angle down from the <span class="math inline">\(z\)</span>-axis<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Also, we use <span class="math inline">\(r\)</span> as the distance from the origin: <img src="figures/vec_alg_fig_6.png" class="img-fluid"></p>
+<p>The definition is <span class="math display">\[
+[x,y,z] = [r\cos\phi\sin\theta,\,r\sin\phi\sin\theta,\,r\cos\theta]
+\]</span> with <span class="math inline">\(r&gt;0\)</span>, <span class="math inline">\(0\leq\phi&lt;2\pi\)</span>, <span class="math inline">\(0\leq \theta \leq \pi\)</span>.</p>
+<p>You can derive the following: <span class="math display">\[
+\begin{aligned}
+{\mathbf{e}}_r &amp;= [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta],\\
+{\mathbf{e}}_\phi &amp;= [-\sin\phi,\,\cos\phi,\,0],\\
+{\mathbf{e}}_\theta &amp;= [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta],
+\end{aligned}
+\]</span> <span class="math display">\[
+h_r = 1,\,h_\phi=r,\,h_\theta=r\sin\theta.
+\]</span></p>
+<p>The general position vector is <span class="math display">\[
+{\mathbf{r}} = r{\mathbf{e}}_r.
+\]</span></p>
 
 
 </section>
@@ -539,8 +404,10 @@ Note
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Curves have dimension 1. But a curve in 2D has <em>co-dimension</em> 1 and a curve in 3D has co-dimension 2, whereas a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset. The co-dimension is the number of equations you need to describe a subset.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>In the next unit, we’ll write this as <span class="math inline">\({\mathbf{n}} = \nabla f\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>We could do it the other way round but that’s usually much messier.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You might be more used to using <span class="math inline">\((r,\theta)\)</span> for 2D polars but we’ll save these for spherical co-ordinates.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We call this the <em>azimuthal</em> angle.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>We call this the <em>polar</em> angle.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

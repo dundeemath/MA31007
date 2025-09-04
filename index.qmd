@@ -12,10 +12,12 @@ I'll be updating these notes weekly as we go through, and at the end of the seme
 It's very likely that there are mistakes in these notes. If you find one, please let me know ASAP at <mailto:jparker002@dundee.ac.uk>, no matter how trivial you think the mistake is.
 
 ## How to use these notes
-These notes are designed to be complementary to the seminars. 
-These notes contain the key definitions and some examples, but I will show more and different examples in class.
-For best results, I suggest briefly reading over these notes the night before each class, and then revisiting them if necessary when
+These notes are designed to be complementary to the seminars. They're designed to be easy to read with minimal extra information. For context and motivation, you'll need to come to class.
+These notes contain the key definitions and some brief examples, but I will show more and different examples in class.
+For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when
 you come to the problem sheets and homeworks.
 
+As usual, I'll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.
+
 ## What is vector calculus?
-Vector calculus is basically the mathematics of shapes in three dimensions. 
+Vector calculus is basically the mathematics of shapes in three dimensions. This will combine the "algebra" and "calculus" that you've seen in previous modules.
