@@ -36,7 +36,7 @@
     "href": "index.html#how-to-use-these-notes",
     "title": "MA31007 Vector Calculus",
     "section": "How to use these notes",
-    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. These notes contain the key definitions and some examples, but I will show more and different examples in class. For best results, I suggest briefly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.\nAs usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.",
+    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. They’re designed to be easy to read with minimal extra information. For context and motivation, you’ll need to come to class. These notes contain the key definitions and some brief examples, but I will show more and different examples in class. For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.\nAs usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.",
     "crumbs": [
       "Home"
     ]
@@ -197,7 +197,7 @@
     "href": "coordinates.html#defining-co-ordinate-systems",
     "title": "Co-ordinate systems",
     "section": "Defining co-ordinate systems",
-    "text": "Defining co-ordinate systems\nTypically we define co-ordinate systems by expressing the Cartesian co-ordinates as a function of some other variables.1\nFor example, in plane polars, \\[\nx = \\rho \\cos \\phi,\\qquad y=\\rho\\sin\\phi.\n\\] The co-ordinates for this system, \\((\\rho,\\phi)\\)2 are, respectively, the distance from the origin and the angle anti-clockwise from the \\(x\\) axis.\nWe also need to know the range of values these co-ordinates can take, let’s use \\(0\\leq \\phi &lt; 2\\pi\\) and \\(\\rho\\geq 0\\).\nAlso notice that the co-ordiantes break down at the origin, if \\(\\rho=0\\) then the value of \\(\\phi\\) doesn’t matter. That’s quite common with these systems.",
+    "text": "Defining co-ordinate systems\nTypically we define co-ordinate systems by expressing the Cartesian co-ordinates as a function of some other variables.1\nFor example, in plane polars, \\[\nx = \\rho \\cos \\phi,\\qquad y=\\rho\\sin\\phi.\n\\] The co-ordinates for this system, \\((\\rho,\\phi)\\)2 are, respectively, the distance from the origin and the angle anti-clockwise from the \\(x\\) axis.\nWe also need to know the range of values these co-ordinates can take, let’s use \\(0\\leq \\phi &lt; 2\\pi\\) and \\(\\rho\\geq 0\\).\nAlso notice that the co-ordinates break down at the origin, if \\(\\rho=0\\) then the value of \\(\\phi\\) doesn’t matter. That’s quite common with these systems.",
     "crumbs": [
       "Unit 1: Basics (Weeks 1-2)",
       "Coordinate systems"
@@ -245,6 +245,61 @@
     "crumbs": [
       "Unit 1: Basics (Weeks 1-2)",
       "Coordinate systems"
+    ]
+  },
+  {
+    "objectID": "scalarfields.html",
+    "href": "scalarfields.html",
+    "title": "Derivatives of scalar fields",
+    "section": "",
+    "text": "In this part of the module, we study how to differentiate fields. A field is another word for a function defined over space. This week, scalar fields: assigning to each point in space a scalar value. Think about a temperature field.\nFor example, the following could be a vector field \\[\nf({\\mathbf{r}}) = f(x,y,z) = x^2y +z.\n\\] If you know a point in space (given by co-ordinates or a position vector) then you know the value of \\(f\\) at that point.\nThere are different types of differentiation in higher dimensions, and they are generalisations of different interpretations of the normal derivative.",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Derivatives of scalar fields"
+    ]
+  },
+  {
+    "objectID": "scalarfields.html#example",
+    "href": "scalarfields.html#example",
+    "title": "Derivatives of scalar fields",
+    "section": "Example",
+    "text": "Example\nFind the gradient of the scalar field \\(f = x^2y + z\\) at the point \\((x,y,z) = (5,2,1)\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\[\\nabla f = [2xy,\\,x^2,\\,1]\\] so at \\((5,2,1)\\) we have \\[\\nabla f = [20,25,1].\\]",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Derivatives of scalar fields"
+    ]
+  },
+  {
+    "objectID": "scalarfields.html#footnotes",
+    "href": "scalarfields.html#footnotes",
+    "title": "Derivatives of scalar fields",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nWe already saw this for calculating normals to surfaces.↩︎\nStrictly speaking the symbol \\(\\nabla\\) is called “nabla” or “del”, but we often call it “grad” in other settings.↩︎\nIn fact, we could see straight away that \\[\n\\nabla f \\neq {\\frac{\\partial f}{\\partial r}}{\\mathbf{e}}_r + {\\frac{\\partial f}{\\partial \\phi}}{\\mathbf{e}}_\\phi + {\\frac{\\partial f}{\\partial \\theta}}{\\mathbf{e}}_\\theta\n\\] because of the dimensions of the quantities. The dimensions of a derivative should be the dimensions of \\(f\\) divided by length, which is what the first expression has. But \\(\\theta\\) and \\(\\phi\\) are dimensionless, so we need to divide by a length to keep these ones consistent.↩︎",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Derivatives of scalar fields"
+    ]
+  },
+  {
+    "objectID": "scalarfields.html#example-1",
+    "href": "scalarfields.html#example-1",
+    "title": "Derivatives of scalar fields",
+    "section": "Example",
+    "text": "Example\nFind the directional derivative of the scalar field \\(f = x^2y + z\\) at the point \\((x,y,z) = (5,2,1)\\), in the direction \\({\\mathbf{a}} = [1,1,2]\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe saw above that \\[\\nabla f = [20,25,1],\\] so \\[{\\mathbf{a}} \\cdot\\nabla f = [1,1,2]\\cdot[20,25,1] = 47.\\]",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Derivatives of scalar fields"
+    ]
+  },
+  {
+    "objectID": "scalarfields.html#example-2",
+    "href": "scalarfields.html#example-2",
+    "title": "Derivatives of scalar fields",
+    "section": "Example",
+    "text": "Example\nConsider the scalar field defined in cylindrical co-ordinates as \\[\nf(\\rho,\\phi,z) = \\rho^2 z^3 \\sin \\phi.\n\\] Find \\(\\nabla f\\) at the point \\((\\rho,\\phi,z)=(2,\\pi,1)\\) and give your answer as a Cartesian vector.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThere are two different ways of doing this. We could convert it all to Cartesians (including the point). Instead let’s keep it in cylindrical co-ordinates:\n\\[\n\\begin{aligned}\n\\nabla f(\\rho,\\phi,z) &= {\\frac{\\partial f}{\\partial \\rho}} {\\mathbf{e}}_\\rho + \\frac{1}{\\rho}{\\frac{\\partial f}{\\partial \\phi}}{\\mathbf{e}}_\\phi + {\\frac{\\partial f}{\\partial z}}{\\mathbf{e}}_z \\\\\n&= 2\\rho z^3 \\sin\\phi {\\mathbf{e}}_\\rho + \\rho z^3 \\cos\\phi {\\mathbf{e}}_\\phi + 3\\rho^2 z^2 \\sin\\phi\\\\\n&= 2\\rho z^3 \\sin\\phi [\\cos\\phi,\\sin\\phi,0] + \\rho z^3 \\cos\\phi [-\\sin\\phi,\\cos\\phi,0] + 3\\rho^2 z^2 \\sin\\phi [0,0,1]\\\\\n&= [\\rho z^3 \\sin\\phi\\cos\\phi,\\, \\rho z^3(2\\sin^2\\phi+\\cos^2\\phi),\\, 3\\rho^2 z^2 \\sin\\phi]\n\\end{aligned}\n\\]\nSo then at \\((\\rho,\\phi,z)=(2,\\pi,1)\\) we have \\[\n\\nabla f = [0, 2, 0]\n\\] because \\(\\cos\\phi=-1\\) and \\(\\sin\\phi=0\\).",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Derivatives of scalar fields"
     ]
   }
 ]

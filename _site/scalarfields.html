@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Co-ordinate systems – MA31007 Vector Calculus</title>
+<title>Derivatives of scalar fields – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./coordinates.html">Coordinate systems</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scalarfields.html">Unit 2: Derivatives (Weeks 3-5)</a></li><li class="breadcrumb-item"><a href="./scalarfields.html">Derivatives of scalar fields</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,7 +162,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./coordinates.html" class="sidebar-item-text sidebar-link active">
+  <a href="./coordinates.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coordinate systems</span></a>
   </div>
 </li>
@@ -179,7 +179,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./scalarfields.html" class="sidebar-item-text sidebar-link">
+  <a href="./scalarfields.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Derivatives of scalar fields</span></a>
   </div>
 </li>
@@ -247,21 +247,27 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#defining-co-ordinate-systems" id="toc-defining-co-ordinate-systems" class="nav-link active" data-scroll-target="#defining-co-ordinate-systems">Defining co-ordinate systems</a></li>
-  <li><a href="#basis-vectors-scale-factors" id="toc-basis-vectors-scale-factors" class="nav-link" data-scroll-target="#basis-vectors-scale-factors">Basis vectors &amp; scale factors</a></li>
-  <li><a href="#notating-vectors" id="toc-notating-vectors" class="nav-link" data-scroll-target="#notating-vectors">Notating vectors</a></li>
-  <li><a href="#orthogonal-co-ordinate-systems" id="toc-orthogonal-co-ordinate-systems" class="nav-link" data-scroll-target="#orthogonal-co-ordinate-systems">Orthogonal co-ordinate systems</a></li>
-  <li><a href="#cylindrical-polars" id="toc-cylindrical-polars" class="nav-link" data-scroll-target="#cylindrical-polars">Cylindrical Polars</a></li>
-  <li><a href="#spherical-polars" id="toc-spherical-polars" class="nav-link" data-scroll-target="#spherical-polars">Spherical Polars</a></li>
+  <li><a href="#gradient" id="toc-gradient" class="nav-link active" data-scroll-target="#gradient">Gradient</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#directional-derivative" id="toc-directional-derivative" class="nav-link" data-scroll-target="#directional-derivative">Directional derivative</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
+  <li><a href="#derivatives-in-curvilinear-co-ordinates" id="toc-derivatives-in-curvilinear-co-ordinates" class="nav-link" data-scroll-target="#derivatives-in-curvilinear-co-ordinates">Derivatives in curvilinear co-ordinates</a>
+  <ul class="collapse">
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./coordinates.html">Coordinate systems</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scalarfields.html">Unit 2: Derivatives (Weeks 3-5)</a></li><li class="breadcrumb-item"><a href="./scalarfields.html">Derivatives of scalar fields</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Co-ordinate systems</h1>
+<h1 class="title">Derivatives of scalar fields</h1>
 </div>
 
 
@@ -281,44 +287,17 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>One of the key aims of this module is to learn about <em>curvilinear co-ordinates</em>. These are co-ordinate systems where, unlike the usual Cartesian co-ordinates, the basis vectors change direction at different points in space.</p>
-<p>That may sound confusing, but you should all already have seen one type of <em>curvilinear co-ordinates</em>, (plane) polar co-ordinates. In this module we’ll see two different ways to generalise 2D polar co-ordinates to 3D space, but first we’ll talk through some basic ideas about co-ordinate systems using plane polars as</p>
-<section id="defining-co-ordinate-systems" class="level2">
-<h2 class="anchored" data-anchor-id="defining-co-ordinate-systems">Defining co-ordinate systems</h2>
-<p>Typically we define co-ordinate systems by expressing the Cartesian co-ordinates as a function of some other variables.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>For example, in plane polars, <span class="math display">\[
-x = \rho \cos \phi,\qquad y=\rho\sin\phi.
-\]</span> The co-ordinates for this system, <span class="math inline">\((\rho,\phi)\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> are, respectively, the distance from the origin and the angle anti-clockwise from the <span class="math inline">\(x\)</span> axis.</p>
-<p>We also need to know the range of values these co-ordinates can take, let’s use <span class="math inline">\(0\leq \phi &lt; 2\pi\)</span> and <span class="math inline">\(\rho\geq 0\)</span>.</p>
-<p>Also notice that the co-ordinates break down at the origin, if <span class="math inline">\(\rho=0\)</span> then the value of <span class="math inline">\(\phi\)</span> doesn’t matter. That’s quite common with these systems.</p>
-</section>
-<section id="basis-vectors-scale-factors" class="level2">
-<h2 class="anchored" data-anchor-id="basis-vectors-scale-factors">Basis vectors &amp; scale factors</h2>
-<p>The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of <span class="math inline">\({\mathbf{e}}_x\)</span> increases the value of <span class="math inline">\(x\)</span> but keeps <span class="math inline">\(y\)</span> constant. It’s usually assumed to be a unit vector.</p>
-<p>In practice, the definition is to differentiate <span class="math inline">\({\mathbf{r}}\)</span> with respect to the variable and then normalise: <span class="math display">\[
-\begin{aligned}
-{\mathbf{e}}_\rho &amp;= \frac{\partial {\mathbf{r}}}{\partial \rho}/\left|\frac{\partial {\mathbf{r}}}{\partial \rho}\right|
-\\ &amp;= \frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi]\right|
-\\ &amp;= [\cos\phi,\,\sin\phi] / \sqrt{\cos^2 \phi + \sin^2 \phi}
-\\ &amp;= [\cos\phi,\,\sin\phi]
-\end{aligned}
-\]</span> and <span class="math display">\[
-\begin{aligned}
-{\mathbf{e}}_\phi &amp;= \frac{\partial {\mathbf{r}}}{\partial \phi}/\left|\frac{\partial {\mathbf{r}}}{\partial \phi}\right|
-\\ &amp;= \frac{\partial}{\partial \phi} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \phi} [\rho \cos \phi,\,\rho\sin\phi]\right|
-\\ &amp;= [-\rho\sin\phi,\,\rho\cos\phi] / \sqrt{\rho^2\cos^2 \phi + \rho^2\sin^2 \phi}
-\\ &amp;= [-\sin\phi,\,\cos\phi].
-\end{aligned}
-\]</span></p>
-<p>Note that this also works for Cartestian co-ordinates <span class="math display">\[
-\begin{aligned}
-{\mathbf{e}}_x &amp;= \frac{\partial {\mathbf{r}}}{\partial x}/\left|\frac{\partial {\mathbf{r}}}{\partial x}\right|
-\\ &amp;= \frac{\partial}{\partial x} [x,\,y] / \left|\frac{\partial}{\partial x} [x,\,y]\right|
-\\ &amp;= [1,0] / \sqrt{1^2 + 0^2}
-\\ &amp;= [1,0].
-\end{aligned}
-\]</span></p>
-<p>We also define the scale factors <span class="math inline">\(h_\rho\)</span> and <span class="math inline">\(h_\phi\)</span> as the magnitude of the derivatives <span class="math display">\[h_\rho = \left|\frac{\partial {\mathbf{r}}}{\partial \phi}\right| = 1,\]</span> <span class="math display">\[h_\phi = \left|\frac{\partial {\mathbf{r}}}{\partial \phi}\right| = \rho.\]</span></p>
+<p>In this part of the module, we study how to differentiate fields. A field is another word for a function defined over space. This week, <em>scalar fields</em>: assigning to each point in space a scalar value. Think about a temperature field.</p>
+<p>For example, the following could be a vector field <span class="math display">\[
+f({\mathbf{r}}) = f(x,y,z) = x^2y +z.
+\]</span> If you know a point in space (given by co-ordinates or a position vector) then you know the value of <span class="math inline">\(f\)</span> at that point.</p>
+<p>There are different types of differentiation in higher dimensions, and they are generalisations of different interpretations of the normal derivative.</p>
+<section id="gradient" class="level1">
+<h1>Gradient</h1>
+<p>In one dimension, for a function <span class="math inline">\(y=f(x)\)</span>, the derivative <span class="math inline">\(\frac{dy}{dx}\)</span> tells us the direction we have to move to increase the function (whether the derivative is positive or negative) and how fast the function is increasing in that direction (the magnitude of the derivative).</p>
+<p>With this interpretation, it seems obvious that the derivative of a scalar field in three dimensions should be a 3D vector, and this is the gradient<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[
+\nabla f = \left[{\frac{\partial f}{\partial x}},\,{\frac{\partial f}{\partial y}},\,{\frac{\partial f}{\partial z}}\right].
+\]</span> We read this as “grad f” or “the gradient of f”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The <em>direction</em> of this vector field tells you the direction in which the function increases fastest, and the <em>magnitude</em> tells you the rate at which it’s increasing.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -329,18 +308,36 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Scale factors will be useful later in the module. For now just get used to the formulas.</p>
+<p>It’s important to understand the interpretation of the different derivatives as well as the definitions.</p>
+</div>
+</div>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Find the gradient of the scalar field <span class="math inline">\(f = x^2y + z\)</span> at the point <span class="math inline">\((x,y,z) = (5,2,1)\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\nabla f = [2xy,\,x^2,\,1]\]</span> so at <span class="math inline">\((5,2,1)\)</span> we have <span class="math display">\[\nabla f = [20,25,1].\]</span></p>
+</div>
 </div>
 </div>
 </section>
-<section id="notating-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="notating-vectors">Notating vectors</h2>
-<p>You’re used to the idea that co-ordinates and basis vectors are kind of interchangable. In Cartesians, the point <span class="math inline">\((x,y)\)</span> has position vector <span class="math display">\[
-{\mathbf{r}} = [x,y] = x {\mathbf{e}}_x + y {\mathbf{e}}_y.
-\]</span> We reserve this square bracket notation for Cartesians, because it doesn’t work in curvilinear co-ordinates.</p>
-<p>At a point with co-ordinates <span class="math inline">\((\rho,\phi)\)</span> in plane polars, the position vector is <span class="math display">\[
-{\mathbf{r}} = [x,y] = [\rho \cos \phi,\, \rho\sin\phi] = \rho {\mathbf{e}}_\rho.
-\]</span> Where does <span class="math inline">\(\phi\)</span> appear in this expression? The answer is that it’s hidden inside the <span class="math inline">\({\mathbf{e}}_\rho\)</span>. You have to know the co-ordinates to understand this position vector.</p>
+</section>
+<section id="directional-derivative" class="level1">
+<h1>Directional derivative</h1>
+<p>A different interpretation of the derivative <span class="math inline">\(\frac{dy}{dx}\)</span> is the <em>rate of change</em> of <span class="math inline">\(y\)</span> as we increase <span class="math inline">\(x\)</span>. In three dimensions, it’s not clear what variable we should increase to find the derivative. Of course you can do each variable separately and these are the partial derivatives <span class="math inline">\({\frac{\partial f}{\partial x}}\)</span>, <span class="math inline">\({\frac{\partial f}{\partial y}}\)</span> and <span class="math inline">\({\frac{\partial f}{\partial z}}\)</span>, but what about the rate of change in a general direction.</p>
+<p>This is where the <em>directional derivative</em> comes in. It’s defined as <span class="math display">\[
+{\mathbf{a}} \cdot \nabla f = \left[a_1 {\frac{\partial f}{\partial x}},a_2{\frac{\partial f}{\partial y}},a_3{\frac{\partial f}{\partial z}}\right]
+\]</span> and we say “a dot grad f”, or “the derivative of f in the direction a”.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -351,66 +348,157 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I think this is the most confusing thing in this module. If you understand this everything else will be easier.</p>
+<p>This is just the usual dot product with the gradient. Why does it get a special name? (1) It comes up a lot. (2) In curvilinear co-ordinates it <em>isn’t</em> just the simple dot product.</p>
 </div>
 </div>
+<p>The interpretation is to imagine travelling at a speed <span class="math inline">\(v{a}\)</span> and checking how quickly the function <span class="math inline">\(f\)</span> is changing at our current position.</p>
+<p>The “direction” <span class="math inline">\({\mathbf{a}}\)</span> doesn’t need to be a fixed vector, it could also be a vector field. This comes up a lot in physics, like in the Navier-Sokes equations and Maxwell’s equations. We’ll see this a bit more next week.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some people define the directional derivative only for unit vectors, including in the old version of the notes. We’ll assume that <span class="math inline">\({\mathbf{a}}\)</span> can be any vector or vector field.</p>
+</div>
+</div>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>Find the directional derivative of the scalar field <span class="math inline">\(f = x^2y + z\)</span> at the point <span class="math inline">\((x,y,z) = (5,2,1)\)</span>, in the direction <span class="math inline">\({\mathbf{a}} = [1,1,2]\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We saw above that <span class="math display">\[\nabla f = [20,25,1],\]</span> so <span class="math display">\[{\mathbf{a}} \cdot\nabla f = [1,1,2]\cdot[20,25,1] = 47.\]</span></p>
+</div>
+</div>
+</div>
 </section>
-<section id="orthogonal-co-ordinate-systems" class="level2">
-<h2 class="anchored" data-anchor-id="orthogonal-co-ordinate-systems">Orthogonal co-ordinate systems</h2>
-<p>A system is called <em>orthogonal</em> if at any point in space, the basis vectors are orthogonal.</p>
-<p>This seems counterintuitive, since we already said that the basis vectors rotate, but it’s easy to verify that plane polars are orthogonal - we just need to check the dot product: <span class="math display">\[
-{\mathbf{e}}_\rho \cdot {\mathbf{e}}_\phi = [\cos \phi,\,\sin\phi] \cdot [-\sin\phi,\,\cos\phi] = -\cos\phi\sin\phi + \sin\phi\cos\phi = 0.
+</section>
+<section id="derivatives-in-curvilinear-co-ordinates" class="level1">
+<h1>Derivatives in curvilinear co-ordinates</h1>
+<p>We defined the gradient as <span class="math display">\[
+\nabla f = \left[{\frac{\partial f}{\partial x}},\,{\frac{\partial f}{\partial y}},\,{\frac{\partial f}{\partial z}}\right] = {\frac{\partial f}{\partial x}}{\mathbf{e}}_x + {\frac{\partial f}{\partial y}}{\mathbf{e}}_y + {\frac{\partial f}{\partial z}}{\mathbf{e}}_z.
+\]</span> What if we’re using, say, spherical polar co-ordinates? We would hope that <span class="math display">\[
+\nabla f = {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta.
 \]</span></p>
-</section>
-<section id="cylindrical-polars" class="level1">
-<h1>Cylindrical Polars</h1>
-<p>Imagine plane polar co-ordinates, but now we allow height with the usual <span class="math inline">\(z\)</span> variable. Notice that <span class="math inline">\(\rho\)</span> is now the distance from the <span class="math inline">\(z\)</span>-axis, not from the origin. <img src="figures/vec_alg_fig_4.png" class="img-fluid"></p>
-<p>The definition is <span class="math display">\[
-[x,y,z] = [\rho\cos\phi,\,\rho\sin\phi,\,z]
-\]</span> with <span class="math inline">\(\rho&gt;0\)</span>, <span class="math inline">\(0\leq\phi&lt;2\pi\)</span>, <span class="math inline">\(z\in\mathbb{R}\)</span>.</p>
-<p>You can derive the following: <span class="math display">\[
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is wrong!</p>
+</div>
+</div>
+<p>Let’s try. A very simple vector field is <span class="math inline">\(f(x,y,z) = x\)</span>, so <span class="math display">\[
+\nabla f = [1,0,0] = {\mathbf{e}}_x.
+\]</span> Remembering our definition of spherical co-ordinates, this field can be written as <span class="math inline">\(f(r,\phi,\theta) = r\cos\phi\sin\theta\)</span>. Then <span class="math display">\[
 \begin{aligned}
-{\mathbf{e}}_\rho &amp;= [\cos\phi,\,\sin\phi,\,0],\\
-{\mathbf{e}}_\phi &amp;= [-\sin\phi,\,\cos\phi,\,0],\\
-{\mathbf{e}}_z &amp;= [0,0,1],
+{\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta &amp;= \cos\phi\sin\theta {\mathbf{e}}_r - r\sin\phi\sin\theta {\mathbf{e}}_\phi + r\cos\phi\cos\theta {\mathbf{e}}_\theta \\
+&amp;= \cos\phi\sin\theta [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta] - r\sin\phi\sin\theta[-\sin\phi,\,\cos\phi,\,0] + r\cos\phi\cos\theta [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta]\\
+&amp;= [\cos^2\phi\sin^2\theta -r \sin^2\phi\sin\theta+r\cos^2\phi\cos^2\theta,\,\dots]
 \end{aligned}
-\]</span> <span class="math display">\[
-h_\rho = 1,\,h_\phi=\rho,\,h_z=1.
+\]</span> This horrible expression looks like it could simplify to <span class="math inline">\([1,0,0]\)</span> but unfortunately it doesn’t - there are too many <span class="math inline">\(r\)</span>s. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>In fact, the correct formula is <span class="math display">\[
+\nabla f(r,\phi,\theta) = {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + \frac{1}{r}{\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + \frac{1}{r\sin\theta}{\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta.
+\]</span> Hopefully the <span class="math inline">\(r\)</span> and <span class="math inline">\(r\sin\theta\)</span> ring a bell - these are the scale factors <span class="math inline">\(h_\phi\)</span> and <span class="math inline">\(h_\theta\)</span>. The general rule, for some co-ordinate system <span class="math inline">\((u,v,w)\)</span>, is <span class="math display">\[
+\nabla f(u,v,w) = \frac{1}{h_u}{\frac{\partial f}{\partial u}}{\mathbf{e}}_u + \frac{1}{h_v}{\frac{\partial f}{\partial v}}{\mathbf{e}}_v + \frac{1}{h_w}{\frac{\partial f}{\partial w}}{\mathbf{e}}_w.
 \]</span></p>
-<p>The general position vector is <span class="math display">\[
-{\mathbf{r}} = \rho {\mathbf{e}}_\rho + z {\mathbf{e}}_z.
+<p><strong>Think:</strong> What is grad in cylindrical co-ordinates?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Recalling the scale factor <span class="math inline">\(h_\phi=\rho\)</span>, we immediately get <span class="math display">\[
+\nabla f(\rho,\phi,z) = {\frac{\partial f}{\partial \rho}} {\mathbf{e}}_\rho + \frac{1}{\rho}{\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial z}}{\mathbf{e}}_z.
 \]</span></p>
-</section>
-<section id="spherical-polars" class="level1">
-<h1>Spherical Polars</h1>
-<p>This one’s a bit more complicate. We use the same <span class="math inline">\(\phi\)</span> for the angle around from the <span class="math inline">\(x\)</span>-axis in the <span class="math inline">\(x-y\)</span> plane<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and now we introduce <span class="math inline">\(\theta\)</span> as the angle down from the <span class="math inline">\(z\)</span>-axis<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Also, we use <span class="math inline">\(r\)</span> as the distance from the origin: <img src="figures/vec_alg_fig_6.png" class="img-fluid"></p>
-<p>The definition is <span class="math display">\[
-[x,y,z] = [r\cos\phi\sin\theta,\,r\sin\phi\sin\theta,\,r\cos\theta]
-\]</span> with <span class="math inline">\(r&gt;0\)</span>, <span class="math inline">\(0\leq\phi&lt;2\pi\)</span>, <span class="math inline">\(0\leq \theta \leq \pi\)</span>.</p>
-<p>You can derive the following: <span class="math display">\[
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The directional derivative also has a different definition in different co-ordinate systems, and it also it’s the simple thing you want it to be. We won’t spend time on it in this module. If you ever need it, it’s easy to find the formula online.</p>
+</div>
+</div>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<p>Consider the scalar field defined in cylindrical co-ordinates as <span class="math display">\[
+f(\rho,\phi,z) = \rho^2 z^3 \sin \phi.
+\]</span> Find <span class="math inline">\(\nabla f\)</span> at the point <span class="math inline">\((\rho,\phi,z)=(2,\pi,1)\)</span> and give your answer as a Cartesian vector.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are two different ways of doing this. We could convert it all to Cartesians (including the point). Instead let’s keep it in cylindrical co-ordinates:</p>
+<p><span class="math display">\[
 \begin{aligned}
-{\mathbf{e}}_r &amp;= [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta],\\
-{\mathbf{e}}_\phi &amp;= [-\sin\phi,\,\cos\phi,\,0],\\
-{\mathbf{e}}_\theta &amp;= [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta],
+\nabla f(\rho,\phi,z) &amp;= {\frac{\partial f}{\partial \rho}} {\mathbf{e}}_\rho + \frac{1}{\rho}{\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial z}}{\mathbf{e}}_z \\
+&amp;= 2\rho z^3 \sin\phi {\mathbf{e}}_\rho + \rho z^3 \cos\phi {\mathbf{e}}_\phi + 3\rho^2 z^2 \sin\phi\\
+&amp;= 2\rho z^3 \sin\phi [\cos\phi,\sin\phi,0] + \rho z^3 \cos\phi [-\sin\phi,\cos\phi,0] + 3\rho^2 z^2 \sin\phi [0,0,1]\\
+&amp;= [\rho z^3 \sin\phi\cos\phi,\, \rho z^3(2\sin^2\phi+\cos^2\phi),\, 3\rho^2 z^2 \sin\phi]
 \end{aligned}
-\]</span> <span class="math display">\[
-h_r = 1,\,h_\phi=r,\,h_\theta=r\sin\theta.
 \]</span></p>
-<p>The general position vector is <span class="math display">\[
-{\mathbf{r}} = r{\mathbf{e}}_r.
-\]</span></p>
+<p>So then at <span class="math inline">\((\rho,\phi,z)=(2,\pi,1)\)</span> we have <span class="math display">\[
+\nabla f = [0, 2, 0]
+\]</span> because <span class="math inline">\(\cos\phi=-1\)</span> and <span class="math inline">\(\sin\phi=0\)</span>.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>We could do it the other way round but that’s usually much messier.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>You might be more used to using <span class="math inline">\((r,\theta)\)</span> for 2D polars but we’ll save these for spherical co-ordinates.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>We call this the <em>azimuthal</em> angle.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>We call this the <em>polar</em> angle.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>We already saw this for calculating normals to surfaces.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Strictly speaking the symbol <span class="math inline">\(\nabla\)</span> is called “nabla” or “del”, but we often call it “grad” in other settings.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>In fact, we could see straight away that <span class="math display">\[
+\nabla f \neq {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta
+\]</span> because of the dimensions of the quantities. The dimensions of a derivative should be the dimensions of <span class="math inline">\(f\)</span> divided by length, which is what the first expression has. But <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> are dimensionless, so we need to divide by a length to keep these ones consistent.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

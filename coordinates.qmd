@@ -22,7 +22,7 @@ The co-ordinates for this system, $(\rho,\phi)$^[You might be more used to using
 
 We also need to know the range of values these co-ordinates can take, let's use $0\leq \phi < 2\pi$ and $\rho\geq 0$.
 
-Also notice that the co-ordiantes break down at the origin, if $\rho=0$ then the value of $\phi$ doesn't matter. That's quite common with these systems.
+Also notice that the co-ordinates break down at the origin, if $\rho=0$ then the value of $\phi$ doesn't matter. That's quite common with these systems.
 
 ## Basis vectors & scale factors
 The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of $\v{e}_x$ increases the value of $x$ but keeps $y$ constant. It's usually assumed to be a unit vector.
