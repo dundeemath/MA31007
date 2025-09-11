@@ -22,11 +22,14 @@ website:
         - text: "Derivatives of scalar fields"
           href: scalarfields.qmd
         - text: "Derivatives of vector fields"
+          href: vectorfields.qmd
         - text: "Products & second derivatives"
       - section: "Unit 3: Integrals (Weeks 6-8)"
         contents:
         - text: "Line integrals"
+          href: lineintegrals.qmd
         - text: "Surface integrals"
+          href: surfaceintegrals.qmd
         - text: "Volume integrals"
       - section: "Unit 4: Theorems (Weeks 9-10)"
         contents:
@@ -39,4 +42,3 @@ format:
   html:
     theme: cosmo
     toc: true
-    

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA31007 Vector Calculus</title>
+<title>Derivatives of vector fields – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scalarfields.html">Unit 2: Derivatives (Weeks 3-5)</a></li><li class="breadcrumb-item"><a href="./vectorfields.html">Derivatives of vector fields</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -106,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -156,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vectorfields.html" class="sidebar-item-text sidebar-link">
+  <a href="./vectorfields.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Derivatives of vector fields</span></a>
   </div>
 </li>
@@ -227,20 +256,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#how-to-use-these-notes" id="toc-how-to-use-these-notes" class="nav-link" data-scroll-target="#how-to-use-these-notes">How to use these notes</a></li>
-  <li><a href="#what-is-vector-calculus" id="toc-what-is-vector-calculus" class="nav-link" data-scroll-target="#what-is-vector-calculus">What is vector calculus?</a></li>
-  </ul></li>
+  <li><a href="#the-divergence-of-a-vector-field" id="toc-the-divergence-of-a-vector-field" class="nav-link active" data-scroll-target="#the-divergence-of-a-vector-field">The divergence of a vector field</a></li>
+  <li><a href="#the-curl-of-a-vector-field" id="toc-the-curl-of-a-vector-field" class="nav-link" data-scroll-target="#the-curl-of-a-vector-field">The curl of a vector field</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scalarfields.html">Unit 2: Derivatives (Weeks 3-5)</a></li><li class="breadcrumb-item"><a href="./vectorfields.html">Derivatives of vector fields</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MA31007 Vector Calculus</h1>
+<h1 class="title">Derivatives of vector fields</h1>
 </div>
 
 
@@ -257,32 +283,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.</p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>These notes contain all the examinable material within the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For details of the organisation of the module this year, please see My Dundee.</p>
-<p>I’ll be updating these notes weekly as we go through, and at the end of the semester I’ll make the full set of these notes available as a PDF. If you’d like to read ahead, last year’s full notes are available on MyDundee – the content hasn’t changed at all.</p>
-<p>It’s very likely that there are mistakes in these notes. If you find one, please let me know ASAP at <a href="mailto:jparker002@dundee.ac.uk" class="uri">mailto:jparker002@dundee.ac.uk</a>, no matter how trivial you think the mistake is.</p>
-<section id="how-to-use-these-notes" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-these-notes">How to use these notes</h2>
-<p>These notes are designed to be complementary to the seminars. They’re designed to be easy to read with minimal extra information. For context and motivation, you’ll need to come to class. These notes contain the key definitions and some brief examples, but I will show more and different examples in class. For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.</p>
-<p>As usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.</p>
+<div class="hidden">
+
+</div>
+<p>Another thing that changes when moving from 1D to 3D is that we now have a choice of two types of functions, scalar fields or vector fields. Now we’ll think about vector fields, that is, assigning a magnitude and a direction to every point in space. Think about those wind maps on the weather forecast, or magnetic field lines around a magnet.</p>
+<p>To know a vector field, we need to know each of its components at each point in space. <span class="math display">\[
+{\mathbf{F}}(x,y,z) = F_1(x,y,z){\mathbf{e}}_x + F_2(x,y,z){\mathbf{e}}_y + F_3(x,y,z){\mathbf{e}}_z,
+\]</span> or equivalently in a different co-ordinate system.</p>
+<p>Firstly, given any vector field we can easily construct a scalar field by taking the magnitude at each point in space, <span class="math display">\[
+\left|{\mathbf{F}}(x,y,z)\right|=\sqrt{F_1(x,y,z)^2 + F_2(x,y,z)^2 + F_3(x,y,z)^2}
+\]</span> and then take scalar derivatives. More on that next week.</p>
+<p>We consider two different types.</p>
+<section id="the-divergence-of-a-vector-field" class="level1">
+<h1>The divergence of a vector field</h1>
+<p>This one takes a vector field and gives the answer as a scalar field, and the interpretation is “how much is the vector field pointing apart.” In Cartesian co-ordinates, the definition is <span class="math display">\[
+\nabla\cdot {\mathbf{F}} = {\frac{\partial F_1}{\partial x}} + {\frac{\partial F_2}{\partial y}} + {\frac{\partial F_3}{\partial z}}.
+\]</span></p>
+<p>TODO</p>
 </section>
-<section id="what-is-vector-calculus" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-vector-calculus">What is vector calculus?</h2>
-<p>Vector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules. First we’ll see differentiation in 3D, then integration in 3D, and then some analogues of the “fundamental theorem of calculus” which combine these two.</p>
+<section id="the-curl-of-a-vector-field" class="level1">
+<h1>The curl of a vector field</h1>
+<p>This one takes a vector field and gives another vector field, and the interpretation is “how much is the vector field rotating.” It’s a vector because the direction represents the <em>axis of rotation</em> and</p>
+<p>TODO</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Just like the cross product, the curl is only defined in three dimensions. Sometimes people talk about 2D curls, but they’re a bit different and much less important, so we’ll ignore this.</p>
+</div>
+</div>
 
 
 </section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Anything in the footnotes is also non-examinable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

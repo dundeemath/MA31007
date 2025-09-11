@@ -20,4 +20,4 @@ you come to the problem sheets and homeworks.
 As usual, I'll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.
 
 ## What is vector calculus?
-Vector calculus is basically the mathematics of shapes in three dimensions. This will combine the "algebra" and "calculus" that you've seen in previous modules.
+Vector calculus is basically the mathematics of shapes in three dimensions. This will combine the "algebra" and "calculus" that you've seen in previous modules. First we'll see differentiation in 3D, then integration in 3D, and then some analogues of the "fundamental theorem of calculus" which combine these two.

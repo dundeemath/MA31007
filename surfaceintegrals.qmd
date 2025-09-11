@@ -1,0 +1,170 @@
+---
+title: "Surface integrals"
+---
+
+::: {.hidden}
+ \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+:::
+
+
+# Preliminary: Multiple integrals
+You may not have seen integrals before which look like this:
+$$
+\int_a^b dx \int_c^d dy\, f(x,y).
+$$
+
+:::{.callout-note}
+Many people write these integrals as
+$\int_a^b \int_c^d f(x,y)\, dx\, dy,$
+or 
+$\int_a^b \int_c^d f(x,y)\, dy\, dx$.
+You may think that the elements $dx$ and $dy$ have to go on the right, but they don't. These notations don't make it clear which limits go with which integration, so I always write the elements on the left with the integral sign.
+:::
+
+To calculate these multiple integrals, you just have to do two normal integrals. Actually the order you do them in shouldn't matter, it's like a multiplication, but sometimes the limits of one depend on the other.
+
+## Example
+Calculate
+$$
+\int_0^1 dx \int_0^x dy (x^2y + 2y)
+$$
+
+::: {.callout-tip collapse="true"}
+## Solution
+The limits of the $y$ integral depend on $x$, so we need to do the $y$ integration first. We rewrite it as
+$$
+\int_0^1 dx \left(\int_0^x (x^2y + 2y) dy \right)
+$$
+The inner integral here is just a normal integration with respect to $y$. When we are integrating with respect to $y$, we just treat $x$ as a constant. So we have
+$$
+\int_0^1 dx \left(\int_0^x (x^2y + 2y) dy \right) = \int_0^1 dx \left[ \frac{1}{2} x^2 y^2 + y^2\right]_{y=0}^{y=x} = \int_0^1 dx \left[ \left(\frac{1}{2} x^4 + x^2\right) - \left(\frac{1}{2} x^2\cdot 0 + 0\right)\right].
+$$
+Now we just have one integration in $x$, which we know how to do
+$$
+\int_0^1 \left(\frac{1}{2} x^4 + x^2\right) dx = \left[\frac{1}{10}x^5 + \frac{1}{3}x^3\right]_0^1 = \frac{13}{30}.
+$$
+:::
+
+# Surface integrals of scalar fields
+$$
+\int_S f(\v{r}) dS
+$$
+There are two different $S$ symbols here, and they mean different things. $S$ is a surface, a particular object in space, but $dS$ is the general _surface area element_.
+What this means is, add up lots of infinitely small bits of the surface, weighted by the function $f$.
+
+The steps to do these integrals are exactly the same as the four steps we saw for line integrals, with two key differences: firstly, we will have to do a multiple integral, and secondly, we need to know that the surface area element is
+$$dS = \left|\pd{\v{r}}{u}\times\pd{\v{r}}{v}\right|du\,dv$$
+when the surface is parameterised by $u$ and $v$.
+
+Why is it this? It's complicated, but we'll go through a derivation in class if we have time.
+
+### Example
+Calculate surface integral
+$$
+\int_S (x^2 + y^2)\, dS
+$$
+where $S$ is the surface $\{(x,y,z)\in\mathbb{R}^3\,|\,z=x^2,\,0\leq x\leq 1, 0\leq y\leq 1\}$.
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+TODO
+
+### Step 1: Parameterise the surface
+
+### Step 2: Calculate $dS$
+
+### Step 3: Rewrite the integration
+
+### Step 4: Compute the answer
+:::
+
+## Special case: surface area
+As promised, we can now calculate the area of surfaces. This is simply the empty integral
+$$
+\int_S dS = \int du \int dv \left|\pd{\v{r}}{u}\times\pd{\v{r}}{v}\right|
+$$
+
+### Example: surface area of a sphere
+Calculate the surface area of a sphere of radius $R$.
+
+::: {.callout-tip collapse="true"}
+## Solution
+We're not told the exact surface, but let's assume the sphere is centred at the origin. 
+Then we can parameterise by taking some inspiration from spherical polar co-ordinates:
+$$[x,y,z] = [R\cos u\sin v,\,R\sin u\sin v,\,R\cos v], \qquad 0\leq u < 2\pi,\, 0\leq v\leq \pi.$$
+This isn't exactly polar co-ordinates because $R$ is a constant not a variable, and $u$ and $v$ just parameterise the surface not the whole of 3D space.
+
+Now we can just plug this into the formula above:
+$$
+\int_S dS = \int_0^{2\pi} du \int_0^{\pi} dv \left|[-R\sin u \sin v,\,R\cos u\sin v,\,0]\times[R\cos u\cos v,\,R\sin u\cos v,-R\sin v]\right|
+$$
+Pro-tip: take out as many factors from the cross product as you can before calculating it:
+$$
+\begin{aligned}
+\int_S dS &= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|\cdot\left|[-\sin u,\,\cos u,\,0]\times[\cos u\cos v,\,\sin u\cos v,-\sin v]\right| \\
+&= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|\cdot\left|[-\cos u \sin v,\,-\sin u\sin v,\,-\sin^2 u \cos v -\cos^2 u \cos v]\right| \\
+&= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|\cdot\left|[\cos u \sin v,\,\sin u\sin v,\,\cos v]\right| \\
+&= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|
+\end{aligned}
+$$
+where we used the fact that $\left|[\cos u \sin v,\,\sin u\sin v,\,\cos v]\right| = 1$ (this is good to remember).
+
+We don't need to worry about the absolute value of $\sin v$ because $v\in[0,\pi]$ where sine is non-negative. There is no $u$ in this expression so we can just mupltiply by $2\pi$ to give
+$$
+\begin{aligned}
+\int_S dS = 2\pi R^2 \int_0^{\pi} dv \sin v = 2\pi R^2 [-\cos u]_0^{\pi} = 4\pi R^2.
+\end{aligned}
+$$
+But you knew that already.
+:::
+
+# Flux integrals: surface integrals of vector fields
+This integral has a special name and comes up a lot in physics. It is the rate at which a vector field 'goes through' a surface. 
+
+:::{.callout-important}
+Like line integrals of scalar fields, the __direction matters__. In this case, it is the direction of the normal (in or out, up or down, ...) which affects the sign of the final answer.
+:::
+
+There are two equivalent notations
+$$
+\int_S \v{F}(\v{r}) \cdot d\v{S} = \int_S \v{F}(\v{r}) \cdot \hat\v{n} dS
+$$
+and the second one gives a hint how to calculate these things: we define the _vector_ surface element $d\v{S}$ in terms of the scalar element $dS$ as 
+$$
+d\v{S} = \hat\v{n} dS
+$$
+where $\hat\v{n}$ is the unit normal to the surface.
+
+For a parameterisation $(u,v)$, recall that the general normal is
+$$
+\v{n}(u,v) = \frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v}
+$$
+so the unit normal is
+$$
+\hat\v{n}(u,v) = \frac{\frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v}}{\left|\frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v}\right|}
+$$
+and substituting $dS$, we can simplify to
+$$
+d\v{S} = \hat\v{n} dS = \frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v} du\,dv.
+$$
+
+:::{.callout-tip}
+Learn this last formula. The rest is really just derivation.
+:::
+
+### Example: Flux through a surface
+Calculate the total flux of the vector field $\v{F}(x,y,z) = [z^2,z,0]$ through the hemisphere $x^2+y^2+z^1=1$, $x\geq 0$, with an outward-facing normal.
+
+::: {.callout-tip collapse="true"}
+## Solution
+TODO
+:::
+
+# Other surface integrals
+Occasionally you might see things like
+$$
+\int_S \v{F}(\v{r}) \times d\v{S}.
+$$
+This means exactly what you think: take the cross product with the surface normal instead of the dot product, so that the final answer is a vector instead of a scalar.

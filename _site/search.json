@@ -46,7 +46,7 @@
     "href": "index.html#what-is-vector-calculus",
     "title": "MA31007 Vector Calculus",
     "section": "What is vector calculus?",
-    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules.",
+    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules. First we’ll see differentiation in 3D, then integration in 3D, and then some analogues of the “fundamental theorem of calculus” which combine these two.",
     "crumbs": [
       "Home"
     ]
@@ -300,6 +300,94 @@
     "crumbs": [
       "Unit 2: Derivatives (Weeks 3-5)",
       "Derivatives of scalar fields"
+    ]
+  },
+  {
+    "objectID": "lineintegrals.html",
+    "href": "lineintegrals.html",
+    "title": "Line integrals",
+    "section": "",
+    "text": "So far we’ve discussed vector and scalar fields and what it means to differentiate them. In this part of the module we’ll discuss different ways we can integrate these fields over different structures in 3D space, starting with integration over a curve.\nThere’s some general notation here to consider before we dive in. All integrals will be written as \\[\n\\int_A F({\\mathbf{r}}) dB.\n\\] \\(F\\) is the function we’re integrating, \\(A\\) is the set we’re integrating it over (which could be a curve, surface, or volume) and \\(dB\\) is the integral element appropriate for the set (and there are different choices). Instead of \\(\\int\\) you might also see symbols like \\(\\iint\\) or \\(\\oint\\) but these can always be replaced with \\(\\int\\), they just give you a little more context about what you’re integrating.\nIn every case, the steps are going to be the same:",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Line integrals"
+    ]
+  },
+  {
+    "objectID": "vectorfields.html",
+    "href": "vectorfields.html",
+    "title": "Derivatives of vector fields",
+    "section": "",
+    "text": "Another thing that changes when moving from 1D to 3D is that we now have a choice of two types of functions, scalar fields or vector fields. Now we’ll think about vector fields, that is, assigning a magnitude and a direction to every point in space. Think about those wind maps on the weather forecast, or magnetic field lines around a magnet.\nTo know a vector field, we need to know each of its components at each point in space. \\[\n{\\mathbf{F}}(x,y,z) = F_1(x,y,z){\\mathbf{e}}_x + F_2(x,y,z){\\mathbf{e}}_y + F_3(x,y,z){\\mathbf{e}}_z,\n\\] or equivalently in a different co-ordinate system.\nFirstly, given any vector field we can easily construct a scalar field by taking the magnitude at each point in space, \\[\n\\left|{\\mathbf{F}}(x,y,z)\\right|=\\sqrt{F_1(x,y,z)^2 + F_2(x,y,z)^2 + F_3(x,y,z)^2}\n\\] and then take scalar derivatives. More on that next week.\nWe consider two different types.\n\nThe divergence of a vector field\nThis one takes a vector field and gives the answer as a scalar field, and the interpretation is “how much is the vector field pointing apart.” In Cartesian co-ordinates, the definition is \\[\n\\nabla\\cdot {\\mathbf{F}} = {\\frac{\\partial F_1}{\\partial x}} + {\\frac{\\partial F_2}{\\partial y}} + {\\frac{\\partial F_3}{\\partial z}}.\n\\]\nTODO\n\n\nThe curl of a vector field\nThis one takes a vector field and gives another vector field, and the interpretation is “how much is the vector field rotating.” It’s a vector because the direction represents the axis of rotation and\nTODO\n\n\n\n\n\n\nNote\n\n\n\nJust like the cross product, the curl is only defined in three dimensions. Sometimes people talk about 2D curls, but they’re a bit different and much less important, so we’ll ignore this.",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Derivatives of vector fields"
+    ]
+  },
+  {
+    "objectID": "lineintegrals.html#example",
+    "href": "lineintegrals.html#example",
+    "title": "Line integrals",
+    "section": "Example",
+    "text": "Example\nIntegrate the scalar field \\(f(x,y,z) = x^2+z\\) over the circle \\(x^2+y^2=4\\), \\(z=2\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nStep 1: Parameterise the curve\nHopefully by now you can just get straight to \\[{\\mathbf{r}}(t) = [2\\cos t,\\,2\\sin t,\\,2],\\qquad 0\\leq t&lt;2\\pi.\\]\n\n\nStep 2: Calculate \\(ds\\)\nWe have \\[ \\frac{d {\\mathbf{r}}}{dt} = [2\\sin t,\\,-2\\cos 2,\\,0] \\] so \\[ ds = \\left| \\frac{d {\\mathbf{r}}}{dt}\\right| dt = \\sqrt{(2\\sin t)^2+(2\\cos t)^2+0^2} dt = 2dt. \\]\n\n\nStep 3: Rewrite the integration\n\\[\n\\int_\\gamma (x^2+z) ds = \\int_0^{2\\pi} (4\\cos^2 t + 4) 2dt = 8\\int_0^{2\\pi} (\\cos^2 t + 1) dt\n\\]\n\n\nStep 4: Compute the answer\nA quick trick is to remember that the average value of \\(\\cos^2\\) or \\(\\sin^2\\) is \\(1/2\\) (because \\(\\cos^2 + \\sin^2 = 1\\)), so \\(\\int_0^{2\\pi} \\cos^2 t \\,dt = \\pi\\).\nHowever you do it, the final answer is \\(24\\pi\\).",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Line integrals"
+    ]
+  },
+  {
+    "objectID": "lineintegrals.html#example-1",
+    "href": "lineintegrals.html#example-1",
+    "title": "Line integrals",
+    "section": "Example",
+    "text": "Example\nCalculate the line integral of the vector field \\({\\mathbf{F}}(x,y,z) = [x^2+y^2,z,0]\\) over the semicircle which starts at \\((0,4,0)\\) and ends at \\((0,0,0)\\) which passes through \\((0,0,2)\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nStep 1: Parameterise the curve\nI suggest drawing a sketch to help here. The \\(x\\) co-ordinate is always \\(0\\), so we think about a circle in the \\(y\\)-\\(z\\) plane, something like \\[\n{\\mathbf{r}}(t) = [0,\\, a + b \\cos t,\\,c+b\\sin t],\n\\] where we need to find \\(a\\), \\(b\\), \\(c\\) and the limits of \\(t\\). It makes sense to use \\(0\\leq t\\leq \\pi\\) because it’s a semicircle, so then plugging in our three points at \\(t=0,\\pi/2,\\pi\\), \\[[0,a+b,c] = [0,4,0]\\] \\[[0,a,c+b] = [0,0,2]\\] \\[[0,a-b,c] = [0,0,0]\\] \\(a=2\\), \\(b=2\\), \\(c=0\\) solves all of these, so the parameterisation is \\[\n{\\mathbf{r}}(t) = [0,\\, 2 + 2\\cos t,\\, 2\\sin t],\\qquad 0\\leq t \\leq \\pi.\n\\]\n\n\nStep 2: Calculate \\(d{\\mathbf{s}}\\)\n\\[d{\\mathbf{s}} = \\frac{d {\\mathbf{r}}}{dt} dt = [0,2\\sin t, -2\\cos t] dt.\\]\n\n\nStep 3: Rewrite the integration\n\\[\\int_\\gamma {\\mathbf{F}}({\\mathbf{r}}) \\cdot d{\\mathbf{s}} = \\int_0^\\pi [0^2+(2+2\\cos t)^2,\\,2\\sin t,\\,0] \\cdot [0,2\\sin t, -2\\cos t] dt = \\int_0^\\pi 4 \\sin^2 t dt\\]\n\n\nStep 4: Compute the answer\nWith the same trick as above, we can straight away say that the answer is \\(2\\pi\\).",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Line integrals"
+    ]
+  },
+  {
+    "objectID": "surfaceintegrals.html#example",
+    "href": "surfaceintegrals.html#example",
+    "title": "Surface integrals",
+    "section": "Example",
+    "text": "Example\nCalculate \\[\n\\int_0^1 dx \\int_0^x dy (x^2y + 2y)\n\\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe limits of the \\(y\\) integral depend on \\(x\\), so we need to do the \\(y\\) integration first. We rewrite it as \\[\n\\int_0^1 dx \\left(\\int_0^x (x^2y + 2y) dy \\right)\n\\] The inner integral here is just a normal integration with respect to \\(y\\). When we are integrating with respect to \\(y\\), we just treat \\(x\\) as a constant. So we have \\[\n\\int_0^1 dx \\left(\\int_0^x (x^2y + 2y) dy \\right) = \\int_0^1 dx \\left[ \\frac{1}{2} x^2 y^2 + y^2\\right]_{y=0}^{y=x} = \\int_0^1 dx \\left[ \\left(\\frac{1}{2} x^4 + x^2\\right) - \\left(\\frac{1}{2} x^2\\cdot 0 + 0\\right)\\right].\n\\] Now we just have one integration in \\(x\\), which we know how to do \\[\n\\int_0^1 \\left(\\frac{1}{2} x^4 + x^2\\right) dx = \\left[\\frac{1}{10}x^5 + \\frac{1}{3}x^3\\right]_0^1 = \\frac{13}{30}.\n\\]",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Surface integrals"
+    ]
+  },
+  {
+    "objectID": "surfaceintegrals.html#special-case-surface-area",
+    "href": "surfaceintegrals.html#special-case-surface-area",
+    "title": "Surface integrals",
+    "section": "Special case: surface area",
+    "text": "Special case: surface area\nAs promised, we can now calculate the area of surfaces. This is simply the empty integral \\[\n\\int_S dS = \\int du \\int dv \\left|{\\frac{\\partial {\\mathbf{r}}}{\\partial u}}\\times{\\frac{\\partial {\\mathbf{r}}}{\\partial v}}\\right|\n\\]\n\nExample: surface area of a sphere\nCalculate the surface area of a sphere of radius \\(R\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe’re not told the exact surface, but let’s assume the sphere is centred at the origin. Then we can parameterise by taking some inspiration from spherical polar co-ordinates: \\[[x,y,z] = [R\\cos u\\sin v,\\,R\\sin u\\sin v,\\,R\\cos v], \\qquad 0\\leq u &lt; 2\\pi,\\, 0\\leq v\\leq \\pi.\\] This isn’t exactly polar co-ordinates because \\(R\\) is a constant not a variable, and \\(u\\) and \\(v\\) just parameterise the surface not the whole of 3D space.\nNow we can just plug this into the formula above: \\[\n\\int_S dS = \\int_0^{2\\pi} du \\int_0^{\\pi} dv \\left|[-R\\sin u \\sin v,\\,R\\cos u\\sin v,\\,0]\\times[R\\cos u\\cos v,\\,R\\sin u\\cos v,-R\\sin v]\\right|\n\\] Pro-tip: take out as many factors from the cross product as you can before calculating it: \\[\n\\begin{aligned}\n\\int_S dS &= \\int_0^{2\\pi} du \\int_0^{\\pi} dv \\left|R^2 \\sin v\\right|\\cdot\\left|[-\\sin u,\\,\\cos u,\\,0]\\times[\\cos u\\cos v,\\,\\sin u\\cos v,-\\sin v]\\right| \\\\\n&= \\int_0^{2\\pi} du \\int_0^{\\pi} dv \\left|R^2 \\sin v\\right|\\cdot\\left|[-\\cos u \\sin v,\\,-\\sin u\\sin v,\\,-\\sin^2 u \\cos v -\\cos^2 u \\cos v]\\right| \\\\\n&= \\int_0^{2\\pi} du \\int_0^{\\pi} dv \\left|R^2 \\sin v\\right|\\cdot\\left|[\\cos u \\sin v,\\,\\sin u\\sin v,\\,\\cos v]\\right| \\\\\n&= \\int_0^{2\\pi} du \\int_0^{\\pi} dv \\left|R^2 \\sin v\\right|\n\\end{aligned}\n\\] where we used the fact that \\(\\left|[\\cos u \\sin v,\\,\\sin u\\sin v,\\,\\cos v]\\right| = 1\\) (this is good to remember).\nWe don’t need to worry about the absolute value of \\(\\sin v\\) because \\(v\\in[0,\\pi]\\) where sine is non-negative. There is no \\(u\\) in this expression so we can just mupltiply by \\(2\\pi\\) to give \\[\n\\begin{aligned}\n\\int_S dS = 2\\pi R^2 \\int_0^{\\pi} dv \\sin v = 2\\pi R^2 [-\\cos u]_0^{\\pi} = 4\\pi R^2.\n\\end{aligned}\n\\] But you knew that already.",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Surface integrals"
+    ]
+  },
+  {
+    "objectID": "surfaceintegrals.html#example-flux-through-a-surface",
+    "href": "surfaceintegrals.html#example-flux-through-a-surface",
+    "title": "Surface integrals",
+    "section": "Example: Flux through a surface",
+    "text": "Example: Flux through a surface\nCalculate the total flux of the vector field \\({\\mathbf{F}}(x,y,z) = [z^2,z,0]\\) through the hemisphere \\(x^2+y^2+z^1=1\\), \\(x\\geq 0\\), with an outward-facing normal.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nTODO",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Surface integrals"
+    ]
+  },
+  {
+    "objectID": "lineintegrals.html#footnotes",
+    "href": "lineintegrals.html#footnotes",
+    "title": "Line integrals",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSometimes this is written \\(d{\\mathbf{r}}\\)↩︎",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Line integrals"
     ]
   }
 ]

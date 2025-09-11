@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA31007 Vector Calculus</title>
+<title>Surface integrals – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lineintegrals.html">Unit 3: Integrals (Weeks 6-8)</a></li><li class="breadcrumb-item"><a href="./surfaceintegrals.html">Surface integrals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -106,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -182,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./surfaceintegrals.html" class="sidebar-item-text sidebar-link">
+  <a href="./surfaceintegrals.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Surface integrals</span></a>
   </div>
 </li>
@@ -227,20 +256,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#preliminary-multiple-integrals" id="toc-preliminary-multiple-integrals" class="nav-link active" data-scroll-target="#preliminary-multiple-integrals">Preliminary: Multiple integrals</a>
   <ul class="collapse">
-  <li><a href="#how-to-use-these-notes" id="toc-how-to-use-these-notes" class="nav-link" data-scroll-target="#how-to-use-these-notes">How to use these notes</a></li>
-  <li><a href="#what-is-vector-calculus" id="toc-what-is-vector-calculus" class="nav-link" data-scroll-target="#what-is-vector-calculus">What is vector calculus?</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
+  <li><a href="#surface-integrals-of-scalar-fields" id="toc-surface-integrals-of-scalar-fields" class="nav-link" data-scroll-target="#surface-integrals-of-scalar-fields">Surface integrals of scalar fields</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#special-case-surface-area" id="toc-special-case-surface-area" class="nav-link" data-scroll-target="#special-case-surface-area">Special case: surface area</a>
+  <ul class="collapse">
+  <li><a href="#example-surface-area-of-a-sphere" id="toc-example-surface-area-of-a-sphere" class="nav-link" data-scroll-target="#example-surface-area-of-a-sphere">Example: surface area of a sphere</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#flux-integrals-surface-integrals-of-vector-fields" id="toc-flux-integrals-surface-integrals-of-vector-fields" class="nav-link" data-scroll-target="#flux-integrals-surface-integrals-of-vector-fields">Flux integrals: surface integrals of vector fields</a>
+  <ul class="collapse">
+  <li><a href="#example-flux-through-a-surface" id="toc-example-flux-through-a-surface" class="nav-link" data-scroll-target="#example-flux-through-a-surface">Example: Flux through a surface</a></li>
+  </ul></li>
+  <li><a href="#other-surface-integrals" id="toc-other-surface-integrals" class="nav-link" data-scroll-target="#other-surface-integrals">Other surface integrals</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lineintegrals.html">Unit 3: Integrals (Weeks 6-8)</a></li><li class="breadcrumb-item"><a href="./surfaceintegrals.html">Surface integrals</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MA31007 Vector Calculus</h1>
+<h1 class="title">Surface integrals</h1>
 </div>
 
 
@@ -257,32 +298,212 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.</p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>These notes contain all the examinable material within the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For details of the organisation of the module this year, please see My Dundee.</p>
-<p>I’ll be updating these notes weekly as we go through, and at the end of the semester I’ll make the full set of these notes available as a PDF. If you’d like to read ahead, last year’s full notes are available on MyDundee – the content hasn’t changed at all.</p>
-<p>It’s very likely that there are mistakes in these notes. If you find one, please let me know ASAP at <a href="mailto:jparker002@dundee.ac.uk" class="uri">mailto:jparker002@dundee.ac.uk</a>, no matter how trivial you think the mistake is.</p>
-<section id="how-to-use-these-notes" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-these-notes">How to use these notes</h2>
-<p>These notes are designed to be complementary to the seminars. They’re designed to be easy to read with minimal extra information. For context and motivation, you’ll need to come to class. These notes contain the key definitions and some brief examples, but I will show more and different examples in class. For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.</p>
-<p>As usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.</p>
+<div class="hidden">
+
+</div>
+<section id="preliminary-multiple-integrals" class="level1">
+<h1>Preliminary: Multiple integrals</h1>
+<p>You may not have seen integrals before which look like this: <span class="math display">\[
+\int_a^b dx \int_c^d dy\, f(x,y).
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many people write these integrals as <span class="math inline">\(\int_a^b \int_c^d f(x,y)\, dx\, dy,\)</span> or <span class="math inline">\(\int_a^b \int_c^d f(x,y)\, dy\, dx\)</span>. You may think that the elements <span class="math inline">\(dx\)</span> and <span class="math inline">\(dy\)</span> have to go on the right, but they don’t. These notations don’t make it clear which limits go with which integration, so I always write the elements on the left with the integral sign.</p>
+</div>
+</div>
+<p>To calculate these multiple integrals, you just have to do two normal integrals. Actually the order you do them in shouldn’t matter, it’s like a multiplication, but sometimes the limits of one depend on the other.</p>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Calculate <span class="math display">\[
+\int_0^1 dx \int_0^x dy (x^2y + 2y)
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The limits of the <span class="math inline">\(y\)</span> integral depend on <span class="math inline">\(x\)</span>, so we need to do the <span class="math inline">\(y\)</span> integration first. We rewrite it as <span class="math display">\[
+\int_0^1 dx \left(\int_0^x (x^2y + 2y) dy \right)
+\]</span> The inner integral here is just a normal integration with respect to <span class="math inline">\(y\)</span>. When we are integrating with respect to <span class="math inline">\(y\)</span>, we just treat <span class="math inline">\(x\)</span> as a constant. So we have <span class="math display">\[
+\int_0^1 dx \left(\int_0^x (x^2y + 2y) dy \right) = \int_0^1 dx \left[ \frac{1}{2} x^2 y^2 + y^2\right]_{y=0}^{y=x} = \int_0^1 dx \left[ \left(\frac{1}{2} x^4 + x^2\right) - \left(\frac{1}{2} x^2\cdot 0 + 0\right)\right].
+\]</span> Now we just have one integration in <span class="math inline">\(x\)</span>, which we know how to do <span class="math display">\[
+\int_0^1 \left(\frac{1}{2} x^4 + x^2\right) dx = \left[\frac{1}{10}x^5 + \frac{1}{3}x^3\right]_0^1 = \frac{13}{30}.
+\]</span></p>
+</div>
+</div>
+</div>
 </section>
-<section id="what-is-vector-calculus" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-vector-calculus">What is vector calculus?</h2>
-<p>Vector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules. First we’ll see differentiation in 3D, then integration in 3D, and then some analogues of the “fundamental theorem of calculus” which combine these two.</p>
+</section>
+<section id="surface-integrals-of-scalar-fields" class="level1">
+<h1>Surface integrals of scalar fields</h1>
+<p><span class="math display">\[
+\int_S f({\mathbf{r}}) dS
+\]</span> There are two different <span class="math inline">\(S\)</span> symbols here, and they mean different things. <span class="math inline">\(S\)</span> is a surface, a particular object in space, but <span class="math inline">\(dS\)</span> is the general <em>surface area element</em>. What this means is, add up lots of infinitely small bits of the surface, weighted by the function <span class="math inline">\(f\)</span>.</p>
+<p>The steps to do these integrals are exactly the same as the four steps we saw for line integrals, with two key differences: firstly, we will have to do a multiple integral, and secondly, we need to know that the surface area element is <span class="math display">\[dS = \left|{\frac{\partial {\mathbf{r}}}{\partial u}}\times{\frac{\partial {\mathbf{r}}}{\partial v}}\right|du\,dv\]</span> when the surface is parameterised by <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>.</p>
+<p>Why is it this? It’s complicated, but we’ll go through a derivation in class if we have time.</p>
+<section id="example-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-1">Example</h3>
+<p>Calculate surface integral <span class="math display">\[
+\int_S (x^2 + y^2)\, dS
+\]</span> where <span class="math inline">\(S\)</span> is the surface <span class="math inline">\(\{(x,y,z)\in\mathbb{R}^3\,|\,z=x^2,\,0\leq x\leq 1, 0\leq y\leq 1\}\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+<section id="step-1-parameterise-the-surface" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-parameterise-the-surface">Step 1: Parameterise the surface</h3>
+</section>
+<section id="step-2-calculate-ds" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-calculate-ds">Step 2: Calculate <span class="math inline">\(dS\)</span></h3>
+</section>
+<section id="step-3-rewrite-the-integration" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-rewrite-the-integration">Step 3: Rewrite the integration</h3>
+</section>
+<section id="step-4-compute-the-answer" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-compute-the-answer">Step 4: Compute the answer</h3>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="special-case-surface-area" class="level2">
+<h2 class="anchored" data-anchor-id="special-case-surface-area">Special case: surface area</h2>
+<p>As promised, we can now calculate the area of surfaces. This is simply the empty integral <span class="math display">\[
+\int_S dS = \int du \int dv \left|{\frac{\partial {\mathbf{r}}}{\partial u}}\times{\frac{\partial {\mathbf{r}}}{\partial v}}\right|
+\]</span></p>
+<section id="example-surface-area-of-a-sphere" class="level3">
+<h3 class="anchored" data-anchor-id="example-surface-area-of-a-sphere">Example: surface area of a sphere</h3>
+<p>Calculate the surface area of a sphere of radius <span class="math inline">\(R\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We’re not told the exact surface, but let’s assume the sphere is centred at the origin. Then we can parameterise by taking some inspiration from spherical polar co-ordinates: <span class="math display">\[[x,y,z] = [R\cos u\sin v,\,R\sin u\sin v,\,R\cos v], \qquad 0\leq u &lt; 2\pi,\, 0\leq v\leq \pi.\]</span> This isn’t exactly polar co-ordinates because <span class="math inline">\(R\)</span> is a constant not a variable, and <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> just parameterise the surface not the whole of 3D space.</p>
+<p>Now we can just plug this into the formula above: <span class="math display">\[
+\int_S dS = \int_0^{2\pi} du \int_0^{\pi} dv \left|[-R\sin u \sin v,\,R\cos u\sin v,\,0]\times[R\cos u\cos v,\,R\sin u\cos v,-R\sin v]\right|
+\]</span> Pro-tip: take out as many factors from the cross product as you can before calculating it: <span class="math display">\[
+\begin{aligned}
+\int_S dS &amp;= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|\cdot\left|[-\sin u,\,\cos u,\,0]\times[\cos u\cos v,\,\sin u\cos v,-\sin v]\right| \\
+&amp;= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|\cdot\left|[-\cos u \sin v,\,-\sin u\sin v,\,-\sin^2 u \cos v -\cos^2 u \cos v]\right| \\
+&amp;= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|\cdot\left|[\cos u \sin v,\,\sin u\sin v,\,\cos v]\right| \\
+&amp;= \int_0^{2\pi} du \int_0^{\pi} dv \left|R^2 \sin v\right|
+\end{aligned}
+\]</span> where we used the fact that <span class="math inline">\(\left|[\cos u \sin v,\,\sin u\sin v,\,\cos v]\right| = 1\)</span> (this is good to remember).</p>
+<p>We don’t need to worry about the absolute value of <span class="math inline">\(\sin v\)</span> because <span class="math inline">\(v\in[0,\pi]\)</span> where sine is non-negative. There is no <span class="math inline">\(u\)</span> in this expression so we can just mupltiply by <span class="math inline">\(2\pi\)</span> to give <span class="math display">\[
+\begin{aligned}
+\int_S dS = 2\pi R^2 \int_0^{\pi} dv \sin v = 2\pi R^2 [-\cos u]_0^{\pi} = 4\pi R^2.
+\end{aligned}
+\]</span> But you knew that already.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="flux-integrals-surface-integrals-of-vector-fields" class="level1">
+<h1>Flux integrals: surface integrals of vector fields</h1>
+<p>This integral has a special name and comes up a lot in physics. It is the rate at which a vector field ‘goes through’ a surface.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Like line integrals of scalar fields, the <strong>direction matters</strong>. In this case, it is the direction of the normal (in or out, up or down, …) which affects the sign of the final answer.</p>
+</div>
+</div>
+<p>There are two equivalent notations <span class="math display">\[
+\int_S {\mathbf{F}}({\mathbf{r}}) \cdot d{\mathbf{S}} = \int_S {\mathbf{F}}({\mathbf{r}}) \cdot \hat{\mathbf{n}} dS
+\]</span> and the second one gives a hint how to calculate these things: we define the <em>vector</em> surface element <span class="math inline">\(d{\mathbf{S}}\)</span> in terms of the scalar element <span class="math inline">\(dS\)</span> as <span class="math display">\[
+d{\mathbf{S}} = \hat{\mathbf{n}} dS
+\]</span> where <span class="math inline">\(\hat{\mathbf{n}}\)</span> is the unit normal to the surface.</p>
+<p>For a parameterisation <span class="math inline">\((u,v)\)</span>, recall that the general normal is <span class="math display">\[
+{\mathbf{n}}(u,v) = \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}
+\]</span> so the unit normal is <span class="math display">\[
+\hat{\mathbf{n}}(u,v) = \frac{\frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}}{\left|\frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}\right|}
+\]</span> and substituting <span class="math inline">\(dS\)</span>, we can simplify to <span class="math display">\[
+d{\mathbf{S}} = \hat{\mathbf{n}} dS = \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v} du\,dv.
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Learn this last formula. The rest is really just derivation.</p>
+</div>
+</div>
+<section id="example-flux-through-a-surface" class="level3">
+<h3 class="anchored" data-anchor-id="example-flux-through-a-surface">Example: Flux through a surface</h3>
+<p>Calculate the total flux of the vector field <span class="math inline">\({\mathbf{F}}(x,y,z) = [z^2,z,0]\)</span> through the hemisphere <span class="math inline">\(x^2+y^2+z^1=1\)</span>, <span class="math inline">\(x\geq 0\)</span>, with an outward-facing normal.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="other-surface-integrals" class="level1">
+<h1>Other surface integrals</h1>
+<p>Occasionally you might see things like <span class="math display">\[
+\int_S {\mathbf{F}}({\mathbf{r}}) \times d{\mathbf{S}}.
+\]</span> This means exactly what you think: take the cross product with the surface normal instead of the dot product, so that the final answer is a vector instead of a scalar.</p>
 
 
 </section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Anything in the footnotes is also non-examinable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

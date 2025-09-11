@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA31007 Vector Calculus</title>
+<title>Line integrals – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lineintegrals.html">Unit 3: Integrals (Weeks 6-8)</a></li><li class="breadcrumb-item"><a href="./lineintegrals.html">Line integrals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -106,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -176,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lineintegrals.html" class="sidebar-item-text sidebar-link">
+  <a href="./lineintegrals.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Line integrals</span></a>
   </div>
 </li>
@@ -227,10 +256,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#line-integrals-of-scalar-fields" id="toc-line-integrals-of-scalar-fields" class="nav-link active" data-scroll-target="#line-integrals-of-scalar-fields">Line integrals of scalar fields</a>
   <ul class="collapse">
-  <li><a href="#how-to-use-these-notes" id="toc-how-to-use-these-notes" class="nav-link" data-scroll-target="#how-to-use-these-notes">How to use these notes</a></li>
-  <li><a href="#what-is-vector-calculus" id="toc-what-is-vector-calculus" class="nav-link" data-scroll-target="#what-is-vector-calculus">What is vector calculus?</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#line-integrals-of-vector-fields" id="toc-line-integrals-of-vector-fields" class="nav-link" data-scroll-target="#line-integrals-of-vector-fields">Line integrals of vector fields</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -238,9 +270,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lineintegrals.html">Unit 3: Integrals (Weeks 6-8)</a></li><li class="breadcrumb-item"><a href="./lineintegrals.html">Line integrals</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MA31007 Vector Calculus</h1>
+<h1 class="title">Line integrals</h1>
 </div>
 
 
@@ -257,20 +289,150 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.</p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>These notes contain all the examinable material within the module, and maybe also some bonus stuff, which will be clearly marked as non-examinable<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For details of the organisation of the module this year, please see My Dundee.</p>
-<p>I’ll be updating these notes weekly as we go through, and at the end of the semester I’ll make the full set of these notes available as a PDF. If you’d like to read ahead, last year’s full notes are available on MyDundee – the content hasn’t changed at all.</p>
-<p>It’s very likely that there are mistakes in these notes. If you find one, please let me know ASAP at <a href="mailto:jparker002@dundee.ac.uk" class="uri">mailto:jparker002@dundee.ac.uk</a>, no matter how trivial you think the mistake is.</p>
-<section id="how-to-use-these-notes" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-these-notes">How to use these notes</h2>
-<p>These notes are designed to be complementary to the seminars. They’re designed to be easy to read with minimal extra information. For context and motivation, you’ll need to come to class. These notes contain the key definitions and some brief examples, but I will show more and different examples in class. For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.</p>
-<p>As usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.</p>
+<div class="hidden">
+
+</div>
+<p>So far we’ve discussed vector and scalar fields and what it means to differentiate them. In this part of the module we’ll discuss different ways we can integrate these fields over different structures in 3D space, starting with integration over a curve.</p>
+<p>There’s some general notation here to consider before we dive in. All integrals will be written as <span class="math display">\[
+\int_A F({\mathbf{r}}) dB.
+\]</span> <span class="math inline">\(F\)</span> is the function we’re integrating, <span class="math inline">\(A\)</span> is the set we’re integrating it over (which could be a curve, surface, or volume) and <span class="math inline">\(dB\)</span> is the <em>integral element</em> appropriate for the set (and there are different choices). Instead of <span class="math inline">\(\int\)</span> you might also see symbols like <span class="math inline">\(\iint\)</span> or <span class="math inline">\(\oint\)</span> but these can always be replaced with <span class="math inline">\(\int\)</span>, they just give you a little more context about what you’re integrating.</p>
+<p>In every case, the steps are going to be the same:</p>
+<ol type="1">
+<li>Parameterise the curve/surface/volume <span class="math inline">\(A\)</span>.</li>
+<li>Calulate the element <span class="math inline">\(dB\)</span> for that parameterisation.</li>
+<li>Replace the integral <span class="math inline">\(\int_A\)</span> with ordinary integral(s) <span class="math inline">\(\int_a^b\)</span> with the correct limits.</li>
+<li>Compute the value of the integral.</li>
+</ol>
+<section id="line-integrals-of-scalar-fields" class="level1">
+<h1>Line integrals of scalar fields</h1>
+<p>In fact, we’ve already seen an example of line integrals, when we said that the arc-length of a curve <span class="math display">\[
+\gamma = \left\{{\mathbf{r}}(t)\,|\,t_0\leq t\leq t_1\right\}
+\]</span> is <span class="math display">\[
+\int_{t_0}^{t_1} \left| \frac{d {\mathbf{r}}}{dt}\right| dt.
+\]</span> This can viewed as the empty integral over the curve <span class="math inline">\(\gamma\)</span>, which we notate as <span class="math display">\[
+\int_\gamma ds = \int_{t_0}^{t_1} \left| \frac{d {\mathbf{r}}}{dt}\right| dt.
+\]</span> You can think of this like <span class="math inline">\(\int_a^b dx\)</span> for ordinary integrals, which just gives you the size of the interval <span class="math inline">\(b-a\)</span>, but now we’re doing the integral over the curve <span class="math inline">\(\gamma\)</span> so it gives the length of the curve. Here <span class="math inline">\(ds\)</span> is an infinitesimal length of the curve, and if we add up an infinite number of these infinitesimal lengths then we get the total length of the line.</p>
+<p>If instead of just adding up the little bits of line, we want to add up the values of a function along the line, that becomes the standard line integral and it’s computed in just the same way: <span class="math display">\[
+\int_\gamma f({\mathbf{r}})ds = \int_{t_0}^{t_1} f({\mathbf{r}}(t))\left| \frac{d {\mathbf{r}}}{dt}\right| dt.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is easy. Just remember that for curves <span class="math inline">\(ds = \left| \frac{d {\mathbf{r}}}{dt}\right| dt\)</span> and plug in the correct limits and it’s a normal integral.</p>
+</div>
+</div>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>Integrate the scalar field <span class="math inline">\(f(x,y,z) = x^2+z\)</span> over the circle <span class="math inline">\(x^2+y^2=4\)</span>, <span class="math inline">\(z=2\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="step-1-parameterise-the-curve" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-parameterise-the-curve">Step 1: Parameterise the curve</h3>
+<p>Hopefully by now you can just get straight to <span class="math display">\[{\mathbf{r}}(t) = [2\cos t,\,2\sin t,\,2],\qquad 0\leq t&lt;2\pi.\]</span></p>
 </section>
-<section id="what-is-vector-calculus" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-vector-calculus">What is vector calculus?</h2>
-<p>Vector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules. First we’ll see differentiation in 3D, then integration in 3D, and then some analogues of the “fundamental theorem of calculus” which combine these two.</p>
+<section id="step-2-calculate-ds" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-calculate-ds">Step 2: Calculate <span class="math inline">\(ds\)</span></h3>
+<p>We have <span class="math display">\[ \frac{d {\mathbf{r}}}{dt} = [2\sin t,\,-2\cos 2,\,0] \]</span> so <span class="math display">\[ ds = \left| \frac{d {\mathbf{r}}}{dt}\right| dt = \sqrt{(2\sin t)^2+(2\cos t)^2+0^2} dt = 2dt. \]</span></p>
+</section>
+<section id="step-3-rewrite-the-integration" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-rewrite-the-integration">Step 3: Rewrite the integration</h3>
+<p><span class="math display">\[
+\int_\gamma (x^2+z) ds = \int_0^{2\pi} (4\cos^2 t + 4) 2dt = 8\int_0^{2\pi} (\cos^2 t + 1) dt
+\]</span></p>
+</section>
+<section id="step-4-compute-the-answer" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-compute-the-answer">Step 4: Compute the answer</h3>
+<p>A quick trick is to remember that the average value of <span class="math inline">\(\cos^2\)</span> or <span class="math inline">\(\sin^2\)</span> is <span class="math inline">\(1/2\)</span> (because <span class="math inline">\(\cos^2 + \sin^2 = 1\)</span>), so <span class="math inline">\(\int_0^{2\pi} \cos^2 t \,dt = \pi\)</span>.</p>
+<p>However you do it, the final answer is <span class="math inline">\(24\pi\)</span>.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="line-integrals-of-vector-fields" class="level1">
+<h1>Line integrals of vector fields</h1>
+<p>There are actually two different types of integration here.</p>
+<p>Firstly we could just integrate a vector field by its separate components as scalar fields, so that <span class="math display">\[
+\int_\gamma {\mathbf{F}}({\mathbf{r}}) ds = \int_\gamma \left[F_1({\mathbf{r}}),\,F_2({\mathbf{r}}),F_3({\mathbf{r}})\right] ds =  \left[\int_\gamma F_1({\mathbf{r}}) ds,\,\int_\gamma F_2({\mathbf{r}}) ds,\int_\gamma F_3({\mathbf{r}}) ds\right] .
+\]</span> This is a perfectly valid thing to do, and there are definitely contexts where it makes sense, but it just means doing three scalar integrations, so we won’t discuss it more.</p>
+<p>Instead, the type of integration we want to discuss is sometimes called circulation, and it tells us how much over a vector field goes along a line.</p>
+<p>We write <span class="math display">\[
+\int_\gamma {\mathbf{F}}({\mathbf{r}}) \cdot d{\mathbf{s}}.
+\]</span> Notice how now there’s a dot product, and the <span class="math inline">\(d{\mathbf{s}}\)</span> is a vector (bold <span class="math inline">\({\mathbf{s}}\)</span>).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before, we were just integrating over a curve. For vector integrals, the <em>direction</em> of the integral makes a difference: it matters which end you start at.</p>
+</div>
+</div>
+<p>Luckily, the definition is exactly the obvious thing. For any suitable parameterisation of the curve, we define<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math display">\[
+d{\mathbf{s}} = \frac{d {\mathbf{r}}}{dt} dt
+\]</span> and then this is a vector so we can take the dot product with <span class="math inline">\({\mathbf{F}}\)</span>: <span class="math display">\[
+\int_\gamma {\mathbf{F}}({\mathbf{r}}) \cdot d{\mathbf{s}} = \int_{t_0}^{t_1} {\mathbf{F}}({\mathbf{r}}(t)) \cdot \frac{d {\mathbf{r}}}{dt} dt.
+\]</span> We have to make sure that the order of the limits is correct for the direction we want to integrate, that is we start from <span class="math inline">\(t=t_0\)</span> and go towards <span class="math inline">\(t=t_1\)</span>.</p>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>Calculate the line integral of the vector field <span class="math inline">\({\mathbf{F}}(x,y,z) = [x^2+y^2,z,0]\)</span> over the semicircle which starts at <span class="math inline">\((0,4,0)\)</span> and ends at <span class="math inline">\((0,0,0)\)</span> which passes through <span class="math inline">\((0,0,2)\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="step-1-parameterise-the-curve-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-parameterise-the-curve-1">Step 1: Parameterise the curve</h3>
+<p>I suggest drawing a sketch to help here. The <span class="math inline">\(x\)</span> co-ordinate is always <span class="math inline">\(0\)</span>, so we think about a circle in the <span class="math inline">\(y\)</span>-<span class="math inline">\(z\)</span> plane, something like <span class="math display">\[
+{\mathbf{r}}(t) = [0,\, a + b \cos t,\,c+b\sin t],
+\]</span> where we need to find <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and the limits of <span class="math inline">\(t\)</span>. It makes sense to use <span class="math inline">\(0\leq t\leq \pi\)</span> because it’s a semicircle, so then plugging in our three points at <span class="math inline">\(t=0,\pi/2,\pi\)</span>, <span class="math display">\[[0,a+b,c] = [0,4,0]\]</span> <span class="math display">\[[0,a,c+b] = [0,0,2]\]</span> <span class="math display">\[[0,a-b,c] = [0,0,0]\]</span> <span class="math inline">\(a=2\)</span>, <span class="math inline">\(b=2\)</span>, <span class="math inline">\(c=0\)</span> solves all of these, so the parameterisation is <span class="math display">\[
+{\mathbf{r}}(t) = [0,\, 2 + 2\cos t,\, 2\sin t],\qquad 0\leq t \leq \pi.
+\]</span></p>
+</section>
+<section id="step-2-calculate-dmathbfs" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-calculate-dmathbfs">Step 2: Calculate <span class="math inline">\(d{\mathbf{s}}\)</span></h3>
+<p><span class="math display">\[d{\mathbf{s}} = \frac{d {\mathbf{r}}}{dt} dt = [0,2\sin t, -2\cos t] dt.\]</span></p>
+</section>
+<section id="step-3-rewrite-the-integration-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-rewrite-the-integration-1">Step 3: Rewrite the integration</h3>
+<p><span class="math display">\[\int_\gamma {\mathbf{F}}({\mathbf{r}}) \cdot d{\mathbf{s}} = \int_0^\pi [0^2+(2+2\cos t)^2,\,2\sin t,\,0] \cdot [0,2\sin t, -2\cos t] dt = \int_0^\pi 4 \sin^2 t dt\]</span></p>
+</section>
+<section id="step-4-compute-the-answer-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-compute-the-answer-1">Step 4: Compute the answer</h3>
+<p>With the same trick as above, we can straight away say that the answer is <span class="math inline">\(2\pi\)</span>.</p>
+</section>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -280,7 +442,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Anything in the footnotes is also non-examinable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Sometimes this is written <span class="math inline">\(d{\mathbf{r}}\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,43 @@
+---
+title: "Derivatives of vector fields"
+---
+
+::: {.hidden}
+ \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+:::
+
+Another thing that changes when moving from 1D to 3D is that we now have a choice of two types of functions, scalar fields or vector fields. Now we'll think about vector fields,
+that is, assigning a magnitude and a direction to every point in space. Think about those wind maps on the weather forecast, or magnetic field lines around a magnet.
+
+To know a vector field, we need to know each of its components at each point in space.
+$$
+\v{F}(x,y,z) = F_1(x,y,z)\v{e}_x + F_2(x,y,z)\v{e}_y + F_3(x,y,z)\v{e}_z,
+$$
+or equivalently in a different co-ordinate system.
+
+Firstly, given any vector field we can easily construct a scalar field by taking the magnitude at each point in space, 
+$$
+\left|\v{F}(x,y,z)\right|=\sqrt{F_1(x,y,z)^2 + F_2(x,y,z)^2 + F_3(x,y,z)^2}
+$$
+and then take scalar derivatives. More on that next week.
+
+We consider two different types.
+
+# The divergence of a vector field
+This one takes a vector field and gives the answer as a scalar field, and the interpretation is "how much is the vector field pointing apart."
+In Cartesian co-ordinates, the definition is
+$$
+\nabla\cdot \v{F} = \pd{F_1}{x} + \pd{F_2}{y} + \pd{F_3}{z}.
+$$
+
+TODO
+
+# The curl of a vector field
+This one takes a vector field and gives another vector field, and the interpretation is "how much is the vector field rotating." It's a vector because the direction represents the _axis of rotation_ and 
+
+TODO
+
+:::{.callout-note}
+Just like the cross product, the curl is only defined in three dimensions. Sometimes people talk about 2D curls, but they're a bit different and much less important, so we'll ignore this.
+:::
