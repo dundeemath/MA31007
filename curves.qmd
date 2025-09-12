@@ -32,7 +32,7 @@ Parameterisations are not unique. The same curve can be described in infinitely 
 
 Here are two simple examples. Actually both of these are effectively 2D, but in class and later in the module we'll see more 3D examples.
 
-## Example: Straight line
+### Example: Straight line
 The simplest example of a curve is a straight line, which you saw in MA12001. If $\v{c}$ is some point on the line and $\v{s}$ is the direction of the line, then
 $$ \v{r} = \v{a} + \v{b}t,\quad t\in\mathbb{R}$$
 is a parameterisation for the line. In this case, $t$ can have any value because the line is infinitely long.
@@ -53,7 +53,7 @@ $$
 :::
 
 
-## Example: Circle
+### Example: Circle
 A circle is a curve. Let's find a parameterisation for the circle of radius $a$ in the $x-y$ plane, centred at the origin.
 $$ \v{r} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta < 2\pi. $$
 Here we're using $\theta$ as the parameter, because it's an angle. The $z$ co-ordinate is always zero, because we're in the $x-y$ plane.
@@ -83,7 +83,7 @@ $$
 \hat{\v{T}} = \frac{\v{T}}{|\v{T}|} = \frac{1}{\left|\frac{d \v{r}}{d t}\right|} \frac{d \v{r}}{d t}.
 $$
 
-## Example: Circle
+### Example: Circle
 Consider the circle of radius $a$ in the $x-y$ plane, centred at the origin.
 Find the unit tangent vector to the curve at the point $\v{r} = \left[\frac{a}{\sqrt{2}}, -\frac{a}{\sqrt{2}}, 0\right]$.
 
@@ -143,7 +143,7 @@ Here the limits for the integral are chosen based on what part of the curve we w
 This is just a normal integral of a scalar in one variable. Later we'll see more exotic integrals but you already know how to do these ones.
 :::
 
-## Example: the distance between two points
+### Example: the distance between two points
 Find the total arc-length of the line segment between two points $\v{p}$ and $\v{q}$.
 
 

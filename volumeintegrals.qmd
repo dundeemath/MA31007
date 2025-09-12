@@ -1,0 +1,71 @@
+---
+title: "Volume integrals"
+---
+
+::: {.hidden}
+ \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+:::
+
+In some ways these are the easiest integrals we see in this module. It's basically the same steps as before:
+
+1. Parameterise the volume.
+2. Find the element $dV$ for that parameterisation.
+3. Replace the integral $\int_V$ with ordinary integrals $\int_a^b$ with the correct limits.
+4. Compute the value of the triple integral.
+
+However, the parameterisation of 3D volume needs 3 parameters, and we already know how to parameterise 3D space: that's a co-ordinate system.
+So it's a case of choosing the co-ordinate system which best describes the volume you're interested in, and working out the correct limits.
+The element $dV$ for a given co-ordinate system is the product of the scale factors.
+
+For Cartestians,
+$$
+dV = h_x h_y h_z \,dx\,dy\,dz = dx\,dy\,dz,
+$$
+for cylindrical polars,
+$$
+dV = h_\rho h_\phi h_z \,d\rho\,d\phi\,dz = \rho d\rho\,d\phi\,dz,
+$$
+and for spherical polars,
+$$
+dV = h_r h_\phi h_\theta \,dr\,d\phi\,d\theta = r^2\sin \theta \,dr\,d\phi\,d\theta.
+$$
+
+### Example: volume of a sphere
+Calculate the volume of the sphere $x^2+y^2+z^2 \leq R^2$.
+
+::: {.callout-tip collapse="true"}
+## Solution
+TODO
+:::
+
+### Example
+Calculate the volume integral
+$$
+\int_V z^3 dV
+$$
+where $V = \{(x,y,z)\in\mathbb{R}\,|\,0\leq z\leq 1,\,x^2+y^2\leq z^2\}$.
+
+Hint: this is a cone.
+
+::: {.callout-tip collapse="true"}
+## Solution
+The set is given in Cartesian co-ordinates, but don't let that fool you: it will get very messy if you try to do this in Cartesians.
+
+The $x^2+y^2$ should make you think of cylindrical co-ordinates, since $\rho^2=x^2+y^2$. Then you get
+$$V = \{(\rho,\phi,z)\,|\,0\leq z\leq 1,\,\rho\leq z\},$$
+which is more obviously a cone (sketch in the $\phi=0$ plane).
+
+Implicit in this definition is that $\phi$ can take any value between $0$ and $2\pi$ as usual.
+
+So now we can put it all together:
+$$
+\int_V z^3 dV = \int_0^z d\rho \int_0^{2\pi} d\phi \int_0^1 dz z^3 \rho,
+$$
+with the extra $\rho$ coming from thee scale factor $h_\phi$.
+
+The $\phi$ integral is easy because $\phi$ does not appear in the integrand. We need to be careful with the order of the other two, because the limits for $\rho$ depend on $z$:
+$$
+\int_V z^3 dV = 2\pi  \int_0^1 z^3 \left(\int_0^z \rho d\rho\right) dz = 2\pi \int_0^1 z^3\, \frac{1}{2} z^2 dz = \frac{1}{6}
+$$
+:::

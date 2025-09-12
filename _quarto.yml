@@ -31,6 +31,7 @@ website:
         - text: "Surface integrals"
           href: surfaceintegrals.qmd
         - text: "Volume integrals"
+          href: volumeintegrals.qmd
       - section: "Unit 4: Theorems (Weeks 9-10)"
         contents:
         - text: "Stokes' theorem"

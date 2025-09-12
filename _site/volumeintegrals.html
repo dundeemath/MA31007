@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Surfaces – MA31007 Vector Calculus</title>
+<title>Volume integrals – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./surface.html">Surfaces</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lineintegrals.html">Unit 3: Integrals (Weeks 6-8)</a></li><li class="breadcrumb-item"><a href="./volumeintegrals.html">Volume integrals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,7 +156,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./surface.html" class="sidebar-item-text sidebar-link active">
+  <a href="./surface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Surfaces</span></a>
   </div>
 </li>
@@ -217,7 +217,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./volumeintegrals.html" class="sidebar-item-text sidebar-link">
+  <a href="./volumeintegrals.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Volume integrals</span></a>
   </div>
 </li>
@@ -259,32 +259,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#parameterisations-of-surfaces" id="toc-parameterisations-of-surfaces" class="nav-link active" data-scroll-target="#parameterisations-of-surfaces">Parameterisations of surfaces</a>
-  <ul class="collapse">
-  <li><a href="#example-parameterisation-of-a-plane" id="toc-example-parameterisation-of-a-plane" class="nav-link" data-scroll-target="#example-parameterisation-of-a-plane">Example: parameterisation of a plane</a></li>
-  <li><a href="#example-parameterisation-of-a-sphere" id="toc-example-parameterisation-of-a-sphere" class="nav-link" data-scroll-target="#example-parameterisation-of-a-sphere">Example: parameterisation of a sphere</a></li>
-  </ul></li>
-  <li><a href="#tangents-to-surfaces" id="toc-tangents-to-surfaces" class="nav-link" data-scroll-target="#tangents-to-surfaces">Tangents to surfaces</a></li>
-  <li><a href="#normals-to-surfaces" id="toc-normals-to-surfaces" class="nav-link" data-scroll-target="#normals-to-surfaces">Normals to surfaces</a>
-  <ul class="collapse">
-  <li><a href="#example-normal-to-a-sphere" id="toc-example-normal-to-a-sphere" class="nav-link" data-scroll-target="#example-normal-to-a-sphere">Example: Normal to a sphere</a></li>
-  <li><a href="#cross-product" id="toc-cross-product" class="nav-link" data-scroll-target="#cross-product">Cross product</a></li>
-  <li><a href="#direct-differentiation" id="toc-direct-differentiation" class="nav-link" data-scroll-target="#direct-differentiation">Direct differentiation</a></li>
-  </ul></li>
-  <li><a href="#tangent-planes" id="toc-tangent-planes" class="nav-link" data-scroll-target="#tangent-planes">Tangent planes</a>
-  <ul class="collapse">
-  <li><a href="#example-tangent-plane-to-the-sphere" id="toc-example-tangent-plane-to-the-sphere" class="nav-link" data-scroll-target="#example-tangent-plane-to-the-sphere">Example: tangent plane to the sphere</a></li>
-  </ul></li>
-  <li><a href="#surface-area" id="toc-surface-area" class="nav-link" data-scroll-target="#surface-area">Surface area</a></li>
+  <li><a href="#example-volume-of-a-sphere" id="toc-example-volume-of-a-sphere" class="nav-link active" data-scroll-target="#example-volume-of-a-sphere">Example: volume of a sphere</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./curves.html">Unit 1: Basics (Weeks 1-2)</a></li><li class="breadcrumb-item"><a href="./surface.html">Surfaces</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lineintegrals.html">Unit 3: Integrals (Weeks 6-8)</a></li><li class="breadcrumb-item"><a href="./volumeintegrals.html">Volume integrals</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Surfaces</h1>
+<h1 class="title">Volume integrals</h1>
 </div>
 
 
@@ -304,43 +289,47 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The easiest way to write down a surface is <span class="math display">\[
-z = f(x,y).
-\]</span> This is exactly equivalent to <span class="math inline">\(y=f(x)\)</span> in 2D, and you can think of it as giving the height of the surface at any points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
-<p>Actually, any single equation relating the variables <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> will in general describe a surface in 3D. For example, <span class="math display">\[
-x^2 + y^2 + z^2 = 1
-\]</span> is the sphere of radius 1 centred on the origin (MA12001), and <span class="math display">\[
-x = 1
-\]</span> is the plane parallel to the <span class="math inline">\(y-z\)</span> plane which goes through the point <span class="math inline">\([1,0,0]\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<p>In some ways these are the easiest integrals we see in this module. It’s basically the same steps as before:</p>
+<ol type="1">
+<li>Parameterise the volume.</li>
+<li>Find the element <span class="math inline">\(dV\)</span> for that parameterisation.</li>
+<li>Replace the integral <span class="math inline">\(\int_V\)</span> with ordinary integrals <span class="math inline">\(\int_a^b\)</span> with the correct limits.</li>
+<li>Compute the value of the triple integral.</li>
+</ol>
+<p>However, the parameterisation of 3D volume needs 3 parameters, and we already know how to parameterise 3D space: that’s a co-ordinate system. So it’s a case of choosing the co-ordinate system which best describes the volume you’re interested in, and working out the correct limits. The element <span class="math inline">\(dV\)</span> for a given co-ordinate system is the product of the scale factors.</p>
+<p>For Cartestians, <span class="math display">\[
+dV = h_x h_y h_z \,dx\,dy\,dz = dx\,dy\,dz,
+\]</span> for cylindrical polars, <span class="math display">\[
+dV = h_\rho h_\phi h_z \,d\rho\,d\phi\,dz = \rho d\rho\,d\phi\,dz,
+\]</span> and for spherical polars, <span class="math display">\[
+dV = h_r h_\phi h_\theta \,dr\,d\phi\,d\theta = r^2\sin \theta \,dr\,d\phi\,d\theta.
+\]</span></p>
+<section id="example-volume-of-a-sphere" class="level3">
+<h3 class="anchored" data-anchor-id="example-volume-of-a-sphere">Example: volume of a sphere</h3>
+<p>Calculate the volume of the sphere <span class="math inline">\(x^2+y^2+z^2 \leq R^2\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Solution
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If we’re being careful we should write that <span class="math display">\[
-\{ [x,y,z]\in\mathbb{R}^3 | x^2 + y^2 + z^2 = 1\}
-\]</span> is the sphere, rather than just the equation itself. Don’t be afraid if you see this set notation.</p>
+<p>TODO</p>
 </div>
 </div>
-<section id="parameterisations-of-surfaces" class="level1">
-<h1>Parameterisations of surfaces</h1>
-<p>Just as with curves, we can describe surfaces parametrically. However, for a two-dimensional surface, we need two parameters, which we usually call <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>. <span class="math display">\[
-{\mathbf{r}} (u,v) = [f(u,v),\,g(u,v),\,h(u,v)]
-\]</span> and again, we need to specify ranges for the parameters.</p>
-<section id="example-parameterisation-of-a-plane" class="level3">
-<h3 class="anchored" data-anchor-id="example-parameterisation-of-a-plane">Example: parameterisation of a plane</h3>
-<p>In MA12001, you saw plane equations like <span class="math display">\[{\mathbf{r}}\cdot {\mathbf{n}} = d\]</span> where <span class="math inline">\({\mathbf{n}}\)</span> is a normal vector to the plane (more on this below) and <span class="math inline">\(d\)</span> is some number. We can transform this to parametric form by introducing <span class="math inline">\(u=x\)</span> and <span class="math inline">\(v=y\)</span>.</p>
-<p>So we need only work out what <span class="math inline">\(z\)</span> is, as a function of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>. Substituting into the equation, <span class="math display">\[d = [u,v,z]\cdot[n_1,n_2,n_3] = un_1 + vn_3 + z n_3,\]</span> so <span class="math display">\[
-z = \frac{d-un_1-vn_2}{n_3}
-\]</span> so the full parameterisation is <span class="math display">\[
-{\mathbf{r}}(u,v) = \left[u,\,v,\,\frac{d-un_1-vn_2}{n_3}\right].
-\]</span></p>
-<p><strong>Think:</strong> When would this parameterisation fail?</p>
+</div>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Calculate the volume integral <span class="math display">\[
+\int_V z^3 dV
+\]</span> where <span class="math inline">\(V = \{(x,y,z)\in\mathbb{R}\,|\,0\leq z\leq 1,\,x^2+y^2\leq z^2\}\)</span>.</p>
+<p>Hint: this is a cone.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -353,209 +342,23 @@ Solution
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If the plane we want to parameterise parallel to the <span class="math inline">\(y-z\)</span> plane then we cannot use <span class="math inline">\(u=x\)</span> because <span class="math inline">\(x\)</span> only has one fixed value.</p>
-<p>Then the formulas above result in division by zero, because we would have <span class="math inline">\(n_3=0\)</span>.</p>
-<p>Similarly if <span class="math inline">\(y\)</span> is always the same then we can’t use <span class="math inline">\(v=y\)</span>. But in these cases we can just use <span class="math inline">\(u=x\)</span>, <span class="math inline">\(v=z\)</span> or <span class="math inline">\(u=z\)</span>, <span class="math inline">\(v=y\)</span> respectively.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="example-parameterisation-of-a-sphere" class="level3">
-<h3 class="anchored" data-anchor-id="example-parameterisation-of-a-sphere">Example: parameterisation of a sphere</h3>
-<p>The sphere which is described by <span class="math display">\[
-x^2 + y^2 + z^2 = 1
-\]</span> can be parameterised as <span class="math display">\[
-{\mathbf{r}}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v &lt; 2\pi.
+<p>The set is given in Cartesian co-ordinates, but don’t let that fool you: it will get very messy if you try to do this in Cartesians.</p>
+<p>The <span class="math inline">\(x^2+y^2\)</span> should make you think of cylindrical co-ordinates, since <span class="math inline">\(\rho^2=x^2+y^2\)</span>. Then you get <span class="math display">\[V = \{(\rho,\phi,z)\,|\,0\leq z\leq 1,\,\rho\leq z\},\]</span> which is more obviously a cone (sketch in the <span class="math inline">\(\phi=0\)</span> plane).</p>
+<p>Implicit in this definition is that <span class="math inline">\(\phi\)</span> can take any value between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\pi\)</span> as usual.</p>
+<p>So now we can put it all together: <span class="math display">\[
+\int_V z^3 dV = \int_0^z d\rho \int_0^{2\pi} d\phi \int_0^1 dz z^3 \rho,
+\]</span> with the extra <span class="math inline">\(\rho\)</span> coming from thee scale factor <span class="math inline">\(h_\phi\)</span>.</p>
+<p>The <span class="math inline">\(\phi\)</span> integral is easy because <span class="math inline">\(\phi\)</span> does not appear in the integrand. We need to be careful with the order of the other two, because the limits for <span class="math inline">\(\rho\)</span> depend on <span class="math inline">\(z\)</span>: <span class="math display">\[
+\int_V z^3 dV = 2\pi  \int_0^1 z^3 \left(\int_0^z \rho d\rho\right) dz = 2\pi \int_0^1 z^3\, \frac{1}{2} z^2 dz = \frac{1}{6}
 \]</span></p>
-<p><strong>Think:</strong> How can you show that these points satisfy <span class="math inline">\(x^2 + y^2 + z^2 = 1\)</span>?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Subsituting in <span class="math inline">\(x=\cos u \sin v\)</span>, <span class="math inline">\(y=\sin u \sin v\)</span> and <span class="math inline">\(z=\cos v\)</span>, you can see this. You will need to use both <span class="math inline">\(\cos^2 u + \sin^2 u = 1\)</span> <em>and</em> <span class="math inline">\(\cos^2 v + \sin^2 v = 1\)</span>.</p>
 </div>
 </div>
 </div>
-<p>We will talk much more about this when we discuss co-ordinate systems.</p>
-</section>
-</section>
-<section id="tangents-to-surfaces" class="level1">
-<h1>Tangents to surfaces</h1>
-<p>If you fix a value of <span class="math inline">\(v\)</span>, say <span class="math inline">\(v=v_0\)</span>, then for any surface <span class="math inline">\({\mathbf{r}}(u,v)\)</span>, <span class="math display">\[{\mathbf{r}} (u) = {\mathbf{r}}(u,v_0)\]</span> just describes a curve in space.</p>
-<p>For example, in the sphere parameterisation above, fixing <span class="math inline">\(v=0\)</span> gives the circle <span class="math inline">\(x^2+y^2=1\)</span>, <span class="math inline">\(z=0\)</span>, which is the equator of the sphere.</p>
-<p>We have already seen that curves have tangent vectors. What is the meaning of these tangent vectors for surfaces? These are just <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial u}\)</span> and <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial v}\)</span>, the <em>partial</em> derivatives keeping the other variable constant.</p>
-<p>A tangent vector to a surface is any vector which, at the current point, doesn’t point into or out of it. These are <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial u}\)</span> or <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial v}\)</span> or any <em>linear combination</em>, these tangent vectors form a two-dimension space called the tangent space with basis vectors given by <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial u}\)</span> and <span class="math inline">\(\frac{\partial{\mathbf{r}}}{\partial v}\)</span>.</p>
-<p>We won’t use surface tangent vectors much except to compute <em>normal vectors</em>.</p>
-</section>
-<section id="normals-to-surfaces" class="level1">
-<h1>Normals to surfaces</h1>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Surface normals, and the different ways to calculate them, come up a lot later in the module. Make sure you understand this.</p>
-</div>
-</div>
-<p>Normal vectors <span class="math inline">\({\mathbf{n}}\)</span> of surfaces are the direct generalisation of normal vectors to planes. They are a vector which makes a right-angle with the surface at a given point. As with tangent vectors for surfaces, normals can point in either direction and the magnitude depends on parameterisation, so sometimes we talk about <em>unit</em> normals.</p>
-<p>There are two ways to calculate normal vectors, and which to use depends on the form you have for your surface.</p>
-<p>The normal vector is perpendicular to the surface, so in particular it is perpendicular to all tangent vectors at the same point. So we can take the cross product of two different tangent vectors to find the normal.</p>
-<p>For a parameterised surface, this means <span class="math display">\[
-{\mathbf{n}}(u,v) = \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}
-\]</span></p>
-<p><img src="figures/chap_3_fig_5.png" class="img-fluid"></p>
-<p>Alternatively, if you can write your surface as an equation <span class="math display">\[
-f(x,y,z) = d,
-\]</span> where <span class="math inline">\(d\)</span> is some number (often zero), then we can use the formula<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math display">\[
-{\mathbf{n}} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right].
-\]</span> <img src="figures/chap_3_fig_7.png" class="img-fluid"></p>
-<p>We’ll see an explanation for why this works in class, but it should become more clear to you after the next unit of the module.</p>
-<section id="example-normal-to-a-sphere" class="level3">
-<h3 class="anchored" data-anchor-id="example-normal-to-a-sphere">Example: Normal to a sphere</h3>
-<p>We saw that we can parameterise <span class="math display">\[
-x^2 + y^2 + z^2 = 1
-\]</span> as <span class="math display">\[
-{\mathbf{r}}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v &lt; 2\pi.
-\]</span> So we can use both of the methods here. Let’s find a <em>unit</em> normal to the sphere at the point <span class="math inline">\({\mathbf{r}} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]\)</span></p>
-<p><strong>Think:</strong> is this point on the sphere? What parameters <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> does it correspond to?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Subsituting <span class="math inline">\(x=y=z=\frac{1}{\sqrt{3}}\)</span> immediately gives <span class="math display">\[
-x^2 + y^2 + z^2 = 1,
-\]</span> so it’s on the sphere.</p>
-<p>To find <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, it’s easiest to start with <span class="math inline">\(z = \cos v = \frac{1}{\sqrt{3}}\)</span>, so <span class="math display">\[v=\cos^{-1} \frac{1}{\sqrt{3}}.\]</span></p>
-<p>Then <span class="math inline">\(\sin v = \frac{\sqrt{2}}{\sqrt{3}}\)</span>, and so <span class="math inline">\(x = \cos u \sin v = \frac{1}{\sqrt{3}}\)</span> gives <span class="math display">\[
-\cos u = \frac{1}{\sqrt{2}}
-\]</span> so finally <span class="math display">\[(u,v) = \left(\frac{\pi}{4},\,\cos^{-1} \frac{1}{\sqrt{3}}\right).\]</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="cross-product" class="level3">
-<h3 class="anchored" data-anchor-id="cross-product">Cross product</h3>
-<p>Two different tangent vectors at the point <span class="math inline">\((u,v)\)</span> are <span class="math display">\[
-\frac{\partial{\mathbf{r}}}{\partial u} = [-\sin u \sin v,\,\cos u \sin v,\,0]
-\]</span> and <span class="math display">\[
-\frac{\partial{\mathbf{r}}}{\partial v} = [\cos u \cos v,\,\sin u \cos v,\,-\sin v],
-\]</span> so then <span class="math display">\[
-\begin{aligned}
-{\mathbf{n}}(u,v) &amp;= \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}
-\\&amp;= \left[\cos u \sin v\times -\sin v,\,\sin u \sin v\times-\sin v,\,-\sin u \sin v\times\sin u \cos v-\cos u \sin v \times \cos u \cos v\right]
-\\&amp;= \left[-\cos u \sin^2 v,\,-\sin u \sin^2 v,\,-\sin v \cos v\right]
-\\&amp;= -\sin v\left[\cos u \sin v, \sin u \sin v, \cos v\right].
-\end{aligned}
-\]</span></p>
-<p>After a lot of manipulation you will find that the magnitude of this is <span class="math inline">\(\sin v\)</span>, so we get a unit normal <span class="math display">\[
-\hat{{\mathbf{n}}}(u,v) = -\left[\cos u \sin v, \sin u \sin v, \cos v\right],
-\]</span> which at our point <span class="math inline">\((u,v) =\left(\frac{\pi}{4},\,\cos^{-1} \frac{1}{\sqrt{3}}\right)\)</span> is <span class="math display">\[
-\hat{{\mathbf{n}}} = -\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].
-\]</span></p>
-</section>
-<section id="direct-differentiation" class="level3">
-<h3 class="anchored" data-anchor-id="direct-differentiation">Direct differentiation</h3>
-<p>We have <span class="math inline">\(f(x,y,z) = x^2 + y^2 + z^2\)</span>, so <span class="math display">\[
-{\mathbf{n}} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right] = [2x,2y,2z].
-\]</span> and at our point <span class="math inline">\([x,y,z]=\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]\)</span> we get <span class="math display">\[{\mathbf{n}} = \left[\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}}\right].\]</span></p>
-<p>For a unit vector, we need to divide by the magnitude of this (which is <span class="math inline">\(2\)</span>), so the final answer is <span class="math display">\[\hat{{\mathbf{n}}} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These two answers are different! They are pointing in opposite directions. One is the <em>inward-facing normal</em> and the other is the <em>outward facing normal</em>. Choosing the right one will become important later on.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="tangent-planes" class="level1">
-<h1>Tangent planes</h1>
-<p>We said that there are infinitely many different tangent vectors to a surface at a given point. In fact, these tangent vectors all lie on a plane, and we can describe that plane (which is itself a surface) using the formula from MA12001: <span class="math display">\[
-({\mathbf{r}}-{\mathbf{c}})\cdot{\mathbf{n}} = 0
-\]</span> Here <span class="math inline">\({\mathbf{r}}\)</span> is any generic point on the plane, <span class="math inline">\({\mathbf{c}}\)</span> is one specific point and <span class="math inline">\({\mathbf{n}}\)</span> is the normal to the plane.</p>
-<p>So we should take <span class="math inline">\({\mathbf{c}}\)</span> to be the point on the original surface and <span class="math inline">\({\mathbf{n}}\)</span> to eb the normal there.</p>
-<section id="example-tangent-plane-to-the-sphere" class="level3">
-<h3 class="anchored" data-anchor-id="example-tangent-plane-to-the-sphere">Example: tangent plane to the sphere</h3>
-<p>Find the tangent plane to the sphere <span class="math display">\[
-x^2 + y^2 + z^2 = 1,
-\]</span> at the point <span class="math inline">\([x,y,z] = [1,0,0]\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The normal is <span class="math display">\[{\mathbf{n}} = [2x,2y,2z] = [2,0,0],\]</span> so substituting this and the point into the plane equation we get <span class="math display">\[
-([x,y,z] - [1,0,0]])\cdot[2,0,0] = 0
-\]</span> which simplifies to <span class="math display">\[
-2x-2 = 0
-\]</span> or simply <span class="math inline">\(x=1\)</span>. Sketch this: it makes sense.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It’s easy to get confused between generic points on the surface and the tangent plane when you’re doing this sort of problem. Go slowly and make sure your notation is clear.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="surface-area" class="level1">
-<h1>Surface area</h1>
-<p>We’ve seen how to calculate the length of curves as an integral, so the obvious extension is to calculate the surface area of surfaces as an integral. We’ll do this in unit 3 of the module.</p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Curves have dimension 1. But a curve in 2D has <em>co-dimension</em> 1 and a curve in 3D has co-dimension 2, whereas a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset. The co-dimension is the number of equations you need to describe a subset.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>In the next unit, we’ll write this as <span class="math inline">\({\mathbf{n}} = \nabla f\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

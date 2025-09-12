@@ -24,7 +24,7 @@ You may think that the elements $dx$ and $dy$ have to go on the right, but they 
 
 To calculate these multiple integrals, you just have to do two normal integrals. Actually the order you do them in shouldn't matter, it's like a multiplication, but sometimes the limits of one depend on the other.
 
-## Example
+### Example
 Calculate
 $$
 \int_0^1 dx \int_0^x dy (x^2y + 2y)

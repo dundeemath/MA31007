@@ -31,7 +31,7 @@ The _direction_ of this vector field tells you the direction in which the functi
 It's important to understand the interpretation of the different derivatives as well as the definitions.
 :::
 
-## Example
+### Example
 Find the gradient of the scalar field $f = x^2y + z$ at the point $(x,y,z) = (5,2,1)$.
 
 ::: {.callout-tip collapse="true"}
@@ -63,7 +63,7 @@ The "direction" $\v{a}$ doesn't need to be a fixed vector, it could also be a ve
 Some people define the directional derivative only for unit vectors, including in the old version of the notes. We'll assume that $\v{a}$ can be any vector or vector field.
 :::
 
-## Example
+### Example
 Find the directional derivative of the scalar field $f = x^2y + z$ at the point $(x,y,z) = (5,2,1)$, in the direction $\v{a} = [1,1,2]$.
 
 ::: {.callout-tip collapse="true"}
@@ -133,7 +133,7 @@ $$
 The directional derivative also has a different definition in different co-ordinate systems, and it also it's the simple thing you want it to be. We won't spend time on it in this module. If you ever need it, it's easy to find the formula online.
 :::
 
-## Example
+### Example
 Consider the scalar field defined in cylindrical co-ordinates as
 $$
 f(\rho,\phi,z) = \rho^2 z^3 \sin \phi.

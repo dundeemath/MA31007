@@ -38,7 +38,7 @@ $$
 $$
 and again, we need to specify ranges for the parameters.
 
-## Example: parameterisation of a plane
+### Example: parameterisation of a plane
 In MA12001, you saw plane equations like
 $$\v{r}\cdot \v{n} = d$$
 where $\v{n}$ is a normal vector to the plane (more on this below) and $d$ is some number. We can transform this to parametric form by introducing $u=x$ and $v=y$.
@@ -65,7 +65,7 @@ Then the formulas above result in division by zero, because we would have $n_3=0
 Similarly if $y$ is always the same then we can't use $v=y$. But in these cases we can just use $u=x$, $v=z$ or $u=z$, $v=y$ respectively.
 :::
 
-## Example: parameterisation of a sphere
+### Example: parameterisation of a sphere
 The sphere which is described by 
 $$
 x^2 + y^2 + z^2 = 1
@@ -129,7 +129,7 @@ $$
 
 We'll see an explanation for why this works in class, but it should become more clear to you after the next unit of the module.
 
-## Example: Normal to a sphere
+### Example: Normal to a sphere
 We saw that we can parameterise
 $$
 x^2 + y^2 + z^2 = 1
@@ -213,7 +213,7 @@ Here $\v{r}$ is any generic point on the plane, $\v{c}$ is one specific point an
 
 So we should take $\v{c}$ to be the point on the original surface and $\v{n}$ to eb the normal there.
 
-## Example: tangent plane to the sphere
+### Example: tangent plane to the sphere
 Find the tangent plane to the sphere 
 $$
 x^2 + y^2 + z^2 = 1,

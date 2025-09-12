@@ -178,11 +178,17 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Derivatives of scalar fields</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./scalarfields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivatives of scalar fields</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Derivatives of vector fields</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./vectorfields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derivatives of vector fields</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">Products &amp; second derivatives</span>
   </li>
@@ -198,14 +204,23 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Line integrals</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./lineintegrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line integrals</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Surface integrals</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./surfaceintegrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Surface integrals</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Volume integrals</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./volumeintegrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Volume integrals</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -316,8 +331,8 @@ Important
 </div>
 </div>
 <p>Here are two simple examples. Actually both of these are effectively 2D, but in class and later in the module we’ll see more 3D examples.</p>
-<section id="example-straight-line" class="level2">
-<h2 class="anchored" data-anchor-id="example-straight-line">Example: Straight line</h2>
+<section id="example-straight-line" class="level3">
+<h3 class="anchored" data-anchor-id="example-straight-line">Example: Straight line</h3>
 <p>The simplest example of a curve is a straight line, which you saw in MA12001. If <span class="math inline">\({\mathbf{c}}\)</span> is some point on the line and <span class="math inline">\({\mathbf{s}}\)</span> is the direction of the line, then <span class="math display">\[ {\mathbf{r}} = {\mathbf{a}} + {\mathbf{b}}t,\quad t\in\mathbb{R}\]</span> is a parameterisation for the line. In this case, <span class="math inline">\(t\)</span> can have any value because the line is infinitely long.</p>
 <p><img src="figures/vec_cal_fig_4.png" class="img-fluid"></p>
 <p><strong>Think:</strong> What’s a parameterisation for the <em>line segment</em> between two points <span class="math inline">\({\mathbf{p}}\)</span> and <span class="math inline">\({\mathbf{q}}\)</span>?</p>
@@ -340,8 +355,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="example-circle" class="level2">
-<h2 class="anchored" data-anchor-id="example-circle">Example: Circle</h2>
+<section id="example-circle" class="level3">
+<h3 class="anchored" data-anchor-id="example-circle">Example: Circle</h3>
 <p>A circle is a curve. Let’s find a parameterisation for the circle of radius <span class="math inline">\(a\)</span> in the <span class="math inline">\(x-y\)</span> plane, centred at the origin. <span class="math display">\[ {\mathbf{r}} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta &lt; 2\pi. \]</span> Here we’re using <span class="math inline">\(\theta\)</span> as the parameter, because it’s an angle. The <span class="math inline">\(z\)</span> co-ordinate is always zero, because we’re in the <span class="math inline">\(x-y\)</span> plane. Notice that, for any <span class="math inline">\(\theta\)</span>, <span class="math display">\[ x^2 + y^2 = a^2\cos^2 \theta +a^2\sin^2 \theta = a^2, \]</span> which is indeed a circle of radius a centred at the origin. You should get used to using <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> like this to parameterise circles.</p>
 <p><img src="figures/vec_cal_fig_5.png" class="img-fluid"></p>
 </section>
@@ -368,8 +383,8 @@ Note
 <p><span class="math display">\[
 \hat{{\mathbf{T}}} = \frac{{\mathbf{T}}}{|{\mathbf{T}}|} = \frac{1}{\left|\frac{d {\mathbf{r}}}{d t}\right|} \frac{d {\mathbf{r}}}{d t}.
 \]</span></p>
-<section id="example-circle-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-circle-1">Example: Circle</h2>
+<section id="example-circle-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-circle-1">Example: Circle</h3>
 <p>Consider the circle of radius <span class="math inline">\(a\)</span> in the <span class="math inline">\(x-y\)</span> plane, centred at the origin. Find the unit tangent vector to the curve at the point <span class="math inline">\({\mathbf{r}} = \left[\frac{a}{\sqrt{2}}, -\frac{a}{\sqrt{2}}, 0\right]\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -427,8 +442,8 @@ Note
 <p>This is just a normal integral of a scalar in one variable. Later we’ll see more exotic integrals but you already know how to do these ones.</p>
 </div>
 </div>
-<section id="example-the-distance-between-two-points" class="level2">
-<h2 class="anchored" data-anchor-id="example-the-distance-between-two-points">Example: the distance between two points</h2>
+<section id="example-the-distance-between-two-points" class="level3">
+<h3 class="anchored" data-anchor-id="example-the-distance-between-two-points">Example: the distance between two points</h3>
 <p>Find the total arc-length of the line segment between two points <span class="math inline">\({\mathbf{p}}\)</span> and <span class="math inline">\({\mathbf{q}}\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
