@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Helpful links – MA31007 Vector Calculus</title>
+<title>The divergence theorem – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./links.html">Helpful links</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stokes.html">Unit 4: Theorems (Weeks 9-10)</a></li><li class="breadcrumb-item"><a href="./divergence.html">Divergence theorem</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -214,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./divergence.html" class="sidebar-item-text sidebar-link">
+  <a href="./divergence.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Divergence theorem</span></a>
   </div>
 </li>
@@ -228,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./links.html" class="sidebar-item-text sidebar-link active">
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Helpful links</span></a>
   </div>
 </li>
@@ -237,15 +266,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example</a></li>
+  <li><a href="#greens-identities" id="toc-greens-identities" class="nav-link" data-scroll-target="#greens-identities">Green’s identities</a>
+  <ul class="collapse">
+  <li><a href="#greens-first-identity" id="toc-greens-first-identity" class="nav-link" data-scroll-target="#greens-first-identity">Green’s first identity</a></li>
+  <li><a href="#greens-second-identity" id="toc-greens-second-identity" class="nav-link" data-scroll-target="#greens-second-identity">Green’s second identity</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stokes.html">Unit 4: Theorems (Weeks 9-10)</a></li><li class="breadcrumb-item"><a href="./divergence.html">Divergence theorem</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Helpful links</h1>
+<h1 class="title">The divergence theorem</h1>
 </div>
 
 
@@ -262,13 +302,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><p>My notes for the vectors stuff of MA12001 are here: <a href="https://dundeemath.github.io/MA12001-algebra/_site/" class="uri">https://dundeemath.github.io/MA12001-algebra/_site/</a>. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.</p></li>
-<li><p>Most of the important results in this module are here: <a href="https://en.wikipedia.org/wiki/Vector_calculus_identities" class="uri">https://en.wikipedia.org/wiki/Vector_calculus_identities</a>. Your formula sheet in the exam should be based off this.</p></li>
-<li><p>The curvilinear co-ordinate results are summarised here: <a href="https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates" class="uri">https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates</a>.</p></li>
-</ul>
+<div class="hidden">
+
+</div>
+<p>The divergence theorem is similar to Stokes’ theorem, but it relates volumes and surfaces rather than surfaces and curves. As the name suggests, it uses the divergence: <span class="math display">\[
+\int_V \nabla\cdot {\mathbf{F}}({\mathbf{\rho}}) dV = \int_{\partial V} {\mathbf{F}}({\mathbf{\rho}})\cdot d{\mathbf{S}}.
+\]</span> As you may be able to guess, <span class="math inline">\(\partial V\)</span> is the boundary of the volume <span class="math inline">\(V\)</span>, with the normal facing out. Again, we may need to do the boundary in more than one piece.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Let <span class="math inline">\(V\)</span> be the solid cylinder <span class="math inline">\(x^2+y^2\leq 1\)</span>, <span class="math inline">\(0\leq z \leq 2\)</span>. Calculate, both directly and using the divergence theorem, the volume integral <span class="math display">\[
+\int_V 2z\, dV
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="directly" class="level3">
+<h3 class="anchored" data-anchor-id="directly">Directly</h3>
+<p>Since <span class="math inline">\(V\)</span> is the cylinder <span class="math inline">\(x^2 + y^2 \leq 1\)</span>, <span class="math inline">\(0 \leq z \leq 2\)</span>, we can use cylindrical coordinates: <span class="math display">\[
+x = \rho\cos\phi,\quad y = \rho\sin\phi,\quad z = z,\quad 0 \leq \rho \leq 1,\ 0 \leq \phi &lt; 2\pi,\ 0 \leq z \leq 2
+\]</span></p>
+<p>The volume element is <span class="math inline">\(dV = \rho\,d\rho\,d\phi\,dz\)</span>.</p>
+<p>So, <span class="math display">\[
+\begin{aligned}
+\int_V 2z\,dV &amp;= \int_{0}^2 dz\int_{0}^1 d\rho \int_{0}^{2\pi} d\phi 2z\rho\\
+&amp;= \left(\int_{0}^2 2z  dz\right)\left( \int_{0}^1 \rho\,d\rho \right) \left( \int_{0}^{2\pi} d\phi \right) \\&amp;= 4\pi.
+\end{aligned}
+\]</span></p>
+</section>
+<section id="divergence-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="divergence-theorem">Divergence theorem</h3>
+<p>To apply the divergence theorem, we need to find some <span class="math inline">\({\mathbf{F}}\)</span> such that <span class="math inline">\(\nabla\cdot{\mathbf{F}}=2z\)</span>.</p>
+<p><span class="math display">\[{\mathbf{F}} = [0,0,z^2]\]</span> works (more on this next week). So we need to calculate <span class="math display">\[
+\int_{\partial V} [0,0,z^2]\cdot d{\mathbf{S}}
+\]</span></p>
+<p>In this case, <span class="math inline">\(\partial V\)</span> has three parts that we’ll <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. TODO: diagram</p>
+<p>On the base <span class="math inline">\(S_1\)</span>, the field <span class="math inline">\({\mathbf{F}}\)</span> is zero because <span class="math inline">\(z=0\)</span>, so <span class="math display">\[\int_{S_1} [0,0,z^2]\cdot d{\mathbf{S}} = 0\]</span></p>
+<p>On the curved surface <span class="math inline">\(S_2\)</span>, the normal <span class="math inline">\(\hat{\mathbf{n}}\)</span> is horizontal, and the field <span class="math inline">\({\mathbf{F}}\)</span> is only in the <span class="math inline">\(z\)</span> direction, so <span class="math inline">\({\mathbf{F}}\cdot d{\mathbf{S}}=0\)</span>, so <span class="math display">\[\int_{S_2} [0,0,z^2]\cdot d{\mathbf{S}} = 0\]</span></p>
+<p>On the top <span class="math inline">\(S_3\)</span>, <span class="math inline">\({\mathbf{F}} = [0,0,4]\)</span> which is parallel to the outward-pointing normal <span class="math inline">\(\hat{{\mathbf{n}}}\)</span>, so the surface integral gives <span class="math display">\[\int_{S_3} {\mathbf{F}}\cdot d{\mathbf{S}} = \int_{S_3} [0,0,4]\cdot \hat{{\mathbf{n}}}\, dS = 4 \int_{S_3} dS = 4\pi\]</span> because <span class="math inline">\(\int_{S_3} dS\)</span> is just the area of the circle.</p>
+<p>So the divergence theorem gives us <span class="math inline">\(\int_V 2z\,dV = 4\pi\)</span>, as before.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="greens-identities" class="level1">
+<h1>Green’s identities</h1>
+<p>These two results are easy to prove once you know the divergence theorem, and they turn out to be helpful in many situations in physics. They also give good insight into how the divergence theorem can be used.</p>
+<section id="greens-first-identity" class="level2">
+<h2 class="anchored" data-anchor-id="greens-first-identity">Green’s first identity</h2>
+<p>Green’s first identity states that, for any scalar fields <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, <span class="math display">\[
+\int_V \left(g\Delta f + \nabla f \cdot \nabla g\right)dV = \int_{\partial V} g\nabla f \cdot d{\mathbf{S}}.
+\]</span></p>
+<p>To prove this, we obviously need to use the divergence theorem. It’s not clear how we can use that on the left-hand side, so let’s start with the right-hand side and use the product rule: <span class="math display">\[
+\begin{aligned}
+\int_{\partial V} g\nabla f \cdot d{\mathbf{S}} &amp;= \int_{V} \nabla \cdot \left(g\nabla f\right) dV
+\\ &amp;= \int_{V} \left(\nabla g \cdot \nabla f + g\nabla\cdot\nabla f \right) dV
+\end{aligned}
+\]</span> which is exactly what we wanted, when we remember that <span class="math inline">\(\Delta f = \nabla\cdot\nabla f\)</span>.</p>
+</section>
+<section id="greens-second-identity" class="level2">
+<h2 class="anchored" data-anchor-id="greens-second-identity">Green’s second identity</h2>
+<p>Green’s second identity states that, for any scalar fields <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, <span class="math display">\[
+\int_V \left(f\Delta g - g\Delta f\right)dV = \int_{\partial V} \left(f\nabla g - g\nabla f\right) \cdot d{\mathbf{S}}.
+\]</span> You can get this one from subtracting the first identity from itself with <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> swapped.</p>
+<p>This one is quite handy when you rearrange it: <span class="math display">\[
+\int_V f\Delta g\ dV = \int_{\partial V} \left(f\nabla g - g\nabla f\right) \cdot d{\mathbf{S}} + \int_V g\Delta f\ dV.
+\]</span> This is basically a form of integration by parts for the Laplacian <span class="math inline">\(\Delta\)</span>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

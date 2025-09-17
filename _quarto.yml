@@ -24,6 +24,7 @@ website:
         - text: "Derivatives of vector fields"
           href: vectorfields.qmd
         - text: "Products & second derivatives"
+          href: secondderivs.qmd
       - section: "Unit 3: Integrals (Weeks 6-8)"
         contents:
         - text: "Line integrals"
@@ -35,8 +36,11 @@ website:
       - section: "Unit 4: Theorems (Weeks 9-10)"
         contents:
         - text: "Stokes' theorem"
+          href: stokes.qmd
         - text: "Divergence theorem"
+          href: divergence.qmd
         - text: "Potentials"
+          href: potentials.qmd
       - href: links.qmd
 
 format:

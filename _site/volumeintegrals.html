@@ -190,8 +190,11 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Products &amp; second derivatives</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./secondderivs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Products &amp; second derivatives</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -233,14 +236,23 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Stokes' theorem</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./stokes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stokes’ theorem</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Divergence theorem</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./divergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Divergence theorem</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Potentials</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./potentials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Potentials</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -319,7 +331,16 @@ Solution
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>TODO</p>
+<p>The volume is the empty integral <span class="math display">\[
+\text{Volume} = \int_V dV.
+\]</span></p>
+<p>We use spherical polar coordinates, where <span class="math inline">\(x = r\sin\theta\cos\phi\)</span>, <span class="math inline">\(y = r\sin\theta\sin\phi\)</span>, <span class="math inline">\(z = r\cos\theta\)</span>, and <span class="math inline">\(dV = r^2 \sin\theta \, dr\, d\theta\, d\phi\)</span>.</p>
+<p>The limits are <span class="math inline">\(0 \leq r \leq R\)</span>, <span class="math inline">\(0 \leq \theta \leq \pi\)</span>, <span class="math inline">\(0 \leq \phi \leq 2\pi\)</span>.</p>
+<p>So, <span class="math display">\[
+\text{Volume} = \int_0^{2\pi} d\phi \int_0^\pi d\theta dr\,\int_0^R r^2  \sin\theta = (2\pi) \left( \int_0^\pi \sin\theta\, d\theta \right) \left( \int_0^R r^2 dr \right).
+\]</span> Notice how we can do each of the integrals separately in this case.</p>
+<p><span class="math inline">\(\int_0^\pi \sin\theta\, d\theta = 2\)</span>, and <span class="math inline">\(\int_0^R r^2 dr = \frac{R^3}{3}\)</span>.</p>
+<p>Therefore, the volume is <span class="math inline">\(2\pi \times 2 \times \frac{R^3}{3} = \frac{4}{3}\pi R^3\)</span>.</p>
 </div>
 </div>
 </div>

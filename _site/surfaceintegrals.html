@@ -190,8 +190,11 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Products &amp; second derivatives</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./secondderivs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Products &amp; second derivatives</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -233,14 +236,23 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">Stokes' theorem</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./stokes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stokes’ theorem</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Divergence theorem</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./divergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Divergence theorem</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Potentials</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./potentials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Potentials</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -362,7 +374,7 @@ Solution
 <section id="example-1" class="level3">
 <h3 class="anchored" data-anchor-id="example-1">Example</h3>
 <p>Calculate surface integral <span class="math display">\[
-\int_S (x^2 + y^2)\, dS
+\int_S (x + 4xz)\, dS
 \]</span> where <span class="math inline">\(S\)</span> is the surface <span class="math inline">\(\{(x,y,z)\in\mathbb{R}^3\,|\,z=x^2,\,0\leq x\leq 1, 0\leq y\leq 1\}\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -376,18 +388,40 @@ Solution
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>TODO</p>
+<p>Let’s solve the surface integral step by step.</p>
 <section id="step-1-parameterise-the-surface" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-parameterise-the-surface">Step 1: Parameterise the surface</h3>
+<p>The surface <span class="math inline">\(S\)</span> is given by <span class="math inline">\(z = x^2\)</span> for <span class="math inline">\(0 \leq x \leq 1\)</span>, <span class="math inline">\(0 \leq y \leq 1\)</span>. The easiest way to parameterise this is to let <span class="math inline">\(u=x\)</span> and <span class="math inline">\(v=y\)</span>. Then <span class="math display">\[
+{\mathbf{r}}(u, u) = [u, v, u^2], \qquad 0 \leq u \leq 1,\ 0 \leq v \leq 1.
+\]</span></p>
 </section>
 <section id="step-2-calculate-ds" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-calculate-ds">Step 2: Calculate <span class="math inline">\(dS\)</span></h3>
+<p>Compute the partial derivatives: <span class="math display">\[
+{\frac{\partial {\mathbf{r}}}{\partial u}} = [1, 0, 2u], \qquad {\frac{\partial {\mathbf{r}}}{\partial v}} = [0, 1, 0]
+\]</span> Take the cross product: <span class="math display">\[
+{\frac{\partial {\mathbf{r}}}{\partial u}} \times {\frac{\partial {\mathbf{r}}}{\partial v}} = [-2u, 0, 1]
+\]</span> The magnitude is: <span class="math display">\[
+\left|[-2u, 0, 1]\right| = \sqrt{(-2u)^2 + 0^2 + 1^2} = \sqrt{4u^2 + 1}
+\]</span> So, <span class="math display">\[
+dS = \sqrt{4u^2 + 1}\ du\ dv
+\]</span></p>
 </section>
 <section id="step-3-rewrite-the-integration" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-rewrite-the-integration">Step 3: Rewrite the integration</h3>
+<p>The function is <span class="math inline">\(f(x, y, z) = x + 4xz = u + 4u^3\)</span>.</p>
+<p>The surface integral becomes: <span class="math display">\[
+\int_S (x^2 + z^2)\, dS = \int_0^1 du \int_0^1 dv\ (u + 4u^3)\ \sqrt{4u^2 + 1}
+\]</span></p>
 </section>
 <section id="step-4-compute-the-answer" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-compute-the-answer">Step 4: Compute the answer</h3>
+<p>No <span class="math inline">\(v\)</span> appears in the integrand so this integral just simplifies to 1. We are left with <span class="math display">\[
+\int_S (x^2 + z^2)\, dS = \int_0^1 (u + 4u^3)\ \sqrt{4u^2 + 1} \, du = \int_0^1 u(1+4u^2)^{3/2} \, du.
+\]</span></p>
+<p>By inspection, the integral is <span class="math display">\[
+\int_0^1 u(1+4u^2)^{3/2} \, du = \left[\frac{1}{20}(1+4u^2)^{5/2}\right]_0^1 = \frac{5^{5/2}-1}{20}.
+\]</span></p>
 </section>
 </div>
 </div>
@@ -479,22 +513,47 @@ Tip
 <section id="example-flux-through-a-surface" class="level3">
 <h3 class="anchored" data-anchor-id="example-flux-through-a-surface">Example: Flux through a surface</h3>
 <p>Calculate the total flux of the vector field <span class="math inline">\({\mathbf{F}}(x,y,z) = [z^2,z,0]\)</span> through the hemisphere <span class="math inline">\(x^2+y^2+z^1=1\)</span>, <span class="math inline">\(x\geq 0\)</span>, with an outward-facing normal.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>TODO</p>
-</div>
-</div>
-</div>
+<section id="step-1-parameterise-the-surface-1" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-parameterise-the-surface-1">Step 1: Parameterise the surface</h4>
+<p>The hemisphere means spherical co-ordinates seem natural here, as we can take <span class="math inline">\(r=1\)</span> and use <span class="math display">\[
+[x,y,z] = [\cos u \sin v,\,\sin u \sin v,\,\cos v].
+\]</span> We need to be careful here with the constraint that <span class="math inline">\(x\geq 0\)</span>. With the usual limit for <span class="math inline">\(v=\theta\)</span>, <span class="math inline">\(0\leq v \leq \pi\)</span>, we know that <span class="math inline">\(\sin v\geq 0\)</span>. So for <span class="math inline">\(x\geq 0\)</span> we just need <span class="math inline">\(\cos u \geq 0\)</span>, so let’s take <span class="math inline">\(-\pi/2 \leq u \leq \pi/2\)</span>.</p>
+</section>
+<section id="step-2-calculate-dmathbfs" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-calculate-dmathbfs">Step 2: Calculate <span class="math inline">\(d{\mathbf{S}}\)</span></h4>
+<p>Hopefully this is starting to become familiar: <span class="math display">\[
+\begin{aligned}
+d{\mathbf{S}} &amp;= {\frac{\partial {\mathbf{r}}}{\partial u}} \times {\frac{\partial {\mathbf{r}}}{\partial v}} \\
+&amp;= [-\sin u \sin v,\,\cos u\sin v,\,0]\times[\cos u\cos v,\,\sin u\cos v,\,-\sin v]\\
+&amp;= \sin v\,[-\sin u,\,\cos u,\,0]\times[\cos u\cos v,\,\sin u\cos v,\,-\sin v]\\
+&amp;= \sin v\,[-\cos u \sin v,\,-\sin u\sin v,\,-\sin^2 u \cos v -\cos^2 u \cos v]\\
+&amp;= \sin v\,[-\cos u \sin v,\,-\sin u\sin v,\,-\cos v]
+\end{aligned}
+\]</span> We need to check this is the outward normal, as specified by the question. Actually this is <span class="math inline">\(\sin v\)</span> times <span class="math inline">\(-{\mathbf{r}}\)</span>, so it’s inward pointing!</p>
+<p>Not to worry - we can just flip the signs: <span class="math display">\[d{\mathbf{S}} =  \sin v\,[\cos u \sin v,\,\sin u\sin v,\,\cos v]\]</span>.</p>
+</section>
+<section id="step-3-rewrite-the-integration-1" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-rewrite-the-integration-1">Step 3: Rewrite the integration</h4>
+<p>In our local co-ordinates, <span class="math inline">\({\mathbf{F}}(u,v) = [z^2,z,0] = \cos v\,[\cos v,\,1,\,0]\)</span> (remembering to take out the common factor), so the integral becomes <span class="math display">\[
+\int_S {\mathbf{F}}\cdot d{\mathbf{S}} = \int_0^\pi dv \int_{-\pi/2}^{\pi/2} du \cos v[\cos v,\,1,\,0] \cdot \sin v\,[\cos u \sin v,\,\sin u\sin v,\,\cos v] = \int_0^\pi dv \int_{-\pi/2}^{\pi/2} du \sin v \cos v \left(\cos u \cos v \sin v + \sin u \sin v\right)
+\]</span></p>
+</section>
+<section id="step-4-compute-the-answer-1" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-compute-the-answer-1">Step 4: Compute the answer</h4>
+<p>Here it’s the sum of two different things, so it’s easiest to split it up: <span class="math display">\[\begin{aligned}\int_S {\mathbf{F}}\cdot d{\mathbf{S}} &amp;= \int_0^\pi dv \int_{-\pi/2}^{\pi/2} du \left(\cos u \cos^2 v \sin^2 v + \sin u \cos v \sin^2 v\right)\\
+&amp;=\int_0^\pi dv \int_{-\pi/2}^{\pi/2} du\cos u \cos^2 v \sin^2 v + \int_0^\pi dv \int_{-\pi/2}^{\pi/2} du\sin u \cos v \sin^2 v.\end{aligned}\]</span></p>
+<p>For both parts, the <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> integrals just separate into multiplication, giving <span class="math display">\[
+\begin{aligned}
+\int_0^\pi dv \int_{-\pi/2}^{\pi/2} du\cos u \cos^2 v \sin^2 v &amp;= \left(\int_{-\pi/2}^{\pi/2} \cos u\,du\right)\left(\int_0^\pi \cos^2 v \sin^2 v\,dv\right)
+\\&amp;= 2\left(\int_0^\pi \frac{1}{2}\sin^2 2v\,dv\right)
+\\&amp;= 2\times \frac{1}{4}
+\\&amp;= \frac{1}{2}.
+\end{aligned}
+\]</span> For the second part, note that <span class="math inline">\(\int_{-\pi/2}^{\pi/2} \sin u\, du = 0\)</span> (since sine is an odd function over a symmetric interval), so <span class="math display">\[
+\int_0^\pi dv \int_{-\pi/2}^{\pi/2} du\sin u \cos v \sin^2 v = 0.
+\]</span></p>
+<p>Therefore, the total flux is <span class="math inline">\(\frac{1}{2}\)</span>.</p>
+</section>
 </section>
 </section>
 <section id="other-surface-integrals" class="level1">

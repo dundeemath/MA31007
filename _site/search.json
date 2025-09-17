@@ -4,7 +4,7 @@
     "href": "volumeintegrals.html",
     "title": "Volume integrals",
     "section": "",
-    "text": "In some ways these are the easiest integrals we see in this module. It’s basically the same steps as before:\n\nParameterise the volume.\nFind the element \\(dV\\) for that parameterisation.\nReplace the integral \\(\\int_V\\) with ordinary integrals \\(\\int_a^b\\) with the correct limits.\nCompute the value of the triple integral.\n\nHowever, the parameterisation of 3D volume needs 3 parameters, and we already know how to parameterise 3D space: that’s a co-ordinate system. So it’s a case of choosing the co-ordinate system which best describes the volume you’re interested in, and working out the correct limits. The element \\(dV\\) for a given co-ordinate system is the product of the scale factors.\nFor Cartestians, \\[\ndV = h_x h_y h_z \\,dx\\,dy\\,dz = dx\\,dy\\,dz,\n\\] for cylindrical polars, \\[\ndV = h_\\rho h_\\phi h_z \\,d\\rho\\,d\\phi\\,dz = \\rho d\\rho\\,d\\phi\\,dz,\n\\] and for spherical polars, \\[\ndV = h_r h_\\phi h_\\theta \\,dr\\,d\\phi\\,d\\theta = r^2\\sin \\theta \\,dr\\,d\\phi\\,d\\theta.\n\\]\n\nExample: volume of a sphere\nCalculate the volume of the sphere \\(x^2+y^2+z^2 \\leq R^2\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nTODO\n\n\n\n\n\nExample\nCalculate the volume integral \\[\n\\int_V z^3 dV\n\\] where \\(V = \\{(x,y,z)\\in\\mathbb{R}\\,|\\,0\\leq z\\leq 1,\\,x^2+y^2\\leq z^2\\}\\).\nHint: this is a cone.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe set is given in Cartesian co-ordinates, but don’t let that fool you: it will get very messy if you try to do this in Cartesians.\nThe \\(x^2+y^2\\) should make you think of cylindrical co-ordinates, since \\(\\rho^2=x^2+y^2\\). Then you get \\[V = \\{(\\rho,\\phi,z)\\,|\\,0\\leq z\\leq 1,\\,\\rho\\leq z\\},\\] which is more obviously a cone (sketch in the \\(\\phi=0\\) plane).\nImplicit in this definition is that \\(\\phi\\) can take any value between \\(0\\) and \\(2\\pi\\) as usual.\nSo now we can put it all together: \\[\n\\int_V z^3 dV = \\int_0^z d\\rho \\int_0^{2\\pi} d\\phi \\int_0^1 dz z^3 \\rho,\n\\] with the extra \\(\\rho\\) coming from thee scale factor \\(h_\\phi\\).\nThe \\(\\phi\\) integral is easy because \\(\\phi\\) does not appear in the integrand. We need to be careful with the order of the other two, because the limits for \\(\\rho\\) depend on \\(z\\): \\[\n\\int_V z^3 dV = 2\\pi  \\int_0^1 z^3 \\left(\\int_0^z \\rho d\\rho\\right) dz = 2\\pi \\int_0^1 z^3\\, \\frac{1}{2} z^2 dz = \\frac{1}{6}\n\\]",
+    "text": "In some ways these are the easiest integrals we see in this module. It’s basically the same steps as before:\n\nParameterise the volume.\nFind the element \\(dV\\) for that parameterisation.\nReplace the integral \\(\\int_V\\) with ordinary integrals \\(\\int_a^b\\) with the correct limits.\nCompute the value of the triple integral.\n\nHowever, the parameterisation of 3D volume needs 3 parameters, and we already know how to parameterise 3D space: that’s a co-ordinate system. So it’s a case of choosing the co-ordinate system which best describes the volume you’re interested in, and working out the correct limits. The element \\(dV\\) for a given co-ordinate system is the product of the scale factors.\nFor Cartestians, \\[\ndV = h_x h_y h_z \\,dx\\,dy\\,dz = dx\\,dy\\,dz,\n\\] for cylindrical polars, \\[\ndV = h_\\rho h_\\phi h_z \\,d\\rho\\,d\\phi\\,dz = \\rho d\\rho\\,d\\phi\\,dz,\n\\] and for spherical polars, \\[\ndV = h_r h_\\phi h_\\theta \\,dr\\,d\\phi\\,d\\theta = r^2\\sin \\theta \\,dr\\,d\\phi\\,d\\theta.\n\\]\n\nExample: volume of a sphere\nCalculate the volume of the sphere \\(x^2+y^2+z^2 \\leq R^2\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe volume is the empty integral \\[\n\\text{Volume} = \\int_V dV.\n\\]\nWe use spherical polar coordinates, where \\(x = r\\sin\\theta\\cos\\phi\\), \\(y = r\\sin\\theta\\sin\\phi\\), \\(z = r\\cos\\theta\\), and \\(dV = r^2 \\sin\\theta \\, dr\\, d\\theta\\, d\\phi\\).\nThe limits are \\(0 \\leq r \\leq R\\), \\(0 \\leq \\theta \\leq \\pi\\), \\(0 \\leq \\phi \\leq 2\\pi\\).\nSo, \\[\n\\text{Volume} = \\int_0^{2\\pi} d\\phi \\int_0^\\pi d\\theta dr\\,\\int_0^R r^2  \\sin\\theta = (2\\pi) \\left( \\int_0^\\pi \\sin\\theta\\, d\\theta \\right) \\left( \\int_0^R r^2 dr \\right).\n\\] Notice how we can do each of the integrals separately in this case.\n\\(\\int_0^\\pi \\sin\\theta\\, d\\theta = 2\\), and \\(\\int_0^R r^2 dr = \\frac{R^3}{3}\\).\nTherefore, the volume is \\(2\\pi \\times 2 \\times \\frac{R^3}{3} = \\frac{4}{3}\\pi R^3\\).\n\n\n\n\n\nExample\nCalculate the volume integral \\[\n\\int_V z^3 dV\n\\] where \\(V = \\{(x,y,z)\\in\\mathbb{R}\\,|\\,0\\leq z\\leq 1,\\,x^2+y^2\\leq z^2\\}\\).\nHint: this is a cone.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe set is given in Cartesian co-ordinates, but don’t let that fool you: it will get very messy if you try to do this in Cartesians.\nThe \\(x^2+y^2\\) should make you think of cylindrical co-ordinates, since \\(\\rho^2=x^2+y^2\\). Then you get \\[V = \\{(\\rho,\\phi,z)\\,|\\,0\\leq z\\leq 1,\\,\\rho\\leq z\\},\\] which is more obviously a cone (sketch in the \\(\\phi=0\\) plane).\nImplicit in this definition is that \\(\\phi\\) can take any value between \\(0\\) and \\(2\\pi\\) as usual.\nSo now we can put it all together: \\[\n\\int_V z^3 dV = \\int_0^z d\\rho \\int_0^{2\\pi} d\\phi \\int_0^1 dz z^3 \\rho,\n\\] with the extra \\(\\rho\\) coming from thee scale factor \\(h_\\phi\\).\nThe \\(\\phi\\) integral is easy because \\(\\phi\\) does not appear in the integrand. We need to be careful with the order of the other two, because the limits for \\(\\rho\\) depend on \\(z\\): \\[\n\\int_V z^3 dV = 2\\pi  \\int_0^1 z^3 \\left(\\int_0^z \\rho d\\rho\\right) dz = 2\\pi \\int_0^1 z^3\\, \\frac{1}{2} z^2 dz = \\frac{1}{6}\n\\]",
     "crumbs": [
       "Unit 3: Integrals (Weeks 6-8)",
       "Volume integrals"
@@ -19,6 +19,72 @@
     "crumbs": [
       "Unit 3: Integrals (Weeks 6-8)",
       "Surface integrals"
+    ]
+  },
+  {
+    "objectID": "stokes.html",
+    "href": "stokes.html",
+    "title": "Stokes’ theorem",
+    "section": "",
+    "text": "Stokes’ theorem is one form of the Fundamental Theorem of Calculus in three dimensions, and it relates surface integrals to line integrals. Specifically, it says that \\[\n\\int_S (\\nabla \\times {\\mathbf{F}})\\cdot d{\\mathbf{S}} = \\int_{\\partial S} {\\mathbf{F}} \\cdot d{\\mathbf{s}}.\n\\] The only thing that’s new here is the curve \\(\\partial S\\). It says that\nWe won’t attempt a proof of this theorem, though in class we’ll see some intuition behind it. It is possible to prove it with techniques you know, but once you learn differential geometry it’s a special case of a much easier theorem.",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Stokes' theorem"
+    ]
+  },
+  {
+    "objectID": "stokes.html#the-boundary-of-a-surface",
+    "href": "stokes.html#the-boundary-of-a-surface",
+    "title": "Stokes’ theorem",
+    "section": "The boundary of a surface",
+    "text": "The boundary of a surface\nThe symbol \\(\\partial S\\) is the boundary of the surface \\(S\\).1 The surface is a 2D object, and the boundary is a curve, a 1D object. Specifically, given the direction the normal is pointing, the boundary obeys the right-hand rule as per the diagram.\n(Diagram TODO)\nThink: what’s the boundary of the surface \\(x^2+y^2+z^2=1\\), \\(z\\geq 0\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThis is a hemisphere. Hopefully you can immediately spot the boundary, but if not, try substituting the condition \\(z\\geq 0\\) at its limit, i.e. \\(z=0\\), into the equation \\(x^2+y^2+z^2=0\\).\nSo we get \\(x^2+y^2=0\\), \\(z=0\\), which is a circle.\nI didn’t tell you the direction of the normal, so you can’t tell me which way this is oriented.\n\n\n\nSometimes, the boundary of a surface has multiple parts. In this case, you can split the line integral into several simpler ones, making sure that at each separate curve, the right-hand rule is respected. The example below should make this a bit clearer.",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Stokes' theorem"
+    ]
+  },
+  {
+    "objectID": "stokes.html#conditions",
+    "href": "stokes.html#conditions",
+    "title": "Stokes’ theorem",
+    "section": "Conditions",
+    "text": "Conditions\nFor the theorem to apply, the surface \\(S\\) has to be oriented. That means that the normal is well-defined everywhere on the surface.\nMost things you can think of are orientable: a sphere, a sheet of paper, a donut. You then have to choose which direction the normal goes and it becomes oriented.\nThe usual counter example is the Mobius band: this doesn’t have a well defined normal, because you can point it one way, and then follow it all the way around the band and it’s suddenly pointing the opposite way.\n\nExample\nLet \\(S\\) be the curved surface of the cylinder \\(x^2+y^2=1\\), \\(0\\leq z\\leq 2\\), with normal pointing out. Evaluate the integral \\[\n\\int_S \\left(\\nabla\\times [z^2,x^2,y^2]\\right) \\cdot d{\\mathbf{S}}\n\\] both directly and using Stokes’ theorem.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst, sketch the surface to understand it and its boundary.\n\nDirectly\nThe obvious parameterisation is, taking inspiration from cylindrical co-ordinates, \\[\n[x,y,z] = [\\cos u,\\sin u, v]\\qquad 0\\leq u&lt;2\\pi,\\,0\\leq v \\leq 2.\n\\]\nThen we have \\[\nd{\\mathbf{S}} = {\\frac{\\partial {\\mathbf{r}}}{\\partial u}}\\times{\\frac{\\partial {\\mathbf{r}}}{\\partial v}} du\\, dv = [-\\sin u,\\cos u,0]\\times[0,0,1] du\\,dv = [\\cos u,\\sin u,0] du\\,dv\n\\] and this normal does point out, as we want.\nThe integrand is \\[\\nabla\\times [z^2,x^2,y^2] = [2y, 2z, 2x] = [2\\sin u,2v,2\\cos u]\\] so putting it all together, \\[\n\\begin{aligned}\n\\int_S \\left(\\nabla\\times [z^2,x^2,y^2]\\right) \\cdot d{\\mathbf{S}} &= \\int_0^{2\\pi} du \\int_0^2 dv [2\\sin u,2v,2\\cos u]\\cdot[\\cos u,\\sin u,0]\\\\\n&=\\int_0^{2\\pi} du \\int_0^2 dv \\left(2\\sin u \\cos u + 2v\\sin u\\right)\\\\\n&=\\int_0^{2\\pi} du \\int_0^2 dv \\left(\\sin 2u + 2v\\sin u\\right)\\\\\n&= \\int_0^{2\\pi} du \\left(2\\sin 2u + 4\\sin u\\right)\\\\\n&= 0.\n\\end{aligned}\n\\]\n\n\nStokes theorem\nWe need to evaluate \\[\n\\int_{\\partial S} [z^2,x^2,y^2] \\cdot d{\\mathbf{s}},\n\\] but crucially \\(\\partial S\\) has two parts, that we will call \\(\\gamma_1\\) and \\(\\gamma_2\\), and we write \\(\\partial S = \\gamma_1+\\gamma_2\\).\nTODO: diagram\nFor \\(\\gamma_1\\), we parameterise \\[[x,y,z] = [\\cos t,\\,\\sin t,\\,0], \\qquad 0\\leq t &lt; 2\\pi.\\] Then \\(d{\\mathbf{s}} = [-\\sin t,\\cos t,0]dt\\) so the integral is \\[\n\\int_{\\gamma_1} [z^2,x^2,y^2] \\cdot d{\\mathbf{s}} = \\int_0^{2\\pi} [0,\\cos^2 t,\\sin^2 t]\\cdot [-\\sin t,\\cos t,0]dt =\n\\int_0^{2\\pi} \\cos^3 t\\, dt = 0.\n\\]\nFor \\(\\gamma_2\\), we parameterise \\[[x,y,z] = [\\cos t,\\,-\\sin t,\\,2], \\qquad 0\\leq t &lt; 2\\pi.\\] Notice the extra minus sign! This is because we need to go the opposite direction from usual, from the diagram. Now \\(d{\\mathbf{s}} = [\\sin t,\\cos t,0]dt\\) so the integral is \\[\n\\int_{\\gamma_2} [z^2,x^2,y^2] \\cdot d{\\mathbf{s}} = \\int_0^{2\\pi} [4,\\cos^2 t,\\sin^2 t]\\cdot [\\sin t,\\cos t,0]dt =\n\\int_0^{2\\pi} \\left(4\\sin t + \\cos^3 t\\right)\\, dt = 0.\n\\] So overall \\[\n\\int_S \\left(\\nabla\\times [z^2,x^2,y^2]\\right) \\cdot d{\\mathbf{S}}=\\int_{\\partial S} [z^2,x^2,y^2] \\cdot d{\\mathbf{s}} = \\int_{\\gamma_1} [z^2,x^2,y^2] \\cdot d{\\mathbf{s}} + \\int_{\\gamma_2} [z^2,x^2,y^2] \\cdot d{\\mathbf{s}} = 0,\n\\] which is exactly the same answer as we got before!\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nTo change the direction of a line integral, you can just subtract the integral instead of changing the direction of the parameterisation.",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Stokes' theorem"
+    ]
+  },
+  {
+    "objectID": "stokes.html#closed-surface",
+    "href": "stokes.html#closed-surface",
+    "title": "Stokes’ theorem",
+    "section": "Closed surface",
+    "text": "Closed surface\nA closed surface is one that has an “inside” and an “outside” - the surface forms a barrier in 3D space. Think of a bubble, or a donut.\nThink: What’s the boundary of a closed surface? How does Stokes’ theorem apply?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nIt doesn’t have a boundary! So the right-hand side of Stoke’s theorem is zero, and we just have \\[\n\\int_S (\\nabla \\times {\\mathbf{F}})\\cdot d{\\mathbf{S}} = 0\n\\]\n\n\n\nFor a closed surface, we sometimes use the symbol \\(\\oint\\). The theorem is \\[\n\\oint_S (\\nabla \\times {\\mathbf{F}})\\cdot d{\\mathbf{S}} = 0\n\\] and this is most obviously a connection between integration and differentiation: the flux integral and the curl are basically opposites for a closed surface.",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Stokes' theorem"
+    ]
+  },
+  {
+    "objectID": "stokes.html#example-1",
+    "href": "stokes.html#example-1",
+    "title": "Stokes’ theorem",
+    "section": "Example",
+    "text": "Example\nUsing Stokes’ theorem and the fact that \\[\n\\nabla \\times [xz,\\,xy,\\,yz] = [z,x,y],\n\\] evaluate the integral \\[\n\\oint_S [x+z,\\,y+x,\\,z+y]\\cdot d{\\mathbf{S}}\n\\] where \\(S\\) is the sphere \\(x^2+y^2+z^2=1\\).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nObviously we could compute this integral directly, but the question wants us to use the theorem. It’s not exactly in the form we need, but notice \\[[x+z,\\,y+x,\\,z+y] = [x,y,z]+[z,x,y] = \\hat{{\\mathbf{n}}} + \\nabla \\times [xz,\\,xy,\\,yz].\\]\nSo then \\[\n\\oint_S [x+z,\\,y+x,\\,z+y]\\cdot d{\\mathbf{S}} = \\oint_S \\hat{{\\mathbf{n}}} \\cdot \\hat{{\\mathbf{n}}} dS + \\oint_S \\left(\\nabla \\times [xz,\\,xy,\\,yz]\\right) \\cdot d{\\mathbf{S}}.\n\\] The second integral is zero by the divergence theorem, because \\(S\\) is a closed surface.\nA unit vector dotted with itself is 1, so the first integral simplies to \\[\\oint_S  dS = 4\\pi,\\] the surface area of \\(S\\), which is the final answer.",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Stokes' theorem"
+    ]
+  },
+  {
+    "objectID": "stokes.html#footnotes",
+    "href": "stokes.html#footnotes",
+    "title": "Stokes’ theorem",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nWhy do we use the same symbol as for partial derivatives, you may wonder? This will require proper differential geometry to understand, for now it’s just a coincidence.↩︎",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Stokes' theorem"
     ]
   },
   {
@@ -44,25 +110,53 @@
     ]
   },
   {
-    "objectID": "lineintegrals.html",
-    "href": "lineintegrals.html",
-    "title": "Line integrals",
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Helpful links",
     "section": "",
-    "text": "So far we’ve discussed vector and scalar fields and what it means to differentiate them. In this part of the module we’ll discuss different ways we can integrate these fields over different structures in 3D space, starting with integration over a curve.\nThere’s some general notation here to consider before we dive in. All integrals will be written as \\[\n\\int_A F({\\mathbf{r}}) dB.\n\\] \\(F\\) is the function we’re integrating, \\(A\\) is the set we’re integrating it over (which could be a curve, surface, or volume) and \\(dB\\) is the integral element appropriate for the set (and there are different choices). Instead of \\(\\int\\) you might also see symbols like \\(\\iint\\) or \\(\\oint\\) but these can always be replaced with \\(\\int\\), they just give you a little more context about what you’re integrating.\nIn every case, the steps are going to be the same:",
+    "text": "My notes for the vectors stuff of MA12001 are here: https://dundeemath.github.io/MA12001-algebra/_site/. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.\nMost of the important results in this module are here: https://en.wikipedia.org/wiki/Vector_calculus_identities. Your formula sheet in the exam should be based off this.\nThe curvilinear co-ordinate results are summarised here: https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates.",
     "crumbs": [
-      "Unit 3: Integrals (Weeks 6-8)",
-      "Line integrals"
+      "Helpful links"
     ]
   },
   {
-    "objectID": "lineintegrals.html#footnotes",
-    "href": "lineintegrals.html#footnotes",
-    "title": "Line integrals",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nSometimes this is written \\(d{\\mathbf{r}}\\)↩︎",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MA31007 Vector Calculus",
+    "section": "",
+    "text": "This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.",
     "crumbs": [
-      "Unit 3: Integrals (Weeks 6-8)",
-      "Line integrals"
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-these-notes",
+    "href": "index.html#how-to-use-these-notes",
+    "title": "MA31007 Vector Calculus",
+    "section": "How to use these notes",
+    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. They’re designed to be easy to read with minimal extra information. For context and motivation, you’ll need to come to class. These notes contain the key definitions and some brief examples, but I will show more and different examples in class. For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.\nAs usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-is-vector-calculus",
+    "href": "index.html#what-is-vector-calculus",
+    "title": "MA31007 Vector Calculus",
+    "section": "What is vector calculus?",
+    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules. First we’ll see differentiation in 3D, then integration in 3D, and then some analogues of the “fundamental theorem of calculus” which combine these two.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "MA31007 Vector Calculus",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnything in the footnotes is also non-examinable.↩︎",
+    "crumbs": [
+      "Home"
     ]
   },
   {
@@ -154,53 +248,146 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MA31007 Vector Calculus",
+    "objectID": "divergence.html",
+    "href": "divergence.html",
+    "title": "The divergence theorem",
     "section": "",
-    "text": "This webpage contains the lecture notes for the Vector Calculus (MA31007) module for the University of Dundee.",
+    "text": "The divergence theorem is similar to Stokes’ theorem, but it relates volumes and surfaces rather than surfaces and curves. As the name suggests, it uses the divergence: \\[\n\\int_V \\nabla\\cdot {\\mathbf{F}}({\\mathbf{\\rho}}) dV = \\int_{\\partial V} {\\mathbf{F}}({\\mathbf{\\rho}})\\cdot d{\\mathbf{S}}.\n\\] As you may be able to guess, \\(\\partial V\\) is the boundary of the volume \\(V\\), with the normal facing out. Again, we may need to do the boundary in more than one piece.",
     "crumbs": [
-      "Home"
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Divergence theorem"
     ]
   },
   {
-    "objectID": "index.html#how-to-use-these-notes",
-    "href": "index.html#how-to-use-these-notes",
-    "title": "MA31007 Vector Calculus",
-    "section": "How to use these notes",
-    "text": "How to use these notes\nThese notes are designed to be complementary to the seminars. They’re designed to be easy to read with minimal extra information. For context and motivation, you’ll need to come to class. These notes contain the key definitions and some brief examples, but I will show more and different examples in class. For best results, I suggest quickly reading over these notes the night before each class, and then revisiting them if necessary when you come to the problem sheets and homeworks.\nAs usual, I’ll be taking photos of the boards from the seminars in case you want to revisit a specific example we did there.",
+    "objectID": "divergence.html#greens-first-identity",
+    "href": "divergence.html#greens-first-identity",
+    "title": "The divergence theorem",
+    "section": "Green’s first identity",
+    "text": "Green’s first identity\nGreen’s first identity states that, for any scalar fields \\(f\\) and \\(g\\), \\[\n\\int_V \\left(g\\Delta f + \\nabla f \\cdot \\nabla g\\right)dV = \\int_{\\partial V} g\\nabla f \\cdot d{\\mathbf{S}}.\n\\]\nTo prove this, we obviously need to use the divergence theorem. It’s not clear how we can use that on the left-hand side, so let’s start with the right-hand side and use the product rule: \\[\n\\begin{aligned}\n\\int_{\\partial V} g\\nabla f \\cdot d{\\mathbf{S}} &= \\int_{V} \\nabla \\cdot \\left(g\\nabla f\\right) dV\n\\\\ &= \\int_{V} \\left(\\nabla g \\cdot \\nabla f + g\\nabla\\cdot\\nabla f \\right) dV\n\\end{aligned}\n\\] which is exactly what we wanted, when we remember that \\(\\Delta f = \\nabla\\cdot\\nabla f\\).",
     "crumbs": [
-      "Home"
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Divergence theorem"
     ]
   },
   {
-    "objectID": "index.html#what-is-vector-calculus",
-    "href": "index.html#what-is-vector-calculus",
-    "title": "MA31007 Vector Calculus",
-    "section": "What is vector calculus?",
-    "text": "What is vector calculus?\nVector calculus is basically the mathematics of shapes in three dimensions. This will combine the “algebra” and “calculus” that you’ve seen in previous modules. First we’ll see differentiation in 3D, then integration in 3D, and then some analogues of the “fundamental theorem of calculus” which combine these two.",
+    "objectID": "divergence.html#greens-second-identity",
+    "href": "divergence.html#greens-second-identity",
+    "title": "The divergence theorem",
+    "section": "Green’s second identity",
+    "text": "Green’s second identity\nGreen’s second identity states that, for any scalar fields \\(f\\) and \\(g\\), \\[\n\\int_V \\left(f\\Delta g - g\\Delta f\\right)dV = \\int_{\\partial V} \\left(f\\nabla g - g\\nabla f\\right) \\cdot d{\\mathbf{S}}.\n\\] You can get this one from subtracting the first identity from itself with \\(f\\) and \\(g\\) swapped.\nThis one is quite handy when you rearrange it: \\[\n\\int_V f\\Delta g\\ dV = \\int_{\\partial V} \\left(f\\nabla g - g\\nabla f\\right) \\cdot d{\\mathbf{S}} + \\int_V g\\Delta f\\ dV.\n\\] This is basically a form of integration by parts for the Laplacian \\(\\Delta\\).",
     "crumbs": [
-      "Home"
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Divergence theorem"
     ]
   },
   {
-    "objectID": "index.html#footnotes",
-    "href": "index.html#footnotes",
-    "title": "MA31007 Vector Calculus",
+    "objectID": "lineintegrals.html",
+    "href": "lineintegrals.html",
+    "title": "Line integrals",
+    "section": "",
+    "text": "So far we’ve discussed vector and scalar fields and what it means to differentiate them. In this part of the module we’ll discuss different ways we can integrate these fields over different structures in 3D space, starting with integration over a curve.\nThere’s some general notation here to consider before we dive in. All integrals will be written as \\[\n\\int_A F({\\mathbf{r}}) dB.\n\\] \\(F\\) is the function we’re integrating, \\(A\\) is the set we’re integrating it over (which could be a curve, surface, or volume) and \\(dB\\) is the integral element appropriate for the set (and there are different choices). Instead of \\(\\int\\) you might also see symbols like \\(\\iint\\) or \\(\\oint\\) but these can always be replaced with \\(\\int\\), they just give you a little more context about what you’re integrating.\nIn every case, the steps are going to be the same:",
+    "crumbs": [
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Line integrals"
+    ]
+  },
+  {
+    "objectID": "lineintegrals.html#footnotes",
+    "href": "lineintegrals.html#footnotes",
+    "title": "Line integrals",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nAnything in the footnotes is also non-examinable.↩︎",
+    "text": "Footnotes\n\n\nSometimes this is written \\(d{\\mathbf{r}}\\)↩︎",
     "crumbs": [
-      "Home"
+      "Unit 3: Integrals (Weeks 6-8)",
+      "Line integrals"
     ]
   },
   {
-    "objectID": "links.html",
-    "href": "links.html",
-    "title": "Helpful links",
+    "objectID": "potentials.html",
+    "href": "potentials.html",
+    "title": "Vector and scalar potentials",
     "section": "",
-    "text": "My notes for the vectors stuff of MA12001 are here: https://dundeemath.github.io/MA12001-algebra/_site/. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.\nMost of the important results in this module are here: https://en.wikipedia.org/wiki/Vector_calculus_identities. Your formula sheet in the exam should be based off this.\nThe curvilinear co-ordinate results are summarised here: https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates.",
+    "text": "The final part of our module concerns special types of vector fields.\nWe call a field \\({\\mathbf{A}}\\) solenoidal if \\[\n\\nabla\\cdot {\\mathbf{A}} = 0\n\\] and we call a field \\({\\mathbf{B}}\\) irrotational if \\[\n\\nabla\\times{\\mathbf{B}} = {\\mathbf{0}}.\n\\]",
     "crumbs": [
-      "Helpful links"
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Potentials"
+    ]
+  },
+  {
+    "objectID": "potentials.html#irrotational-fields",
+    "href": "potentials.html#irrotational-fields",
+    "title": "Vector and scalar potentials",
+    "section": "Irrotational fields",
+    "text": "Irrotational fields\nThese are sometimes called curl free fields, for obvious reasons. The key theorem is:\n\n\n\n\n\n\nImportant\n\n\n\n\\[\\nabla\\times{\\mathbf{A}} = {\\mathbf{0}} \\text{ if and only if }{\\mathbf{A}} = \\nabla \\phi\\text{ for some scalar field }\\phi.\\]\n\n\nWe call \\(\\phi\\) a scalar potential for \\({\\mathbf{A}}\\).\nProving \\(\\impliedby\\) is easy: If \\({\\mathbf{A}} = \\nabla \\phi\\) then \\[\n\\nabla\\times {\\mathbf{A}} = \\nabla \\times \\nabla \\phi = 0,\n\\] this was one of our second derivative identities.\nThe proof in the other direction is much more complicated, but for any given example you can make it work.\n\nExample\nFind a scalar potential for \\[\n{\\mathbf{A}} = [x^2,y^2,0].\n\\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFirst check that \\(\\nabla\\times{\\mathbf{A}}={\\mathbf{0}}\\), otherwise it doesn’t work.\nThen we need to find \\(\\phi\\) such that \\(\\nabla \\phi = [x^2,y^2,0]\\).\nMaybe you can spot it directly, but otherwise we can break it down. We need to find \\(\\phi(x,y,z)\\) such that \\[\n\\begin{aligned}\n{\\frac{\\partial \\phi}{\\partial x}} &= x^2,\\qquad\\text{(1)} \\\\\n{\\frac{\\partial \\phi}{\\partial y}} &= y^2,\\qquad\\text{(2)}\\\\\n{\\frac{\\partial \\phi}{\\partial z}} &= 0.\\qquad\\text{(3)}\n\\end{aligned}\n\\]\nIntegrating the (1), we have \\[\\phi(x,y,z) = \\frac{1}{3} x^3 + C_1(y,z)\\] Here \\(C_1\\) is just a normal constant of integration, but because we integrated a partial derivative, this constant can depend on \\(y\\) and \\(z\\).\nThen (2) becomes \\[{\\frac{\\partial C_1}{\\partial y}} = y^2\\] so \\[\nC_1 = \\frac{1}{3} y^3 + C_2(z).\\] \\(C_1\\) depends only on \\(y\\) and \\(z\\), so the new constant of integration \\(C_2\\) depends only on \\(z\\). So we have \\[\n\\phi = \\frac{1}{3}x^3 + \\frac{1}{3}y^3 + C_2(z),\n\\] so (3) gives \\[\n\\frac{dC_2}{dz} = 0\n\\] so \\(C_2\\) is just a constant.\nSo finally we have \\[\n\\phi(x,y,z) = \\frac{1}{3}x^3 + \\frac{1}{3}y^3 + C_2,\n\\] where \\(C_2\\) is any constant.\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nScalar potentials are not unique - you can add any constant to \\(\\phi\\) and it’s still valid.",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Potentials"
+    ]
+  },
+  {
+    "objectID": "potentials.html#solenoidal-fields",
+    "href": "potentials.html#solenoidal-fields",
+    "title": "Vector and scalar potentials",
+    "section": "Solenoidal fields",
+    "text": "Solenoidal fields\nThese are also called incompressible or divergence free. The key theorem here is:\n\n\n\n\n\n\nImportant\n\n\n\n\\[\\nabla\\cdot{\\mathbf{A}} = {\\mathbf{0}} \\text{ if and only if }{\\mathbf{A}} = \\nabla\\times {\\mathbf{B}}\\text{ for some vector field }{\\mathbf{B}}.\\]\n\n\nWe call \\({\\mathbf{B}}\\) a vector potential for \\({\\mathbf{A}}\\).\n\n\n\n\n\n\nNote\n\n\n\nIn physics, the magnetic field is a solenoidal field (this is where the name comes from).\n\n\nTODO\n\nExample\nTODO\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThis works the same as for scalar potentials, but it gets much messier. I strongly recommend staring at it for 30 seconds to see if you can guess a potential that works, before trying as follows:\nTODO",
+    "crumbs": [
+      "Unit 4: Theorems (Weeks 9-10)",
+      "Potentials"
+    ]
+  },
+  {
+    "objectID": "secondderivs.html",
+    "href": "secondderivs.html",
+    "title": "Derivatives of products and second derivatives",
+    "section": "",
+    "text": "This chapter focuses on certain identities we can derive by combining the different 3D derivatives. You should get used to using these identities, but you also need to be able to prove them from the definitions.",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Products & second derivatives"
+    ]
+  },
+  {
+    "objectID": "secondderivs.html#derivatives-of-products",
+    "href": "secondderivs.html#derivatives-of-products",
+    "title": "Derivatives of products and second derivatives",
+    "section": "Derivatives of products",
+    "text": "Derivatives of products\nYou’re familiar with the product rule for ordinary derivatives: \\[\n\\frac{d}{dx}(fg) = \\frac{df}{dx}g + f\\frac{dg}{dx}.\n\\] How does this translate to our new grad, div and curl? The first thing to consider is what kinds of products we have.\nThink: What possible products exist between any two of scalar fields \\(\\phi\\) and \\(\\psi\\) and vector fields \\({\\mathbf{u}}\\) and \\({\\mathbf{v}}\\), and is the result a scalar or vector field?\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\(\\phi\\psi\\) is a scalar field\n\\(\\phi{\\mathbf{u}}\\) is a vector field\n\\({\\mathbf{u}}\\cdot{\\mathbf{v}}\\) is a scalar field\n\\({\\mathbf{u}}\\times{\\mathbf{v}}\\) is a vector field\n\n\n\nFor each product which is a scalar we can work out a formula for the gradient1, and for each vector we can work out formulas for the divergence and curl. Here is the list:\nTODO\n\nExample\nFor a general scalar field \\(\\phi\\) and vector field \\({\\mathbf{u}}\\), show that \\[\n\\nabla \\cdot \\left(\\phi{\\mathbf{u}}\\right) = {\\mathbf{u}}\\cdot \\nabla \\phi + \\phi \\nabla\\cdot{\\mathbf{u}}.\n\\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\nTODO",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Products & second derivatives"
+    ]
+  },
+  {
+    "objectID": "secondderivs.html#second-derivatives",
+    "href": "secondderivs.html#second-derivatives",
+    "title": "Derivatives of products and second derivatives",
+    "section": "Second derivatives",
+    "text": "Second derivatives\nFor normal derivatives, you know \\(\\frac{d}{dx} \\frac{dy}{dx} = \\frac{d^2y}{dx^2}\\) - this is basically just a definition.\nIn 3D, it’s more complicated. Of course, we can only take the gradient of a scalar field, and only take the divergence or curl of a vector field so the possibilities are, for a vector field $ and a scalar field \\(\\phi\\):\n\n\\[\\nabla\\cdot(\\nabla\\phi)\\] gives a scalar field\n\\[\\nabla\\times(\\nabla\\phi)\\] gives a vector field\n\\[\\nabla (\\nabla \\cdot {\\mathbf{u}})\\] gives a vector field\n\\[\\nabla \\times(\\nabla\\times {\\mathbf{u}})\\] gives a vector field\n\\[\\nabla \\cdot(\\nabla \\times{\\mathbf{u}})\\] gives a scalar field\n\nAny other combination, like \\(\\nabla\\cdot (\\nabla \\cdot {\\mathbf{u}})\\) is not defined.\nActually, there are two extra rules which you need to learn, and you can prove: \\[\\nabla\\cdot(\\nabla \\times {\\mathbf{u}}) = 0\\]\n\\[\\nabla\\times(\\nabla \\phi) = {\\mathbf{0}}\\]\n\nExample\nTODO\n\n\n\n\n\n\nSolution\n\n\n\n\n\nTODO",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Products & second derivatives"
+    ]
+  },
+  {
+    "objectID": "secondderivs.html#the-laplacian",
+    "href": "secondderivs.html#the-laplacian",
+    "title": "Derivatives of products and second derivatives",
+    "section": "The Laplacian",
+    "text": "The Laplacian\nThe remaining three second derivatives, \\(\\nabla\\cdot(\\nabla\\phi)\\), \\(\\nabla \\times(\\nabla\\times {\\mathbf{u}})\\) and \\(\\nabla (\\nabla \\cdot {\\mathbf{u}})\\) are related to another operator called the Laplacian, which is given the symbol \\(\\Delta\\) or \\(\\nabla^2\\). We’ll use \\(\\Delta\\) in this module.2\nTODO",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Products & second derivatives"
+    ]
+  },
+  {
+    "objectID": "secondderivs.html#footnotes",
+    "href": "secondderivs.html#footnotes",
+    "title": "Derivatives of products and second derivatives",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nYou can do directional derivatives too but it’s basically the same.↩︎\nYou won’t get penalised if you prefer to write \\(\\nabla^2\\).↩︎",
+    "crumbs": [
+      "Unit 2: Derivatives (Weeks 3-5)",
+      "Products & second derivatives"
     ]
   },
   {

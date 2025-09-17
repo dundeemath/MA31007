@@ -1,0 +1,76 @@
+---
+title: "Derivatives of products and second derivatives"
+---
+
+::: {.hidden}
+ \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+:::
+
+This chapter focuses on certain identities we can derive by combining the different 3D derivatives. You should get used to using these identities, but you also need to be able to prove them from the definitions.
+
+## Derivatives of products
+You're familiar with the product rule for ordinary derivatives:
+$$
+\frac{d}{dx}(fg) = \frac{df}{dx}g + f\frac{dg}{dx}.
+$$
+How does this translate to our new grad, div and curl? The first thing to consider is what kinds of products we have.
+
+**Think:** What possible products exist between any two of scalar fields $\phi$ and $\psi$ and vector fields $\v{u}$ and $\v{v}$, and is the result a scalar or vector field?
+
+::: {.callout-tip collapse="true"}
+## Solution
+$\phi\psi$ is a scalar field
+
+$\phi\v{u}$ is a vector field
+
+$\v{u}\cdot\v{v}$ is a scalar field
+
+$\v{u}\times\v{v}$ is a vector field
+:::
+
+For each product which is a scalar we can work out a formula for the gradient^[You can do directional derivatives too but it's basically the same.], and for each vector we can work out formulas for the divergence and curl. Here is the list:
+
+TODO
+
+### Example
+For a general scalar field $\phi$ and vector field $\v{u}$, show that
+$$
+\nabla \cdot \left(\phi\v{u}\right) = \v{u}\cdot \nabla \phi + \phi \nabla\cdot\v{u}.
+$$
+
+::: {.callout-tip collapse="true"}
+## Solution
+ TODO
+:::
+
+## Second derivatives
+For normal derivatives, you know $\frac{d}{dx} \frac{dy}{dx} = \frac{d^2y}{dx^2}$ - this is basically just a definition.
+
+In 3D, it's more complicated. Of course, we can only take the gradient of a scalar field, and only take the divergence or curl of a vector field so the possibilities are, for a vector field $\v{u} and a scalar field $\phi$:
+
+- $$\nabla\cdot(\nabla\phi)$$ gives a scalar field
+- $$\nabla\times(\nabla\phi)$$ gives a vector field
+- $$\nabla (\nabla \cdot \v{u})$$ gives a vector field
+- $$\nabla \times(\nabla\times \v{u})$$ gives a vector field
+- $$\nabla \cdot(\nabla \times\v{u})$$ gives a scalar field
+
+Any other combination, like $\nabla\cdot (\nabla \cdot \v{u})$ is not defined.
+
+Actually, there are two extra rules which you need to learn, and you can prove:
+$$\nabla\cdot(\nabla \times \v{u}) = 0$$
+
+$$\nabla\times(\nabla \phi) = \v{0}$$
+
+### Example
+TODO
+
+::: {.callout-tip collapse="true"}
+## Solution
+ TODO
+:::
+
+## The Laplacian
+The remaining three second derivatives, $\nabla\cdot(\nabla\phi)$, $\nabla \times(\nabla\times \v{u})$ and $\nabla (\nabla \cdot \v{u})$ are related to another operator called the _Laplacian_, which is given the symbol $\Delta$ or $\nabla^2$. We'll use $\Delta$ in this module.^[You won't get penalised if you prefer to write $\nabla^2$.]
+
+TODO

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Helpful links – MA31007 Vector Calculus</title>
+<title>Stokes’ theorem – MA31007 Vector Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -79,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./links.html">Helpful links</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stokes.html">Unit 4: Theorems (Weeks 9-10)</a></li><li class="breadcrumb-item"><a href="./stokes.html">Stokes’ theorem</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -208,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stokes.html" class="sidebar-item-text sidebar-link">
+  <a href="./stokes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Stokes’ theorem</span></a>
   </div>
 </li>
@@ -228,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./links.html" class="sidebar-item-text sidebar-link active">
+  <a href="./links.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Helpful links</span></a>
   </div>
 </li>
@@ -237,15 +266,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-boundary-of-a-surface" id="toc-the-boundary-of-a-surface" class="nav-link active" data-scroll-target="#the-boundary-of-a-surface">The boundary of a surface</a></li>
+  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions">Conditions</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#closed-surface" id="toc-closed-surface" class="nav-link" data-scroll-target="#closed-surface">Closed surface</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stokes.html">Unit 4: Theorems (Weeks 9-10)</a></li><li class="breadcrumb-item"><a href="./stokes.html">Stokes’ theorem</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Helpful links</h1>
+<h1 class="title">Stokes’ theorem</h1>
 </div>
 
 
@@ -262,15 +303,191 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li><p>My notes for the vectors stuff of MA12001 are here: <a href="https://dundeemath.github.io/MA12001-algebra/_site/" class="uri">https://dundeemath.github.io/MA12001-algebra/_site/</a>. This module builds directly on this (particularly chapters 1 and 3) so it may be helpful to revise this.</p></li>
-<li><p>Most of the important results in this module are here: <a href="https://en.wikipedia.org/wiki/Vector_calculus_identities" class="uri">https://en.wikipedia.org/wiki/Vector_calculus_identities</a>. Your formula sheet in the exam should be based off this.</p></li>
-<li><p>The curvilinear co-ordinate results are summarised here: <a href="https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates" class="uri">https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates</a>.</p></li>
-</ul>
+<div class="hidden">
+
+</div>
+<p>Stokes’ theorem is one form of the Fundamental Theorem of Calculus in three dimensions, and it relates surface integrals to line integrals. Specifically, it says that <span class="math display">\[
+\int_S (\nabla \times {\mathbf{F}})\cdot d{\mathbf{S}} = \int_{\partial S} {\mathbf{F}} \cdot d{\mathbf{s}}.
+\]</span> The only thing that’s new here is the curve <span class="math inline">\(\partial S\)</span>. It says that</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The flux integral of the curl of a vector field over a surface <span class="math inline">\(S\)</span> is the line integral of the vector field over <span class="math inline">\(\partial S\)</span>.</p>
+</div>
+</div>
+<p>We won’t attempt a proof of this theorem, though in class we’ll see some intuition behind it. It is possible to prove it with techniques you know, but once you learn differential geometry it’s a special case of a much easier theorem.</p>
+<section id="the-boundary-of-a-surface" class="level2">
+<h2 class="anchored" data-anchor-id="the-boundary-of-a-surface">The boundary of a surface</h2>
+<p>The symbol <span class="math inline">\(\partial S\)</span> is the boundary of the surface <span class="math inline">\(S\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The surface is a 2D object, and the boundary is a curve, a 1D object. Specifically, given the direction the normal is pointing, the boundary obeys the right-hand rule as per the diagram.</p>
+<p>(Diagram TODO)</p>
+<p><strong>Think</strong>: what’s the boundary of the surface <span class="math inline">\(x^2+y^2+z^2=1\)</span>, <span class="math inline">\(z\geq 0\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a hemisphere. Hopefully you can immediately spot the boundary, but if not, try substituting the condition <span class="math inline">\(z\geq 0\)</span> at its limit, i.e.&nbsp;<span class="math inline">\(z=0\)</span>, into the equation <span class="math inline">\(x^2+y^2+z^2=0\)</span>.</p>
+<p>So we get <span class="math inline">\(x^2+y^2=0\)</span>, <span class="math inline">\(z=0\)</span>, which is a circle.</p>
+<p>I didn’t tell you the direction of the normal, so you can’t tell me which way this is oriented.</p>
+</div>
+</div>
+</div>
+<p>Sometimes, the boundary of a surface has multiple parts. In this case, you can split the line integral into several simpler ones, making sure that at each separate curve, the right-hand rule is respected. The example below should make this a bit clearer.</p>
+</section>
+<section id="conditions" class="level2">
+<h2 class="anchored" data-anchor-id="conditions">Conditions</h2>
+<p>For the theorem to apply, the surface <span class="math inline">\(S\)</span> has to be <em>oriented</em>. That means that the normal is well-defined everywhere on the surface.</p>
+<p>Most things you can think of are orientable: a sphere, a sheet of paper, a donut. You then have to choose which direction the normal goes and it becomes <em>oriented</em>.</p>
+<p>The usual counter example is the Mobius band: this doesn’t have a well defined normal, because you can point it one way, and then follow it all the way around the band and it’s suddenly pointing the opposite way.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Let <span class="math inline">\(S\)</span> be the curved surface of the cylinder <span class="math inline">\(x^2+y^2=1\)</span>, <span class="math inline">\(0\leq z\leq 2\)</span>, with normal pointing out. Evaluate the integral <span class="math display">\[
+\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d{\mathbf{S}}
+\]</span> both directly and using Stokes’ theorem.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First, sketch the surface to understand it and its boundary.</p>
+<section id="directly" class="level3">
+<h3 class="anchored" data-anchor-id="directly">Directly</h3>
+<p>The obvious parameterisation is, taking inspiration from cylindrical co-ordinates, <span class="math display">\[
+[x,y,z] = [\cos u,\sin u, v]\qquad 0\leq u&lt;2\pi,\,0\leq v \leq 2.
+\]</span></p>
+<p>Then we have <span class="math display">\[
+d{\mathbf{S}} = {\frac{\partial {\mathbf{r}}}{\partial u}}\times{\frac{\partial {\mathbf{r}}}{\partial v}} du\, dv = [-\sin u,\cos u,0]\times[0,0,1] du\,dv = [\cos u,\sin u,0] du\,dv
+\]</span> and this normal does point out, as we want.</p>
+<p>The integrand is <span class="math display">\[\nabla\times [z^2,x^2,y^2] = [2y, 2z, 2x] = [2\sin u,2v,2\cos u]\]</span> so putting it all together, <span class="math display">\[
+\begin{aligned}
+\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d{\mathbf{S}} &amp;= \int_0^{2\pi} du \int_0^2 dv [2\sin u,2v,2\cos u]\cdot[\cos u,\sin u,0]\\
+&amp;=\int_0^{2\pi} du \int_0^2 dv \left(2\sin u \cos u + 2v\sin u\right)\\
+&amp;=\int_0^{2\pi} du \int_0^2 dv \left(\sin 2u + 2v\sin u\right)\\
+&amp;= \int_0^{2\pi} du \left(2\sin 2u + 4\sin u\right)\\
+&amp;= 0.
+\end{aligned}
+\]</span></p>
+</section>
+<section id="stokes-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="stokes-theorem">Stokes theorem</h3>
+<p>We need to evaluate <span class="math display">\[
+\int_{\partial S} [z^2,x^2,y^2] \cdot d{\mathbf{s}},
+\]</span> but crucially <span class="math inline">\(\partial S\)</span> has two parts, that we will call <span class="math inline">\(\gamma_1\)</span> and <span class="math inline">\(\gamma_2\)</span>, and we write <span class="math inline">\(\partial S = \gamma_1+\gamma_2\)</span>.</p>
+<p>TODO: diagram</p>
+<p>For <span class="math inline">\(\gamma_1\)</span>, we parameterise <span class="math display">\[[x,y,z] = [\cos t,\,\sin t,\,0], \qquad 0\leq t &lt; 2\pi.\]</span> Then <span class="math inline">\(d{\mathbf{s}} = [-\sin t,\cos t,0]dt\)</span> so the integral is <span class="math display">\[
+\int_{\gamma_1} [z^2,x^2,y^2] \cdot d{\mathbf{s}} = \int_0^{2\pi} [0,\cos^2 t,\sin^2 t]\cdot [-\sin t,\cos t,0]dt =
+\int_0^{2\pi} \cos^3 t\, dt = 0.
+\]</span></p>
+<p>For <span class="math inline">\(\gamma_2\)</span>, we parameterise <span class="math display">\[[x,y,z] = [\cos t,\,-\sin t,\,2], \qquad 0\leq t &lt; 2\pi.\]</span> Notice the extra minus sign! This is because we need to go the opposite direction from usual, from the diagram. Now <span class="math inline">\(d{\mathbf{s}} = [\sin t,\cos t,0]dt\)</span> so the integral is <span class="math display">\[
+\int_{\gamma_2} [z^2,x^2,y^2] \cdot d{\mathbf{s}} = \int_0^{2\pi} [4,\cos^2 t,\sin^2 t]\cdot [\sin t,\cos t,0]dt =
+\int_0^{2\pi} \left(4\sin t + \cos^3 t\right)\, dt = 0.
+\]</span> So overall <span class="math display">\[
+\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d{\mathbf{S}}=\int_{\partial S} [z^2,x^2,y^2] \cdot d{\mathbf{s}} = \int_{\gamma_1} [z^2,x^2,y^2] \cdot d{\mathbf{s}} + \int_{\gamma_2} [z^2,x^2,y^2] \cdot d{\mathbf{s}} = 0,
+\]</span> which is exactly the same answer as we got before!</p>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To change the direction of a line integral, you can just subtract the integral instead of changing the direction of the parameterisation.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="closed-surface" class="level2">
+<h2 class="anchored" data-anchor-id="closed-surface">Closed surface</h2>
+<p>A closed surface is one that has an “inside” and an “outside” - the surface forms a barrier in 3D space. Think of a bubble, or a donut.</p>
+<p><strong>Think</strong>: What’s the boundary of a closed surface? How does Stokes’ theorem apply?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It doesn’t have a boundary! So the right-hand side of Stoke’s theorem is zero, and we just have <span class="math display">\[
+\int_S (\nabla \times {\mathbf{F}})\cdot d{\mathbf{S}} = 0
+\]</span></p>
+</div>
+</div>
+</div>
+<p>For a closed surface, we sometimes use the symbol <span class="math inline">\(\oint\)</span>. The theorem is <span class="math display">\[
+\oint_S (\nabla \times {\mathbf{F}})\cdot d{\mathbf{S}} = 0
+\]</span> and this is most obviously a connection between integration and differentiation: the flux integral and the curl are basically opposites for a closed surface.</p>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>Using Stokes’ theorem and the fact that <span class="math display">\[
+\nabla \times [xz,\,xy,\,yz] = [z,x,y],
+\]</span> evaluate the integral <span class="math display">\[
+\oint_S [x+z,\,y+x,\,z+y]\cdot d{\mathbf{S}}
+\]</span> where <span class="math inline">\(S\)</span> is the sphere <span class="math inline">\(x^2+y^2+z^2=1\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Obviously we could compute this integral directly, but the question wants us to use the theorem. It’s not exactly in the form we need, but notice <span class="math display">\[[x+z,\,y+x,\,z+y] = [x,y,z]+[z,x,y] = \hat{{\mathbf{n}}} + \nabla \times [xz,\,xy,\,yz].\]</span></p>
+<p>So then <span class="math display">\[
+\oint_S [x+z,\,y+x,\,z+y]\cdot d{\mathbf{S}} = \oint_S \hat{{\mathbf{n}}} \cdot \hat{{\mathbf{n}}} dS + \oint_S \left(\nabla \times [xz,\,xy,\,yz]\right) \cdot d{\mathbf{S}}.
+\]</span> The second integral is zero by the divergence theorem, because <span class="math inline">\(S\)</span> is a closed surface.</p>
+<p>A unit vector dotted with itself is 1, so the first integral simplies to <span class="math display">\[\oint_S  dS = 4\pi,\]</span> the surface area of <span class="math inline">\(S\)</span>, which is the final answer.</p>
+</div>
+</div>
+</div>
 
 
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Why do we use the same symbol as for partial derivatives, you may wonder? This will require proper differential geometry to understand, for now it’s just a coincidence.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

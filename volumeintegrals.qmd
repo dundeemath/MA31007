@@ -36,7 +36,24 @@ Calculate the volume of the sphere $x^2+y^2+z^2 \leq R^2$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-TODO
+The volume is the empty integral
+$$
+\text{Volume} = \int_V dV.
+$$
+
+We use spherical polar coordinates, where $x = r\sin\theta\cos\phi$, $y = r\sin\theta\sin\phi$, $z = r\cos\theta$, and $dV = r^2 \sin\theta \, dr\, d\theta\, d\phi$.
+
+The limits are $0 \leq r \leq R$, $0 \leq \theta \leq \pi$, $0 \leq \phi \leq 2\pi$.
+
+So,
+$$
+\text{Volume} = \int_0^{2\pi} d\phi \int_0^\pi d\theta dr\,\int_0^R r^2  \sin\theta = (2\pi) \left( \int_0^\pi \sin\theta\, d\theta \right) \left( \int_0^R r^2 dr \right).
+$$
+Notice how we can do each of the integrals separately in this case.
+
+$\int_0^\pi \sin\theta\, d\theta = 2$, and $\int_0^R r^2 dr = \frac{R^3}{3}$.
+
+Therefore, the volume is $2\pi \times 2 \times \frac{R^3}{3} = \frac{4}{3}\pi R^3$.
 :::
 
 ### Example

@@ -1,0 +1,118 @@
+---
+title: "Vector and scalar potentials"
+---
+
+::: {.hidden}
+ \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+:::
+
+The final part of our module concerns special types of vector fields.
+
+We call a field $\v{A}$ _solenoidal_ if
+$$
+\nabla\cdot \v{A} = 0
+$$
+and we call a field $\v{B}$ _irrotational_ if
+$$
+\nabla\times\v{B} = \v{0}.
+$$
+
+:::{.callout-note}
+A field can be both solenoidal and irrotational, for example any constant field. But in general they are different things.
+:::
+
+## Irrotational fields
+These are sometimes called _curl free_ fields, for obvious reasons. The key theorem is:
+
+:::{.callout-important}
+$$\nabla\times\v{A} = \v{0} \text{ if and only if }\v{A} = \nabla \phi\text{ for some scalar field }\phi.$$
+:::
+
+We call $\phi$ a _scalar potential_ for $\v{A}$. 
+
+Proving $\impliedby$ is easy:
+If $\v{A} = \nabla \phi$ then
+$$
+\nabla\times \v{A} = \nabla \times \nabla \phi = 0,
+$$
+this was one of our second derivative identities.
+
+The proof in the other direction is much more complicated, but for any given example you can make it work.
+
+### Example
+Find a scalar potential for
+$$
+\v{A} = [x^2,y^2,0].
+$$
+
+:::{.callout-tip collapse="true"}
+## Solution
+First check that $\nabla\times\v{A}=\v{0}$, otherwise it doesn't work.
+
+Then we need to find $\phi$ such that $\nabla \phi = [x^2,y^2,0]$.
+
+Maybe you can spot it directly, but otherwise we can break it down. We need to find $\phi(x,y,z)$ such that
+$$
+\begin{aligned}
+\pd{\phi}{x} &= x^2,\qquad\text{(1)} \\
+\pd{\phi}{y} &= y^2,\qquad\text{(2)}\\
+\pd{\phi}{z} &= 0.\qquad\text{(3)}
+\end{aligned}
+$$
+
+Integrating the (1), we have
+$$\phi(x,y,z) = \frac{1}{3} x^3 + C_1(y,z)$$
+Here $C_1$ is just a normal constant of integration, but because we integrated a partial derivative, this constant can depend on $y$ and $z$.
+
+Then (2) becomes
+$$\pd{C_1}{y} = y^2$$
+so
+$$
+C_1 = \frac{1}{3} y^3 + C_2(z).$$
+$C_1$ depends only on $y$ and $z$, so the new constant of integration $C_2$ depends only on $z$.
+So we have
+$$
+\phi = \frac{1}{3}x^3 + \frac{1}{3}y^3 + C_2(z),
+$$
+so (3) gives
+$$
+\frac{dC_2}{dz} = 0
+$$
+so $C_2$ is just a constant.
+
+So finally we have
+$$
+\phi(x,y,z) = \frac{1}{3}x^3 + \frac{1}{3}y^3 + C_2,
+$$
+where $C_2$ is any constant.
+:::
+
+:::{.callout-important}
+Scalar potentials are not unique - you can add any constant to $\phi$ and it's still valid.
+:::
+
+## Solenoidal fields
+These are also called _incompressible_ or _divergence free_. The key theorem here is:
+
+:::{.callout-important}
+$$\nabla\cdot\v{A} = \v{0} \text{ if and only if }\v{A} = \nabla\times \v{B}\text{ for some vector field }\v{B}.$$
+:::
+
+We call $\v{B}$ a _vector potential_ for $\v{A}$.
+
+:::{.callout-note}
+In physics, the magnetic field is a solenoidal field (this is where the name comes from).
+:::
+
+TODO
+
+### Example
+TODO
+
+:::{.callout-tip collapse="true"}
+## Solution
+This works the same as for scalar potentials, but it gets much messier. I strongly recommend staring at it for 30 seconds to see if you can guess a potential that works, before trying as follows:
+
+TODO
+:::
