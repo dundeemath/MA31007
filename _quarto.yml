@@ -42,7 +42,11 @@ website:
         - text: "Potentials"
           href: potentials.qmd
       - href: links.qmd
-
+  comments: 
+    hypothesis:
+      theme: clean
+      openSidebar: false
+      
 format:
   html:
     theme: cosmo
