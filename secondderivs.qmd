@@ -78,7 +78,7 @@ $$
 ## Second derivatives
 For normal derivatives, you know $\frac{d}{dx} \frac{dy}{dx} = \frac{d^2y}{dx^2}$ - this is basically just a definition.
 
-In 3D, it's more complicated. Of course, we can only take the gradient of a scalar field, and only take the divergence or curl of a vector field so the possibilities are, for a vector field $\v{u} and a scalar field $\phi$:
+In 3D, it's more complicated. Of course, we can only take the gradient of a scalar field, and only take the divergence or curl of a vector field so the possibilities are, for a vector field $\v{u}$ and a scalar field $\phi$:
 
 - $\nabla\cdot(\nabla\phi)$ gives a scalar field
 - $\nabla\times(\nabla\phi)$ gives a vector field
