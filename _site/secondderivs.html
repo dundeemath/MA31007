@@ -335,7 +335,26 @@ Solution
 </div>
 </div>
 <p>For each product which is a scalar we can work out a formula for the gradient<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, and for each vector we can work out formulas for the divergence and curl. Here is the list:</p>
-<p>TODO</p>
+<ul>
+<li>Gradient of a product of scalars: <span class="math display">\[
+\nabla(\phi\psi) = (\nabla\phi)\psi + \phi(\nabla\psi)
+\]</span></li>
+<li>Gradient of a dot product: <span class="math display">\[
+\nabla({\mathbf{u}}\cdot{\mathbf{v}}) = ({\mathbf{u}}\cdot\nabla){\mathbf{v}} + ({\mathbf{v}}\cdot\nabla){\mathbf{u}} + {\mathbf{u}}\times(\nabla\times{\mathbf{v}}) + {\mathbf{v}}\times(\nabla\times{\mathbf{u}})
+\]</span></li>
+<li>Divergence of a scalar times a vector: <span class="math display">\[
+\nabla\cdot(\phi{\mathbf{u}}) = {\mathbf{u}}\cdot\nabla\phi + \phi\nabla\cdot{\mathbf{u}}
+\]</span></li>
+<li>Divergence of a cross product: <span class="math display">\[
+\nabla\cdot({\mathbf{u}}\times{\mathbf{v}}) = {\mathbf{v}}\cdot(\nabla\times{\mathbf{u}}) - {\mathbf{u}}\cdot(\nabla\times{\mathbf{v}})
+\]</span></li>
+<li>Curl of a scalar times a vector: <span class="math display">\[
+\nabla\times(\phi{\mathbf{u}}) = (\nabla\phi)\times{\mathbf{u}} + \phi(\nabla\times{\mathbf{u}})
+\]</span></li>
+<li>Curl of a cross product: <span class="math display">\[
+\nabla\times({\mathbf{u}}\times{\mathbf{v}}) = {\mathbf{u}}(\nabla\cdot{\mathbf{v}}) - {\mathbf{v}}(\nabla\cdot{\mathbf{u}}) + ({\mathbf{v}}\cdot\nabla){\mathbf{u}} - ({\mathbf{u}}\cdot\nabla){\mathbf{v}}
+\]</span></li>
+</ul>
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
 <p>For a general scalar field <span class="math inline">\(\phi\)</span> and vector field <span class="math inline">\({\mathbf{u}}\)</span>, show that <span class="math display">\[
@@ -353,7 +372,14 @@ Solution
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>TODO</p>
+<p>Let <span class="math inline">\(\phi\)</span> be a scalar field and <span class="math inline">\({\mathbf{u}} = [u_1, u_2, u_3]\)</span> a vector field. Then, <span class="math display">\[
+\begin{aligned}
+\nabla \cdot (\phi {\mathbf{u}}) &amp;= {\frac{\partial }{\partial x}}(\phi u_1) + {\frac{\partial }{\partial y}}(\phi u_2) + {\frac{\partial }{\partial z}}(\phi u_3)\\
+&amp;= u_1 {\frac{\partial \phi}{\partial x}} + \phi {\frac{\partial u_1}{\partial x}} + u_2 {\frac{\partial \phi}{\partial y}} + \phi {\frac{\partial u_2}{\partial y}} + u_3 {\frac{\partial \phi}{\partial z}} + \phi {\frac{\partial u_3}{\partial z}}\\
+&amp;= u_1 {\frac{\partial \phi}{\partial x}} + u_2 {\frac{\partial \phi}{\partial y}} + u_3 {\frac{\partial \phi}{\partial z}} + \phi \left({\frac{\partial u_1}{\partial x}} + {\frac{\partial u_2}{\partial y}} + {\frac{\partial u_3}{\partial z}}\right)\\
+&amp;= {\mathbf{u}} \cdot \nabla \phi + \phi (\nabla \cdot {\mathbf{u}}).
+\end{aligned}
+\]</span></p>
 </div>
 </div>
 </div>
@@ -364,18 +390,17 @@ Solution
 <p>For normal derivatives, you know <span class="math inline">\(\frac{d}{dx} \frac{dy}{dx} = \frac{d^2y}{dx^2}\)</span> - this is basically just a definition.</p>
 <p>In 3D, it’s more complicated. Of course, we can only take the gradient of a scalar field, and only take the divergence or curl of a vector field so the possibilities are, for a vector field $ and a scalar field <span class="math inline">\(\phi\)</span>:</p>
 <ul>
-<li><span class="math display">\[\nabla\cdot(\nabla\phi)\]</span> gives a scalar field</li>
-<li><span class="math display">\[\nabla\times(\nabla\phi)\]</span> gives a vector field</li>
-<li><span class="math display">\[\nabla (\nabla \cdot {\mathbf{u}})\]</span> gives a vector field</li>
-<li><span class="math display">\[\nabla \times(\nabla\times {\mathbf{u}})\]</span> gives a vector field</li>
-<li><span class="math display">\[\nabla \cdot(\nabla \times{\mathbf{u}})\]</span> gives a scalar field</li>
+<li><span class="math inline">\(\nabla\cdot(\nabla\phi)\)</span> gives a scalar field</li>
+<li><span class="math inline">\(\nabla\times(\nabla\phi)\)</span> gives a vector field</li>
+<li><span class="math inline">\(\nabla (\nabla \cdot {\mathbf{u}})\)</span> gives a vector field</li>
+<li><span class="math inline">\(\nabla \times(\nabla\times {\mathbf{u}})\)</span> gives a vector field</li>
+<li><span class="math inline">\(\nabla \cdot(\nabla \times{\mathbf{u}})\)</span> gives a scalar field</li>
 </ul>
 <p>Any other combination, like <span class="math inline">\(\nabla\cdot (\nabla \cdot {\mathbf{u}})\)</span> is not defined.</p>
-<p>Actually, there are two extra rules which you need to learn, and you can prove: <span class="math display">\[\nabla\cdot(\nabla \times {\mathbf{u}}) = 0\]</span></p>
-<p><span class="math display">\[\nabla\times(\nabla \phi) = {\mathbf{0}}\]</span></p>
+<p>Actually, there are two extra rules which you need to learn, and you can prove: <span class="math display">\[\nabla\cdot(\nabla \times {\mathbf{u}}) = 0\]</span> <span class="math display">\[\nabla\times(\nabla \phi) = {\mathbf{0}}\]</span></p>
 <section id="example-1" class="level3">
 <h3 class="anchored" data-anchor-id="example-1">Example</h3>
-<p>TODO</p>
+<p>For any scalar field <span class="math inline">\(\phi\)</span>, show that <span class="math inline">\(\nabla\times(\nabla \phi) = {\mathbf{0}}\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -388,16 +413,62 @@ Solution
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>TODO</p>
+<p><span class="math display">\[
+\begin{aligned}
+\nabla\times(\nabla \phi) &amp;= \nabla\times\left[{\frac{\partial \phi}{\partial x}},\,{\frac{\partial \phi}{\partial y}},\,{\frac{\partial \phi}{\partial z}},\,\right] \\
+&amp;= \left[ {\frac{\partial }{\partial y}}{\frac{\partial \phi}{\partial z}} - {\frac{\partial }{\partial z}}{\frac{\partial \phi}{\partial y}},\,{\frac{\partial }{\partial z}}{\frac{\partial \phi}{\partial x}} - {\frac{\partial }{\partial x}}{\frac{\partial \phi}{\partial z}},\,{\frac{\partial }{\partial x}}{\frac{\partial \phi}{\partial y}} - {\frac{\partial }{\partial y}}{\frac{\partial \phi}{\partial z}}] \\
+&amp;= \left[ {\frac{\partial }{\partial y}}{\frac{\partial \phi}{\partial z}} - {\frac{\partial }{\partial y}}{\frac{\partial \phi}{\partial z}},\,{\frac{\partial }{\partial z}}{\frac{\partial \phi}{\partial x}} - {\frac{\partial }{\partial z}}{\frac{\partial \phi}{\partial x}},\,{\frac{\partial }{\partial x}}{\frac{\partial \phi}{\partial y}} - {\frac{\partial }{\partial x}}{\frac{\partial \phi}{\partial y}}]  \\
+&amp;= \left[0,0,0]\\
+&amp;= {\mathbf{0}}.
+\end{aligned}
+\]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The key with all of these proofs is the symmetry of a mixed partial derivatives, i.e.&nbsp;<span class="math inline">\(\frac{\partial^2 f}{\partial x\partial y} = \frac{\partial^2 f}{\partial y\partial x}\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 </div>
 </div>
 </section>
 </section>
 <section id="the-laplacian" class="level2">
 <h2 class="anchored" data-anchor-id="the-laplacian">The Laplacian</h2>
-<p>The remaining three second derivatives, <span class="math inline">\(\nabla\cdot(\nabla\phi)\)</span>, <span class="math inline">\(\nabla \times(\nabla\times {\mathbf{u}})\)</span> and <span class="math inline">\(\nabla (\nabla \cdot {\mathbf{u}})\)</span> are related to another operator called the <em>Laplacian</em>, which is given the symbol <span class="math inline">\(\Delta\)</span> or <span class="math inline">\(\nabla^2\)</span>. We’ll use <span class="math inline">\(\Delta\)</span> in this module.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<p>TODO</p>
+<p>The remaining three second derivatives, <span class="math inline">\(\nabla\cdot(\nabla\phi)\)</span>, <span class="math inline">\(\nabla \times(\nabla\times {\mathbf{u}})\)</span> and <span class="math inline">\(\nabla (\nabla \cdot {\mathbf{u}})\)</span> are related to another operator called the <em>Laplacian</em>, which is given the symbol <span class="math inline">\(\Delta\)</span> or <span class="math inline">\(\nabla^2\)</span>. We’ll use <span class="math inline">\(\Delta\)</span> in this module.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>For a scalar field <span class="math inline">\(\phi\)</span>, <span class="math display">\[
+\begin{aligned}
+\nabla\cdot(\nabla\phi) &amp;= \nabla\cdot\left[{\frac{\partial \phi}{\partial x}},{\frac{\partial \phi}{\partial y}},{\frac{\partial \phi}{\partial z}}\right]
+\\&amp;= {\frac{\partial }{\partial x}}{\frac{\partial \phi}{\partial x}} + {\frac{\partial }{\partial y}}{\frac{\partial \phi}{\partial y}} + {\frac{\partial }{\partial z}}{\frac{\partial \phi}{\partial z}}
+\\&amp;= \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2}+ \frac{\partial^2 \phi}{\partial z^2}
+\end{aligned}
+\]</span> This is what we define to be the <span class="math inline">\(\Delta \phi\)</span>, the (scalar) Laplacian of <span class="math inline">\(\phi\)</span>.</p>
+<p>For a vector field <span class="math inline">\({\mathbf{u}}\)</span>,<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span class="math display">\[
+\begin{aligned}
+\nabla(\nabla\cdot {\mathbf{u}}) - \nabla\times(\nabla\times{\mathbf{u}}) &amp;= \left[\frac{\partial^2 u_1}{\partial x^2} + \frac{\partial^2 u_1}{\partial y^2}+ \frac{\partial^2 u_1}{\partial z^2},\,\frac{\partial^2 u_2}{\partial x^2} + \frac{\partial^2 u_2}{\partial y^2}+ \frac{\partial^2 u_2}{\partial z^2},\,\frac{\partial^2 u_3}{\partial x^2} + \frac{\partial^2 u_3}{\partial y^2}+ \frac{\partial^2 u_3}{\partial z^2}\right]\\
+&amp;= \left[\Delta u_1,\,\Delta u_2,\,\Delta u_3\right].
+\end{aligned}
+\]</span> This is what we define to be <span class="math inline">\(\Delta {\mathbf{u}}\)</span>, the (vector) Laplacian of <span class="math inline">\({\mathbf{u}}\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Cartesians, the vector Laplacian is the scalar Laplacian of each of the components. In curvilinear co-ordinates, this isn’t true.</p>
+</div>
+</div>
 
 
 </section>
@@ -407,7 +478,9 @@ Solution
 
 <ol>
 <li id="fn1"><p>You can do directional derivatives too but it’s basically the same.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>You won’t get penalised if you prefer to write <span class="math inline">\(\nabla^2\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Which holds as long as the second derivatives are continuous, which they always will be in this module.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>You won’t get penalised if you prefer to write <span class="math inline">\(\nabla^2\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Try this as an exercise, it takes a while.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

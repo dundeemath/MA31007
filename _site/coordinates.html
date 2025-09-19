@@ -319,7 +319,7 @@ x = \rho \cos \phi,\qquad y=\rho\sin\phi.
 <section id="basis-vectors-scale-factors" class="level2">
 <h2 class="anchored" data-anchor-id="basis-vectors-scale-factors">Basis vectors &amp; scale factors</h2>
 <p>The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of <span class="math inline">\({\mathbf{e}}_x\)</span> increases the value of <span class="math inline">\(x\)</span> but keeps <span class="math inline">\(y\)</span> constant. It’s usually assumed to be a unit vector.</p>
-<p>In practice, the definition is to differentiate <span class="math inline">\({\mathbf{r}}\)</span> with respect to the variable and then normalise: <span class="math display">\[
+<p>In practice, the definition is to differentiate <span class="math inline">\({\mathbf{r}}\)</span> with respect to the variable and then normalise<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>: <span class="math display">\[
 \begin{aligned}
 {\mathbf{e}}_\rho &amp;= \frac{\partial {\mathbf{r}}}{\partial \rho}/\left|\frac{\partial {\mathbf{r}}}{\partial \rho}\right|
 \\ &amp;= \frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi]\right|
@@ -388,7 +388,8 @@ Note
 </section>
 <section id="cylindrical-polars" class="level1">
 <h1>Cylindrical Polars</h1>
-<p>Imagine plane polar co-ordinates, but now we allow height with the usual <span class="math inline">\(z\)</span> variable. Notice that <span class="math inline">\(\rho\)</span> is now the distance from the <span class="math inline">\(z\)</span>-axis, not from the origin. <img src="figures/vec_alg_fig_4.png" class="img-fluid"></p>
+<p>Imagine plane polar co-ordinates, but now we allow height with the usual <span class="math inline">\(z\)</span> variable. Notice that <span class="math inline">\(\rho\)</span> is now the distance from the <span class="math inline">\(z\)</span>-axis, not from the origin.</p>
+<p><img src="figures/f8.jpg" class="img-fluid" style="width:50.0%"></p>
 <p>The definition is <span class="math display">\[
 [x,y,z] = [\rho\cos\phi,\,\rho\sin\phi,\,z]
 \]</span> with <span class="math inline">\(\rho&gt;0\)</span>, <span class="math inline">\(0\leq\phi&lt;2\pi\)</span>, <span class="math inline">\(z\in\mathbb{R}\)</span>.</p>
@@ -401,13 +402,15 @@ Note
 \]</span> <span class="math display">\[
 h_\rho = 1,\,h_\phi=\rho,\,h_z=1.
 \]</span></p>
+<p><img src="figures/f9.jpg" class="img-fluid" style="width:50.0%"></p>
 <p>The general position vector is <span class="math display">\[
 {\mathbf{r}} = \rho {\mathbf{e}}_\rho + z {\mathbf{e}}_z.
 \]</span></p>
 </section>
 <section id="spherical-polars" class="level1">
 <h1>Spherical Polars</h1>
-<p>This one’s a bit more complicate. We use the same <span class="math inline">\(\phi\)</span> for the angle around from the <span class="math inline">\(x\)</span>-axis in the <span class="math inline">\(x-y\)</span> plane<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and now we introduce <span class="math inline">\(\theta\)</span> as the angle down from the <span class="math inline">\(z\)</span>-axis<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Also, we use <span class="math inline">\(r\)</span> as the distance from the origin: <img src="figures/vec_alg_fig_6.png" class="img-fluid"></p>
+<p>This one’s a bit more complicate. We use the same <span class="math inline">\(\phi\)</span> for the angle around from the <span class="math inline">\(x\)</span>-axis in the <span class="math inline">\(x-y\)</span> plane<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and now we introduce <span class="math inline">\(\theta\)</span> as the angle down from the <span class="math inline">\(z\)</span>-axis<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Also, we use <span class="math inline">\(r\)</span> as the distance from the origin:</p>
+<p><img src="figures/f10.jpg" class="img-fluid" style="width:50.0%"></p>
 <p>The definition is <span class="math display">\[
 [x,y,z] = [r\cos\phi\sin\theta,\,r\sin\phi\sin\theta,\,r\cos\theta]
 \]</span> with <span class="math inline">\(r&gt;0\)</span>, <span class="math inline">\(0\leq\phi&lt;2\pi\)</span>, <span class="math inline">\(0\leq \theta \leq \pi\)</span>.</p>
@@ -420,6 +423,7 @@ h_\rho = 1,\,h_\phi=\rho,\,h_z=1.
 \]</span> <span class="math display">\[
 h_r = 1,\,h_\phi=r,\,h_\theta=r\sin\theta.
 \]</span></p>
+<p><img src="figures/f11.jpg" class="img-fluid" style="width:50.0%"></p>
 <p>The general position vector is <span class="math display">\[
 {\mathbf{r}} = r{\mathbf{e}}_r.
 \]</span></p>
@@ -433,8 +437,9 @@ h_r = 1,\,h_\phi=r,\,h_\theta=r\sin\theta.
 <ol>
 <li id="fn1"><p>We could do it the other way round but that’s usually much messier.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>You might be more used to using <span class="math inline">\((r,\theta)\)</span> for 2D polars but we’ll save these for spherical co-ordinates.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>We call this the <em>azimuthal</em> angle.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>We call this the <em>polar</em> angle.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>As well as <span class="math inline">\({\mathbf{e}}_\rho\)</span>, you might see other notations like <span class="math inline">\(\hat{{\mathbf{\rho}}}\)</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>We call this the <em>azimuthal</em> angle.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>We call this the <em>polar</em> angle.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

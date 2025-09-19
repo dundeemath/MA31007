@@ -9,9 +9,16 @@ title: "The divergence theorem"
 
 The divergence theorem is similar to Stokes' theorem, but it relates volumes and surfaces rather than surfaces and curves. As the name suggests, it uses the divergence:
 $$
-\int_V \nabla\cdot \v{F}(\v{\rho}) dV = \int_{\partial V} \v{F}(\v{\rho})\cdot d\v{S}.
+\int_V \nabla\cdot \v{F}(\v{r}) dV = \int_{\partial V} \v{F}(\v{r})\cdot d\v{S}.
 $$
+
+:::{.callout-important}
+The volume integral of the divergence of a vector field over a volume $V$ is the flux integral of the vector field over $\partial V$.
+:::
+
 As you may be able to guess, $\partial V$ is the boundary of the volume $V$, with the normal facing out. Again, we may need to do the boundary in more than one piece.
+
+![](figures/f14.jpg){width=50%}
 
 ### Example
 Let $V$ be the solid cylinder $x^2+y^2\leq 1$, $0\leq z \leq 2$. Calculate, both directly and using the divergence theorem, the volume integral
@@ -48,8 +55,9 @@ $$
 \int_{\partial V} [0,0,z^2]\cdot d\v{S}
 $$
 
-In this case, $\partial V$ has three parts that we'll $S_1$, $S_2$ and $S_3$.
-TODO: diagram
+In this case, $\partial V$ has three parts that we'll call $S_1$, $S_2$ and $S_3$.
+
+![](figures/f15.jpg){width=30%}
 
 On the base $S_1$, the field $\v{F}$ is zero because $z=0$, so 
 $$\int_{S_1} [0,0,z^2]\cdot d\v{S} = 0$$

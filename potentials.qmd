@@ -93,26 +93,78 @@ Scalar potentials are not unique - you can add any constant to $\phi$ and it's s
 :::
 
 ## Solenoidal fields
-These are also called _incompressible_ or _divergence free_. The key theorem here is:
+These are also called _incompressible_ or _divergence free_^[In physics, the magnetic field is a solenoidal field. This is where the name comes from.]. The key theorem here is:
 
 :::{.callout-important}
 $$\nabla\cdot\v{A} = \v{0} \text{ if and only if }\v{A} = \nabla\times \v{B}\text{ for some vector field }\v{B}.$$
 :::
 
 We call $\v{B}$ a _vector potential_ for $\v{A}$.
+Again, you can easily prove that $\nabla\times\v{B}$ is solenoidal, but the other way is harder. You can also easily prove this:
 
-:::{.callout-note}
-In physics, the magnetic field is a solenoidal field (this is where the name comes from).
+:::{.callout-important}
+Vector potentials are not unique - If $\v{B}$ is a vector potential for $\v{A}$ then so is $\v{B}+\nabla\phi$ for __any scalar field__ $\phi$.^[This is called _gauge freedom_ in physics.]
 :::
 
-TODO
+This non-uniqueness is very important, because it means we can choose properties we want $\v{B}$ to have. One convenient choice is often $$B_3=0,$$ no component in the $z$ direction.
 
 ### Example
-TODO
+Find a vector potential for
+$$
+\v{A} = [x+y^2, -y+z^2, y^2]
+$$
 
 :::{.callout-tip collapse="true"}
 ## Solution
 This works the same as for scalar potentials, but it gets much messier. I strongly recommend staring at it for 30 seconds to see if you can guess a potential that works, before trying as follows:
 
-TODO
+First, you could check it's actually solenoidal. That's quite quick in this case.
+
+We need to find $\v{B}=[B_1,B_2,B_3]$ such that
+$$
+[x+y^2, -y+z^2, y^2] = \nabla\times\v{B} = [\pd{B_3}{y}-\pd{B_2}{z},\,\pd{B_1}{z}-\pd{B_3}{x},\,\pd{B_2}{x}-\pd{B_1}{y}].
+$$
+
+Let's make the gauge choice that $B_3=0$, so then we get
+$$x+y^2 = -\pd{B_2}{z},$$
+$$-y+z^2 = \pd{B_1}{z},$$
+$$y^2 = \pd{B_2}{x} - \pd{B_1}{y}.$$
+
+Integrating the first two of these, we have:
+$$
+B_2 = -x z - y^2 z + f(x, y)
+$$
+and
+$$
+B_1 = -y z + \frac{1}{3} z^3 + g(x, y)
+$$
+where $f$ and $g$ are some unknown integration constant functions.
+
+Now, substitute $B_1$ and $B_2$ into the third equation:
+$$
+y^2 = (-z + \pd{f}{x}) - (-z + \pd{g}{y}) = \pd{f}{x} - \pd{g}{y}
+$$
+
+We still have some freedom here. A simple choice is $f(x, y) = 0$ and $g(x, y) = -\frac{1}{3} y^3$:
+$$
+\pd{f}{x} = 0,\quad \pd{g}{y} = -y^2
+$$
+So,
+$$
+y^2 = 0 - (-y^2) = y^2
+$$
+This works.
+
+Therefore, a vector potential is:
+$$
+\v{B} = \left[
+	-y z + \frac{1}{3} z^3 - \frac{1}{3} y^3,\;
+	-x z - y^2 z,\;
+	0.
+\right]
+$$
+:::
+
+:::{.callout-tip}
+As with many things in maths, finding the potentials is slow but checking they are valid is quick. Always check!
 :::

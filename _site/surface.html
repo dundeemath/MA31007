@@ -318,7 +318,7 @@ window.Quarto = {
 </div>
 <p>Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The easiest way to write down a surface is <span class="math display">\[
 z = f(x,y).
-\]</span> This is exactly equivalent to <span class="math inline">\(y=f(x)\)</span> in 2D, and you can think of it as giving the height of the surface at any points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+\]</span> This is exactly equivalent to <span class="math inline">\(y=f(x)\)</span> in 2D, and you can think of it as giving the height of the surface at any points <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. <img src="figures/f4.jpg" class="img-fluid" style="width:50.0%"></p>
 <p>Actually, any single equation relating the variables <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> will in general describe a surface in 3D. For example, <span class="math display">\[
 x^2 + y^2 + z^2 = 1
 \]</span> is the sphere of radius 1 centred on the origin (MA12001), and <span class="math display">\[
@@ -344,6 +344,7 @@ Note
 <p>Just as with curves, we can describe surfaces parametrically. However, for a two-dimensional surface, we need two parameters, which we usually call <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>. <span class="math display">\[
 {\mathbf{r}} (u,v) = [f(u,v),\,g(u,v),\,h(u,v)]
 \]</span> and again, we need to specify ranges for the parameters.</p>
+<p><img src="figures/f5.jpg" class="img-fluid" style="width:50.0%"></p>
 <section id="example-parameterisation-of-a-plane" class="level3">
 <h3 class="anchored" data-anchor-id="example-parameterisation-of-a-plane">Example: parameterisation of a plane</h3>
 <p>In MA12001, you saw plane equations like <span class="math display">\[{\mathbf{r}}\cdot {\mathbf{n}} = d\]</span> where <span class="math inline">\({\mathbf{n}}\)</span> is a normal vector to the plane (more on this below) and <span class="math inline">\(d\)</span> is some number. We can transform this to parametric form by introducing <span class="math inline">\(u=x\)</span> and <span class="math inline">\(v=y\)</span>.</p>
@@ -428,12 +429,12 @@ Important
 <p>For a parameterised surface, this means <span class="math display">\[
 {\mathbf{n}}(u,v) = \frac{\partial{\mathbf{r}}}{\partial u} \times \frac{\partial{\mathbf{r}}}{\partial v}
 \]</span></p>
-<p><img src="figures/chap_3_fig_5.png" class="img-fluid"></p>
+<p><img src="figures/f6.jpg" class="img-fluid" style="width:50.0%"></p>
 <p>Alternatively, if you can write your surface as an equation <span class="math display">\[
 f(x,y,z) = d,
 \]</span> where <span class="math inline">\(d\)</span> is some number (often zero), then we can use the formula<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math display">\[
 {\mathbf{n}} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right].
-\]</span> <img src="figures/chap_3_fig_7.png" class="img-fluid"></p>
+\]</span></p>
 <p>We’ll see an explanation for why this works in class, but it should become more clear to you after the next unit of the module.</p>
 <section id="example-normal-to-a-sphere" class="level3">
 <h3 class="anchored" data-anchor-id="example-normal-to-a-sphere">Example: Normal to a sphere</h3>
@@ -513,6 +514,7 @@ Note
 ({\mathbf{r}}-{\mathbf{c}})\cdot{\mathbf{n}} = 0
 \]</span> Here <span class="math inline">\({\mathbf{r}}\)</span> is any generic point on the plane, <span class="math inline">\({\mathbf{c}}\)</span> is one specific point and <span class="math inline">\({\mathbf{n}}\)</span> is the normal to the plane.</p>
 <p>So we should take <span class="math inline">\({\mathbf{c}}\)</span> to be the point on the original surface and <span class="math inline">\({\mathbf{n}}\)</span> to eb the normal there.</p>
+<p><img src="figures/f7.jpg" class="img-fluid" style="width:50.0%"></p>
 <section id="example-tangent-plane-to-the-sphere" class="level3">
 <h3 class="anchored" data-anchor-id="example-tangent-plane-to-the-sphere">Example: tangent plane to the sphere</h3>
 <p>Find the tangent plane to the sphere <span class="math display">\[

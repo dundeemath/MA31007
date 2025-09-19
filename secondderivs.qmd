@@ -31,7 +31,30 @@ $\v{u}\times\v{v}$ is a vector field
 
 For each product which is a scalar we can work out a formula for the gradient^[You can do directional derivatives too but it's basically the same.], and for each vector we can work out formulas for the divergence and curl. Here is the list:
 
-TODO
+- Gradient of a product of scalars:
+  $$
+  \nabla(\phi\psi) = (\nabla\phi)\psi + \phi(\nabla\psi)
+  $$
+- Gradient of a dot product:
+  $$
+  \nabla(\v{u}\cdot\v{v}) = (\v{u}\cdot\nabla)\v{v} + (\v{v}\cdot\nabla)\v{u} + \v{u}\times(\nabla\times\v{v}) + \v{v}\times(\nabla\times\v{u})
+  $$
+- Divergence of a scalar times a vector:
+  $$
+  \nabla\cdot(\phi\v{u}) = \v{u}\cdot\nabla\phi + \phi\nabla\cdot\v{u}
+  $$
+- Divergence of a cross product:
+  $$
+  \nabla\cdot(\v{u}\times\v{v}) = \v{v}\cdot(\nabla\times\v{u}) - \v{u}\cdot(\nabla\times\v{v})
+  $$
+- Curl of a scalar times a vector:
+  $$
+  \nabla\times(\phi\v{u}) = (\nabla\phi)\times\v{u} + \phi(\nabla\times\v{u})
+  $$
+- Curl of a cross product:
+  $$
+  \nabla\times(\v{u}\times\v{v}) = \v{u}(\nabla\cdot\v{v}) - \v{v}(\nabla\cdot\v{u}) + (\v{v}\cdot\nabla)\v{u} - (\v{u}\cdot\nabla)\v{v}
+  $$
 
 ### Example
 For a general scalar field $\phi$ and vector field $\v{u}$, show that
@@ -41,7 +64,15 @@ $$
 
 ::: {.callout-tip collapse="true"}
 ## Solution
- TODO
+Let $\phi$ be a scalar field and $\v{u} = [u_1, u_2, u_3]$ a vector field. Then,
+$$
+\begin{aligned}
+\nabla \cdot (\phi \v{u}) &= \pd{}{x}(\phi u_1) + \pd{}{y}(\phi u_2) + \pd{}{z}(\phi u_3)\\
+&= u_1 \pd{\phi}{x} + \phi \pd{u_1}{x} + u_2 \pd{\phi}{y} + \phi \pd{u_2}{y} + u_3 \pd{\phi}{z} + \phi \pd{u_3}{z}\\
+&= u_1 \pd{\phi}{x} + u_2 \pd{\phi}{y} + u_3 \pd{\phi}{z} + \phi \left(\pd{u_1}{x} + \pd{u_2}{y} + \pd{u_3}{z}\right)\\
+&= \v{u} \cdot \nabla \phi + \phi (\nabla \cdot \v{u}).
+\end{aligned}
+$$
 :::
 
 ## Second derivatives
@@ -49,28 +80,60 @@ For normal derivatives, you know $\frac{d}{dx} \frac{dy}{dx} = \frac{d^2y}{dx^2}
 
 In 3D, it's more complicated. Of course, we can only take the gradient of a scalar field, and only take the divergence or curl of a vector field so the possibilities are, for a vector field $\v{u} and a scalar field $\phi$:
 
-- $$\nabla\cdot(\nabla\phi)$$ gives a scalar field
-- $$\nabla\times(\nabla\phi)$$ gives a vector field
-- $$\nabla (\nabla \cdot \v{u})$$ gives a vector field
-- $$\nabla \times(\nabla\times \v{u})$$ gives a vector field
-- $$\nabla \cdot(\nabla \times\v{u})$$ gives a scalar field
+- $\nabla\cdot(\nabla\phi)$ gives a scalar field
+- $\nabla\times(\nabla\phi)$ gives a vector field
+- $\nabla (\nabla \cdot \v{u})$ gives a vector field
+- $\nabla \times(\nabla\times \v{u})$ gives a vector field
+- $\nabla \cdot(\nabla \times\v{u})$ gives a scalar field
 
 Any other combination, like $\nabla\cdot (\nabla \cdot \v{u})$ is not defined.
 
 Actually, there are two extra rules which you need to learn, and you can prove:
 $$\nabla\cdot(\nabla \times \v{u}) = 0$$
-
 $$\nabla\times(\nabla \phi) = \v{0}$$
 
 ### Example
-TODO
+For any scalar field $\phi$, show that $\nabla\times(\nabla \phi) = \v{0}$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
- TODO
+$$
+\begin{aligned}
+\nabla\times(\nabla \phi) &= \nabla\times\left[\pd{\phi}{x},\,\pd{\phi}{y},\,\pd{\phi}{z},\,\right] \\
+&= \left[ \pd{}{y}\pd{\phi}{z} - \pd{}{z}\pd{\phi}{y},\,\pd{}{z}\pd{\phi}{x} - \pd{}{x}\pd{\phi}{z},\,\pd{}{x}\pd{\phi}{y} - \pd{}{y}\pd{\phi}{z}] \\
+&= \left[ \pd{}{y}\pd{\phi}{z} - \pd{}{y}\pd{\phi}{z},\,\pd{}{z}\pd{\phi}{x} - \pd{}{z}\pd{\phi}{x},\,\pd{}{x}\pd{\phi}{y} - \pd{}{x}\pd{\phi}{y}]  \\
+&= \left[0,0,0]\\
+&= \v{0}.
+\end{aligned}
+$$
+:::
+
+::: {.callout-note}
+The key with all of these proofs is the symmetry of a mixed partial derivatives, i.e. $\frac{\partial^2 f}{\partial x\partial y} = \frac{\partial^2 f}{\partial y\partial x}$^[Which holds as long as the second derivatives are continuous, which they always will be in this module.].
 :::
 
 ## The Laplacian
 The remaining three second derivatives, $\nabla\cdot(\nabla\phi)$, $\nabla \times(\nabla\times \v{u})$ and $\nabla (\nabla \cdot \v{u})$ are related to another operator called the _Laplacian_, which is given the symbol $\Delta$ or $\nabla^2$. We'll use $\Delta$ in this module.^[You won't get penalised if you prefer to write $\nabla^2$.]
 
-TODO
+For a scalar field $\phi$,
+$$
+\begin{aligned}
+\nabla\cdot(\nabla\phi) &= \nabla\cdot\left[\pd{\phi}{x},\pd{\phi}{y},\pd{\phi}{z}\right] 
+\\&= \pd{}{x}\pd{\phi}{x} + \pd{}{y}\pd{\phi}{y} + \pd{}{z}\pd{\phi}{z}
+\\&= \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2}+ \frac{\partial^2 \phi}{\partial z^2}
+\end{aligned}
+$$
+This is what we define to be the $\Delta \phi$, the (scalar) Laplacian of $\phi$.
+
+For a vector field $\v{u}$,^[Try this as an exercise, it takes a while.]
+$$
+\begin{aligned}
+\nabla(\nabla\cdot \v{u}) - \nabla\times(\nabla\times\v{u}) &= \left[\frac{\partial^2 u_1}{\partial x^2} + \frac{\partial^2 u_1}{\partial y^2}+ \frac{\partial^2 u_1}{\partial z^2},\,\frac{\partial^2 u_2}{\partial x^2} + \frac{\partial^2 u_2}{\partial y^2}+ \frac{\partial^2 u_2}{\partial z^2},\,\frac{\partial^2 u_3}{\partial x^2} + \frac{\partial^2 u_3}{\partial y^2}+ \frac{\partial^2 u_3}{\partial z^2}\right]\\
+&= \left[\Delta u_1,\,\Delta u_2,\,\Delta u_3\right].
+\end{aligned}
+$$
+This is what we define to be $\Delta \v{u}$, the (vector) Laplacian of $\v{u}$.
+
+::: {.callout-important}
+In Cartesians, the vector Laplacian is the scalar Laplacian of each of the components. In curvilinear co-ordinates, this isn't true.
+:::

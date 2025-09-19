@@ -11,6 +11,7 @@ $$
 z = f(x,y).
 $$
 This is exactly equivalent to $y=f(x)$ in 2D, and you can think of it as giving the height of the surface at any points $x$ and $y$.
+![](figures/f4.jpg){width=50%}
 
 Actually, any single equation relating the variables $x$, $y$ and $z$ will in general describe a surface in 3D.
 For example,
@@ -37,6 +38,8 @@ $$
 \v{r} (u,v) = [f(u,v),\,g(u,v),\,h(u,v)]
 $$
 and again, we need to specify ranges for the parameters.
+
+![](figures/f5.jpg){width=50%}
 
 ### Example: parameterisation of a plane
 In MA12001, you saw plane equations like
@@ -115,7 +118,7 @@ $$
 \v{n}(u,v) = \frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v}
 $$
 
-![](figures/chap_3_fig_5.png){}
+![](figures/f6.jpg){width=50%}
 
 Alternatively, if you can write your surface as an equation
 $$
@@ -125,7 +128,6 @@ where $d$ is some number (often zero), then we can use the formula^[In the next 
 $$
 \v{n} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right].
 $$
-![](figures/chap_3_fig_7.png){}
 
 We'll see an explanation for why this works in class, but it should become more clear to you after the next unit of the module.
 
@@ -212,6 +214,8 @@ $$
 Here $\v{r}$ is any generic point on the plane, $\v{c}$ is one specific point and $\v{n}$ is the normal to the plane.
 
 So we should take $\v{c}$ to be the point on the original surface and $\v{n}$ to eb the normal there.
+
+![](figures/f7.jpg){width=50%}
 
 ### Example: tangent plane to the sphere
 Find the tangent plane to the sphere 

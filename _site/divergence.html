@@ -306,15 +306,30 @@ window.Quarto = {
 
 </div>
 <p>The divergence theorem is similar to Stokes’ theorem, but it relates volumes and surfaces rather than surfaces and curves. As the name suggests, it uses the divergence: <span class="math display">\[
-\int_V \nabla\cdot {\mathbf{F}}({\mathbf{\rho}}) dV = \int_{\partial V} {\mathbf{F}}({\mathbf{\rho}})\cdot d{\mathbf{S}}.
-\]</span> As you may be able to guess, <span class="math inline">\(\partial V\)</span> is the boundary of the volume <span class="math inline">\(V\)</span>, with the normal facing out. Again, we may need to do the boundary in more than one piece.</p>
+\int_V \nabla\cdot {\mathbf{F}}({\mathbf{r}}) dV = \int_{\partial V} {\mathbf{F}}({\mathbf{r}})\cdot d{\mathbf{S}}.
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The volume integral of the divergence of a vector field over a volume <span class="math inline">\(V\)</span> is the flux integral of the vector field over <span class="math inline">\(\partial V\)</span>.</p>
+</div>
+</div>
+<p>As you may be able to guess, <span class="math inline">\(\partial V\)</span> is the boundary of the volume <span class="math inline">\(V\)</span>, with the normal facing out. Again, we may need to do the boundary in more than one piece.</p>
+<p><img src="figures/f14.jpg" class="img-fluid" style="width:50.0%"></p>
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
 <p>Let <span class="math inline">\(V\)</span> be the solid cylinder <span class="math inline">\(x^2+y^2\leq 1\)</span>, <span class="math inline">\(0\leq z \leq 2\)</span>. Calculate, both directly and using the divergence theorem, the volume integral <span class="math display">\[
 \int_V 2z\, dV
 \]</span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -323,7 +338,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="directly" class="level3">
 <h3 class="anchored" data-anchor-id="directly">Directly</h3>
@@ -344,7 +359,8 @@ x = \rho\cos\phi,\quad y = \rho\sin\phi,\quad z = z,\quad 0 \leq \rho \leq 1,\ 0
 <p><span class="math display">\[{\mathbf{F}} = [0,0,z^2]\]</span> works (more on this next week). So we need to calculate <span class="math display">\[
 \int_{\partial V} [0,0,z^2]\cdot d{\mathbf{S}}
 \]</span></p>
-<p>In this case, <span class="math inline">\(\partial V\)</span> has three parts that we’ll <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. TODO: diagram</p>
+<p>In this case, <span class="math inline">\(\partial V\)</span> has three parts that we’ll call <span class="math inline">\(S_1\)</span>, <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>.</p>
+<p><img src="figures/f15.jpg" class="img-fluid" style="width:30.0%"></p>
 <p>On the base <span class="math inline">\(S_1\)</span>, the field <span class="math inline">\({\mathbf{F}}\)</span> is zero because <span class="math inline">\(z=0\)</span>, so <span class="math display">\[\int_{S_1} [0,0,z^2]\cdot d{\mathbf{S}} = 0\]</span></p>
 <p>On the curved surface <span class="math inline">\(S_2\)</span>, the normal <span class="math inline">\(\hat{\mathbf{n}}\)</span> is horizontal, and the field <span class="math inline">\({\mathbf{F}}\)</span> is only in the <span class="math inline">\(z\)</span> direction, so <span class="math inline">\({\mathbf{F}}\cdot d{\mathbf{S}}=0\)</span>, so <span class="math display">\[\int_{S_2} [0,0,z^2]\cdot d{\mathbf{S}} = 0\]</span></p>
 <p>On the top <span class="math inline">\(S_3\)</span>, <span class="math inline">\({\mathbf{F}} = [0,0,4]\)</span> which is parallel to the outward-pointing normal <span class="math inline">\(\hat{{\mathbf{n}}}\)</span>, so the surface integral gives <span class="math display">\[\int_{S_3} {\mathbf{F}}\cdot d{\mathbf{S}} = \int_{S_3} [0,0,4]\cdot \hat{{\mathbf{n}}}\, dS = 4 \int_{S_3} dS = 4\pi\]</span> because <span class="math inline">\(\int_{S_3} dS\)</span> is just the area of the circle.</p>

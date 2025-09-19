@@ -13,7 +13,7 @@ $$
 $$
 The only thing that's new here is the curve $\partial S$. It says that
 
-:::{.callout-tip}
+:::{.callout-important}
 The flux integral of the curl of a vector field over a surface $S$ is the line integral of the vector field over $\partial S$.
 :::
 
@@ -22,7 +22,7 @@ We won't attempt a proof of this theorem, though in class we'll see some intuiti
 ## The boundary of a surface
 The symbol $\partial S$ is the boundary of the surface $S$.^[Why do we use the same symbol as for partial derivatives, you may wonder? This will require proper differential geometry to understand, for now it's just a coincidence.] The surface is a 2D object, and the boundary is a curve, a 1D object. Specifically, given the direction the normal is pointing, the boundary obeys the right-hand rule as per the diagram.
 
-(Diagram TODO)
+![](figures/f12.jpg){width=50%}
 
 **Think**: what's the boundary of the surface $x^2+y^2+z^2=1$, $z\geq 0$.
 
@@ -89,7 +89,7 @@ $$
 $$
 but crucially $\partial S$ has two parts, that we will call $\gamma_1$ and $\gamma_2$, and we write $\partial S = \gamma_1+\gamma_2$.
 
-TODO: diagram
+![](figures/f13.jpg){width=50%}
 
 For $\gamma_1$, we parameterise
 $$[x,y,z] = [\cos t,\,\sin t,\,0], \qquad 0\leq t < 2\pi.$$

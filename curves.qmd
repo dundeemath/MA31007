@@ -37,7 +37,7 @@ The simplest example of a curve is a straight line, which you saw in MA12001. If
 $$ \v{r} = \v{a} + \v{b}t,\quad t\in\mathbb{R}$$
 is a parameterisation for the line. In this case, $t$ can have any value because the line is infinitely long.
 
-![](figures/vec_cal_fig_4.png){}
+![](figures/f1.jpg){width=50%}
 
 **Think:** What's a parameterisation for the _line segment_ between two points $\v{p}$ and $\v{q}$?
 
@@ -62,7 +62,7 @@ $$ x^2 + y^2 = a^2\cos^2 \theta +a^2\sin^2 \theta = a^2, $$
 which is indeed a circle of radius a centred at the origin.
 You should get used to using $\sin$ and $\cos$ like this to parameterise circles.
 
-![](figures/vec_cal_fig_5.png){}
+![](figures/f2.jpg){width=50%}
 
 # Tangent vectors
 A tangent vector is a vector which points `along' a curve at a given point on it. If we imagine we're moving along the curve, 
@@ -71,7 +71,7 @@ then the tangent vector tells us the direction we're travelling at any point in 
 So it's the infinitesimal displacement from the current point to a future point (and remember displacements are position vectors subtracted)
 $$\v{T} = \lim_{\delta\to 0}\frac{\v{r}(t + \delta) - \v{r}(t)}{\delta} = \frac{d \v{r}}{d t}$$
 
-![](figures/vec_cal_fig_6.png){}
+![](figures/f3.jpg){width=50%}
 
 :::{.callout-note}
 Tangent vectors are not unique: only the direction is actually meaningful, the magnitude depends on the parameterisation.

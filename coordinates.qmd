@@ -27,7 +27,7 @@ Also notice that the co-ordinates break down at the origin, if $\rho=0$ then the
 ## Basis vectors & scale factors
 The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of $\v{e}_x$ increases the value of $x$ but keeps $y$ constant. It's usually assumed to be a unit vector.
 
-In practice, the definition is to differentiate $\v{r}$ with respect to the variable and then normalise:
+In practice, the definition is to differentiate $\v{r}$ with respect to the variable and then normalise^[As well as $\v{e}_\rho$, you might see other notations like $\hat{\v{\rho}}$.]:
 $$
 \begin{aligned}
 \v{e}_\rho &= \frac{\partial \v{r}}{\partial \rho}/\left|\frac{\partial \v{r}}{\partial \rho}\right| 
@@ -94,7 +94,8 @@ $$
 
 # Cylindrical Polars
 Imagine plane polar co-ordinates, but now we allow height with the usual $z$ variable. Notice that $\rho$ is now the distance from the $z$-axis, not from the origin.
-![](figures/vec_alg_fig_4.png){}
+
+![](figures/f8.jpg){width=50%}
 
 The definition is
 $$
@@ -115,6 +116,8 @@ $$
 h_\rho = 1,\,h_\phi=\rho,\,h_z=1.
 $$
 
+![](figures/f9.jpg){width=50%}
+
 The general position vector is
 $$
 \v{r} = \rho \v{e}_\rho + z \v{e}_z.
@@ -122,7 +125,8 @@ $$
 
 # Spherical Polars
 This one's a bit more complicate. We use the same $\phi$ for the angle around from the $x$-axis in the $x-y$ plane^[We call this the _azimuthal_ angle.] and now we introduce $\theta$ as the angle down from the $z$-axis^[We call this the _polar_ angle.]. Also, we use $r$ as the distance from the origin:
-![](figures/vec_alg_fig_6.png){}
+
+![](figures/f10.jpg){width=50%}
 
 The definition is
 $$
@@ -141,6 +145,9 @@ $$
 $$
 h_r = 1,\,h_\phi=r,\,h_\theta=r\sin\theta.
 $$
+
+![](figures/f11.jpg){width=50%}
+
 
 The general position vector is
 $$
