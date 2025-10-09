@@ -3,13 +3,13 @@ title: "Stokes' theorem"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
  \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 Stokes' theorem is one form of the Fundamental Theorem of Calculus in three dimensions, and it relates surface integrals to line integrals. Specifically, it says that
 $$
-\int_S (\nabla \times \v{F})\cdot d\v{S} = \int_{\partial S} \v{F} \cdot d\v{s}.
+\int_S (\nabla \times \vv{F})\cdot d\vv{S} = \int_{\partial S} \vv{F} \cdot d\vv{s}.
 $$
 The only thing that's new here is the curve $\partial S$. It says that
 
@@ -48,7 +48,7 @@ The usual counter example is the Mobius band: this doesn't have a well defined n
 ### Example
 Let $S$ be the curved surface of the cylinder $x^2+y^2=1$, $0\leq z\leq 2$, with normal pointing out. Evaluate the integral
 $$
-\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d\v{S}
+\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d\vv{S}
 $$
 both directly and using Stokes' theorem.
 
@@ -65,7 +65,7 @@ $$
 
 Then we have
 $$
-d\v{S} = \pd{\v{r}}{u}\times\pd{\v{r}}{v} du\, dv = [-\sin u,\cos u,0]\times[0,0,1] du\,dv = [\cos u,\sin u,0] du\,dv
+d\vv{S} = \pd{\vv{r}}{u}\times\pd{\vv{r}}{v} du\, dv = [-\sin u,\cos u,0]\times[0,0,1] du\,dv = [\cos u,\sin u,0] du\,dv
 $$
 and this normal does point out, as we want.
 
@@ -74,7 +74,7 @@ $$\nabla\times [z^2,x^2,y^2] = [2y, 2z, 2x] = [2\sin u,2v,2\cos u]$$
 so putting it all together,
 $$
 \begin{aligned}
-\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d\v{S} &= \int_0^{2\pi} du \int_0^2 dv [2\sin u,2v,2\cos u]\cdot[\cos u,\sin u,0]\\
+\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d\vv{S} &= \int_0^{2\pi} du \int_0^2 dv [2\sin u,2v,2\cos u]\cdot[\cos u,\sin u,0]\\
 &=\int_0^{2\pi} du \int_0^2 dv \left(2\sin u \cos u + 2v\sin u\right)\\
 &=\int_0^{2\pi} du \int_0^2 dv \left(\sin 2u + 2v\sin u\right)\\
 &= \int_0^{2\pi} du \left(2\sin 2u + 4\sin u\right)\\
@@ -85,7 +85,7 @@ $$
 ### Stokes theorem
 We need to evaluate
 $$
-\int_{\partial S} [z^2,x^2,y^2] \cdot d\v{s},
+\int_{\partial S} [z^2,x^2,y^2] \cdot d\vv{s},
 $$
 but crucially $\partial S$ has two parts, that we will call $\gamma_1$ and $\gamma_2$, and we write $\partial S = \gamma_1+\gamma_2$.
 
@@ -93,23 +93,23 @@ but crucially $\partial S$ has two parts, that we will call $\gamma_1$ and $\gam
 
 For $\gamma_1$, we parameterise
 $$[x,y,z] = [\cos t,\,\sin t,\,0], \qquad 0\leq t < 2\pi.$$
-Then $d\v{s} = [-\sin t,\cos t,0]dt$ so the integral is
+Then $d\vv{s} = [-\sin t,\cos t,0]dt$ so the integral is
 $$
-\int_{\gamma_1} [z^2,x^2,y^2] \cdot d\v{s} = \int_0^{2\pi} [0,\cos^2 t,\sin^2 t]\cdot [-\sin t,\cos t,0]dt = 
+\int_{\gamma_1} [z^2,x^2,y^2] \cdot d\vv{s} = \int_0^{2\pi} [0,\cos^2 t,\sin^2 t]\cdot [-\sin t,\cos t,0]dt = 
 \int_0^{2\pi} \cos^3 t\, dt = 0.
 $$
 
 For $\gamma_2$, we parameterise
 $$[x,y,z] = [\cos t,\,-\sin t,\,2], \qquad 0\leq t < 2\pi.$$
 Notice the extra minus sign! This is because we need to go the opposite direction from usual, from the diagram.
-Now $d\v{s} = [\sin t,\cos t,0]dt$ so the integral is
+Now $d\vv{s} = [\sin t,\cos t,0]dt$ so the integral is
 $$
-\int_{\gamma_2} [z^2,x^2,y^2] \cdot d\v{s} = \int_0^{2\pi} [4,\cos^2 t,\sin^2 t]\cdot [\sin t,\cos t,0]dt = 
+\int_{\gamma_2} [z^2,x^2,y^2] \cdot d\vv{s} = \int_0^{2\pi} [4,\cos^2 t,\sin^2 t]\cdot [\sin t,\cos t,0]dt = 
 \int_0^{2\pi} \left(4\sin t + \cos^3 t\right)\, dt = 0.
 $$
 So overall
 $$
-\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d\v{S}=\int_{\partial S} [z^2,x^2,y^2] \cdot d\v{s} = \int_{\gamma_1} [z^2,x^2,y^2] \cdot d\v{s} + \int_{\gamma_2} [z^2,x^2,y^2] \cdot d\v{s} = 0,
+\int_S \left(\nabla\times [z^2,x^2,y^2]\right) \cdot d\vv{S}=\int_{\partial S} [z^2,x^2,y^2] \cdot d\vv{s} = \int_{\gamma_1} [z^2,x^2,y^2] \cdot d\vv{s} + \int_{\gamma_2} [z^2,x^2,y^2] \cdot d\vv{s} = 0,
 $$
 which is exactly the same answer as we got before!
 :::
@@ -127,13 +127,13 @@ A closed surface is one that has an "inside" and an "outside" - the surface form
 ## Solution
 It doesn't have a boundary! So the right-hand side of Stoke's theorem is zero, and we just have
 $$
-\int_S (\nabla \times \v{F})\cdot d\v{S} = 0
+\int_S (\nabla \times \vv{F})\cdot d\vv{S} = 0
 $$
 :::
 
 For a closed surface, we sometimes use the symbol $\oint$. The theorem is
 $$
-\oint_S (\nabla \times \v{F})\cdot d\v{S} = 0
+\oint_S (\nabla \times \vv{F})\cdot d\vv{S} = 0
 $$
 and this is most obviously a connection between integration and differentiation: the flux integral and the curl are basically opposites for a closed surface.
 
@@ -144,18 +144,18 @@ $$
 $$
 evaluate the integral
 $$
-\oint_S [x+z,\,y+x,\,z+y]\cdot d\v{S}
+\oint_S [x+z,\,y+x,\,z+y]\cdot d\vv{S}
 $$
 where $S$ is the sphere $x^2+y^2+z^2=1$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
 Obviously we could compute this integral directly, but the question wants us to use the theorem. It's not exactly in the form we need, but notice
-$$[x+z,\,y+x,\,z+y] = [x,y,z]+[z,x,y] = \hat{\v{n}} + \nabla \times [xz,\,xy,\,yz].$$
+$$[x+z,\,y+x,\,z+y] = [x,y,z]+[z,x,y] = \hat{\vv{n}} + \nabla \times [xz,\,xy,\,yz].$$
 
 So then
 $$
-\oint_S [x+z,\,y+x,\,z+y]\cdot d\v{S} = \oint_S \hat{\v{n}} \cdot \hat{\v{n}} dS + \oint_S \left(\nabla \times [xz,\,xy,\,yz]\right) \cdot d\v{S}.
+\oint_S [x+z,\,y+x,\,z+y]\cdot d\vv{S} = \oint_S \hat{\vv{n}} \cdot \hat{\vv{n}} dS + \oint_S \left(\nabla \times [xz,\,xy,\,yz]\right) \cdot d\vv{S}.
 $$
 The second integral is zero by the divergence theorem, because $S$ is a closed surface. 
 

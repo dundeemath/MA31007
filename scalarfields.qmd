@@ -3,7 +3,7 @@ title: "Derivatives of scalar fields"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
  \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
@@ -11,7 +11,7 @@ In this part of the module, we study how to differentiate fields. A field is ano
 
 For example, the following could be a vector field
 $$
-f(\v{r}) = f(x,y,z) = x^2y +z.
+f(\vv{r}) = f(x,y,z) = x^2y +z.
 $$
 If you know a point in space (given by co-ordinates or a position vector) then you know the value of $f$ at that point.
 
@@ -47,7 +47,7 @@ A different interpretation of the derivative $\frac{dy}{dx}$ is the _rate of cha
 
 This is where the _directional derivative_ comes in. It's defined as
 $$
-\v{a} \cdot \nabla f = \left[a_1 \pd{f}{x},a_2\pd{f}{y},a_3\pd{f}{z}\right]
+\vv{a} \cdot \nabla f = \left[a_1 \pd{f}{x},a_2\pd{f}{y},a_3\pd{f}{z}\right]
 $$
 and we say "a dot grad f", or "the derivative of f in the direction a".
 
@@ -57,14 +57,14 @@ This is just the usual dot product with the gradient. Why does it get a special 
 
 The interpretation is to imagine travelling at a speed $v{a}$ and checking how quickly the function $f$ is changing at our current position.
 
-The "direction" $\v{a}$ doesn't need to be a fixed vector, it could also be a vector field. This comes up a lot in physics, like in the Navier-Sokes equations and Maxwell's equations. We'll see this a bit more next week.
+The "direction" $\vv{a}$ doesn't need to be a fixed vector, it could also be a vector field. This comes up a lot in physics, like in the Navier-Sokes equations and Maxwell's equations. We'll see this a bit more next week.
 
 :::{.callout-important}
-Some people define the directional derivative only for unit vectors, including in the old version of the notes. We'll assume that $\v{a}$ can be any vector or vector field.
+Some people define the directional derivative only for unit vectors, including in the old version of the notes. We'll assume that $\vv{a}$ can be any vector or vector field.
 :::
 
 ### Example
-Find the directional derivative of the scalar field $f = x^2y + z$ at the point $(x,y,z) = (5,2,1)$, in the direction $\v{a} = [1,1,2]$.
+Find the directional derivative of the scalar field $f = x^2y + z$ at the point $(x,y,z) = (5,2,1)$, in the direction $\vv{a} = [1,1,2]$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -72,17 +72,17 @@ Find the directional derivative of the scalar field $f = x^2y + z$ at the point 
 We saw above that
 $$\nabla f = [20,25,1],$$
 so
-$$\v{a} \cdot\nabla f = [1,1,2]\cdot[20,25,1] = 47.$$
+$$\vv{a} \cdot\nabla f = [1,1,2]\cdot[20,25,1] = 47.$$
 :::
 
 # Derivatives in curvilinear co-ordinates
 We defined the gradient as
 $$
-\nabla f = \left[\pd{f}{x},\,\pd{f}{y},\,\pd{f}{z}\right] = \pd{f}{x}\v{e}_x + \pd{f}{y}\v{e}_y + \pd{f}{z}\v{e}_z.
+\nabla f = \left[\pd{f}{x},\,\pd{f}{y},\,\pd{f}{z}\right] = \pd{f}{x}\vv{e}_x + \pd{f}{y}\vv{e}_y + \pd{f}{z}\vv{e}_z.
 $$
 What if we're using, say, spherical polar co-ordinates? We would hope that
 $$
-\nabla f = \pd{f}{r}\v{e}_r + \pd{f}{\phi}\v{e}_\phi + \pd{f}{\theta}\v{e}_\theta.
+\nabla f = \pd{f}{r}\vv{e}_r + \pd{f}{\theta}\vv{e}_\theta + \pd{f}{\phi}\vv{e}_\phi.
 $$
 
 :::{.callout-important}
@@ -92,30 +92,30 @@ This is wrong!
 
 Let's try. A very simple vector field is $f(x,y,z) = x$, so
 $$
-\nabla f = [1,0,0] = \v{e}_x.
+\nabla f = [1,0,0] = \vv{e}_x.
 $$
-Remembering our definition of spherical co-ordinates, this field can be written as $f(r,\phi,\theta) = r\cos\phi\sin\theta$.
+Remembering our definition of spherical co-ordinates, this field can be written as $f(r,\theta,\phi) = r\cos\phi\sin\theta$.
 Then
 $$
 \begin{aligned}
- \pd{f}{r}\v{e}_r + \pd{f}{\phi}\v{e}_\phi + \pd{f}{\theta}\v{e}_\theta &= \cos\phi\sin\theta \v{e}_r - r\sin\phi\sin\theta \v{e}_\phi + r\cos\phi\cos\theta \v{e}_\theta \\
- &= \cos\phi\sin\theta [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta] - r\sin\phi\sin\theta[-\sin\phi,\,\cos\phi,\,0] + r\cos\phi\cos\theta [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta]\\
+ \pd{f}{r}\vv{e}_r + \pd{f}{\theta}\vv{e}_\theta + \pd{f}{\phi}\vv{e}_\phi &= \cos\phi\sin\theta \vv{e}_r + r\cos\phi\cos\theta \vv{e}_\theta - r\sin\phi\sin\theta \vv{e}_\phi \\
+ &= \cos\phi\sin\theta [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta] + r\cos\phi\cos\theta [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta] - r\sin\phi\sin\theta[-\sin\phi,\,\cos\phi,\,0]\\
  &= [\cos^2\phi\sin^2\theta -r \sin^2\phi\sin\theta+r\cos^2\phi\cos^2\theta,\,\dots]
 \end{aligned}
 $$
 This horrible expression looks like it could simplify to $[1,0,0]$ but unfortunately it doesn't - there are too many $r$s. ^[In fact, we could see straight away that
 $$
-\nabla f \neq \pd{f}{r}\v{e}_r + \pd{f}{\phi}\v{e}_\phi + \pd{f}{\theta}\v{e}_\theta
+\nabla f \neq \pd{f}{r}\vv{e}_r + \pd{f}{\theta}\vv{e}_\theta + \pd{f}{\phi}\vv{e}_\phi
 $$
 because of the dimensions of the quantities. The dimensions of a derivative should be the dimensions of $f$ divided by length, which is what the first expression has. But $\theta$ and $\phi$ are dimensionless, so we need to divide by a length to keep these ones consistent.]
 
 In fact, the correct formula is
 $$
-\nabla f(r,\phi,\theta) = \pd{f}{r}\v{e}_r + \frac{1}{r}\pd{f}{\phi}\v{e}_\phi + \frac{1}{r\sin\theta}\pd{f}{\theta}\v{e}_\theta.
+\nabla f(r,\theta,\phi) = \pd{f}{r}\vv{e}_r + \frac{1}{r}\pd{f}{\theta}\vv{e}_\theta + \frac{1}{r\sin\theta}\pd{f}{\phi}\vv{e}_\phi.
 $$
-Hopefully the $r$ and $r\sin\theta$ ring a bell - these are the scale factors $h_\phi$ and $h_\theta$. The general rule, for some co-ordinate system $(u,v,w)$, is
+Hopefully the $r$ and $r\sin\theta$ ring a bell - these are the scale factors $h_\theta$ and $h_\phi$. The general rule, for some co-ordinate system $(u,v,w)$, is
 $$
-\nabla f(u,v,w) = \frac{1}{h_u}\pd{f}{u}\v{e}_u + \frac{1}{h_v}\pd{f}{v}\v{e}_v + \frac{1}{h_w}\pd{f}{w}\v{e}_w.
+\nabla f(u,v,w) = \frac{1}{h_u}\pd{f}{u}\vv{e}_u + \frac{1}{h_v}\pd{f}{v}\vv{e}_v + \frac{1}{h_w}\pd{f}{w}\vv{e}_w.
 $$
 
 **Think:** What is grad in cylindrical co-ordinates?
@@ -124,7 +124,7 @@ $$
 ## Solution
 Recalling the scale factor $h_\phi=\rho$, we immediately get
 $$
-\nabla f(\rho,\phi,z) = \pd{f}{\rho} \v{e}_\rho + \frac{1}{\rho}\pd{f}{\phi}\v{e}_\phi + \pd{f}{z}\v{e}_z.
+\nabla f(\rho,\phi,z) = \pd{f}{\rho} \vv{e}_\rho + \frac{1}{\rho}\pd{f}{\phi}\vv{e}_\phi + \pd{f}{z}\vv{e}_z.
 $$
 :::
 
@@ -147,8 +147,8 @@ There are two different ways of doing this. We could convert it all to Cartesian
 
 $$
 \begin{aligned}
-\nabla f(\rho,\phi,z) &= \pd{f}{\rho} \v{e}_\rho + \frac{1}{\rho}\pd{f}{\phi}\v{e}_\phi + \pd{f}{z}\v{e}_z \\
-&= 2\rho z^3 \sin\phi \v{e}_\rho + \rho z^3 \cos\phi \v{e}_\phi + 3\rho^2 z^2 \sin\phi\\
+\nabla f(\rho,\phi,z) &= \pd{f}{\rho} \vv{e}_\rho + \frac{1}{\rho}\pd{f}{\phi}\vv{e}_\phi + \pd{f}{z}\vv{e}_z \\
+&= 2\rho z^3 \sin\phi \vv{e}_\rho + \rho z^3 \cos\phi \vv{e}_\phi + 3\rho^2 z^2 \sin\phi\\
 &= 2\rho z^3 \sin\phi [\cos\phi,\sin\phi,0] + \rho z^3 \cos\phi [-\sin\phi,\cos\phi,0] + 3\rho^2 z^2 \sin\phi [0,0,1]\\
 &= [\rho z^3 \sin\phi\cos\phi,\, \rho z^3(2\sin^2\phi+\cos^2\phi),\, 3\rho^2 z^2 \sin\phi]
 \end{aligned}

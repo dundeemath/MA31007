@@ -3,7 +3,8 @@ title: "Co-ordinate systems"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 One of the key aims of this module is to learn about _curvilinear co-ordinates_. These are co-ordinate systems where, unlike the usual Cartesian co-ordinates, the basis vectors change direction at different points in space.
@@ -25,12 +26,12 @@ We also need to know the range of values these co-ordinates can take, let's use 
 Also notice that the co-ordinates break down at the origin, if $\rho=0$ then the value of $\phi$ doesn't matter. That's quite common with these systems.
 
 ## Basis vectors & scale factors
-The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of $\v{e}_x$ increases the value of $x$ but keeps $y$ constant. It's usually assumed to be a unit vector.
+The definition of a basis vector is the direction you move from a point in space if you increase a particular co-ordinate. So moving in the direction of $\vv{e}_x$ increases the value of $x$ but keeps $y$ constant. It's usually assumed to be a unit vector.
 
-In practice, the definition is to differentiate $\v{r}$ with respect to the variable and then normalise^[As well as $\v{e}_\rho$, you might see other notations like $\hat{\v{\rho}}$.]:
+In practice, the definition is to differentiate $\vv{r}$ with respect to the variable and then normalise^[As well as $\vv{e}_\rho$, you might see other notations like $\hat{\vv{\rho}}$.]:
 $$
 \begin{aligned}
-\v{e}_\rho &= \frac{\partial \v{r}}{\partial \rho}/\left|\frac{\partial \v{r}}{\partial \rho}\right| 
+\vv{e}_\rho &= \frac{\partial \vv{r}}{\partial \rho}/\left|\frac{\partial \vv{r}}{\partial \rho}\right| 
 \\ &= \frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \rho} [\rho \cos \phi,\,\rho\sin\phi]\right|
 \\ &= [\cos\phi,\,\sin\phi] / \sqrt{\cos^2 \phi + \sin^2 \phi}
 \\ &= [\cos\phi,\,\sin\phi]
@@ -39,7 +40,7 @@ $$
 and
 $$
 \begin{aligned}
-\v{e}_\phi &= \frac{\partial \v{r}}{\partial \phi}/\left|\frac{\partial \v{r}}{\partial \phi}\right| 
+\vv{e}_\phi &= \frac{\partial \vv{r}}{\partial \phi}/\left|\frac{\partial \vv{r}}{\partial \phi}\right| 
 \\ &= \frac{\partial}{\partial \phi} [\rho \cos \phi,\,\rho\sin\phi] / \left|\frac{\partial}{\partial \phi} [\rho \cos \phi,\,\rho\sin\phi]\right|
 \\ &= [-\rho\sin\phi,\,\rho\cos\phi] / \sqrt{\rho^2\cos^2 \phi + \rho^2\sin^2 \phi}
 \\ &= [-\sin\phi,\,\cos\phi].
@@ -49,7 +50,7 @@ $$
 Note that this also works for Cartestian co-ordinates
 $$
 \begin{aligned}
-\v{e}_x &= \frac{\partial \v{r}}{\partial x}/\left|\frac{\partial \v{r}}{\partial x}\right| 
+\vv{e}_x &= \frac{\partial \vv{r}}{\partial x}/\left|\frac{\partial \vv{r}}{\partial x}\right| 
 \\ &= \frac{\partial}{\partial x} [x,\,y] / \left|\frac{\partial}{\partial x} [x,\,y]\right|
 \\ &= [1,0] / \sqrt{1^2 + 0^2}
 \\ &= [1,0].
@@ -57,8 +58,8 @@ $$
 $$
 
 We also define the scale factors $h_\rho$ and $h_\phi$ as the magnitude of the derivatives
-$$h_\rho = \left|\frac{\partial \v{r}}{\partial \phi}\right| = 1,$$
-$$h_\phi = \left|\frac{\partial \v{r}}{\partial \phi}\right| = \rho.$$
+$$h_\rho = \left|\frac{\partial \vv{r}}{\partial \phi}\right| = 1,$$
+$$h_\phi = \left|\frac{\partial \vv{r}}{\partial \phi}\right| = \rho.$$
 
 :::{.callout-note}
 Scale factors will be useful later in the module. For now just get used to the formulas.
@@ -68,15 +69,15 @@ Scale factors will be useful later in the module. For now just get used to the f
 
 You're used to the idea that co-ordinates and basis vectors are kind of interchangable. In Cartesians, the point $(x,y)$ has position vector
 $$
-\v{r} = [x,y] = x \v{e}_x + y \v{e}_y.
+\vv{r} = [x,y] = x \vv{e}_x + y \vv{e}_y.
 $$
 We reserve this square bracket notation for Cartesians, because it doesn't work in curvilinear co-ordinates.
 
 At a point with co-ordinates $(\rho,\phi)$ in plane polars, the position vector is
 $$
-\v{r} = [x,y] = [\rho \cos \phi,\, \rho\sin\phi] = \rho \v{e}_\rho.
+\vv{r} = [x,y] = [\rho \cos \phi,\, \rho\sin\phi] = \rho \vv{e}_\rho.
 $$
-Where does $\phi$ appear in this expression? The answer is that it's hidden inside the $\v{e}_\rho$. You have to know the co-ordinates to understand this position vector.
+Where does $\phi$ appear in this expression? The answer is that it's hidden inside the $\vv{e}_\rho$. You have to know the co-ordinates to understand this position vector.
 
 :::{.callout-note}
 I think this is the most confusing thing in this module. If you understand this everything else will be easier.
@@ -88,7 +89,7 @@ A system is called _orthogonal_ if at any point in space, the basis vectors are 
 
 This seems counterintuitive, since we already said that the basis vectors rotate, but it's easy to verify that plane polars are orthogonal - we just need to check the dot product:
 $$
-\v{e}_\rho \cdot \v{e}_\phi = [\cos \phi,\,\sin\phi] \cdot [-\sin\phi,\,\cos\phi] = -\cos\phi\sin\phi + \sin\phi\cos\phi = 0.
+\vv{e}_\rho \cdot \vv{e}_\phi = [\cos \phi,\,\sin\phi] \cdot [-\sin\phi,\,\cos\phi] = -\cos\phi\sin\phi + \sin\phi\cos\phi = 0.
 $$
 
 
@@ -107,9 +108,9 @@ with $\rho>0$, $0\leq\phi<2\pi$, $z\in\mathbb{R}$.
 You can derive the following:
 $$
 \begin{aligned}
-\v{e}_\rho &= [\cos\phi,\,\sin\phi,\,0],\\
-\v{e}_\phi &= [-\sin\phi,\,\cos\phi,\,0],\\
-\v{e}_z &= [0,0,1],
+\vv{e}_\rho &= [\cos\phi,\,\sin\phi,\,0],\\
+\vv{e}_\phi &= [-\sin\phi,\,\cos\phi,\,0],\\
+\vv{e}_z &= [0,0,1],
 \end{aligned}
 $$
 $$
@@ -120,7 +121,7 @@ $$
 
 The general position vector is
 $$
-\v{r} = \rho \v{e}_\rho + z \v{e}_z.
+\vv{r} = \rho \vv{e}_\rho + z \vv{e}_z.
 $$
 
 # Spherical Polars
@@ -132,18 +133,18 @@ The definition is
 $$
 [x,y,z] = [r\cos\phi\sin\theta,\,r\sin\phi\sin\theta,\,r\cos\theta]
 $$
-with $r>0$, $0\leq\phi<2\pi$, $0\leq \theta \leq \pi$.
+with $r>0$, $0\leq \theta \leq \pi$,  $0\leq\phi<2\pi$.
 
 You can derive the following:
 $$
 \begin{aligned}
-\v{e}_r &= [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta],\\
-\v{e}_\phi &= [-\sin\phi,\,\cos\phi,\,0],\\
-\v{e}_\theta &= [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta],
+\vv{e}_r &= [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta],\\
+\vv{e}_\theta &= [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta],
+\vv{e}_\phi &= [-\sin\phi,\,\cos\phi,\,0],\\
 \end{aligned}
 $$
 $$
-h_r = 1,\,h_\phi=r,\,h_\theta=r\sin\theta.
+h_r = 1,\,h_\theta=r,\,h_\phi=r\sin\theta.
 $$
 
 ![](figures/f11.jpg){width=50%}
@@ -151,7 +152,7 @@ $$
 
 The general position vector is
 $$
-\v{r} = r\v{e}_r.
+\vv{r} = r\vv{e}_r.
 $$
 
 

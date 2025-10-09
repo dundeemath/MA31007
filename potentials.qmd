@@ -3,19 +3,19 @@ title: "Vector and scalar potentials"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
  \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 The final part of our module concerns special types of vector fields.
 
-We call a field $\v{A}$ _solenoidal_ if
+We call a field $\vv{A}$ _solenoidal_ if
 $$
-\nabla\cdot \v{A} = 0
+\nabla\cdot \vv{A} = 0
 $$
-and we call a field $\v{B}$ _irrotational_ if
+and we call a field $\vv{B}$ _irrotational_ if
 $$
-\nabla\times\v{B} = \v{0}.
+\nabla\times\vv{B} = \vv{0}.
 $$
 
 :::{.callout-note}
@@ -26,15 +26,15 @@ A field can be both solenoidal and irrotational, for example any constant field.
 These are sometimes called _curl free_ fields, for obvious reasons. The key theorem is:
 
 :::{.callout-important}
-$$\nabla\times\v{A} = \v{0} \text{ if and only if }\v{A} = \nabla \phi\text{ for some scalar field }\phi.$$
+$$\nabla\times\vv{A} = \vv{0} \text{ if and only if }\vv{A} = \nabla \phi\text{ for some scalar field }\phi.$$
 :::
 
-We call $\phi$ a _scalar potential_ for $\v{A}$. 
+We call $\phi$ a _scalar potential_ for $\vv{A}$. 
 
 Proving $\impliedby$ is easy:
-If $\v{A} = \nabla \phi$ then
+If $\vv{A} = \nabla \phi$ then
 $$
-\nabla\times \v{A} = \nabla \times \nabla \phi = 0,
+\nabla\times \vv{A} = \nabla \times \nabla \phi = 0,
 $$
 this was one of our second derivative identities.
 
@@ -43,12 +43,12 @@ The proof in the other direction is much more complicated, but for any given exa
 ### Example
 Find a scalar potential for
 $$
-\v{A} = [x^2,y^2,0].
+\vv{A} = [x^2,y^2,0].
 $$
 
 :::{.callout-tip collapse="true"}
 ## Solution
-First check that $\nabla\times\v{A}=\v{0}$, otherwise it doesn't work.
+First check that $\nabla\times\vv{A}=\vv{0}$, otherwise it doesn't work.
 
 Then we need to find $\phi$ such that $\nabla \phi = [x^2,y^2,0]$.
 
@@ -96,22 +96,22 @@ Scalar potentials are not unique - you can add any constant to $\phi$ and it's s
 These are also called _incompressible_ or _divergence free_^[In physics, the magnetic field is a solenoidal field. This is where the name comes from.]. The key theorem here is:
 
 :::{.callout-important}
-$$\nabla\cdot\v{A} = \v{0} \text{ if and only if }\v{A} = \nabla\times \v{B}\text{ for some vector field }\v{B}.$$
+$$\nabla\cdot\vv{A} = \vv{0} \text{ if and only if }\vv{A} = \nabla\times \vv{B}\text{ for some vector field }\vv{B}.$$
 :::
 
-We call $\v{B}$ a _vector potential_ for $\v{A}$.
-Again, you can easily prove that $\nabla\times\v{B}$ is solenoidal, but the other way is harder. You can also easily prove this:
+We call $\vv{B}$ a _vector potential_ for $\vv{A}$.
+Again, you can easily prove that $\nabla\times\vv{B}$ is solenoidal, but the other way is harder. You can also easily prove this:
 
 :::{.callout-important}
-Vector potentials are not unique - If $\v{B}$ is a vector potential for $\v{A}$ then so is $\v{B}+\nabla\phi$ for __any scalar field__ $\phi$.^[This is called _gauge freedom_ in physics.]
+Vector potentials are not unique - If $\vv{B}$ is a vector potential for $\vv{A}$ then so is $\vv{B}+\nabla\phi$ for __any scalar field__ $\phi$.^[This is called _gauge freedom_ in physics.]
 :::
 
-This non-uniqueness is very important, because it means we can choose properties we want $\v{B}$ to have. One convenient choice is often $$B_3=0,$$ no component in the $z$ direction.
+This non-uniqueness is very important, because it means we can choose properties we want $\vv{B}$ to have. One convenient choice is often $$B_3=0,$$ no component in the $z$ direction.
 
 ### Example
 Find a vector potential for
 $$
-\v{A} = [x+y^2, -y+z^2, y^2]
+\vv{A} = [x+y^2, -y+z^2, y^2]
 $$
 
 :::{.callout-tip collapse="true"}
@@ -120,9 +120,9 @@ This works the same as for scalar potentials, but it gets much messier. I strong
 
 First, you could check it's actually solenoidal. That's quite quick in this case.
 
-We need to find $\v{B}=[B_1,B_2,B_3]$ such that
+We need to find $\vv{B}=[B_1,B_2,B_3]$ such that
 $$
-[x+y^2, -y+z^2, y^2] = \nabla\times\v{B} = [\pd{B_3}{y}-\pd{B_2}{z},\,\pd{B_1}{z}-\pd{B_3}{x},\,\pd{B_2}{x}-\pd{B_1}{y}].
+[x+y^2, -y+z^2, y^2] = \nabla\times\vv{B} = [\pd{B_3}{y}-\pd{B_2}{z},\,\pd{B_1}{z}-\pd{B_3}{x},\,\pd{B_2}{x}-\pd{B_1}{y}].
 $$
 
 Let's make the gauge choice that $B_3=0$, so then we get
@@ -157,7 +157,7 @@ This works.
 
 Therefore, a vector potential is:
 $$
-\v{B} = \left[
+\vv{B} = \left[
 	-y z + \frac{1}{3} z^3 - \frac{1}{3} y^3,\;
 	-x z - y^2 z,\;
 	0.

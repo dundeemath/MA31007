@@ -3,7 +3,8 @@ title: "Curves"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 For the purpose of this module, a curve is a one-dimensional object in three-dimensional space. Imagine a hula hoop or a rope. In fact, we'll generally assume:
@@ -21,8 +22,8 @@ then we'd have a surface, not a curve (more on this next week). Instead, we use 
 $$ x = f(t), y = g(t), z = h(t)$$
 where $f$, $g$ and $h$ are some functions, and $t$ is the _parameter_. Occasionally we'll use a different letter for the parameter, like $\theta$ or $s$, but I'll try to stick to $t$ usually.
 
-Generally we'll write the parameterisation in terms of the position vector $\v{r}$:
-$$ \v{r} = \v{r}(t).$$
+Generally we'll write the parameterisation in terms of the position vector $\vv{r}$:
+$$ \vv{r} = \vv{r}(t).$$
 
 It's also __super important__ to give the possible range for the parameter $t$.
 
@@ -33,20 +34,20 @@ Parameterisations are not unique. The same curve can be described in infinitely 
 Here are two simple examples. Actually both of these are effectively 2D, but in class and later in the module we'll see more 3D examples.
 
 ### Example: Straight line
-The simplest example of a curve is a straight line, which you saw in MA12001. If $\v{c}$ is some point on the line and $\v{s}$ is the direction of the line, then
-$$ \v{r} = \v{a} + \v{b}t,\quad t\in\mathbb{R}$$
+The simplest example of a curve is a straight line, which you saw in MA12001. If $\vv{c}$ is some point on the line and $\vv{s}$ is the direction of the line, then
+$$ \vv{r} = \vv{a} + \vv{b}t,\quad t\in\mathbb{R}$$
 is a parameterisation for the line. In this case, $t$ can have any value because the line is infinitely long.
 
 ![](figures/f1.jpg){width=50%}
 
-**Think:** What's a parameterisation for the _line segment_ between two points $\v{p}$ and $\v{q}$?
+**Think:** What's a parameterisation for the _line segment_ between two points $\vv{p}$ and $\vv{q}$?
 
 ::: {.callout-tip collapse="true"}
 ## Solution
 
 In MA12001 you saw that this line has parameterisation
-$$ \v{r} = \v{p} + (\v{q}-\v{p})t. $$
-For a line segment, we need to limit the range of $t$. Notice that when $t=0$, $\v{r}=\v{p}$, and when $t=1$, $\v{r}=\v{q}$, so we have to choose
+$$ \vv{r} = \vv{p} + (\vv{q}-\vv{p})t. $$
+For a line segment, we need to limit the range of $t$. Notice that when $t=0$, $\vv{r}=\vv{p}$, and when $t=1$, $\vv{r}=\vv{q}$, so we have to choose
 $$
 0\leq t \leq 1.
 $$
@@ -55,7 +56,7 @@ $$
 
 ### Example: Circle
 A circle is a curve. Let's find a parameterisation for the circle of radius $a$ in the $x-y$ plane, centred at the origin.
-$$ \v{r} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta < 2\pi. $$
+$$ \vv{r} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta < 2\pi. $$
 Here we're using $\theta$ as the parameter, because it's an angle. The $z$ co-ordinate is always zero, because we're in the $x-y$ plane.
 Notice that, for any $\theta$,
 $$ x^2 + y^2 = a^2\cos^2 \theta +a^2\sin^2 \theta = a^2, $$
@@ -66,10 +67,10 @@ You should get used to using $\sin$ and $\cos$ like this to parameterise circles
 
 # Tangent vectors
 A tangent vector is a vector which points `along' a curve at a given point on it. If we imagine we're moving along the curve, 
-then the tangent vector tells us the direction we're travelling at any point in time. We write it as $\v{T}$.
+then the tangent vector tells us the direction we're travelling at any point in time. We write it as $\vv{T}$.
 
 So it's the infinitesimal displacement from the current point to a future point (and remember displacements are position vectors subtracted)
-$$\v{T} = \lim_{\delta\to 0}\frac{\v{r}(t + \delta) - \v{r}(t)}{\delta} = \frac{d \v{r}}{d t}$$
+$$\vv{T} = \lim_{\delta\to 0}\frac{\vv{r}(t + \delta) - \vv{r}(t)}{\delta} = \frac{d \vv{r}}{d t}$$
 
 ![](figures/f3.jpg){width=50%}
 
@@ -80,18 +81,18 @@ Tangent vectors are not unique: only the direction is actually meaningful, the m
 Often we will want a _unit_ (i.e. magnitude 1) tangent vector, which we define as
 
 $$
-\hat{\v{T}} = \frac{\v{T}}{|\v{T}|} = \frac{1}{\left|\frac{d \v{r}}{d t}\right|} \frac{d \v{r}}{d t}.
+\hat{\vv{T}} = \frac{\vv{T}}{|\vv{T}|} = \frac{1}{\left|\frac{d \vv{r}}{d t}\right|} \frac{d \vv{r}}{d t}.
 $$
 
 ### Example: Circle
 Consider the circle of radius $a$ in the $x-y$ plane, centred at the origin.
-Find the unit tangent vector to the curve at the point $\v{r} = \left[\frac{a}{\sqrt{2}}, -\frac{a}{\sqrt{2}}, 0\right]$.
+Find the unit tangent vector to the curve at the point $\vv{r} = \left[\frac{a}{\sqrt{2}}, -\frac{a}{\sqrt{2}}, 0\right]$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
 
 Above, we found the parameterisation
-$$ \v{r} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta < 2\pi. $$
+$$ \vv{r} = [a\cos \theta, a\sin \theta, 0],\quad 0\leq \theta < 2\pi. $$
 
 First we should check the given point actually lies on the curve, and find the parameter.
 
@@ -106,21 +107,21 @@ $$
 
 The tangent vector is
 $$
-\v{T}(\theta) = \frac{d \v{r}}{d \theta} = \left[-a\sin\theta, a\cos\theta, 0\right],
+\vv{T}(\theta) = \frac{d \vv{r}}{d \theta} = \left[-a\sin\theta, a\cos\theta, 0\right],
 $$
 so at our point we have
 $$
-\v{T}(7\pi/4) = \left[\frac{a}{\sqrt{2}}, \frac{a}{\sqrt{2}}, 0\right].
+\vv{T}(7\pi/4) = \left[\frac{a}{\sqrt{2}}, \frac{a}{\sqrt{2}}, 0\right].
 $$
 
-The question asked for a unit vector, so we need $\hat{\v{T}} = \frac{\v{T}}{|\v{T}|}$.
+The question asked for a unit vector, so we need $\hat{\vv{T}} = \frac{\vv{T}}{|\vv{T}|}$.
 
 $$
-|\v{T}| = \sqrt{\left(\frac{a}{\sqrt{2}}\right)^2 + \left(\frac{a}{\sqrt{2}}\right)^2 + 0^2} = a,
+|\vv{T}| = \sqrt{\left(\frac{a}{\sqrt{2}}\right)^2 + \left(\frac{a}{\sqrt{2}}\right)^2 + 0^2} = a,
 $$
 which finally gives
 $$
-\hat{\v{T}}(7\pi/4) = \left[\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right].
+\hat{\vv{T}}(7\pi/4) = \left[\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right].
 $$
 
 :::
@@ -135,7 +136,7 @@ Your first thought might be that it's realted to the parameter, but this is inco
 
 Instead, we need to integrate. The formula is
 $$
-\int_{t_0}^{t_1} \left| \frac{d \v{r}}{dt}\right| dt \left( = \int_{t_0}^{t_1} \left| \v{T}(t)\right| dt\right)
+\int_{t_0}^{t_1} \left| \frac{d \vv{r}}{dt}\right| dt \left( = \int_{t_0}^{t_1} \left| \vv{T}(t)\right| dt\right)
 $$
 Here the limits for the integral are chosen based on what part of the curve we want to measure the length of. In class I'll go through a 'derivation' of this formula, but you should just learn it.
 
@@ -144,7 +145,7 @@ This is just a normal integral of a scalar in one variable. Later we'll see more
 :::
 
 ### Example: the distance between two points
-Find the total arc-length of the line segment between two points $\v{p}$ and $\v{q}$.
+Find the total arc-length of the line segment between two points $\vv{p}$ and $\vv{q}$.
 
 
 ::: {.callout-tip collapse="true"}
@@ -152,23 +153,23 @@ Find the total arc-length of the line segment between two points $\v{p}$ and $\v
 
 Above we saw that the parameterisation is
 $$ 
-\v{r} = \v{p} + (\v{q}-\v{p})t,\quad 0\leq t \leq 1.
+\vv{r} = \vv{p} + (\vv{q}-\vv{p})t,\quad 0\leq t \leq 1.
 $$
 
 So we need to calculate
 $$ 
-\int_{0}^{1} \left| \frac{d \v{r}}{dt}\right| dt = \int_{0}^{1} \left| (\v{q}-\v{p})\right| dt.
+\int_{0}^{1} \left| \frac{d \vv{r}}{dt}\right| dt = \int_{0}^{1} \left| (\vv{q}-\vv{p})\right| dt.
 $$
 Here $t$ doesn't appear in the integrand, so we can just simplify
 $$ 
-\int_{0}^{1} \left| (\v{q}-\v{p})\right| dt = \left| (\v{q}-\v{p})\right| \int_{0}^{1} dt.
+\int_{0}^{1} \left| (\vv{q}-\vv{p})\right| dt = \left| (\vv{q}-\vv{p})\right| \int_{0}^{1} dt.
 $$
 Whenever you see this 'empty' integral, you can think of it as integrating 1. So
 $$ 
-\int_{0}^{1} \left| (\v{q}-\v{p})\right| dt = \left| (\v{q}-\v{p})\right|.
+\int_{0}^{1} \left| (\vv{q}-\vv{p})\right| dt = \left| (\vv{q}-\vv{p})\right|.
 $$
 
-This says that the integral is equal to the magnitude of the displacement vector $(\v{q}-\v{p})$. Which was kind of obvious -- it's just the distance between the two points.
+This says that the integral is equal to the magnitude of the displacement vector $(\vv{q}-\vv{p})$. Which was kind of obvious -- it's just the distance between the two points.
 
 :::
 
@@ -177,7 +178,7 @@ To conclude this part of the notes, let's see a more complicated example.
 
 Find the total arc-length of the curve which is parameterised as
 $$
-\v{r}(t) = \left[ \cos t, \sin t, t \right], \quad 0\leq t\leq 4\pi.
+\vv{r}(t) = \left[ \cos t, \sin t, t \right], \quad 0\leq t\leq 4\pi.
 $$
 
 
@@ -191,12 +192,12 @@ In $x$ and $y$, it just traces out a circle twice. But as it does so, the $z$ co
 
 ### Step 1: Calculate the tangent vector
 $$
-\v{T}(t) = \frac{d\v{r}}{dt} = \left[-\sin t, \cos t, 1\right].
+\vv{T}(t) = \frac{d\vv{r}}{dt} = \left[-\sin t, \cos t, 1\right].
 $$
 
 ### Step 2: Find its magnitude
 $$
-\left|\v{T}\right| = \sqrt{(-\sin t)^2+(\cos t)^2 + 1^2} = \sqrt{2}.
+\left|\vv{T}\right| = \sqrt{(-\sin t)^2+(\cos t)^2 + 1^2} = \sqrt{2}.
 $$
 
 ### Step 3: Integrate this

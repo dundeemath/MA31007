@@ -3,7 +3,8 @@ title: "Surfaces"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D^[Curves have dimension 1. But a curve in 2D has _co-dimension_ 1 and a curve in 3D has co-dimension 2, whereas a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset. The co-dimension is the number of equations you need to describe a subset.]. The easiest way to write down a surface is
@@ -35,7 +36,7 @@ is the sphere, rather than just the equation itself. Don't be afraid if you see 
 # Parameterisations of surfaces
 Just as with curves, we can describe surfaces parametrically. However, for a two-dimensional surface, we need two parameters, which we usually call $u$ and $v$.
 $$
-\v{r} (u,v) = [f(u,v),\,g(u,v),\,h(u,v)]
+\vv{r} (u,v) = [f(u,v),\,g(u,v),\,h(u,v)]
 $$
 and again, we need to specify ranges for the parameters.
 
@@ -43,8 +44,8 @@ and again, we need to specify ranges for the parameters.
 
 ### Example: parameterisation of a plane
 In MA12001, you saw plane equations like
-$$\v{r}\cdot \v{n} = d$$
-where $\v{n}$ is a normal vector to the plane (more on this below) and $d$ is some number. We can transform this to parametric form by introducing $u=x$ and $v=y$.
+$$\vv{r}\cdot \vv{n} = d$$
+where $\vv{n}$ is a normal vector to the plane (more on this below) and $d$ is some number. We can transform this to parametric form by introducing $u=x$ and $v=y$.
 
 So we need only work out what $z$ is, as a function of $u$ and $v$. Substituting into the equation,
 $$d = [u,v,z]\cdot[n_1,n_2,n_3] = un_1 + vn_3 + z n_3,$$
@@ -54,7 +55,7 @@ z = \frac{d-un_1-vn_2}{n_3}
 $$
 so the full parameterisation is
 $$
-\v{r}(u,v) = \left[u,\,v,\,\frac{d-un_1-vn_2}{n_3}\right].
+\vv{r}(u,v) = \left[u,\,v,\,\frac{d-un_1-vn_2}{n_3}\right].
 $$
 
 **Think:** When would this parameterisation fail?
@@ -75,7 +76,7 @@ x^2 + y^2 + z^2 = 1
 $$
 can be parameterised as
 $$
-\v{r}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v < 2\pi.
+\vv{r}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v < 2\pi.
 $$
 
 **Think:** How can you show that these points satisfy $x^2 + y^2 + z^2 = 1$?
@@ -88,16 +89,16 @@ Subsituting in $x=\cos u \sin v$, $y=\sin u \sin v$ and $z=\cos v$, you can see 
 We will talk much more about this when we discuss co-ordinate systems.
 
 # Tangents to surfaces
-If you fix a value of $v$, say $v=v_0$, then for any surface $\v{r}(u,v)$,
-$$\v{r} (u) = \v{r}(u,v_0)$$
+If you fix a value of $v$, say $v=v_0$, then for any surface $\vv{r}(u,v)$,
+$$\vv{r} (u) = \vv{r}(u,v_0)$$
 just describes a curve in space. 
 
 For example, in the sphere parameterisation above, fixing $v=0$ gives the circle $x^2+y^2=1$, $z=0$, which is the equator of the sphere.
 
 We have already seen that curves have tangent vectors. What is the meaning of these tangent vectors for surfaces? These are just
-$\frac{\partial\v{r}}{\partial u}$ and $\frac{\partial\v{r}}{\partial v}$, the _partial_ derivatives keeping the other variable constant.
+$\frac{\partial\vv{r}}{\partial u}$ and $\frac{\partial\vv{r}}{\partial v}$, the _partial_ derivatives keeping the other variable constant.
 
-A tangent vector to a surface is any vector which, at the current point, doesn't point into or out of it. These are $\frac{\partial\v{r}}{\partial u}$ or $\frac{\partial\v{r}}{\partial v}$ or any _linear combination_, these tangent vectors form a two-dimension space called the tangent space with basis vectors given by $\frac{\partial\v{r}}{\partial u}$ and $\frac{\partial\v{r}}{\partial v}$.
+A tangent vector to a surface is any vector which, at the current point, doesn't point into or out of it. These are $\frac{\partial\vv{r}}{\partial u}$ or $\frac{\partial\vv{r}}{\partial v}$ or any _linear combination_, these tangent vectors form a two-dimension space called the tangent space with basis vectors given by $\frac{\partial\vv{r}}{\partial u}$ and $\frac{\partial\vv{r}}{\partial v}$.
 
 We won't use surface tangent vectors much except to compute _normal vectors_.
 
@@ -107,7 +108,7 @@ We won't use surface tangent vectors much except to compute _normal vectors_.
 Surface normals, and the different ways to calculate them, come up a lot later in the module. Make sure you understand this.
 :::
 
-Normal vectors $\v{n}$ of surfaces are the direct generalisation of normal vectors to planes. They are a vector which makes a right-angle with the surface at a given point. As with tangent vectors for surfaces, normals can point in either direction and the magnitude depends on parameterisation, so sometimes we talk about _unit_ normals.
+Normal vectors $\vv{n}$ of surfaces are the direct generalisation of normal vectors to planes. They are a vector which makes a right-angle with the surface at a given point. As with tangent vectors for surfaces, normals can point in either direction and the magnitude depends on parameterisation, so sometimes we talk about _unit_ normals.
 
 There are two ways to calculate normal vectors, and which to use depends on the form you have for your surface.
 
@@ -115,7 +116,7 @@ The normal vector is perpendicular to the surface, so in particular it is perpen
 
 For a parameterised surface, this means
 $$
-\v{n}(u,v) = \frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v}
+\vv{n}(u,v) = \frac{\partial\vv{r}}{\partial u} \times \frac{\partial\vv{r}}{\partial v}
 $$
 
 ![](figures/f6.jpg){width=50%}
@@ -124,9 +125,9 @@ Alternatively, if you can write your surface as an equation
 $$
 f(x,y,z) = d,
 $$
-where $d$ is some number (often zero), then we can use the formula^[In the next unit, we'll write this as $\v{n} = \nabla f$.]
+where $d$ is some number (often zero), then we can use the formula^[In the next unit, we'll write this as $\vv{n} = \nabla f$.]
 $$
-\v{n} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right].
+\vv{n} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right].
 $$
 
 We'll see an explanation for why this works in class, but it should become more clear to you after the next unit of the module.
@@ -138,9 +139,9 @@ x^2 + y^2 + z^2 = 1
 $$
 as
 $$
-\v{r}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v < 2\pi.
+\vv{r}(u,v) = [\cos u \sin v,\,\sin u \sin v,\cos v], \quad 0\leq u \leq \pi,\quad 0\leq v < 2\pi.
 $$
-So we can use both of the methods here. Let's find a _unit_ normal to the sphere at the point $\v{r} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]$
+So we can use both of the methods here. Let's find a _unit_ normal to the sphere at the point $\vv{r} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]$
 
 **Think:** is this point on the sphere? What parameters $u$ and $v$ does it correspond to?
 
@@ -166,16 +167,16 @@ $$(u,v) = \left(\frac{\pi}{4},\,\cos^{-1} \frac{1}{\sqrt{3}}\right).$$
 ### Cross product
 Two different tangent vectors at the point $(u,v)$ are
 $$
-\frac{\partial\v{r}}{\partial u} = [-\sin u \sin v,\,\cos u \sin v,\,0]
+\frac{\partial\vv{r}}{\partial u} = [-\sin u \sin v,\,\cos u \sin v,\,0]
 $$
 and
 $$
-\frac{\partial\v{r}}{\partial v} = [\cos u \cos v,\,\sin u \cos v,\,-\sin v],
+\frac{\partial\vv{r}}{\partial v} = [\cos u \cos v,\,\sin u \cos v,\,-\sin v],
 $$
 so then
 $$
 \begin{aligned}
-\v{n}(u,v) &= \frac{\partial\v{r}}{\partial u} \times \frac{\partial\v{r}}{\partial v} 
+\vv{n}(u,v) &= \frac{\partial\vv{r}}{\partial u} \times \frac{\partial\vv{r}}{\partial v} 
 \\&= \left[\cos u \sin v\times -\sin v,\,\sin u \sin v\times-\sin v,\,-\sin u \sin v\times\sin u \cos v-\cos u \sin v \times \cos u \cos v\right]
 \\&= \left[-\cos u \sin^2 v,\,-\sin u \sin^2 v,\,-\sin v \cos v\right]
 \\&= -\sin v\left[\cos u \sin v, \sin u \sin v, \cos v\right].
@@ -184,23 +185,23 @@ $$
 
 After a lot of manipulation you will find that the magnitude of this is $\sin v$, so we get a unit normal
 $$
-\hat{\v{n}}(u,v) = -\left[\cos u \sin v, \sin u \sin v, \cos v\right],
+\hat{\vv{n}}(u,v) = -\left[\cos u \sin v, \sin u \sin v, \cos v\right],
 $$
 which at our point $(u,v) =\left(\frac{\pi}{4},\,\cos^{-1} \frac{1}{\sqrt{3}}\right)$ is
 $$
-\hat{\v{n}} = -\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].
+\hat{\vv{n}} = -\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].
 $$
 
 ### Direct differentiation
 We have $f(x,y,z) = x^2 + y^2 + z^2$, so
 $$
-\v{n} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right] = [2x,2y,2z].
+\vv{n} = \left[\frac{\partial f}{\partial x},\,\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right] = [2x,2y,2z].
 $$
 and at our point $[x,y,z]=\left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right]$ we get
-$$\v{n} = \left[\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}}\right].$$
+$$\vv{n} = \left[\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}},\,\frac{2}{\sqrt{3}}\right].$$
 
 For a unit vector, we need to divide by the magnitude of this (which is $2$), so the final answer is
-$$\hat{\v{n}} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].$$
+$$\hat{\vv{n}} = \left[\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}},\,\frac{1}{\sqrt{3}}\right].$$
 
 :::{.callout-note}
 These two answers are different! They are pointing in opposite directions. One is the _inward-facing normal_ and the other is the _outward facing normal_. Choosing the right one will become important later on.
@@ -209,11 +210,11 @@ These two answers are different! They are pointing in opposite directions. One i
 # Tangent planes
 We said that there are infinitely many different tangent vectors to a surface at a given point. In fact, these tangent vectors all lie on a plane, and we can describe that plane (which is itself a surface) using the formula from MA12001:
 $$
-(\v{r}-\v{c})\cdot\v{n} = 0
+(\vv{r}-\vv{c})\cdot\vv{n} = 0
 $$
-Here $\v{r}$ is any generic point on the plane, $\v{c}$ is one specific point and $\v{n}$ is the normal to the plane.
+Here $\vv{r}$ is any generic point on the plane, $\vv{c}$ is one specific point and $\vv{n}$ is the normal to the plane.
 
-So we should take $\v{c}$ to be the point on the original surface and $\v{n}$ to eb the normal there.
+So we should take $\vv{c}$ to be the point on the original surface and $\vv{n}$ to eb the normal there.
 
 ![](figures/f7.jpg){width=50%}
 
@@ -227,7 +228,7 @@ at the point $[x,y,z] = [1,0,0]$.
 ::: {.callout-tip collapse="true"}
 ## Solution
 The normal is
-$$\v{n} = [2x,2y,2z] = [2,0,0],$$
+$$\vv{n} = [2x,2y,2z] = [2,0,0],$$
 so substituting this and the point into the plane equation we get
 $$
 ([x,y,z] - [1,0,0]])\cdot[2,0,0] = 0

@@ -428,7 +428,7 @@ Solution
 <p>We defined the gradient as <span class="math display">\[
 \nabla f = \left[{\frac{\partial f}{\partial x}},\,{\frac{\partial f}{\partial y}},\,{\frac{\partial f}{\partial z}}\right] = {\frac{\partial f}{\partial x}}{\mathbf{e}}_x + {\frac{\partial f}{\partial y}}{\mathbf{e}}_y + {\frac{\partial f}{\partial z}}{\mathbf{e}}_z.
 \]</span> What if we’re using, say, spherical polar co-ordinates? We would hope that <span class="math display">\[
-\nabla f = {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta.
+\nabla f = {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi.
 \]</span></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -445,16 +445,16 @@ Important
 </div>
 <p>Let’s try. A very simple vector field is <span class="math inline">\(f(x,y,z) = x\)</span>, so <span class="math display">\[
 \nabla f = [1,0,0] = {\mathbf{e}}_x.
-\]</span> Remembering our definition of spherical co-ordinates, this field can be written as <span class="math inline">\(f(r,\phi,\theta) = r\cos\phi\sin\theta\)</span>. Then <span class="math display">\[
+\]</span> Remembering our definition of spherical co-ordinates, this field can be written as <span class="math inline">\(f(r,\theta,\phi) = r\cos\phi\sin\theta\)</span>. Then <span class="math display">\[
 \begin{aligned}
-{\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta &amp;= \cos\phi\sin\theta {\mathbf{e}}_r - r\sin\phi\sin\theta {\mathbf{e}}_\phi + r\cos\phi\cos\theta {\mathbf{e}}_\theta \\
-&amp;= \cos\phi\sin\theta [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta] - r\sin\phi\sin\theta[-\sin\phi,\,\cos\phi,\,0] + r\cos\phi\cos\theta [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta]\\
+{\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi &amp;= \cos\phi\sin\theta {\mathbf{e}}_r + r\cos\phi\cos\theta {\mathbf{e}}_\theta - r\sin\phi\sin\theta {\mathbf{e}}_\phi \\
+&amp;= \cos\phi\sin\theta [\cos\phi\sin\theta,\,\sin\phi\sin\theta,\,\cos\theta] + r\cos\phi\cos\theta [\cos\phi\cos\theta,\,\sin\phi\cos\theta,\,-\sin\theta] - r\sin\phi\sin\theta[-\sin\phi,\,\cos\phi,\,0]\\
 &amp;= [\cos^2\phi\sin^2\theta -r \sin^2\phi\sin\theta+r\cos^2\phi\cos^2\theta,\,\dots]
 \end{aligned}
 \]</span> This horrible expression looks like it could simplify to <span class="math inline">\([1,0,0]\)</span> but unfortunately it doesn’t - there are too many <span class="math inline">\(r\)</span>s. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>In fact, the correct formula is <span class="math display">\[
-\nabla f(r,\phi,\theta) = {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + \frac{1}{r}{\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + \frac{1}{r\sin\theta}{\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta.
-\]</span> Hopefully the <span class="math inline">\(r\)</span> and <span class="math inline">\(r\sin\theta\)</span> ring a bell - these are the scale factors <span class="math inline">\(h_\phi\)</span> and <span class="math inline">\(h_\theta\)</span>. The general rule, for some co-ordinate system <span class="math inline">\((u,v,w)\)</span>, is <span class="math display">\[
+\nabla f(r,\theta,\phi) = {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + \frac{1}{r}{\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta + \frac{1}{r\sin\theta}{\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi.
+\]</span> Hopefully the <span class="math inline">\(r\)</span> and <span class="math inline">\(r\sin\theta\)</span> ring a bell - these are the scale factors <span class="math inline">\(h_\theta\)</span> and <span class="math inline">\(h_\phi\)</span>. The general rule, for some co-ordinate system <span class="math inline">\((u,v,w)\)</span>, is <span class="math display">\[
 \nabla f(u,v,w) = \frac{1}{h_u}{\frac{\partial f}{\partial u}}{\mathbf{e}}_u + \frac{1}{h_v}{\frac{\partial f}{\partial v}}{\mathbf{e}}_v + \frac{1}{h_w}{\frac{\partial f}{\partial w}}{\mathbf{e}}_w.
 \]</span></p>
 <p><strong>Think:</strong> What is grad in cylindrical co-ordinates?</p>
@@ -533,7 +533,7 @@ Solution
 <li id="fn1"><p>We already saw this for calculating normals to surfaces.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Strictly speaking the symbol <span class="math inline">\(\nabla\)</span> is called “nabla” or “del”, but we often call it “grad” in other settings.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>In fact, we could see straight away that <span class="math display">\[
-\nabla f \neq {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta
+\nabla f \neq {\frac{\partial f}{\partial r}}{\mathbf{e}}_r + {\frac{\partial f}{\partial \theta}}{\mathbf{e}}_\theta + {\frac{\partial f}{\partial \phi}}{\mathbf{e}}_\phi
 \]</span> because of the dimensions of the quantities. The dimensions of a derivative should be the dimensions of <span class="math inline">\(f\)</span> divided by length, which is what the first expression has. But <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> are dimensionless, so we need to divide by a length to keep these ones consistent.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->

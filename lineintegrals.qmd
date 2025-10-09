@@ -3,7 +3,8 @@ title: "Line integrals"
 ---
 
 ::: {.hidden}
- \newcommand{\v}[1]{{\mathbf{#1}}}
+ \newcommand{\vv}[1]{{\mathbf{#1}}}
+ \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 So far we've discussed vector and scalar fields and what it means to differentiate them. 
@@ -11,7 +12,7 @@ In this part of the module we'll discuss different ways we can integrate these f
 
 There's some general notation here to consider before we dive in. All integrals will be written as
 $$
-\int_A F(\v{r}) dB.
+\int_A F(\vv{r}) dB.
 $$
 $F$ is the function we're integrating, $A$ is the set we're integrating it over (which could be a curve, surface, or volume) and $dB$ is the _integral element_ appropriate for the set (and there are different choices). Instead of $\int$ you might also see symbols like $\iint$ or $\oint$ but these can always be replaced with $\int$, they just give you a little more context about what you're integrating.
 
@@ -25,25 +26,25 @@ In every case, the steps are going to be the same:
 # Line integrals of scalar fields
 In fact, we've already seen an example of line integrals, when we said that the arc-length of a curve 
 $$
-\gamma = \left\{\v{r}(t)\,|\,t_0\leq t\leq t_1\right\}
+\gamma = \left\{\vv{r}(t)\,|\,t_0\leq t\leq t_1\right\}
 $$
 is
 $$
-\int_{t_0}^{t_1} \left| \frac{d \v{r}}{dt}\right| dt.
+\int_{t_0}^{t_1} \left| \frac{d \vv{r}}{dt}\right| dt.
 $$
 This can viewed as the empty integral over the curve $\gamma$, which we notate as
 $$
-\int_\gamma ds = \int_{t_0}^{t_1} \left| \frac{d \v{r}}{dt}\right| dt.
+\int_\gamma ds = \int_{t_0}^{t_1} \left| \frac{d \vv{r}}{dt}\right| dt.
 $$
 You can think of this like $\int_a^b dx$ for ordinary integrals, which just gives you the size of the interval $b-a$, but now we're doing the integral over the curve $\gamma$ so it gives the length of the curve. Here $ds$ is an infinitesimal length of the curve, and if we add up an infinite number of these infinitesimal lengths then we get the total length of the line.
 
 If instead of just adding up the little bits of line, we want to add up the values of a function along the line, that becomes the standard line integral and it's computed in just the same way:
 $$
-\int_\gamma f(\v{r})ds = \int_{t_0}^{t_1} f(\v{r}(t))\left| \frac{d \v{r}}{dt}\right| dt.
+\int_\gamma f(\vv{r})ds = \int_{t_0}^{t_1} f(\vv{r}(t))\left| \frac{d \vv{r}}{dt}\right| dt.
 $$
 
 :::{.callout-note}
-This is easy. Just remember that for curves $ds = \left| \frac{d \v{r}}{dt}\right| dt$ and plug in the correct limits and it's a normal integral.
+This is easy. Just remember that for curves $ds = \left| \frac{d \vv{r}}{dt}\right| dt$ and plug in the correct limits and it's a normal integral.
 :::
 
 ### Example
@@ -54,13 +55,13 @@ Integrate the scalar field $f(x,y,z) = x^2+z$ over the circle $x^2+y^2=4$, $z=2$
 
 ### Step 1: Parameterise the curve
 Hopefully by now you can just get straight to
-$$\v{r}(t) = [2\cos t,\,2\sin t,\,2],\qquad 0\leq t<2\pi.$$
+$$\vv{r}(t) = [2\cos t,\,2\sin t,\,2],\qquad 0\leq t<2\pi.$$
 
 ### Step 2: Calculate $ds$
 We have
-$$ \frac{d \v{r}}{dt} = [2\sin t,\,-2\cos 2,\,0] $$
+$$ \frac{d \vv{r}}{dt} = [2\sin t,\,-2\cos 2,\,0] $$
 so
-$$ ds = \left| \frac{d \v{r}}{dt}\right| dt = \sqrt{(2\sin t)^2+(2\cos t)^2+0^2} dt = 2dt. $$
+$$ ds = \left| \frac{d \vv{r}}{dt}\right| dt = \sqrt{(2\sin t)^2+(2\cos t)^2+0^2} dt = 2dt. $$
 
 ### Step 3: Rewrite the integration
 $$
@@ -80,7 +81,7 @@ There are actually two different types of integration here.
 
 Firstly we could just integrate a vector field by its separate components as scalar fields, so that
 $$
-\int_\gamma \v{F}(\v{r}) ds = \int_\gamma \left[F_1(\v{r}),\,F_2(\v{r}),F_3(\v{r})\right] ds =  \left[\int_\gamma F_1(\v{r}) ds,\,\int_\gamma F_2(\v{r}) ds,\int_\gamma F_3(\v{r}) ds\right] .
+\int_\gamma \vv{F}(\vv{r}) ds = \int_\gamma \left[F_1(\vv{r}),\,F_2(\vv{r}),F_3(\vv{r})\right] ds =  \left[\int_\gamma F_1(\vv{r}) ds,\,\int_\gamma F_2(\vv{r}) ds,\int_\gamma F_3(\vv{r}) ds\right] .
 $$
 This is a perfectly valid thing to do, and there are definitely contexts where it makes sense, but it just means doing three scalar integrations, so we won't discuss it more.
 
@@ -88,26 +89,26 @@ Instead, the type of integration we want to discuss is sometimes called circulat
 
 We write
 $$
-\int_\gamma \v{F}(\v{r}) \cdot d\v{s}.
+\int_\gamma \vv{F}(\vv{r}) \cdot d\vv{s}.
 $$
-Notice how now there's a dot product, and the $d\v{s}$ is a vector (bold $\v{s}$).
+Notice how now there's a dot product, and the $d\vv{s}$ is a vector (bold $\vv{s}$).
 
 :::{.callout-important}
 Before, we were just integrating over a curve. For vector integrals, the _direction_ of the integral makes a difference: it matters which end you start at.
 :::
 
-Luckily, the definition is exactly the obvious thing. For any suitable parameterisation of the curve, we define^[Sometimes this is written $d\v{r}$]
+Luckily, the definition is exactly the obvious thing. For any suitable parameterisation of the curve, we define^[Sometimes this is written $d\vv{r}$]
 $$
-d\v{s} = \frac{d \v{r}}{dt} dt
+d\vv{s} = \frac{d \vv{r}}{dt} dt
 $$
-and then this is a vector so we can take the dot product with $\v{F}$:
+and then this is a vector so we can take the dot product with $\vv{F}$:
 $$
-\int_\gamma \v{F}(\v{r}) \cdot d\v{s} = \int_{t_0}^{t_1} \v{F}(\v{r}(t)) \cdot \frac{d \v{r}}{dt} dt.
+\int_\gamma \vv{F}(\vv{r}) \cdot d\vv{s} = \int_{t_0}^{t_1} \vv{F}(\vv{r}(t)) \cdot \frac{d \vv{r}}{dt} dt.
 $$
 We have to make sure that the order of the limits is correct for the direction we want to integrate, that is we start from $t=t_0$ and go towards $t=t_1$.
 
 ### Example
-Calculate the line integral of the vector field $\v{F}(x,y,z) = [x^2+y^2,z,0]$ over the semicircle which starts at $(0,4,0)$ and ends at $(0,0,0)$ which passes through $(0,0,2)$.
+Calculate the line integral of the vector field $\vv{F}(x,y,z) = [x^2+y^2,z,0]$ over the semicircle which starts at $(0,4,0)$ and ends at $(0,0,0)$ which passes through $(0,0,2)$.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
@@ -115,7 +116,7 @@ Calculate the line integral of the vector field $\v{F}(x,y,z) = [x^2+y^2,z,0]$ o
 ### Step 1: Parameterise the curve
 I suggest drawing a sketch to help here. The $x$ co-ordinate is always $0$, so we think about a circle in the $y$-$z$ plane, something like
 $$
-\v{r}(t) = [0,\, a + b \cos t,\,c+b\sin t],
+\vv{r}(t) = [0,\, a + b \cos t,\,c+b\sin t],
 $$
 where we need to find $a$, $b$, $c$ and the limits of $t$. It makes sense to use $0\leq t\leq \pi$ because it's a semicircle, so then plugging in our three points at $t=0,\pi/2,\pi$,
 $$[0,a+b,c] = [0,4,0]$$
@@ -123,15 +124,15 @@ $$[0,a,c+b] = [0,0,2]$$
 $$[0,a-b,c] = [0,0,0]$$
 $a=2$, $b=2$, $c=0$ solves all of these, so the parameterisation is
 $$
-\v{r}(t) = [0,\, 2 + 2\cos t,\, 2\sin t],\qquad 0\leq t \leq \pi.
+\vv{r}(t) = [0,\, 2 + 2\cos t,\, 2\sin t],\qquad 0\leq t \leq \pi.
 $$
 
 
-### Step 2: Calculate $d\v{s}$
-$$d\v{s} = \frac{d \v{r}}{dt} dt = [0,2\sin t, -2\cos t] dt.$$
+### Step 2: Calculate $d\vv{s}$
+$$d\vv{s} = \frac{d \vv{r}}{dt} dt = [0,2\sin t, -2\cos t] dt.$$
 
 ### Step 3: Rewrite the integration
-$$\int_\gamma \v{F}(\v{r}) \cdot d\v{s} = \int_0^\pi [0^2+(2+2\cos t)^2,\,2\sin t,\,0] \cdot [0,2\sin t, -2\cos t] dt = \int_0^\pi 4 \sin^2 t dt$$
+$$\int_\gamma \vv{F}(\vv{r}) \cdot d\vv{s} = \int_0^\pi [0^2+(2+2\cos t)^2,\,2\sin t,\,0] \cdot [0,2\sin t, -2\cos t] dt = \int_0^\pi 4 \sin^2 t dt$$
 
 ### Step 4: Compute the answer
 With the same trick as above, we can straight away say that the answer is $2\pi$.
