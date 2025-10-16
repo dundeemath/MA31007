@@ -79,7 +79,7 @@ This one takes a vector field and gives another vector field, and the interpreta
 
 In Cartesian co-ordinates, the definition is
 $$
-\nabla \times \vv{F} = [\pd{F_3}{y}-\pd{F_2}{z},\,\pd{F_1}{z}-\pd{F_3}{x},\,pd{F_2}{x}-\pd{F_1}{y}],
+\nabla \times \vv{F} = [\pd{F_3}{y}-\pd{F_2}{z},\,\pd{F_1}{z}-\pd{F_3}{x},\pd{F_2}{x}-\pd{F_1}{y}],
 $$
 which totally makes sense if you think of it as a literal cross product. Unfortunately it's not actually a cross product, in the sense that this doesn't work in curvilinear co-ordinates, but it's a good way to think about it.
 
