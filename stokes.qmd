@@ -3,8 +3,8 @@ title: "Stokes' theorem"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 Stokes' theorem is one form of the Fundamental Theorem of Calculus in three dimensions, and it relates surface integrals to line integrals. Specifically, it says that

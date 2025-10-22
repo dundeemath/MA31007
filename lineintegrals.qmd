@@ -3,8 +3,8 @@ title: "Line integrals"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 So far we've discussed vector and scalar fields and what it means to differentiate them. 
@@ -85,7 +85,7 @@ $$
 $$
 This is a perfectly valid thing to do, and there are definitely contexts where it makes sense, but it just means doing three scalar integrations, so we won't discuss it more.
 
-Instead, the type of integration we want to discuss is sometimes called circulation, and it tells us how much over a vector field goes along a line.
+Instead, the type of integration we want to discuss is sometimes called circulation, and it tells us how much a vector field goes along a line.
 
 We write
 $$

@@ -3,8 +3,8 @@ title: "Surface integrals"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 # Preliminary: Multiple integrals

@@ -3,8 +3,8 @@ title: "Co-ordinate systems"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 One of the key aims of this module is to learn about _curvilinear co-ordinates_. These are co-ordinate systems where, unlike the usual Cartesian co-ordinates, the basis vectors change direction at different points in space.

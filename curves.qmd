@@ -3,8 +3,8 @@ title: "Curves"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 For the purpose of this module, a curve is a one-dimensional object in three-dimensional space. Imagine a hula hoop or a rope. In fact, we'll generally assume:

@@ -3,8 +3,8 @@ title: "The divergence theorem"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 The divergence theorem is similar to Stokes' theorem, but it relates volumes and surfaces rather than surfaces and curves. As the name suggests, it uses the divergence:

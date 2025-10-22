@@ -3,8 +3,8 @@ title: "Derivatives of vector fields"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 Another thing that changes when moving from 1D to 3D is that we now have a choice of two types of functions, scalar fields or vector fields. Now we'll think about vector fields,
@@ -79,7 +79,7 @@ This one takes a vector field and gives another vector field, and the interpreta
 
 In Cartesian co-ordinates, the definition is
 $$
-\nabla \times \vv{F} = [\pd{F_3}{y}-\pd{F_2}{z},\,\pd{F_1}{z}-\pd{F_3}{x},\pd{F_2}{x}-\pd{F_1}{y}],
+\nabla \times \vv{F} = [\pd{F_3}{y}-\pd{F_2}{z},\,\pd{F_1}{z}-\pd{F_3}{x},\,\pd{F_2}{x}-\pd{F_1}{y}],
 $$
 which totally makes sense if you think of it as a literal cross product. Unfortunately it's not actually a cross product, in the sense that this doesn't work in curvilinear co-ordinates, but it's a good way to think about it.
 

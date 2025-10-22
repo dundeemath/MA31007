@@ -3,8 +3,8 @@ title: "Surfaces"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 Curves in 3D can be seen as a generalisation of curves in 2D, but a different generalisation would be surfaces in 3D^[Curves have dimension 1. But a curve in 2D has _co-dimension_ 1 and a curve in 3D has co-dimension 2, whereas a surface in 3D has co-dimension 1. The co-dimension of a subset is the dimension of the space minus the dimension of the subset. The co-dimension is the number of equations you need to describe a subset.]. The easiest way to write down a surface is

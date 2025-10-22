@@ -3,8 +3,8 @@ title: "Derivatives of products and second derivatives"
 ---
 
 ::: {.hidden}
- \newcommand{\vv}[1]{{\mathbf{#1}}}
- \newcommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
+ \providecommand{\vv}[1]{{\mathbf{#1}}}
+ \providecommand{\pd}[2]{{\frac{\partial #1}{\partial #2}}}
 :::
 
 This chapter focuses on certain identities we can derive by combining the different 3D derivatives. You should get used to using these identities, but you also need to be able to prove them from the definitions.
@@ -100,7 +100,7 @@ For any scalar field $\phi$, show that $\nabla\times(\nabla \phi) = \vv{0}$.
 $$
 \begin{aligned}
 \nabla\times(\nabla \phi) &= \nabla\times\left[\pd{\phi}{x},\,\pd{\phi}{y},\,\pd{\phi}{z},\,\right] \\
-&= \left[ \pd{}{y}\pd{\phi}{z} - \pd{}{z}\pd{\phi}{y},\,\pd{}{z}\pd{\phi}{x} - \pd{}{x}\pd{\phi}{z},\,\pd{}{x}\pd{\phi}{y} - \pd{}{y}\pd{\phi}{z}\right] \\
+&= \left[ \pd{}{y}\pd{\phi}{z} - \pd{}{z}\pd{\phi}{y},\,\pd{}{z}\pd{\phi}{x} - \pd{}{x}\pd{\phi}{z},\,\pd{}{x}\pd{\phi}{y} - \pd{}{y}\pd{\phi}{x}\right] \\
 &= \left[ \pd{}{y}\pd{\phi}{z} - \pd{}{y}\pd{\phi}{z},\,\pd{}{z}\pd{\phi}{x} - \pd{}{z}\pd{\phi}{x},\,\pd{}{x}\pd{\phi}{y} - \pd{}{x}\pd{\phi}{y}\right]  \\
 &= \left[0,0,0\right]\\
 &= \vv{0}.
