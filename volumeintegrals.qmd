@@ -83,6 +83,6 @@ with the extra $\rho$ coming from thee scale factor $h_\phi$.
 
 The $\phi$ integral is easy because $\phi$ does not appear in the integrand. We need to be careful with the order of the other two, because the limits for $\rho$ depend on $z$:
 $$
-\int_V z^3 dV = 2\pi  \int_0^1 z^3 \left(\int_0^z \rho d\rho\right) dz = 2\pi \int_0^1 z^3\, \frac{1}{2} z^2 dz = \frac{1}{6}
+\int_V z^3 dV = 2\pi  \int_0^1 z^3 \left(\int_0^z \rho d\rho\right) dz = 2\pi \int_0^1 z^3\, \frac{1}{2} z^2 dz = \frac{\pi}{6}
 $$
 :::

@@ -65,14 +65,14 @@ $$ ds = \left| \frac{d \vv{r}}{dt}\right| dt = \sqrt{(2\sin t)^2+(2\cos t)^2+0^2
 
 ### Step 3: Rewrite the integration
 $$
-\int_\gamma (x^2+z) ds = \int_0^{2\pi} (4\cos^2 t + 4) 2dt = 8\int_0^{2\pi} (\cos^2 t + 1) dt
+\int_\gamma (x^2+z) ds = \int_0^{2\pi} (4\cos^2 t + 2) 2dt = 4\int_0^{2\pi} (2\cos^2 t + 1) dt
 $$
 
 ### Step 4: Compute the answer
 A quick trick is to remember that the average value of $\cos^2$ or $\sin^2$ is $1/2$ (because $\cos^2 + \sin^2 = 1$), so
 $\int_0^{2\pi} \cos^2 t \,dt = \pi$.
 
-However you do it, the final answer is $24\pi$.
+However you do it, the final answer is $16\pi$.
 :::
 
 
